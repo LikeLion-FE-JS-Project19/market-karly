@@ -25,6 +25,7 @@
     "prettier": "2.8.3"
   },
   "dependencies": {
+    "concurrently": "^7.6.0",
     "json-server": "^0.17.1"
   }
 }
