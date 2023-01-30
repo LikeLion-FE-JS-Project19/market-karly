@@ -26,32 +26,40 @@
   <header class="header">
     <div class="container">
       <!-- aria로 tab 순서 조정하기 -->
+      <!-- svg 요소는 img태그로 관리? -->
+      <!-- position: absolute 로 빼도 상관 없을 듯... (피그마) -->
       <ul class="account">
-        <li>회원가입</li>
-        <li>로그인</li>
-        <li>고객센터</li>
+        <li><a href="/">회원가입</a></li>
+        <li><span class="divider divider__account" aria-hidden="true">|</span><a href="/">로그인</a></li>
+        <li><span class="divider divider__account" aria-hidden="true">|</span><a href="/">고객센터</a><img src="./assets/icons/Icon/mainHeaderIcon/Icon_down 1.svg" alt="고객센터" class="account__down-arrow" /></li>
       </ul>
-      <div class="header-container">
-        <div>
-          <h1>마켓칼리</h1>
+      <div class="header-container header-container--mid">
+        <div class="header-container__logo">
+          <h1>
+            <img src="./assets/icons/Icon/mainHeaderIcon/kurlyLogo.svg" alt="마켓칼리" />
+          </h1>
           <ul class="header-container header-container__karly">
-            <li>마켓칼리</li>
-            <li>뷰티칼리</li>
+            <li class="header-container__karly__focus"><a href="/">마켓칼리</a></li>
+            <li class="beautiKarly">
+              <span class="divider divider__karly" aria-hidden="true">|</span><a href="/">뷰티칼리</a>
+              <img src="./assets/icons/Icon/mainHeaderIcon/newTag.svg" alt="신상" class="new"/>
+            </li>
           </ul>
         </div>
-        <form>
-          <input type="text" />
-          <button type="submit">돋보기</button>
+        <form class="searchForm">
+          <input type="text" class="searchBar" placeholder="검색어를 입력해주세요"/>
+          <button type="submit" class="searchButton"><img src="./assets/icons/Icon/mainHeaderIcon/Search.svg" alt="검색"/></button>
         </form>
         <ul class="header-container header-container__account-menu">
-          <li><a href="">배송지</a></li>
-          <li><a href="">찜목록</a></li>
-          <li><a href="">장바구니</a></li>
+          <li><a href=""><img src="./assets/icons/Icon/mainHeaderIcon/Location.svg" alt="배송지"/></a></li>
+          <li><a href=""><img src="./assets/icons/Icon/mainHeaderIcon/Cart.svg" alt="찜목록"/></a></li>
+          <li><a href=""><img src="./assets/icons/Icon/mainHeaderIcon/Heart.svg" alt="장바구니"/></a></li>
         </ul>
       </div>
-      <div class="header-container">
+      <div class="header-container header-container--bottom">
         <!-- aria-tab 사용하기 -->
-        <div class="category">
+        <div class="header-container__category">
+          <img src="./assets/icons/Icon/mainHeaderIcon/Hamburger.svg" alt="카테고리 햄버거" width="16px" height="14px" />
           카테고리
         </div>
         <ul class="header-container header-container__product-menu">
@@ -60,7 +68,10 @@
           <li><a href="">알뜰쇼핑</a></li>
           <li><a href="">특가/혜택</a></li>
         </ul>
-        <div class="delivery-information"><a href="">샛별*낮 배송안내</a></div>
+        <div class="header-container--bottom-last">
+          <div class="header-container__delivery-information"><a href=""><span>샛별ㆍ낮</span> 배송안내</a></div>
+        </div>
+        
       </div>
 
     </div>

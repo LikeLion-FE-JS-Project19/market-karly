@@ -11,29 +11,169 @@
   border-color: var(--secondary);
   display: flex;
   justify-content: center;
+  /* 피그마에서 기본적으로 #333333을 베이스로 사용하는듯..! */
+  color: #333333;
 }
 
 .container{
   width: 1050px;
 }
 
-.header-container{
+.divider {
+  margin: 0 12px 0 12px;
+  color: #D9D9D9;
+}
+
+.header-container {
   display: flex;
-  justify-content: space-between;
+}
+
+/* 로그인 영역 */
+.account__down-arrow{
+  margin-left: 4px;
 }
 
 .account {
   display: flex;
   justify-content: end;
+  font-size: var(--text-xs);
+  padding-top: var(--spacing-sm);
 }
 
-.header-container > div{
+/* 헤더 중앙 영역 (세로) */
+.header-container--mid {
+  height: 80px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container__logo{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
 }
 
-.karly{
-  display: flex;;
-  justify-content: row;
+
+.header-container__karly {
+  margin-left: var(--spacing-sm);
 }
 
+.header-container__karly > li {
+  /* 21px 마음에 안듦 */
+  font-size: 21px;
+  line-height: 150%;
+  font-weight: 500;
+}
+
+.beautiKarly{
+  position: relative;
+}
+
+.new{
+  position: absolute;
+  top: 4px;
+  right: -8px;
+}
+
+.header-container__karly__focus {
+  color: #5F0080;
+}
+
+
+/* Form 영역 */
+.searchForm{
+  width: 400px;
+  height: 52px;
+  position: relative;
+}
+
+.searchBar{
+  width: 100%;
+  height: 100%;
+  border: 1px solid #5F0080;
+  border-radius: 8px;
+  padding: 12px 20px;
+}
+
+.searchBar:focus{
+  outline: none;
+}
+
+.searchButton{
+  border: none;
+  background: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header-container__account-menu {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: 20px;
+}
+
+.header-container__account-menu > li {
+  width: 36px;
+  height: 36px;
+}
+
+/* 헤더 하단 영역 (세로) */
+/* 이번엔 그리드로 구현 */
+.header-container--bottom{
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  height: 60px;
+  align-items: center;
+  line-height: 150%;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.header-container__category{
+}
+
+.header-container__category:hover{
+  cursor: pointer;
+}
+
+.header-container__product-menu{
+  display: flex;
+  justify-content: center;
+}
+
+.header-container__product-menu > li {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container--bottom-last{
+    display: flex;
+    justify-content: end;
+}
+
+.header-container__delivery-information{
+  border: var(--gray-300) solid 1px;
+  height: 28px;
+  width: 120px;
+  border-radius: 14px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container__delivery-information span {
+  color: var(--primary);
+}
