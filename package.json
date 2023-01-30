@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "멋쟁이 사자처럼 바닐라 프로젝트",
   "main": "main.js",
-  "scripts": {},
+  "scripts": {
+    "start": "npx live-server client --host=localhost --port=5500",
+    "server": "json-server --watch server/db/data.json --port 3001",
+    "all": "concurrently \"npm run start \" \"npm run server\""
+  },
   "keywords": [
     "html",
     "css",
@@ -19,5 +23,8 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "2.8.3"
+  },
+  "dependencies": {
+    "json-server": "^0.17.1"
   }
 }
