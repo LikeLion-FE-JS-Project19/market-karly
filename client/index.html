@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
   <link rel="stylesheet" href="./css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="./js/main.js" type="module"></script>
@@ -21,7 +23,47 @@
 
 <body>
 
-  <header>
+  <header class="header">
+    <div class="container">
+      <!-- aria로 tab 순서 조정하기 -->
+      <ul class="account">
+        <li>회원가입</li>
+        <li>로그인</li>
+        <li>고객센터</li>
+      </ul>
+      <div class="header-container">
+        <div>
+          <h1>마켓칼리</h1>
+          <ul class="header-container header-container__karly">
+            <li>마켓칼리</li>
+            <li>뷰티칼리</li>
+          </ul>
+        </div>
+        <form>
+          <input type="text" />
+          <button type="submit">돋보기</button>
+        </form>
+        <ul class="header-container header-container__account-menu">
+          <li><a href="">배송지</a></li>
+          <li><a href="">찜목록</a></li>
+          <li><a href="">장바구니</a></li>
+        </ul>
+      </div>
+      <div class="header-container">
+        <!-- aria-tab 사용하기 -->
+        <div class="category">
+          카테고리
+        </div>
+        <ul class="header-container header-container__product-menu">
+          <li><a href="">신상품</a></li>
+          <li><a href="">베스트</a></li>
+          <li><a href="">알뜰쇼핑</a></li>
+          <li><a href="">특가/혜택</a></li>
+        </ul>
+        <div class="delivery-information"><a href="">샛별*낮 배송안내</a></div>
+      </div>
+
+    </div>
 
 
   </header>
