@@ -4,3 +4,29 @@
 @import url(./theme.css);
 @import url(./base.css);
 
+.top-bar {
+  background: var(--primary);
+  color: var(--white);
+  text-align: center;
+  height: 50px;
+}
+
+.top-bar__group {
+  width: 1050px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top-bar__link {
+  display: block;
+  padding: 12px 0 ;
+}
+
+.top-bar__btn-today-close {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  width: 42px;
+  height: 42px;
+}
