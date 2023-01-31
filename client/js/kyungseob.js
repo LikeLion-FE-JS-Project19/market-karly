@@ -13,6 +13,18 @@ export function f() {
 }
 
 
+export function z(){
+  const closeButton = document.querySelector('.main-modal__btn-close');
+  const mainModal = document.querySelector('.main-modal')
+
+  closeButton.addEventListener('click',closeHandler)
+
+  function closeHandler(){
+    mainModal.style.display = 'none'
+  }
+}
+
+
 
 
 
