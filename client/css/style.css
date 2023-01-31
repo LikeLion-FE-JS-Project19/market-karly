@@ -4,6 +4,10 @@
 @import url(./theme.css);
 @import url(./base.css);
 
+main{
+  max-width: 1920px;
+  margin: 0 auto;
+}
 
 .product-swiper-1 {
   height: 370px;
@@ -88,18 +92,20 @@ img[class*='product-swiper-1__img'] {
   /* z-index: 1; */
 }
 
-.swiper-wrapper{
+.swiper2 .swiper-wrapper{
   position: relative;
 }
 
-.swiper-slide {
+
+.swiper2 .swiper-slide {
   display:flex; 
   flex-direction: column; 
   position: relative;
   width: 249px;
 }
 
-.swiper-slide img {
+
+.swiper2 .swiper-slide img {
   width: 249px;
   height: 320px;
   object-fit: cover;
@@ -107,7 +113,36 @@ img[class*='product-swiper-1__img'] {
   z-index: 1;
 }
 
-.swiper-slide button {
+
+.swiper2 .swiper-slide button {
+  all: unset;
+  width: 45px;
+  height: 45px;
+  background: url(../assets/icons/ic-add-cart.svg) no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 189px;
+  top: 258px;
+  z-index: 3;
+}
+.swiper3 .swiper-wrapper{
+  position: relative;
+}
+
+.swiper3 .swiper-slide {
+  display:flex; 
+  flex-direction: column; 
+  position: relative;
+  width: 249px;
+}
+.swiper3 .swiper-slide img {
+  width: 249px;
+  height: 320px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+.swiper3 .swiper-slide button {
   all: unset;
   width: 45px;
   height: 45px;
@@ -119,22 +154,22 @@ img[class*='product-swiper-1__img'] {
   z-index: 3;
 }
 
-.swiper-slide .product-name{
+.product-name{
   margin-top : var(--spacing-base);
 }
 
-.swiper-slide .product-price{
+.product-price{
   margin-top : var(--spacing-base);
   font-size: var(--text-lg);
   font-weight: 600;
 }
 
-.swiper-slide .sale-percent{
+.sale-percent{
   margin-right: var(--spacing-xs);
   color: var(--accent-yellow);
 }
 
-.swiper-slide .first-price{
+.first-price{
   margin-top: var(--spacing-xs);
   font-size: var(--text-sm);
   color: var(--gray-400);
@@ -217,7 +252,7 @@ img[class*='product-swiper-1__img'] {
 .sale-product{
   position: relative;
   z-index: 1;
-  
+}
 
 .footer {
   border-top: 1px solid var(--gray-50);
