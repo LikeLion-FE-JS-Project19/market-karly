@@ -1,4 +1,5 @@
 // 린트 일단 바꿈 (머지할떄 일단 원래대로?)
+// 핸들러 이름 꼭 바꿔주기
 
 export function f() {
 
@@ -50,13 +51,27 @@ export function f() {
     
   ]
 
+  // 카테고리 관련 돔객체
   const categoty = document.querySelector('.header-container__category')
   const categotyList = document.querySelector('.header-container__category-list')
+
+  // 스태틱 헤더 관련 돔객체
+  const containerBottom = document.querySelector('.header-container--bottom')
+  const searchForm = document.querySelector('.searchForm')
+  const accountMenu = document.querySelector('.header-container__account-menu')
+  const subInfo = document.querySelector('.header-container--bottom-last')
+  const productItems = document.querySelectorAll('.header-container__product-item')
+  const containerMid = document.querySelector('.header-container--mid')
+  const header = document.querySelector('.header')
+  const shadowLine = document.querySelector('.header__shadow-line')
+
+  console.log(productItems);
 
   categotyData.map((data, index)=>{
     const categoryItem = document.createElement('li')
     // 이미지를 보내주는 것이 아니기 때문에 html 입장에서의 경로를 압력해야함
-    categoryItem.innerHTML = `<img src="${data.imgSrc}" alt="선물하기" width="24px" height="24px" class="header-container__category-img"/>${data.title}`
+    categoryItem.innerHTML = 
+    `<img src="${data.imgSrc}" alt="선물하기" width="24px" height="24px" class="header-container__category-img"/>${data.title}`
     // categoryItem.classList.add('')
     categotyList.insertAdjacentElement("beforeend", categoryItem)
   })
@@ -67,13 +82,64 @@ export function f() {
   categotyList.addEventListener('mouseover', mouseoutHandler)
 
   function mouseoverHandler() {
-    categotyList.style.display = "block"
+    categotyList.style.display = "block";
   }
 
   function mouseoutHandler() {
     categotyList.style.display = "none"
   }
 
+  // 스크롤 관련 상태
+  let status = false
+  let currentStatus = false
+
+  window.addEventListener('scroll', scrollHandler)
+  function scrollHandler() {
+    if (scrollY < 104) {
+      currentStatus = false;
+    } else {
+      currentStatus = true;
+    }
+    if (status === currentStatus) {
+      return
+    }
+    if (currentStatus) {
+      changeFixedHeader();
+    } else {
+      changeOriginHeader()
+    }
+    status = currentStatus;
+  }
+
+  function changeFixedHeader() {
+    subInfo.remove()
+    searchForm.classList.add('searchForm-fixed')
+    productItems.forEach(item=>item.style.width = '125px')
+    containerBottom.insertAdjacentElement("beforeend",searchForm)
+    containerBottom.insertAdjacentElement("beforeend",accountMenu)
+    containerBottom.classList.add('header-container--bottom-fixed')
+    makeShadow()
+  }
+
+  function changeOriginHeader() {
+    searchForm.classList.remove('searchForm-fixed')
+    productItems.forEach(item=>item.style.width = '150px')
+    containerBottom.insertAdjacentElement("beforeend",subInfo)
+    containerMid.insertAdjacentElement("beforeend",searchForm)
+    containerMid.insertAdjacentElement("beforeend",accountMenu)
+    containerBottom.classList.remove('header-container--bottom-fixed')
+    removeShadow()
+  }
+
+  function makeShadow() {
+    shadowLine.style.display = 'block'
+  }
+
+  function removeShadow() {
+    shadowLine.style.display = 'none'
+  }
 
 }
+
+
 

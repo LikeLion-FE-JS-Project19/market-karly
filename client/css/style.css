@@ -6,11 +6,12 @@
 
 .header{
   width: 100%;
-  height: 200px;
+  height: 2000px;
   border: 4px solid;
   border-color: var(--secondary);
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   /* 피그마에서 기본적으로 #333333을 베이스로 사용하는듯..! */
   color: #333333;
 }
@@ -91,14 +92,24 @@
   width: 400px;
   height: 52px;
   position: relative;
+  border: 1px solid #5F0080;
+  border-radius: 8px;
+}
+
+.searchForm-fixed{
+  width: 100%;
+  height: 36px;
+  margin: 0 20px;
+  border: none;
+  background-color: var(--gray-50);
 }
 
 .searchBar{
   width: 100%;
   height: 100%;
-  border: 1px solid #5F0080;
-  border-radius: 8px;
   padding: 12px 20px;
+  border: none;
+  background: none;
 }
 
 .searchBar:focus{
@@ -128,6 +139,7 @@
 }
 
 /* 헤더 하단 영역 (세로) */
+/* 여기까지 104px? */
 /* 이번엔 그리드로 구현 */
 .header-container--bottom{
   display: grid;
@@ -137,12 +149,18 @@
   line-height: 150%;
   font-size: 16px;
   font-weight: 600;
-  position: relative;
+}
+
+.header-container--bottom-fixed{
+  position: fixed;
+  top: 0;
+  grid-template-columns: 120px 480px 250px 200px;
 }
 
 .header-container__category{
   height: 60px;
   line-height: 60px;
+  position: relative;
 }
 
 .header-container__category:hover{
@@ -183,7 +201,7 @@
   justify-content: center;
 }
 
-.header-container__product-menu > li {
+.header-container__product-item {
   width: 150px;
   display: flex;
   justify-content: center;
@@ -208,4 +226,15 @@
 
 .header-container__delivery-information span {
   color: var(--primary);
+}
+
+.header__shadow-line{
+  width: 100%;
+  height: 1px;
+  position: fixed;
+  top: 60px;
+  box-shadow: 1px 1px 2px 1px var(--gray-200);
+  background: var(--gray-100);
+  display: none;
+ 
 }
