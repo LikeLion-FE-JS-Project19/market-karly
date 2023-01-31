@@ -1,6 +1,6 @@
 
-import { f, z } from "./kyungseob.js";
+import { closeBtn, closeBtns } from "./kyungseob.js";
 
 
-f()
-z()
+closeBtn()
+closeBtns()
