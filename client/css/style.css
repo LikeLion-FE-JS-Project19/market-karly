@@ -11,7 +11,7 @@
   cursor: pointer;
 }
 
-a[class*='product-swiper-1'] > img {
+img[class*='product-swiper-1__img'] {
   width: 1920px;
   height: 370px;
   object-fit: cover;
