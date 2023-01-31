@@ -217,7 +217,7 @@ img[class*='product-swiper-1__img'] {
 .sale-product{
   position: relative;
   z-index: 1;
-  
+}
 
 .footer {
   border-top: 1px solid var(--gray-50);
