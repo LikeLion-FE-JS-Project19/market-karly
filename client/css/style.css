@@ -1,0 +1,89 @@
+@import url(./normalize.css);
+@import url(./reset.css);
+@import url(./a11y.css);
+@import url(./theme.css);
+@import url(./base.css);
+
+.swiper-title{
+  margin: 40px auto 32px auto;
+  height: 40px;
+  font-weight: bold;
+  font-size: var(--text-xl);
+  text-align: center;
+}
+
+.swiper-container {
+  width: var(--container-width);
+  height: 426px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+.swiper-slide {
+	display:flex; 
+  flex-direction: column; 
+}
+
+.swiper-slide img {
+	max-width: 100%;
+  position: relative;
+}
+
+.swiper-slide button {
+  all: unset;
+  position: absolute;
+  left: 189px;
+  top: 258px;
+}
+
+.swiper-slide .product-name{
+  margin-top : var(--spacing-base);
+}
+
+.swiper-slide .product-price{
+  margin-top : var(--spacing-base);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.swiper-slide .sale-percent{
+  margin-right: var(--spacing-xs);
+  color: var(--accent-yellow);
+}
+
+.swiper-slide .first-price{
+  margin-top: var(--spacing-xs);
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  text-decoration: line-through;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after{
+  display: none;
+}
+
+.swiper-button-prev,
+.swiper-button-next{
+  width: 60px;
+  height: 60px;
+  background: url(../assets/icons/product-swiper-arrow.svg) no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0px;
+  bottom: 80px;
+}
+
+.swiper-button-prev{
+  transform: translateY(-50%) rotate(180deg);
+  right: 50%;  
+  margin: auto 480px auto 0px;  
+  left: auto;
+}
+
+.swiper-button-next{
+  transform: translateY(-50%);
+  left: 50%;
+  margin: auto 0px auto 480px;
+  right: auto;
+}
