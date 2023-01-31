@@ -12,7 +12,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* 피그마에서 기본적으로 #333333을 베이스로 사용하는듯..! */
   color: #333333;
 }
 
@@ -29,8 +28,6 @@
 .header-container {
   display: flex;
 }
-
-
 
 /* 헤더 중앙 영역 (세로) */
 .header-container--mid {
@@ -59,7 +56,6 @@
 }
 
 .header-container__karly > li {
-  /* 21px 마음에 안듦 */
   font-size: 21px;
   line-height: 150%;
   font-weight: 500;
@@ -82,7 +78,6 @@
 .header-container__karly__focus {
   color: #5F0080;
 }
-
 
 /* Form 영역 */
 .searchForm{
