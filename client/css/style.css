@@ -4,6 +4,22 @@
 @import url(./theme.css);
 @import url(./base.css);
 
+
+.main-modal {
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: 1;
+}
+
+
+
+
+
+
 .top-bar {
   background: var(--primary);
   color: var(--white);
