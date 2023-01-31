@@ -1,5 +1,5 @@
-@import url(./reset.css);
 @import url(./normalize.css);
+@import url(./reset.css);
 @import url(./a11y.css);
 @import url(./theme.css);
 @import url(./base.css);
@@ -43,10 +43,6 @@
   border-radius: 0 0 20px 0;
 }
 
-
-
-
-
 .top-bar {
   background: var(--primary);
   color: var(--white);
@@ -73,3 +69,49 @@
   width: 42px;
   height: 42px;
 }
+
+.side-bar {
+  position: fixed;
+  top: 50%;
+  right: 39px;
+  transform: translateY(-50%);
+  border: 1px solid #eee;
+  width: 74px;
+  height: 224px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.side-bar__top-button {
+  align-self: center;
+  margin: 8px 28px 0 28px;
+  width: 18px;
+  height: 18px;
+}
+
+.side-bar__bottom-button {
+  align-self: center;
+  margin: 8px 28px 8px 28px;
+  width: 18px;
+  height: 18px;
+}
+
+.side-bar__text {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  margin: 8px 0;
+}
+
+.side-bar__products {
+  display: flex;
+  flex-flow: column;
+  justify-items: center;
+  width: 60px;
+  height: 205px;
+  margin-left:auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+
