@@ -15,6 +15,33 @@
   z-index: 1;
 }
 
+.main-modal__link {
+  width: 440px;
+  height: 586px;
+}
+
+.main-modal__img {
+  border-radius: 20px 20px 0 0;
+}
+
+.main-modal__close-group {
+  display: flex;
+}
+
+.main-modal__btn{
+  width: 220px;
+  height: 86px;
+  border: none;
+}
+
+.main-modal__btn-today-close {
+  border-radius: 0 0 0 20px;
+}
+
+.main-modal__btn-close{
+  border-left: 1px solid var(--gray-100);
+  border-radius: 0 0 20px 0;
+}
 
 
 
