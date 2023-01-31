@@ -1,0 +1,63 @@
+@import url(./normalize.css);
+@import url(./reset.css);
+@import url(./a11y.css);
+@import url(./theme.css);
+@import url(./base.css);
+
+.product-swiper-1 {
+  height: 370px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+img[class*='product-swiper-1__img'] {
+  width: 1920px;
+  height: 370px;
+  object-fit: cover;
+}
+
+.swiper-1 > .swiper-button-prev::after,
+.swiper-1 > .swiper-button-next::after {
+  display: none;
+}
+
+.product-swiper-1__button-prev,
+.product-swiper-1__button-next {
+  width: 52px;
+  height: 52px;
+  background-image: url(../assets/icons/Icon/banner-button.svg);
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.product-swiper-1__button-prev {
+  transform: translateY(-50%);
+  left: calc(360 / 1920 * 100%);
+}
+
+.product-swiper-1__button-next {
+  transform: translateY(-50%) rotate(180deg);
+  right: calc(360 / 1920 * 100%);
+}
+
+.swiper-1:hover .product-swiper-1__button-prev,
+.swiper-1:hover .product-swiper-1__button-next,
+.product-swiper-1__button-prev:focus-visible,
+.product-swiper-1__button-next:focus-visible {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.product-swiper-1__pagination {
+  width: 50px;
+  position: absolute;
+  left: calc(1420 / 1920 * 100%);
+  bottom: 20px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--white);
+  font-weight: 300;
+  padding: 2px 5px;
+}
