@@ -137,13 +137,45 @@
   line-height: 150%;
   font-size: 16px;
   font-weight: 600;
+  position: relative;
 }
 
 .header-container__category{
+  height: 60px;
+  line-height: 60px;
 }
 
 .header-container__category:hover{
   cursor: pointer;
+}
+
+.header-container__category-list{
+  position: absolute;
+  border: var(--gray-200) solid 1px;
+  top: 60px;
+  left: 4px;
+  background: #fff;
+  display: none;
+  /* 정밀한 계산 필요할듯 */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 80vh;
+}
+
+.header-container__category-list>li:hover {
+  background: var(--gray-100);
+}
+
+.header-container__category-list > li {
+  width: 240px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+}
+
+.header-container__category-img{
+  margin-right: 8px;
 }
 
 .header-container__product-menu{
