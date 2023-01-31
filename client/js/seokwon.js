@@ -1,53 +1,53 @@
 // 린트 일단 바꿈 (머지할떄 일단 원래대로?)
 // 핸들러 이름 꼭 바꿔주기
 
-export function f() {
+export function mainHeaderEventHandler() {
 
   const categotyData = [
     {title:'선물하기',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Gift.svg"},
+    imgSrc:"./assets/header/gift.svg"},
     {title:'채소',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=_Vegetable.svg"},
+    imgSrc:"./assets/header/vegetable.svg"},
     {title:'과일ㆍ견과ㆍ쌀',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Fruit.svg"},
+    imgSrc:"./assets/header/fruit.svg"},
     {title:'수산ㆍ해산ㆍ건어물',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=SeaFood.svg"},
+    imgSrc:"./assets/header/sea-food.svg"},
     {title:'정육ㆍ계란',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Meet.svg"},
+    imgSrc:"./assets/header/meet.svg"},
     {title:'국ㆍ반찬ㆍ메인요리',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Cook.svg"},
+    imgSrc:"./assets/header/cook.svg"},
     {title:'샐러드ㆍ간편식',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=_Salad.svg"},
+    imgSrc:"./assets/header/salad.svg"},
     {title:'면ㆍ양념ㆍ오일',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Oil.svg"},
+    imgSrc:"./assets/header/oil.svg"},
     {title:'생수ㆍ음료ㆍ우유ㆍ커피',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Coffee.svg"},
+    imgSrc:"./assets/header/coffee.svg"},
     {title:'간식ㆍ과자ㆍ떡',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Snack.svg"},
+    imgSrc:"./assets/header/snack.svg"},
     {title:'베이커리ㆍ치즈ㆍ델리',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Bread.svg"},
+    imgSrc:"./assets/header/bread.svg"},
     {title:'건강식품',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Health.svg"},
+    imgSrc:"./assets/header/health.svg"},
     {title:'와인',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Wine.svg"},
+    imgSrc:"./assets/header/wine.svg"},
     {title:'전통주',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=_Traditional Liquor.svg"},
+    imgSrc:"./assets/header/traditional-liquor.svg"},
     {title:'생활용품ㆍ리빙ㆍ캠핑',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=_Detergent.svg"},
+    imgSrc:"./assets/header/detergent.svg"},
     {title:'스킨케어ㆍ메이크업',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=_Cosmetics.svg"},
+    imgSrc:"./assets/header/cosmetics.svg"},
     {title:'헤어ㆍ바디ㆍ구강',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=shampoo.svg"},
+    imgSrc:"./assets/header/shampoo.svg"},
     {title:'주방용품',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Food.svg"},
+    imgSrc:"./assets/header/food.svg"},
     {title:'가전제품',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=HomeAppliances.svg"},
+    imgSrc:"./assets/header/home-appliances.svg"},
     {title:'반려동물',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Dog.svg"},
+    imgSrc:"./assets/header/dog.svg"},
     {title:'베이비ㆍ키즈ㆍ완구',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Baby.svg"},
+    imgSrc:"./assets/header/baby.svg"},
     {title:'여행ㆍ티켓',
-    imgSrc:"./assets/icons/Icon/mainHeaderIcon/Type=Travel.svg"},
+    imgSrc:"./assets/header/travel.svg"},
     
   ]
 
@@ -72,20 +72,28 @@ export function f() {
     // 이미지를 보내주는 것이 아니기 때문에 html 입장에서의 경로를 압력해야함
     categoryItem.innerHTML = 
     `<img src="${data.imgSrc}" alt="선물하기" width="24px" height="24px" class="header-container__category-img"/>${data.title}`
-    // categoryItem.classList.add('')
     categotyList.insertAdjacentElement("beforeend", categoryItem)
   })
 
+  categoty.addEventListener('mouseover', categotyMouseoverHandler)
+  categoty.addEventListener('mouseout', categotyMouseoutHandler)
+  categotyList.addEventListener('mouseover', categotyMouseoutHandler)
+  categotyList.addEventListener('blur', categotyMouseoutHandler)
 
-  categoty.addEventListener('mouseover', mouseoverHandler)
-  categoty.addEventListener('mouseout', mouseoutHandler)
-  categotyList.addEventListener('mouseover', mouseoutHandler)
+  categoty.addEventListener('focus', categotyFocusHandler)
 
-  function mouseoverHandler() {
+  function categotyFocusHandler(e) {
+    
+    categotyList.ariaSelected = 'true'
+    categotyList.ariaExpanded = 'true'
     categotyList.style.display = "block";
   }
 
-  function mouseoutHandler() {
+  function categotyMouseoverHandler(e) {
+    categotyList.style.display = "block";
+  }
+
+  function categotyMouseoutHandler() {
     categotyList.style.display = "none"
   }
 

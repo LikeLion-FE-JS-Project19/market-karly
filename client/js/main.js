@@ -1,3 +1,3 @@
-import {f} from './seokwon.js'
+import {mainHeaderEventHandler} from './seokwon.js'
 
-window.addEventListener('DOMContentLoaded', f);
+window.addEventListener('DOMContentLoaded', mainHeaderEventHandler);

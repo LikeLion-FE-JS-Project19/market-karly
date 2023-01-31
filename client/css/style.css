@@ -1,5 +1,5 @@
-@import url(./reset.css);
 @import url(./normalize.css);
+@import url(./reset.css);
 @import url(./a11y.css);
 @import url(./theme.css);
 @import url(./base.css);
@@ -18,6 +18,7 @@
 
 .container{
   width: 1050px;
+  position: relative;
 }
 
 .divider {
@@ -29,24 +30,16 @@
   display: flex;
 }
 
-/* 로그인 영역 */
-.account__down-arrow{
-  margin-left: 4px;
-}
 
-.account {
-  display: flex;
-  justify-content: end;
-  font-size: var(--text-xs);
-  padding-top: var(--spacing-sm);
-}
 
 /* 헤더 중앙 영역 (세로) */
 .header-container--mid {
+  margin-top: 24px;
   height: 80px;
   position: relative;
   justify-content: center;
   align-items: center;
+  
 }
 
 .header-container__logo{
@@ -74,6 +67,10 @@
 
 .beautiKarly{
   position: relative;
+}
+
+.beautiKarly:hover{
+  color: var(--primary);
 }
 
 .new{
@@ -138,8 +135,22 @@
   height: 36px;
 }
 
+/* 로그인 영역 */
+.account__down-arrow {
+  margin-left: 4px;
+}
+
+.account {
+  display: flex;
+  justify-content: end;
+  font-size: var(--text-xs);
+  padding-top: var(--spacing-sm);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 /* 헤더 하단 영역 (세로) */
-/* 여기까지 104px? */
 /* 이번엔 그리드로 구현 */
 .header-container--bottom{
   display: grid;
@@ -174,7 +185,6 @@
   left: 4px;
   background: #fff;
   display: none;
-  /* 정밀한 계산 필요할듯 */
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 80vh;
@@ -182,6 +192,12 @@
 
 .header-container__category-list>li:hover {
   background: var(--gray-100);
+  color: var(--primary);
+}
+
+.header-container__category-list>li:focus {
+  background: var(--gray-100);
+  color: var(--primary);
 }
 
 .header-container__category-list > li {
@@ -206,6 +222,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.header-container__product-item:hover{
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .header-container--bottom-last{
