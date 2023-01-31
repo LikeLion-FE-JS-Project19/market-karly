@@ -15,10 +15,12 @@ export function swiper1() {
 }
 
 export function onKeyPressSwiper1Handler(e) {
-  const swiper1 = document.querySelector('.swiper-1').swiper;
-  if (e.keyCode === 37) {
-    swiper1.slidePrev();
-  } else if (e.keyCode === 39) {
-    swiper1.slideNext();
+  const swiperName = this.getAttribute('class').slice(27, 35);
+  const keyDirection = this.getAttribute('class').slice(-4);
+  const swiper = document.querySelector(`.${swiperName}`).swiper;
+  if (keyDirection === 'prev' && e.keyCode === 37) {
+    swiper.slidePrev();
+  } else if (keyDirection === 'next' && e.keyCode === 39) {
+    swiper.slideNext();
   }
 }

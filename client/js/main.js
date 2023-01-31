@@ -2,10 +2,8 @@ import { swiper1, onKeyPressSwiper1Handler } from './seeun.js';
 
 window.addEventListener('DOMContentLoaded', swiper1);
 
-const swiper1Buttons = document.querySelectorAll(
-  '[class*=product-swiper-1__button]'
-);
+const swiperButtons = document.querySelectorAll('[class^=swiper-button]');
 
-swiper1Buttons.forEach((swiper1Button) =>
-  swiper1Button.addEventListener('keydown', onKeyPressSwiper1Handler)
+swiperButtons.forEach((button) =>
+  button.addEventListener('keydown', onKeyPressSwiper1Handler)
 );
