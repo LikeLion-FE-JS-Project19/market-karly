@@ -1,3 +1,12 @@
+
+
+import { closeMainModalButton, closeTopBarButton, swiper } from "./kyungseob.js";
+
+
+closeTopBarButton()
+closeMainModalButton()
+swiper
+
 import {mainHeaderEventHandler} from './seokwon.js'
 import { swiper1, onKeyPressSwiper1Handler } from './seeun.js';
 import { swiper2, swiper3, onClickAddCartHandler, getNodes } from "./juhee.js";
@@ -18,4 +27,5 @@ const addCartButtonList = getNodes('.btn-add-cart');
 addCartButtonList.forEach((el) => {
   el.addEventListener('click',onClickAddCartHandler);
 })
+
 
