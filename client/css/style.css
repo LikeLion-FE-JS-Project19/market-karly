@@ -252,7 +252,7 @@
   box-shadow: 1px 1px 2px 1px var(--gray-200);
   background: var(--gray-100);
   display: none;
- 
+}
 
 main{
   max-width: 1920px;
