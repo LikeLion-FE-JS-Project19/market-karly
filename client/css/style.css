@@ -31,7 +31,7 @@ img[class*='product-swiper-1__img'] {
 .product-swiper-1__button-next {
   width: 52px;
   height: 52px;
-  background-image: url(../assets/icons/Icon/banner-button.svg);
+  background-image: url(../assets/main/ic-banner-button.svg);
   position: absolute;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -146,7 +146,7 @@ img[class*='product-swiper-1__img'] {
   all: unset;
   width: 45px;
   height: 45px;
-  background: url(../assets/icons/ic-add-cart.svg) no-repeat;
+  background: url(../assets/main/ic-add-cart.svg) no-repeat;
   background-position: center;
   position: absolute;
   left: 189px;
@@ -187,7 +187,7 @@ img[class*='product-swiper-1__img'] {
   z-index: 100;
   width: 60px;
   height: 60px;
-  background: url(../assets/icons/product-swiper-arrow.svg) no-repeat;
+  background: url(../assets/main/ic-product-swiper-arrow.svg) no-repeat;
   background-position: center;
   top: 50%;
 }
@@ -228,7 +228,7 @@ img[class*='product-swiper-1__img'] {
 .swiper3 .swiper-button-next{
   width: 60px;
   height: 60px;
-  background: url(../assets/icons/product-swiper-arrow.svg) no-repeat;
+  background: url(../assets/main/ic-product-swiper-arrow.svg) no-repeat;
   background-position: center;
   position: absolute;
   top: 50%;
