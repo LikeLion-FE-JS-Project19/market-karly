@@ -5,7 +5,7 @@
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  z-index: 1;
+  z-index: 9999;
 }
 
 .main-modal__link {
@@ -73,6 +73,8 @@
   border: 1px solid var(--gray-100);
   width: 74px;
   height: 224px;
+  background: var(--white);
+  z-index: 999;
 }
 
 .side-bar__text {
