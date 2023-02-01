@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   width: 100%;
   border-color: var(--secondary);
   display: flex;
