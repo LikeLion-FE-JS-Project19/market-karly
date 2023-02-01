@@ -65,8 +65,6 @@ export function mainHeaderEventHandler() {
   const header = document.querySelector('.header')
   const shadowLine = document.querySelector('.header__shadow-line')
 
-  console.log(productItems);
-
   categotyData.map((data, index)=>{
     const categoryItem = document.createElement('li')
     // 이미지를 보내주는 것이 아니기 때문에 html 입장에서의 경로를 압력해야함
