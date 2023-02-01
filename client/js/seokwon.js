@@ -57,6 +57,7 @@ export function mainHeaderEventHandler() {
 
   // 스태틱 헤더 관련 돔객체
   const containerBottom = document.querySelector('.header-container--bottom')
+  const containerBottomGrid = document.querySelector('.header-container--bottom-grid')
   const searchForm = document.querySelector('.searchForm')
   const accountMenu = document.querySelector('.header-container__account-menu')
   const subInfo = document.querySelector('.header-container--bottom-last')
@@ -120,20 +121,26 @@ export function mainHeaderEventHandler() {
   function changeFixedHeader() {
     subInfo.remove()
     searchForm.classList.add('searchForm-fixed')
+    accountMenu.classList.remove('header-container__account-menu')
+    accountMenu.classList.add('header-container__account-menu-fixed')
     productItems.forEach(item=>item.style.width = '125px')
-    containerBottom.insertAdjacentElement("beforeend",searchForm)
-    containerBottom.insertAdjacentElement("beforeend",accountMenu)
+    containerBottomGrid.insertAdjacentElement("beforeend",searchForm)
+    containerBottomGrid.insertAdjacentElement("beforeend",accountMenu)
     containerBottom.classList.add('header-container--bottom-fixed')
+    containerBottomGrid.classList.add('header-container--bottom-grid-fixed')
     makeShadow()
   }
 
   function changeOriginHeader() {
     searchForm.classList.remove('searchForm-fixed')
+    accountMenu.classList.add('header-container__account-menu')
+    accountMenu.classList.remove('header-container__account-menu-fixed')
     productItems.forEach(item=>item.style.width = '150px')
-    containerBottom.insertAdjacentElement("beforeend",subInfo)
+    containerBottomGrid.insertAdjacentElement("beforeend",subInfo)
     containerMid.insertAdjacentElement("beforeend",searchForm)
     containerMid.insertAdjacentElement("beforeend",accountMenu)
     containerBottom.classList.remove('header-container--bottom-fixed')
+    containerBottomGrid.classList.remove('header-container--bottom-grid-fixed')
     removeShadow()
   }
 

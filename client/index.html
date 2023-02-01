@@ -28,7 +28,6 @@
 
   <body>
   <header class="header">
-    <div class="container">
       <div class="header-container header-container--mid">
         <div class="header-container__logo">
           <h1>
@@ -52,32 +51,35 @@
           <li><a href=""><img src="./assets/header/ic-cart.svg" alt="장바구니"/></a></li>
         </ul>
       </div>
-      <ul class="account">
-        <li><a href="/">회원가입</a></li>
-        <li><span class="divider divider__account" aria-hidden="true">|</span><a href="/">로그인</a></li>
-        <li><span class="divider divider__account" aria-hidden="true">|</span><a href="/">고객센터</a><img
-            src="./assets/header/ic-down.svg" alt="고객센터" class="account__down-arrow" /></li>
-      </ul>
-      <div class="header-container header-container--bottom">
-        <!-- aria-tab 사용하기 -->
-        <div class="header-container__category" role="tab" aria-controls="categoryPanel" id="categoryTab" tabindex="0">
-          <img src="./assets/header/ic-hamburger.svg" alt="카테고리 햄버거" width="16px" height="14px"/>
-          카테고리
-          <ul class="header-container__category-list" id="categoryPanel" role="tabpanel" tabindex="0" aria-labelledby="categoryTab" >
-            <!-- 카테고리 데이터 동적 처리 -->   
-          </ul>
-        </div>
-        <ul class="header-container header-container__product-menu">
-          <li class="header-container__product-item"><a href="">신상품</a></li>
-          <li class="header-container__product-item"><a href="">베스트</a></li>
-          <li class="header-container__product-item"><a href="">알뜰쇼핑</a></li>
-          <li class="header-container__product-item"><a href="">특가/혜택</a></li>
+      <div class="account-container">
+        <ul class="account">
+          <li><a href="/">회원가입</a></li>
+          <li><span class="divider divider__account" aria-hidden="true">|</span><a href="/">로그인</a></li>
+          <li><span class="divider divider__account" aria-hidden="true">|</span><a href="/">고객센터</a><img
+              src="./assets/header/ic-down.svg" alt="고객센터" class="account__down-arrow" /></li>
         </ul>
-        <div class="header-container--bottom-last">
-          <div class="header-container__delivery-information"><a href=""><span>샛별ㆍ낮</span> 배송안내</a></div>
+      </div>
+      <div class="header-container header-container--bottom">
+        <div class="header-container header-container--bottom-grid">
+        <!-- aria-tab 사용하기 -->
+          <div class="header-container__category" role="tab" aria-controls="categoryPanel" id="categoryTab" tabindex="0">
+            <img src="./assets/header/ic-hamburger.svg" alt="카테고리 햄버거" width="16px" height="14px"/>
+            카테고리
+            <ul class="header-container__category-list" id="categoryPanel" role="tabpanel" tabindex="0" aria-labelledby="categoryTab" >
+              <!-- 카테고리 데이터 동적 처리 -->   
+            </ul>
+          </div>
+          <ul class="header-container header-container__product-menu">
+            <li class="header-container__product-item"><a href="">신상품</a></li>
+            <li class="header-container__product-item"><a href="">베스트</a></li>
+            <li class="header-container__product-item"><a href="">알뜰쇼핑</a></li>
+            <li class="header-container__product-item"><a href="">특가/혜택</a></li>
+          </ul>
+          <div class="header-container--bottom-last">
+            <div class="header-container__delivery-information"><a href=""><span>샛별ㆍ낮</span> 배송안내</a></div>
+          </div>
         </div>
       </div>
-    </div>
     <div class="header__shadow-line"></div>
   </header>
     <main>
