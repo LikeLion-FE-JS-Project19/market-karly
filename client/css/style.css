@@ -28,19 +28,19 @@
   display: flex;
 }
 
-.main-modal__btn{
+.main-modal__btn-today-close {
+  border: none;
+  border-radius: 0 0 0 20px;
   width: 220px;
   height: 86px;
-  border: none;
-}
-
-.main-modal__btn-today-close {
-  border-radius: 0 0 0 20px;
 }
 
 .main-modal__btn-close{
+  border: none;
   border-left: 1px solid var(--gray-100);
   border-radius: 0 0 20px 0;
+  width: 220px;
+  height: 86px;
 }
 
 .top-bar {
@@ -63,6 +63,8 @@
 }
 
 .top-bar__btn-today-close {
+  background: url(/market-karly/client/assets/common/ic-close.svg);
+  border: none;
   position: absolute;
   top: 4px;
   right: 0;
@@ -79,8 +81,6 @@
   border: 1px solid var(--gray-100);
   width: 74px;
   height: 224px;
-  /* display: flex; */
-  /* flex-flow: column nowrap; */
 }
 
 .side-bar__text {
@@ -93,9 +93,6 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  /* background: #fff; */
-
-  /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;

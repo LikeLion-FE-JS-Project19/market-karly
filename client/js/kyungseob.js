@@ -1,5 +1,5 @@
 
-export function closeBtn() {
+export function closeTopBarButton() {
   const closeButton = document.querySelector('.top-bar__btn-today-close');
   const topBar = document.querySelector('.top-bar');
 
@@ -11,7 +11,7 @@ export function closeBtn() {
 }
 
 
-export function closeBtns(){
+export function closeMainModalButton(){
   const closeTodayButton = document.querySelector('.main-modal__btn-today-close');
   const closeButton = document.querySelector('.main-modal__btn-close');
   const mainModal = document.querySelector('.main-modal')

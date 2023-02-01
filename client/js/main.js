@@ -1,7 +1,7 @@
 
-import { closeBtn, closeBtns, swiper } from "./kyungseob.js";
+import { closeMainModalButton, closeTopBarButton, swiper } from "./kyungseob.js";
 
 
-closeBtn()
-closeBtns()
+closeTopBarButton()
+closeMainModalButton()
 swiper
