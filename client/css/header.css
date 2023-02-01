@@ -154,7 +154,7 @@
 /* 헤더 하단 영역 (세로) */
 /* 이번엔 그리드로 구현 */
 .header-container--bottom {
-  z-index: 10;
+  z-index: 1000;
   background-color: #fff;
   display: flex;
   justify-content: center;

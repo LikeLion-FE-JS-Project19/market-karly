@@ -16,7 +16,7 @@ export function swiper1() {
 
 export function onKeyPressSwiper1Handler(e) {
   const swiperName = this.getAttribute('class').slice(27, 35);
-  const keyDirection = this.getAttribute('class').slice(-4);
+  const keyDirection = this.getAttribute('class').slice(44, 49);
   const swiper = document.querySelector(`.${swiperName}`).swiper;
   if (keyDirection === 'prev' && e.keyCode === 37) {
     swiper.slidePrev();
