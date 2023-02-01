@@ -47,5 +47,16 @@ export function closeBtns(){
   }
 }
 
-
-
+export let swiper = new Swiper(".mySwiper", {
+  direction: "vertical",
+  slidesPerView: "auto",
+  navigation: {
+    nextEl: '.side-bar__bottom-button',
+    prevEl: '.side-bar__top-button',
+  },
+  spaceBetween: 10,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});

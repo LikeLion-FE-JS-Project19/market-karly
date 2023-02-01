@@ -1,6 +1,7 @@
 
-import { closeBtn, closeBtns } from "./kyungseob.js";
+import { closeBtn, closeBtns, swiper } from "./kyungseob.js";
 
 
 closeBtn()
 closeBtns()
+swiper
