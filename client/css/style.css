@@ -94,12 +94,12 @@ img[class*='product-swiper-1__img'] {
   /* z-index: 1; */
 }
 
-.swiper2 .swiper-wrapper{
+.swiper-2 .swiper-wrapper{
   position: relative;
 }
 
 
-.swiper2 .swiper-slide {
+.swiper-2 .swiper-slide {
   display:flex; 
   flex-direction: column; 
   position: relative;
@@ -107,7 +107,7 @@ img[class*='product-swiper-1__img'] {
 }
 
 
-.swiper2 .swiper-slide img {
+.swiper-2 .swiper-slide img {
   width: 249px;
   height: 320px;
   object-fit: cover;
@@ -116,7 +116,7 @@ img[class*='product-swiper-1__img'] {
 }
 
 
-.swiper2 .swiper-slide button {
+.swiper-2 .swiper-slide button {
   all: unset;
   width: 45px;
   height: 45px;
@@ -127,24 +127,24 @@ img[class*='product-swiper-1__img'] {
   top: 258px;
   z-index: 3;
 }
-.swiper3 .swiper-wrapper{
+.swiper-3 .swiper-wrapper{
   position: relative;
 }
 
-.swiper3 .swiper-slide {
+.swiper-3 .swiper-slide {
   display:flex; 
   flex-direction: column; 
   position: relative;
   width: 249px;
 }
-.swiper3 .swiper-slide img {
+.swiper-3 .swiper-slide img {
   width: 249px;
   height: 320px;
   object-fit: cover;
   position: relative;
   z-index: 1;
 }
-.swiper3 .swiper-slide button {
+.swiper-3 .swiper-slide button {
   all: unset;
   width: 45px;
   height: 45px;
@@ -183,8 +183,8 @@ img[class*='product-swiper-1__img'] {
   display: none;
 }
 
-.swiper2 .swiper-button-prev,
-.swiper2 .swiper-button-next{
+.swiper-2 .swiper-button-prev,
+.swiper-2 .swiper-button-next{
   position: absolute;
   z-index: 100;
   width: 60px;
@@ -194,14 +194,14 @@ img[class*='product-swiper-1__img'] {
   top: 50%;
 }
 
-.swiper2 .swiper-button-prev{
+.swiper-2 .swiper-button-prev{
   transform: translateY(-50%) rotate(180deg);
   right: 50%;  
   margin: auto 480px auto 0px;  
   left: auto;
 }
 
-.swiper2 .swiper-button-next{
+.swiper-2 .swiper-button-next{
   transform: translateY(-50%);
   left: 50%;
   margin: auto 0px auto 480px;
@@ -226,8 +226,8 @@ img[class*='product-swiper-1__img'] {
   width: 100%;
 }
 
-.swiper3 .swiper-button-prev,
-.swiper3 .swiper-button-next{
+.swiper-3 .swiper-button-prev,
+.swiper-3 .swiper-button-next{
   width: 60px;
   height: 60px;
   background: url(../assets/main/ic-product-swiper-arrow.svg) no-repeat;
@@ -237,14 +237,14 @@ img[class*='product-swiper-1__img'] {
   z-index: 100;
 }
 
-.swiper3 .swiper-button-prev{
+.swiper-3 .swiper-button-prev{
   transform: translateY(-50%) rotate(180deg);
   right: 50%;
   margin: auto 480px auto 0px;
   left: auto;
 }
 
-.swiper3 .swiper-button-next{
+.swiper-3 .swiper-button-next{
   transform: translateY(-50%);
   left: 50%;
   margin: auto 0px auto 480px;
