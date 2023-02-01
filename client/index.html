@@ -7,8 +7,8 @@
   <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
-  <link rel="stylesheet" href="./css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css" />
   <script src="./js/main.js" type="module"></script>
   <script src="./js/juhee.js" type="module"></script>
   <script src="./js/seeun.js" type="module"></script>
@@ -83,18 +83,23 @@
 
   </main>
   
-  <article class="side-bar"  >
+
+  <article class="side-bar">
     <input class="side-bar__top-button"  type="image" src="./assets/common/ic-vector-top.svg" alt="위로 올리기"/>
     <p class="side-bar__text">최근 본 상품</p>
-    <ul class="side-bar__products">
-      <li class="side-bar__list-1"><a href=""><img class="product_list" src="./assets/bacon/detail_banner.jpg" alt="1 번째 본 상품" /></a></li>
-      <li class="side-bar__list-2"><a href=""><img class="product_list" src="./assets/jukkumi/detail_banner.jpg" alt="2 번째 본 상품" /></a></li>
-      <li class="side-bar__list-3"><a href=""><img class="product_list" src="./assets/tangtang/detail_banner.jpg" alt="3 번째 본 상품" /></a></li>
-      <li class="side-bar__list-3"><a href=""><img class="product_list" src="./assets/tangtang/detail_banner.jpg" alt="3 번째 본 상품" /></a></li>
-    </ul>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="./assets/bacon/detail_banner.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="./assets/bacon/detail_banner.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="./assets/bacon/detail_banner.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="./assets/bacon/detail_banner.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="./assets/bacon/detail_banner.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="./assets/bacon/detail_banner.jpg" alt="" /></div>
+      </div>
+    </div>
     <input class="side-bar__bottom-button" type="image" src="./assets/common/ic-vector-bottom.svg" alt="아래로 내리기"/>
   </article>
-  
+
   <footer>
 
   </footer>
