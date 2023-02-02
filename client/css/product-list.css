@@ -9,6 +9,7 @@ main {
   display: flex;
   justify-content: center;
   color: var(--content);
+  line-height: 150%;
 }
 
 .title{
@@ -87,8 +88,8 @@ main {
 }
 
 .divider__sort{
-  margin-left: var(--spacing-xs);
-  margin-right: var(--spacing-xs);
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .product-list__items-list{
@@ -103,6 +104,9 @@ main {
   flex-direction: column;
   position: relative;
   width: 249px;
+
+  /* 내코드 추가 */
+  font-weight: 500;
 }
 
 .product-list__item img {
@@ -129,6 +133,10 @@ main {
   margin-top: var(--spacing-base);
 }
 
+.product-name--product-list{
+  margin-top: var(--spacing-xs);
+}
+
 .product-price {
   margin-top: var(--spacing-base);
   font-size: var(--text-lg);
@@ -146,4 +154,32 @@ main {
   color: var(--gray-400);
   text-decoration: line-through;
 }
+/* 주희님 작성 코드 끝*/
 
+.product-mark--morning-star{
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  margin-top: var(--spacing-base);
+}
+
+.product-mark--info{
+  margin-top: var(--spacing-xs);
+  color: var(--gray-400);
+  font-size: var(--text-xs);
+  font-weight: 500;
+}
+
+.product-special-mark{
+  margin-top: var(--spacing-xs);
+}
+
+.product-special-mark__mark{
+  padding: 4px;
+  background: var(--gray-100);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.product-special-mark--karly-only{
+  color: var(--primary);
+}

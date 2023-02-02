@@ -1,5 +1,7 @@
 // 린트 일단 바꿈 (머지할떄 일단 원래대로?)
 // 핸들러 이름 꼭 바꿔주기
+import {tiger} from '../lib/utils/index.js'
+
 
 export function mainHeaderEventHandler() {
 
@@ -154,5 +156,131 @@ export function mainHeaderEventHandler() {
 
 }
 
+export async function productListEventHandler() {
 
+  // 상위 리스트 블록 -> 카운트 존재, 하위리스트 목록을 배열 형태로 가지고 있음 [{이름:강남면옥, 개수: 1 ...}, {}]
+    // 배열 확인후 없으면 하위리스트 블록을 새로 생성하고, 있으면 해당하는 블록으로 이동 
+    // How 하위블록을 순환하면서 dataset에 특정하게 분류할수 있도록함 ex> dataset.name = "강남면옥"
+    // 찾아서 내용 수정, ex> count +1 상위리스트와 비슷하게 목록을 배열형태로 -> 필터링이 가능하게
+  // 하위 리스트 블록 -> 카운트 존재, 이들만의 객체
+    // 체크가 되면 해당 객체를 탐색해서 목록들 가져오기 -> (id로만 가지고 있다가 필요할떄 json을 다시 탐색할지,,, 아니면 원래 데이터 형태를 그대로 보존하고 있다가 탐색없이 추가만 할지 고민해봅시다...!)
+
+  // !! 그냥 json 파일을 필터에 맞게 새롭게 객체 체이닝 형태로 먼저 분석해도 될듯..!!!!
+
+  // 데이터들을 순환
+  // 카테고리는 패스
+  // 이름확인하면서 브랜드의 카운트 증가
+  // 그거에 맞는 
+
+  // 필터인덱스 칸 가져오기
+  // 클릭이벤트 플래그 부여
+  // 플래그에 따른 토글이미지 부여
+  // 플래그가 열려 있으면 세부칸을 보여줌
+
+  // 초기화 버튼 누르면 다 false
+
+
+  // innerHTML대신 쓸수 있는것이 뭘까요...?
+  // asynk를 중복으로 계속 사용가능한가?
+
+
+
+  console.log("test");
+
+  const defaultOptions = {
+  method: 'GET',
+  mode: 'cors',
+  body:null,
+  cache: 'no-cache',
+  credential: 'same-origin',
+  redirect:'follow',
+  referrerPolicy:'no-referrer',
+  headers:{
+    'Content-Type':'application/json; charset=UTF-8'
+  }
+}
+
+
+  // async function test() {
+  //   try {
+  //     let result = await fetch("http://localhost:3001/products", defaultOptions)
+  //     if(result.ok)  {
+  //       result.data = await result.json()
+  //     }
+  //     console.log(result.data);
+  //     const a = result.data
+  //     console.log(a);
+  //     return a;
+  //   } catch (error) {
+  //     console.log("json통신에서 오류가 발생했습니다.");
+  //   }
+  // }
+
+  // let productData = test()
+  // console.log(productData);
+
+  function getProductItemMarkup(data) {
+    console.log(data);
+    let priceMarkup
+    let specialMarkMarkup = ''
+
+    // 나중에 함수들 분리하기
+    if (data.saleRatio) {
+      priceMarkup =  
+      `
+        <p class="product-price"><span class="sale-percent">${data.saleRatio*100}%</span>${data.salePrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
+        <p class="first-price">${data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
+      `
+    } else {
+      priceMarkup = `<p class="product-price">${data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>`
+    }
+    if ("[Kalry's]" === data.name.slice(0,9)) {
+      specialMarkMarkup += `<span class="product-special-mark__mark product-special-mark--karly-only">Kalry Only</span>`
+    }
+    if (data.stock <= 10) {
+      specialMarkMarkup += `<span class="product-special-mark__mark product-special-mark--limited-quantity">한정수량</span>`
+    }
+
+    // 캐로셀인지 상품리스트에 따라 다르게 줘야함 + 이름 간격도
+    // 숫자 콤마 함수로 만들기
+    return (`
+      <img src="./assets/product/${data.image.thumbnail}" alt="${data.name}" />
+      <button type="button" class="btn-add-cart"></button>
+      <p class="product-mark--morning-star">샛별 배송</p>
+      <p class="product-name--product-list">${data.name}</p>
+      `
+      +
+      priceMarkup
+      +
+      `<p class="product-mark--info">${data.description}</p>`
+      +
+      `<div class="product-special-mark">`
+      +
+      specialMarkMarkup
+      +
+      `</div>`
+    )
+  }
+
+  async function getProductItems(data) {
+
+    // 통신 유틸함수로 하기
+    let result = await fetch("http://localhost:3001/products", defaultOptions)
+    if(result.ok)  {
+        result.data = await result.json()
+    }
+
+    const productItemList = document.querySelector(".product-list__items-list")
+    result.data.map((data)=>{
+      const productItem = document.createElement('li')
+      productItem.classList.add('product-list__item')
+      productItem.innerHTML = getProductItemMarkup(data)
+      productItemList.insertAdjacentElement('beforeend', productItem)     
+    })
+  }
+
+  getProductItems()
+
+
+}
 
