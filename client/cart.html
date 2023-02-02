@@ -89,13 +89,74 @@
     <main>
       <h2>장바구니</h2>
 
-      <section>
+      <div class="main-container">
+        <section class="cart-list">
+          <div class="cart-feature">
+            <button class="all-check-box" type="submit">
+              <img class="check-box__is-checked" src="./assets/cart/ic-checked-true.svg" alt="전체 선택" />
+            </button>
+            <span class="cart-feature__text">전체선택(0/8)</span>
+          <span class="no-divider" aria-hidden="true">|</span>
+          <button class="selector-delete" type="submit" disabled>선택삭제</button>
+        </div>
+          <div class="cart-list__cold">
+            <span class="cart-list__cold--icon"></span>
+            <span class="cart-list__text">냉장 식품</span>
+            <button class="toggle-list cart-list--button" type="submit" aria-label="리스트 펼치기 접기">
+              <img class="rotate-deg" src="./assets/common/ic-vector-bottom.svg" alt="펼치기" />
+            </button>
+          </div>
+          <ul class="cart-list__cold--group">
+            <li class="group-list">
+              <div class="cart-feature__list">
+                <button class="select-check-box" type="submit">
+                  <img class="check-box__is-checked" src="./assets/cart/ic-checked-true.svg" alt="전체 선택" />
+                </button>
+                <span class="cart-feature__text">전체선택(0/8)</span>
+              </div>
+            </li>
+            <li>b</li>
+            <li>c</li>
+          </ul>
+            <div class="cart-list__frozen">
+              <span class="cart-list__frozen--icon"></span>
+              <span class="cart-list__text">냉동 식품</span>
+              <button class="toggle-list cart-list--button" type="submit" aria-label="리스트 펼치기 접기">
+                <img class="rotate-deg" src="./assets/common/ic-vector-bottom.svg" alt="펼치기" />
+              </button>
+            </div>
+              <ul class="cart-list__frozen--group">
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+              </ul>
+              <div class="cart-list__temperature">
+                <span class="cart-list__temperature--icon"></span>
+                <span class="cart-list__text">냉장 식품</span>
+                <button class="toggle-list cart-list--button" type="submit" aria-label="리스트 펼치기 접기">
+                  <img class="rotate-deg" src="./assets/common/ic-vector-bottom.svg" alt="펼치기" />
+                </button>
+              </div>
+                <ul class="cart-list__temperature--group">
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+                <div class="cart-feature">
+                  <button class="all-check-box" type="submit">
+                    <img class="all-check-box__is-checked" src="./assets/cart/ic-checked-true.svg" alt="전체 선택" />
+                  </button>
+                  <span class="cart-feature__text">전체선택(0/8)</span>
+                <span class="no-divider" aria-hidden="true">|</span>
+                <button class="selector-delete" type="submit" disabled>선택삭제</button>
+              </div>
 
-      </section>
+        </section>
       
-      <section>
+        <section class="cart-summary">
 
-      </section>
+        </section>
+      </div>
 
     </main>
 
