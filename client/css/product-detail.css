@@ -105,7 +105,7 @@ div[class^='product-summary__detail-box'] {
 }
 
 .product-summary__detail-choice-count {
-  width: 84px;
+  width: 90px;
   height: 30px;
   margin-top: var(--spacing-sm);
   border: 1px solid var(--gray-200);
@@ -116,24 +116,24 @@ button[class^='product-summary__detail-choice-button'] {
   width: 30px;
   height: 30px;
   background-color: transparent;
+  padding: 0;
   border: none;
   float: left;
 }
 
-.product-summary__detail-choice-button--minus {
-  background-image: url(../assets/product-detail/ic-minus.svg);
-}
-
-.product-summary__detail-choice-button--plus {
-  background-image: url(../assets/product-detail/ic-plus.svg);
+.product-summary__detail-choice-button--minus:disabled {
+  cursor: default;
 }
 
 .product-summary__detail-choice-number {
+  width: 30px;
+  height: 30px;
   color: var(--black);
   font-size: var(--text-base);
-  padding: 0 var(--spacing-xs);
+  padding: 0;
   line-height: 30px;
   vertical-align: middle;
+  text-align: center;
   float: left;
 }
 
