@@ -289,3 +289,379 @@ button[class^='product-summary__detail-choice-button'] {
 .product-detail__why-carly {
   margin-bottom: 52px;
 }
+
+/* 문의하기 */
+.qna {
+  position: relative;
+  width: var(--container-width);
+  margin: 0 auto;
+}
+
+.qna__title {
+  font-size: var(--text-xl);
+  color: var(--black);
+}
+
+.qna__popup-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 155px;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary);
+  color: var(--white);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.qna__info-list {
+  margin-top: var(--spacing-lg);
+  margin-bottom: 55px;
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+}
+
+/* 문의하기 테이블 */
+.qna__table {
+  width: 100%;
+  font-weight: 600;
+}
+
+.qna__table th,
+.qna__table td {
+  padding: 17px 0;
+  text-align: center;
+}
+
+.qna__table thead th {
+  border-top: 2px solid;
+  border-bottom: 1px solid;
+}
+
+.qna__table tbody tr {
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.qna__table td:nth-child(1) {
+  padding-left: 20px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.qna__table td[colspan='4'] {
+  cursor: auto;
+}
+
+.qna__item--empty td[colspan='4'] {
+  text-align: center;
+}
+.qna__item--notice td:nth-child(1)::before {
+  content: '공지';
+  padding: 0 8px;
+  background-color: var(--gray-100);
+  border-radius: 4px;
+  margin-right: 20px;
+}
+
+.qna__item--complete td:nth-child(4) {
+  color: var(--primary);
+}
+
+.qna__item--open {
+  line-height: 150%;
+}
+
+.qna__item--open td {
+  padding: 20px;
+  background-color: var(--gray-50);
+}
+
+.qna__item--private {
+  color: var(--gray-400);
+}
+
+.qna__item--private > td:first-child::after {
+  content: '';
+  background-image: url('../assets/product-detail/ic-lock.svg');
+  width: 12px;
+  height: 14px;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.qna__question-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.qna__question-container::before {
+  content: '';
+  display: block;
+  background-image: url(../assets/product-detail/ic-question.svg);
+  width: 24px;
+  height: 24px;
+  margin-right: var(--spacing-sm);
+}
+
+.qna__question {
+  display: flex;
+  flex-direction: column;
+}
+
+.qna__answer-container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.qna__answer-container::before {
+  content: '';
+  display: block;
+  background-image: url(../assets/product-detail/ic-answer.svg);
+  width: 24px;
+  height: 24px;
+  margin-right: var(--spacing-sm);
+}
+
+.qna__answer {
+  display: flex;
+  flex-direction: column;
+}
+
+.qna__answer :last-child {
+  color: var(--gray-400);
+}
+
+.qna__pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.qna__prev {
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: 1px solid var(--gray-100);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.qna__prev--disabled {
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: 1px solid var(--gray-100);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qna__next {
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: 1px solid var(--gray-100);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qna__next--disabled {
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: 1px solid var(--gray-100);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 문의하기 모달 */
+.qna__modal-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  background-color: rgba(50, 50, 50, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qna__modal-container.hidden {
+  display: none;
+}
+
+.qna__modal {
+  background-color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translatex(-50%) translatey(-50%);
+}
+
+.qna__modal {
+  width: 793px;
+  height: 630px;
+  border-radius: var(--text-base);
+  padding: 32px;
+}
+
+.qna__modal > :not(:first-child) {
+  border-top: 1px solid var(--gray-100);
+}
+.qna__modal-header {
+  position: relative;
+  height: 60px;
+}
+
+.qna__modal-title {
+  font-weight: 700;
+  color: var(--black);
+  font-size: var(--text-xl);
+}
+
+.qna__modal-close-btn {
+  background: transparent;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 5px;
+  right: 0;
+  padding: 0;
+  border: 0;
+}
+
+.qna__modal-product {
+  height: 104px;
+  padding: 16px 0;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.qna__modal-product img {
+  width: 72px;
+  height: 72px;
+}
+
+.qna__modal-form-container {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 312px;
+}
+
+.qna__modal-form-container label {
+  font-weight: 600;
+  font-size: var(--text-base);
+  width: 100px;
+  height: 42px;
+}
+
+.qna__modal-form-title-container,
+.qna__modal-form-contents-container {
+  display: flex;
+}
+
+#qna__modal-form-title,
+#qna__modal-form-contents {
+  flex-grow: 1;
+  border-radius: 4px;
+  padding-left: 20px;
+}
+
+.qna__modal-form-contents-container {
+  position: relative;
+}
+
+.qna__modal-form-container textarea {
+  height: 198px;
+}
+
+.qna__modal-form-contents-placeholder {
+  color: var(--gray-400);
+  font-weight: 400;
+  font-size: var(--text-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 627px;
+  height: 198px;
+  overflow: scroll;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-left: 20px;
+}
+
+.qna__modal-form-contents-placeholder .red-color {
+  color: red;
+}
+
+.qna__modal-form-contents-placeholder h4 {
+  font-weight: 600;
+  font-size: var(--text-base);
+}
+.qna__modal-form-contents-placeholder ul {
+  list-style-type: disc;
+}
+label[for='qna__modal-form-title'],
+label[for='qna__modal-form-contents'] {
+  padding: 8px 64px 10px 8px;
+}
+
+.qna__modal-form-container textarea {
+  resize: none;
+}
+
+.qna__modal-form-private-container {
+  position: relative;
+  left: 101px;
+}
+
+.qna__modal-form-secret {
+}
+
+.qna__modal-form-private {
+}
+
+.qna__modal-dicision-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+  height: 74px;
+}
+
+.qna__modal-cancel,
+.qna__modal-submit {
+  background-color: transparent;
+  width: 186px;
+  height: 54px;
+  border-radius: 4px;
+  border: 1px solid var(--gray-200);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--content);
+}
+
+.qna__modal-submit {
+  background-color: var(--gray-100);
+  color: var(--white);
+}
