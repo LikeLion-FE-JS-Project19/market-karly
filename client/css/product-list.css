@@ -5,6 +5,10 @@
 @import url(./base.css);
 @import url(./header.css);
 
+body{
+  position: relative;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -39,7 +43,6 @@ main {
 .product-list__filter--header{
   width: 220px;
   height: 58px;
-  /* border: 2px solid seagreen; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,7 +57,6 @@ main {
 .product-list__filter--index{
   width: 220px;
   height: 58px;
-  /* border: 2px solid seagreen; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,7 +76,6 @@ main {
 .product-list__items-section{
   width: 780px;
   min-height: 1200px;
-  /* border: seagreen solid 2px; */
   margin-left: 50px;
 }
 
@@ -104,6 +105,8 @@ main {
   flex-direction: column;
   position: relative;
   width: 249px;
+  height: 538px;
+  margin-bottom: 24px;
 
   /* 내코드 추가 */
   font-weight: 500;
@@ -155,6 +158,10 @@ main {
   text-decoration: line-through;
 }
 /* 주희님 작성 코드 끝*/
+.product-list__item:hover{
+  cursor: pointer;
+}
+
 
 .product-mark--morning-star{
   font-size: var(--text-sm);
@@ -173,6 +180,10 @@ main {
   margin-top: var(--spacing-xs);
 }
 
+.product-special-mark:hover{
+  cursor: default;
+}
+
 .product-special-mark__mark{
   padding: 4px;
   background: var(--gray-100);
@@ -183,3 +194,158 @@ main {
 .product-special-mark--karly-only{
   color: var(--primary);
 }
+
+/* 장바구니 모달---------------------------------------*/
+.cart-modal{
+  height: 292px;
+  width: 396px;
+  border-radius: 16px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  background: #fff;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 24px 20px 24px 20px ;
+  flex-direction: column;
+}
+
+.cart-modal--info{
+  width: 356px;
+  height: 66px;
+  margin-bottom: 28px;
+  position: relative;
+  font-weight: 700;
+  font-size: var(--text-base);
+}
+
+.cart-modal--total-price{
+  width: 356px;
+  height: 66px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.cart-modal--button-box{
+  width: 356px;
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-modal--title{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cart-modal--price{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.cart-modal--count-box{
+  border: var(--gray-200) 1px solid;
+  width: 84px;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-modal--count-button{
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+
+.cart-modal--count-button--minus{
+  background: url("../assets/modal/ic-minus.svg") 50% 50% / 100%;
+}
+
+.cart-modal--count-buttot--plus{
+  background: url("../assets/modal/ic-plus.svg") 50% 50% / 100%;
+}
+
+.cart-modal--total-price-top{
+  height: 40px;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.cart-modal--total-price-top--total{
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  font-weight: 700;
+}
+
+.cart-modal--total-price-top--price{
+  position: absolute;
+  right: 0;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 40px;
+}
+
+.cart-modal--total-price-bottom{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.cart-modal--total-price-top--mark{
+  width: 37px;
+  height: 18px;
+  background: var(--accent-yellow);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.cart-modal--total-price-top--info{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cart-modal--button{
+  height: 54px;
+  width: 174px;
+  font-size: var(--text-base);
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.cart-modal--button--cancel{
+  background: var(--primary);
+  color: #fff;
+  border: none;
+}
+
+.cart-modal--button--add{
+  background: #fff;
+  color: var(--primary);
+  border: 1px solid var(--gray-400);
+}
+
+/* 모달창 완료----------------------------------------- */
