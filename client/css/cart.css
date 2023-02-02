@@ -3,3 +3,158 @@
 @import url(./a11y.css);
 @import url(./theme.css);
 @import url(./base.css);
+
+
+
+main {
+  /* border: 1px solid black; */
+  width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 21px;
+  height: 600;
+  line-height: 32px;
+  padding: 10px;
+  margin: 80px 0 44px 0;
+}
+
+.main-container {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.cart-list {
+  width: 742px;
+  float: left;
+}
+
+.no-divider {
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  background: rgb(221, 221, 221);
+  margin: 6px 22px 0px 22px;
+  vertical-align: center;
+}
+
+.cart-feature {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 19px 0;
+}
+
+.selector-delete {
+  background: transparent;
+  border: none;
+  color: var(--black);
+  font-weight: 600;
+}
+
+.all-check-box {
+  background: transparent;
+  border: none;
+}
+
+.select-check-box {
+  background: transparent;
+  border: none;
+}
+
+.check-box__is-checked {
+  width: 24px;
+  height:24px;
+}
+
+.cart-feature__text{
+  align-self: center;
+  font-weight: 600;
+}
+
+.cart-list__text {
+  flex-grow: 1;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.cart-list__cold{
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 19px 0;
+  border-top: 1px solid var(--black);
+}
+
+.cart-list__cold--group {
+  /* display: none; */
+}
+
+.group-list {
+  padding: 20px 0;
+}
+
+
+.cart-list__frozen{
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 19px 0;
+  border-top: 1px solid var(--black);
+}
+
+.cart-list__temperature{
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 19px 0;
+  border-top: 1px solid var(--black);
+}
+
+.cart-list__cold--icon {
+  background: url(../assets/cart/ic-cold.svg) no-repeat center center;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.cart-list--button {
+  background: transparent;
+  border: none;
+  float: right;
+}
+
+.rotate-deg {
+  width: 30px;
+  height: 20px;
+}
+
+.cart-list__frozen--icon {
+  background: url(../assets/cart/ic-frozen.svg) no-repeat center center;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.cart-list__temperature--icon {
+  background: url(../assets/cart/ic-temperature.svg) no-repeat center center;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+.cart-summary {
+  border: 2px solid black;
+  width: 284px;
+  margin-left: 24px;
+}
