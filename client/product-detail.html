@@ -97,11 +97,240 @@
         <h2 aria-hidden="true">상품 설명</h2>
         
       </section>
-      
-      <section>
-        <h2>상품 후기</h2>
-        
+
+      <section class="modal-review">
+        <h2 class="modal-review__title">후기 작성</h2>
+        <button class="modal-review__close-button"></button>
+        <div class="modal-review__top">
+          <img src="./assets/product/tangtang/thumbnail.jpg" alt="[풀무원] 탱탱쫄면 (4개입)"/>
+          <span class="product-name">[풀무원] 탱탱쫄면 (4개입)</span>
+        </div>
+        <form class="modal-review__form">
+          <div class="modal-review-title">
+            <label for="modal-review-title__input" placeholder="제목을 입력해주세요">제목</label>
+            <input type="text" id="modal-review-title__input">
+          </div>
+          <div class="modal-review-content">
+            <label for야 ="modal-review-content__textarea">내용</label>
+            <textarea id="modal-review-content__textarea" name="new-review-content"></textarea>
+            <div class="new-review-content__placeholder">
+              <span>컬리는 믿을 수 있는 후기문화를 함께 만들어가고자 합니다. 식품 등의 표시광고에 대한 법률을 준수하고자 다음과 같은 부당한 상품평에 대해서는 별도 고지 없이 임시 대처, 비공개 전환, 삭제, 적립금 회수 등의 필요한 조치가 취해 질 수 있습니다.</span>
+              <p>후기 작성 시 유의사항</p>
+              <ul>
+                <li>개인의 주관적인 의견으로 인해 상품의 기능 및 효과에 대하여 오해의 소지가 있는 내용</li>
+                <li>식품/건강기능식품과 관련하여 질병의 예방 및 치료, 체중감량(다이어트)에 효능효과가 있다는 내용</li>
+                <li>일반 화장품을 기능성화장품의 효능효과가 있다는 내용을 통한 오인 표현</li>
+                <li>의약외품을 의약품으로 오인하게 하는 표현</li>
+                <li>생활화학제품을 본래 용도와 다르게 사용하는 내용 및 효능효과를 과장하는 내용</li>
+                <li>욕설, 폭력성, 음란성, 상업성 등의 게시물 또는 구매 상품과 무관하거나 반복되는 동일 단어나 문장을 사용하여 판매자나 다른 이용자의 후기 이용을 방해한다고 판단되는 경우</li>
+                <li>구매한 상품이 아닌 캡쳐 사진, 타인 사진 도용, 포장 박스, 퍼플박스, 구매 상품을 구분할 수 없는 전체 사진 등 상품과 관련 없는 이미지, 동영상을 사용한 경우</li>
+                <li>본인 또는 타인의 주민등록번호, (휴대)전화번호, 이메일 등 개인정보가 포함된 경우</li>
+                <li>그 밖에 상품평으로 인해 다른 회원 또는 제3자에게 피해가 가해질 내용</li>
+                <li class="warning-message">※ 작성된 글과 첨부된 멀티미디어 파일 등으로 이루어진 각 상품평은 개인의 의견을 반영하므로, 게시된 내용에 대한 모든 책임은 작성자에게 있습니다. 또한 비정상적인 방법을 통해 후기를 작성하고 적립금을 취득한 경우 작성자에 법적 책임의 소지가 있음을 알려드립니다.</li>
+              </ul>
+            </div>
+            <span class="count-char">0/5000</span>
+          </div>
+        </form>
+        <div class="modal-review-button-group">
+          <button class="modal-review-button modal-review-button--cancel">취소</button>
+          <button class="modal-review-button modal-review-button--submit" type="submit">등록</button>
+        </div>
       </section>
+      
+      <section class="review">
+        <h2 class="review-title">상품 후기</h2>
+        <button class="review-write-button">후기 작성하기</button>
+        <ul class="review-benefit">
+          <li class="review-benefit__title">
+            글후기 50원 적립금 혜택이 있어요
+          </li>
+          <li class="review-benefit__content">
+            퍼플, 더퍼플은 2배 적립 (100원) / 주간 베스트 후기로 선정 시 5,000원
+            추가 적립
+          </li>
+          <li class="review-benefit__content">
+            후기 작성은 배송완료일로부터 30일 이내 가능합니다.
+          </li>
+          <li class="review-benefit__content">
+            작성하신 후기는 확인 후 적립금이 지급됩니다. (영업일 기준 평균 1~2일
+            소요)
+          </li>
+        </ul>
+        <div class="review-wrapper">
+          <div class="review-wrapper__top">
+            <span class="review-count">총 2개</span>
+            <div class="sorting">
+              <button class="sorting__recommend">추천순</button>
+              <button class="sorting__recent">최근 등록순</button>
+            </div>
+          </div>
+
+          <div class="reivew-wrapper__main">
+            <ul class="announcement-container">
+              <li class="id">
+                <div class="announcement-summary">
+                  <span class="tag-announcement">공지</span>
+                  <button class="announcement-title">
+                    금주의 베스트 후기 안내
+                  </button>
+                </div>
+                <p class="announcement-content">
+                  ■ 베스트 후기 당첨자 안내
+
+                  고객님 안녕하세요, 컬리입니다.
+
+                  [ 2023년 01월 23일 ~ 2023년 01월 29일 ]의 베스트 후기 당첨자 공지드립니다.
+
+                  컬리는 상품에 대한 고객 여러분의 생생한 의견을 듣고 더 나은 상품을 준비하기 위해 상품 후기 게시판을 운영하고 있습니다.
+
+                  실제로 상품의 후기가 구매 결정에 있어 큰 도움이 된 베스트 후기를 아래로 공유드립니다.
+
+                  정성껏 후기를 작성해주신 모든 고객님께 감사드립니다.
+
+                  [디오디너리] 아미노 애씨즈 + 비5 (모든 피부, 수분공급, 각질제거, 장벽관리)
+                  [KF365] 깐 메추리알 800g
+                  [KF365] 무라벨 청포도알로에 스파클링 (350mLX6개)
+                  [덕후선생] 쯔란갈비 465g
+                  [구찌 뷰티] 루즈 아 레브르 매트, 208  데이 맷 인 아르헨티나
+                  [기장물산] 자연산 돌미역
+                  [네스프레소] 바리스타 크리에이션 커피 캡슐 3종 (택1)
+                  [덕화명란 X 백년가게] 튜브 명란 110g (냉동)
+                  [탐나는밥상X이보은] 아이 반찬 3종 세트 (소시지야채볶음, 마늘멸치볶음, 유니짜장)
+                  [덴프스] 트루바이타민 I (30일분)
+                  [만선] 두툼한 양념 민물장어구이
+                  [만선] 홍합 1kg (생물)
+                  [덕후선생] 호남식 납육초반 볶음밥 2인분
+                  [빈브라더스] 콜드브루 500mL 2종
+                  [사옹원] 잡채호떡 800g
+                  [삼삼해물] 국산 통통한 자숙 문어다리 150g (냉장)
+                  [샘표] 동치미 국물 비빔장
+                  [선물세트] 경복궁 BLACK 도가니탕&amp;고기곰탕 (4개입)
+                  [속초해품] 명태회무침 160g (냉장)
+                  [액트투] 전자렌지용 팝콘 (3개입)
+                  [쌜모네 Light] 오로라 생연어 120g
+                  [아이포크] 한돈 갈비찜 밀키트
+                  [양포어장] 생아귀찜 세트 (냉장)
+                  [어게인리프레쉬] 비프 샐러드
+                  [언더프레셔] 블랙&amp;화이트 콜드브루 (오리지널) 200mL
+                  [에끌라두] 콜라겐 플러스 퍼밍 크림 80g (우드 나비괄사 증정)
+                  [에디슨] 스스로 실리콘 흡착 식판 &amp; 플레이트 세트 크림
+                  [오뚜기] 얇은피 잎새만두김치 (350GX2)
+                  [오랩] 요리란(전란) 500g
+                  [우리농] 유기농설탕 1kg
+                  [유기샘] 생땅콩 200g
+                  [일리윤] 세라마이드 아토 로션 기획세트 (로션528ml+집중크림100ml)
+                  [자연에찬] 건파래무침
+                  [존쿡델리미트] 오리지널 페퍼로니 100g (2개입)
+                  [캐나다 빵집, 불라트] 유러피안 데미 바게트 (2개입)
+                  [덕후선생] 마장반면 425g
+                  [키엘] 울트라 훼이셜 크림 125ml 세트(선물포장) 
+                  [고메] 봉골레 오일 파스타 626g
+                  [자연애찬] 계란찜 밀키트 10구
+                  [자연애찬] 비빔 반숙란 (수란) 10구
+                  [태우한우] 1+ 한우 안심 구이용 200g (냉장)
+                  [테팔] 세라믹포스 프라이팬&amp;웍 3종 (택1)
+                  [테팔] 헤어드라이어 모션드라이HV5512*(단품)
+                  [트리투바] 내츄럴 태블릿 다크 초콜릿 4종
+                  [페피릴리프] CAT 바디&amp;페이셜 티슈 2종
+                  [풀무원] 김밥용 3색 야채절임
+                  [프레시지] 고래사 어묵탕
+                  [Sunterra] 보리먹인 캐나다 냉장 삼겹살500g (에어프라이어)
+                  [하이디라오] 훠궈소스 110g x 5팩 (마라맛 탕용)
+                  바다모음 자른 미역 30g (냉장)
+                  양배추 슬라이스 500g
+                  어린이 순살 삼치 460g
+                  와일드 루꼴라 50g
+                  제주 레몬 450g (3~5입)
+                  친환경 손질한 더덕 200g
+                  한끼톡톡 청결미 1.5kg
+                  한돈 불고기 밀키트 2종 300g (냉장)
+
+                  컬리 드림.
+                </p>
+              </li>
+              <li class="id">
+                <div class="announcement-summary">
+                  <span class="tag-announcement">공지</span>
+                  <button class="announcement-title">
+                    상품 후기 적립금 정책 안내
+                  </button>
+                </div>
+                <p class="announcement-content">
+                  [ 금주의 Best 후기 및 상품 후기 적립금 정책 변경 안내 ] 
+                  고객님 안녕하세요. 컬리 입니다. 적립금 지급 정책을 안내드리니 컬리 이용에 참고 부탁드립니다. 
+                  ■ 적립금 지급 정책 ■
+                  1. 일반 후기 -글 후기 50원/건 
+                  -사진 후기 100원/건 
+                  *퍼플/더퍼플 러버스 고객님께는 더블 후기 적립금이 지급됩니다. 
+                  *지급에 영업일 기준 1~2일 소요됩니다. 
+                  → 금~일 작성 시, 월요일 지급 
+                  2. 베스트 후기 
+                  1) 선정 건 수 : 일주일 최대 100건 
+                  2) 혜택 : 선정 시 적립금 5,000원 
+                  3) 지급 일시 : 매주 수요일 (지급일이 공휴일의 경우 전 영업일) 
+                  *당첨 ID 및 그 주의 Best 후기는 후기 게시판에서 확인하실 수 있습니다. 
+                  3. 상품 후기 게시판(Product review) 적립금 지급 유의 사항 
+                  컬리는 믿을 수 있는 후기문화를 함께 만들어가고자 합니다. 따라서 후기 내용이 아래에 해당하는 경우에는 검토 후 삭제 및 적립금 회수 조치될 수 있습니다. 
+                  1. 욕설, 폭력성, 음란성, 상업성 등 업체나 타인에게 불쾌한 내용을 작성한 경우 
+                  2. 구매한 상품과 무관한 내용이나 동일 문자/단순 초성의 반복 등 부적합한 내용을 작성한 경우 
+                  3. 상품의 기능이나 효과 등에 오해의 소지가 있는 내용을 작성한 경우 
+                  4. 저작권, 초상권 등 타인의 권리를 침해하는 이미지, 동영상을 사용한 경우 
+                  5. 구매한 상품이 아닌 캡쳐 사진, 포장 박스 사진 등 상품과 관련 없는 이미지, 동영상을 사용한 경우 
+                  또한, 비정상적인 방법을 통해 후기를 작성하고 적립금을 취득한 경우 작성자에 법적 책임의 소지가 있음을 알려드립니다. 
+                </p>
+              </li>
+            </ul>
+            <ul class="review-container">
+              <li class="reivew-id">
+                <div class="review-writer-info">
+                  <span class="tag-best">베스트</span>
+                  <span class="tag-membership tag-membership__purple">퍼플</span>
+                  <span class="name">김*진</span>
+                </div>
+                <div class="review-text-container">
+                  <p class="review-product-name">[풀무원] 탱탱쫄면 (4개입)</p>
+                  <p class="review-text-field">너무 맛있어여~
+                    쫄면이 쫄깃하고 양념도 짱맛나요!!</p>
+                  <p class="review-date">2022.11.10</p>
+                </div>
+              </li>
+              <li class="reivew-id">
+                <div class="review-writer-info">
+                  <span class="tag-best">베스트</span>
+                  <span class="tag-membership tag-membership__purple">퍼플</span>
+                  <span class="name">김*진</span>
+                </div>
+                <div class="review-text-container">
+                  <p class="review-product-name">[풀무원] 탱탱쫄면 (4개입)</p>
+                  <p class="review-text-field">너무 맛있어여~
+                    쫄면이 쫄깃하고 양념도 짱맛나요!!</p>
+                  <p class="review-date">2022.11.10</p>
+                </div>
+              </li>
+              <li class="reivew-id">
+                <div class="review-writer-info">
+                  <span class="tag-best">베스트</span>
+                  <span class="tag-membership tag-membership__purple">퍼플</span>
+                  <span class="name">김*진</span>
+                </div>
+                <div class="review-text-container">
+                  <p class="review-product-name">[풀무원] 탱탱쫄면 (4개입)</p>
+                  <p class="review-text-field">너무 맛있어여~
+                    쫄면이 쫄깃하고 양념도 짱맛나요!!</p>
+                  <p class="review-date">2022.11.10</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button class="review-page-button__prev"></button>
+          <button class="review-page-button__next"></button>
+        </div>
+      </section>
+
 
       <section>
         <h2>상품 문의</h2>
