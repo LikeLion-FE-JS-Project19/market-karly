@@ -3,3 +3,147 @@
 @import url(./a11y.css);
 @import url(./theme.css);
 @import url(./base.css);
+@import url(./header.css);
+
+main {
+  display: flex;
+  justify-content: center;
+  color: var(--content);
+}
+
+.title{
+  width: 1050px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.container {
+  width: 1050px;
+  /* background: salmon; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+.product-list__filter{
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.product-list__filter--header{
+  width: 220px;
+  height: 58px;
+  /* border: 2px solid seagreen; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-list__reset{
+  color: var(--gray-300);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.product-list__filter--index{
+  width: 220px;
+  height: 58px;
+  /* border: 2px solid seagreen; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-list__filter--index-count{
+  font-weight: 300;
+  font-size: var(--text-xs);
+  margin-left: 4px;
+}
+
+.product-list__filter--index-togle{
+  border: none;
+  background-color: transparent
+}
+
+.product-list__items-section{
+  width: 780px;
+  min-height: 1200px;
+  /* border: seagreen solid 2px; */
+  margin-left: 50px;
+}
+
+.product-list__items--header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.divider__sort{
+  margin-left: var(--spacing-xs);
+  margin-right: var(--spacing-xs);
+}
+
+.product-list__items-list{
+  display: flex;
+  gap: 14px;
+  flex-flow: wrap;
+}
+
+/* 주희님 작성 코드 */
+.product-list__item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 249px;
+}
+
+.product-list__item img {
+  width: 249px;
+  height: 320px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.product-list__item button {
+  all: unset;
+  width: 45px;
+  height: 45px;
+  background: url(../assets/main/ic-add-cart.svg) no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 189px;
+  top: 258px;
+  z-index: 3;
+}
+
+.product-name {
+  margin-top: var(--spacing-base);
+}
+
+.product-price {
+  margin-top: var(--spacing-base);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.sale-percent {
+  margin-right: var(--spacing-xs);
+  color: var(--accent-yellow);
+}
+
+.first-price {
+  margin-top: var(--spacing-xs);
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  text-decoration: line-through;
+}
+
