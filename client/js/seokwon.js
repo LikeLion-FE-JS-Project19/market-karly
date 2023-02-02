@@ -1,6 +1,7 @@
 // 린트 일단 바꿈 (머지할떄 일단 원래대로?)
 // 핸들러 이름 꼭 바꿔주기
 import {tiger} from '../lib/utils/index.js'
+import {attr} from '../lib/dom/attr.js'
 
 
 export function mainHeaderEventHandler() {
@@ -183,7 +184,9 @@ export async function productListEventHandler() {
   // innerHTML대신 쓸수 있는것이 뭘까요...?
   // asynk를 중복으로 계속 사용가능한가?
 
-
+  const URLSearch = new URLSearchParams(location.search);
+  console.log(URLSearch);
+  console.log(URLSearch.get("id"));
 
   console.log("test");
 
@@ -245,7 +248,7 @@ export async function productListEventHandler() {
     // 숫자 콤마 함수로 만들기
     return (`
       <img src="./assets/product/${data.image.thumbnail}" alt="${data.name}" />
-      <button type="button" class="btn-add-cart"></button>
+      <button type="button" class="btn-add-cart" data-name="button" data-id=${data.id}></button>
       <p class="product-mark--morning-star">샛별 배송</p>
       <p class="product-name--product-list">${data.name}</p>
       `
@@ -254,7 +257,7 @@ export async function productListEventHandler() {
       +
       `<p class="product-mark--info">${data.description}</p>`
       +
-      `<div class="product-special-mark">`
+      `<div class="product-special-mark" data-name="label">`
       +
       specialMarkMarkup
       +
@@ -273,14 +276,175 @@ export async function productListEventHandler() {
     const productItemList = document.querySelector(".product-list__items-list")
     result.data.map((data)=>{
       const productItem = document.createElement('li')
+      productItem.dataset.id = data.id
+      productItem.dataset.name = 'product-box'
       productItem.classList.add('product-list__item')
       productItem.innerHTML = getProductItemMarkup(data)
+      productItem.addEventListener('click', productItemClickHandler)
       productItemList.insertAdjacentElement('beforeend', productItem)     
     })
   }
 
-  getProductItems()
+  // 상품에 이벤트 위임 설정
+  function productItemClickHandler(e) {
+    console.log('눌림');
 
+    let target = e.target
+    while(!attr(target,'data-name')) {
+      target = target.parentNode;
+
+      if(target.nodeName === 'BODY'){
+        target = null;
+        return;
+      }
+    }
+
+    if (target.dataset.name === 'button') {
+      console.log('버튼이 눌렸습니다');
+      makeDarkFiltering();
+      makeCartModal(target.dataset.id)
+      return
+    } 
+
+    if (target.dataset.name === 'label') {
+      return
+    }
+
+    if (target.dataset.name === 'product-box') {
+      console.log('상품이 눌렸습니다');
+      location.href=`/client/product-detail.html?data=${target.dataset.id}`
+      return
+    }
+  }
+
+
+  // 모달이 html에 마크업이 된상태가 좋을까? 아니면 js에서 만드는게 좋을까?
+  // 다른곳에도 쓰이니깐 js에서 만드는게 좋을것 같다.. 뇌피셜
+  const cartModal = document.querySelector('.cart-modal')
+
+  async function makeCartModal(id) {
+    cartModal.dataset.count = 1;
+    const itemData= await getItemById(id)
+    console.log(itemData);
+    let currentPrice;
+    let priceValue;
+    if (itemData.saleRatio){
+      currentPrice = itemData.salePrice;
+      priceValue = `
+      <span class="cart-modal--price">${itemData.salePrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span>
+      <span class="cart-modal--price-sale">${itemData.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span>
+      `
+    } else {
+      currentPrice = itemData.price;
+      priceValue = `
+      <span class="cart-modal--price">${itemData.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span>
+      `
+    }
+
+    console.log(priceValue);
+
+    cartModal.style.display = 'flex'
+    const modalData = `
+      <div class="cart-modal--info">
+        <span class="cart-modal--title">${itemData.name}</span>
+        <span class="cart-modal--price-box">`
+          +
+          priceValue
+          +
+        `
+        </span>
+        <div class="cart-modal--count-box">
+          <button class="cart-modal--count-button cart-modal--count-button--minus"></button>        
+          <span class="cart-modal--count-value"></span>
+          <button class="cart-modal--count-button cart-modal--count-buttot--plus"></button>       
+        </div>
+      </div>
+      <div class="cart-modal--total-price">
+        <div class="cart-modal--total-price-top">
+          <span class="cart-modal--total-price-top--total">합계</span>
+          <span class="cart-modal--total-price-top--price">4,980원</span>
+        </div>
+        <div class="cart-modal--total-price-bottom">
+          <span class="cart-modal--total-price-top--mark">적립</span>
+          <span class="cart-modal--total-price-top--info">구매시 5원 적립</span>
+        </div>
+      </div>
+      <div class="cart-modal--button-box">
+        <button class="cart-modal--button cart-modal--button--cancel">
+          취소
+        </button>
+        <button class="cart-modal--button cart-modal--button--add">
+          장바구니 담기
+        </button>
+      </div>
+    ` 
+    cartModal.innerHTML=modalData
+    const cartModalCancelButton = document.querySelector('.cart-modal--button--cancel')
+    cartModalCancelButton.addEventListener('click', ()=>{
+      cartModal.style.display = 'none'
+      removeDarkFiltering() 
+    })
+
+    // 수량 버튼 기능
+    function changeTotalPrice() {
+      const count = document.querySelector(".cart-modal--count-value")
+      const totalPrice = document.querySelector(".cart-modal--total-price-top--price")
+
+      count.innerHTML = cartModal.dataset.count
+      totalPrice.innerHTML = `${(cartModal.dataset.count * parseInt(currentPrice)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`
+    }
+
+    changeTotalPrice()
+    // 숫자 증감 기능
+    const minusButton = document.querySelector(".cart-modal--count-button--minus")
+    const plusButton = document.querySelector(".cart-modal--count-buttot--plus")
+
+    minusButton.addEventListener("click" , ()=>{
+      cartModal.dataset.count = parseInt(cartModal.dataset.count)-1
+      console.log(cartModal.dataset.count);
+      changeTotalPrice()
+    })
+
+    plusButton.addEventListener("click" , ()=>{
+      cartModal.dataset.count = parseInt(cartModal.dataset.count)+1
+      console.log(cartModal.dataset.count);
+      changeTotalPrice()
+    })
+  }
+
+  // id에 맞는 데이터 가져오기
+  async function getItemById(id) {
+    try {
+      let result = await fetch("http://localhost:3001/products", defaultOptions)
+      if(result.ok)  {
+        result.data = await result.json()
+      }
+      let idx = 0
+      await result.data.map((data, index)=>{
+        if (data.id === id) {
+          idx = index;
+          //여기서 직접 리턴을 하면 왜 오류가 날까요....
+          // return data
+        }
+      })
+    return result.data[idx]
+    } catch (error) {
+      console.log("통신 에러가 발생했습니다!");
+    }
+  }
+
+  // 모달 제외하고 어두워지는 기능
+  function makeDarkFiltering() {
+    const darkFilter = document.querySelector('.dark-filter')
+    darkFilter.style.display = 'block'
+  }
+
+  function removeDarkFiltering() {
+    const darkFilter = document.querySelector('.dark-filter')
+    darkFilter.style.display = 'none'
+  }
+
+   getProductItems()
 
 }
 

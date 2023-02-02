@@ -205,11 +205,12 @@ main {
   left: 50%;
   transform: translate(-50%, -50%); 
   background: #fff;
-  z-index: 100;
-  display: flex;
+  z-index: 2000;
+  display: none;
   justify-content: center;
   padding: 24px 20px 24px 20px ;
   flex-direction: column;
+  transition: all 400ms;
 }
 
 .cart-modal--info{
@@ -241,11 +242,24 @@ main {
   left: 0;
 }
 
-.cart-modal--price{
+.cart-modal--price-box{
   position: absolute;
   bottom: 0;
   left: 0;
   transform: translateY(-50%);
+  line-height: 16px;
+
+}
+
+.cart-modal--price{
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.cart-modal--price-sale{
+  font-size: 14px;
+  text-decoration: line-through;
+  color: var(--gray-400);
 }
 
 .cart-modal--count-box{
@@ -349,3 +363,15 @@ main {
 }
 
 /* 모달창 완료----------------------------------------- */
+
+.dark-filter {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 1000;
+  transition: all 400ms;
+  display: none;
+  left: 0;
+}
