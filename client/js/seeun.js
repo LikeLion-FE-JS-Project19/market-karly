@@ -1,3 +1,6 @@
+import { getNode, getNodes } from '../lib/dom/getNode.js';
+import { attr } from '../lib/dom/attr.js';
+
 export function swiper1() {
   const swiper = new Swiper('.swiper-1', {
     loop: true,
@@ -183,4 +186,49 @@ export function bubbleAddCartHandler() {
     bubble.style.visibility = 'hidden';
     bubble.style.opacity = '0';
   }, 5000);
+}
+
+export function getProductDetailData(products) {
+  const URLSearch = new URLSearchParams(location.search);
+  const id = URLSearch.get('id');
+
+  const product = products.filter((product) => product.id === id);
+  const title = product[0].name;
+  const description = product[0].description;
+  const price = product[0].price.toLocaleString('ko-KR');
+  const image = product[0].image;
+
+  attr('.add-cart-bubble__img', 'src', `./assets/product/${image.thumbnail}`);
+  attr('.add-cart-bubble__img', 'alt', `${image.alt}`);
+
+  getNode('.add-cart-bubble__product').textContent = title;
+
+  attr('.product-summary__img', 'src', `./assets/product/${image.thumbnail}`);
+  attr('.product-summary__img', 'alt', `${image.alt}`);
+
+  attr(
+    '.product-detail__product-description-img',
+    'src',
+    `./assets/product/${image.banner}`
+  );
+
+  attr(
+    '.product-detail__product-detail-img',
+    'src',
+    `./assets/product/${image.info}`
+  );
+
+  getNode('.product-summary__title').textContent = title;
+
+  getNode('.product-summary__detail-choice-title').textContent = title;
+
+  getNode('.product-summary__description').textContent = description;
+
+  getNode('.product-summary__price--number').textContent = price;
+
+  getNode(
+    '.product-summary__detail-price-per-piece'
+  ).textContent = `${price}원`;
+
+  getNode('.product-summary__total-price-number').textContent = price;
 }

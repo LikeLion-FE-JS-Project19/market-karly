@@ -3,7 +3,15 @@ import {
   toggleTabMenuHandler,
   moveToClickedTabMenu,
   moveTabByKey,
+  getProductDetailData,
 } from './seeun.js';
+import { xhrData } from '../lib/utils/xhr.js';
+
+xhrData.get(
+  'http://localhost:3001/products',
+  (message) => getProductDetailData(message),
+  (message) => console.log(message)
+);
 
 const minusAmountButton = document.querySelector(
   '.product-summary__detail-choice-button--minus'
