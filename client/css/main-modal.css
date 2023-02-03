@@ -56,7 +56,7 @@
 }
 
 .top-bar__btn-today-close {
-  background: url(/market-karly/client/assets/common/ic-close.svg);
+  background: url(../assets/common/ic-close.svg);
   border: none;
   position: absolute;
   top: 4px;
