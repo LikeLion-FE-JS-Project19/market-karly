@@ -42,7 +42,7 @@ main {
 
 .product-list__filter--header{
   width: 220px;
-  height: 58px;
+  height: 52px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,12 +54,46 @@ main {
   font-weight: 600;
 }
 
-.product-list__filter--index{
+.accordian__head{
   width: 220px;
-  height: 58px;
+  height: 52px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.accordian__body{
+  border-top: 1px solid var(--gray-400);
+  display: flex;
+  flex-direction: column;
+  /* display: none; */
+}
+
+.product-list__filter--index{
+  display: block;
+}
+
+.accordian__item{
+  width: 220px;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  font-weight: 400;
+}
+
+.accordian__check{
+  width: 24px;
+  height: 24px;
+  position: relative;
+  margin-right: 8px;
+  /* filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(81deg) brightness(105%) contrast(101%); */
+}
+
+.check{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .product-list__filter--index-count{
@@ -71,6 +105,17 @@ main {
 .product-list__filter--index-togle{
   border: none;
   background-color: transparent
+}
+
+.accordian__item-name{
+  font-size: var(--text-base);
+  color: var(--content);
+  margin-right: 4px;
+}
+
+.accordian__item-count{
+  font-size: var(--text-sm);
+  color: var(--gray-300);
 }
 
 .product-list__items-section{
