@@ -2,6 +2,7 @@ import {
   countProductAmountHandler,
   toggleTabMenuHandler,
   moveToClickedTabMenu,
+  moveTabByKey,
 } from './seeun.js';
 
 const minusAmountButton = document.querySelector(
@@ -21,4 +22,12 @@ plusAmountButton.addEventListener('click', countProductAmountHandler);
 window.addEventListener('scroll', toggleTabMenuHandler);
 [].forEach.call(tabMenuItems, (tabMenuItem) =>
   tabMenuItem.addEventListener('click', moveToClickedTabMenu)
+);
+
+[].forEach.call(tabMenuItems, (tabMenuItem) =>
+  tabMenuItem.addEventListener('focus', moveToClickedTabMenu)
+);
+
+[].forEach.call(tabMenuItems, (tabMenuItem) =>
+  tabMenuItem.addEventListener('keydown', moveTabByKey)
 );

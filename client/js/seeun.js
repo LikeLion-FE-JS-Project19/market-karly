@@ -88,8 +88,10 @@ function setAttributeTabItem(ariaLabel) {
   [].forEach.call(tabMenuItems, function (tabMenuItem) {
     if (tabMenuItem.getAttribute('aria-label') === ariaLabel) {
       tabMenuItem.setAttribute('class', className + '--selected');
+      tabMenuItem.setAttribute('aria-selected', 'true');
     } else if (tabMenuItem.getAttribute('class') === className + '--selected') {
       tabMenuItem.setAttribute('class', className);
+      tabMenuItem.setAttribute('aria-selected', 'false');
     }
   });
 }
@@ -141,11 +143,34 @@ export function moveToClickedTabMenu() {
   };
 
   setAttributeTabItem(this.getAttribute('aria-label'));
-  window.scrollTo({
-    top: window.pageYOffset + tabMenuList[this.getAttribute('aria-label')].y,
-    left: 0,
-    behavior: 'smooth',
-  });
+
+  setTimeout(() => {
+    window.scrollTo({
+      top: window.pageYOffset + tabMenuList[this.getAttribute('aria-label')].y,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, 0);
+}
+
+export function moveTabByKey(e) {
+  let tabNumber = this.getAttribute('id')[this.getAttribute('id').length - 1];
+  if (e.keyCode === 37 && tabNumber > 1) {
+    document
+      .querySelector(
+        `ul[class='product-detail-tab-menu'] > li[id*='${+tabNumber - 1}']`
+      )
+      .focus();
+    return;
+  }
+  if ((e.keyCode === 39 || e.keyCode === 13) && tabNumber < 4) {
+    document
+      .querySelector(
+        `ul[class='product-detail-tab-menu'] > li[id*='${+tabNumber + 1}']`
+      )
+      .focus();
+    return;
+  }
 }
 
 export function bubbleAddCartHandler() {

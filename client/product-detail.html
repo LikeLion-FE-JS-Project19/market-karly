@@ -305,38 +305,79 @@
 
       <section class="product-description">
         <h2 class="a11yHidden" aria-hidden="true">상품 설명</h2>
-        <ul class="product-detail-tab-menu">
-          <li class="product-detail-tab-menu__item" aria-label="상품설명 탭">
+        <ul
+          class="product-detail-tab-menu"
+          aria-orientation="horizontal"
+          role="tablist"
+          aria-label="상품 상세페이지 탭"
+        >
+          <li
+            class="product-detail-tab-menu__item"
+            aria-label="상품설명 탭"
+            role="tab"
+            aria-controls="tabpanel-1"
+            id="tab-1"
+            aria-selected="false"
+            tabindex="0"
+          >
             상품설명
           </li>
-          <li class="product-detail-tab-menu__item" aria-label="상세정보 탭">
+          <li
+            class="product-detail-tab-menu__item"
+            aria-label="상세정보 탭"
+            role="tab"
+            aria-controls="tabpanel-2"
+            id="tab-2"
+            aria-selected="false"
+            tabindex="0"
+          >
             상세정보
           </li>
-          <li class="product-detail-tab-menu__item" aria-label="후기 탭">
+          <li
+            class="product-detail-tab-menu__item"
+            aria-label="후기 탭"
+            role="tab"
+            aria-controls="tabpanel-3"
+            id="tab-3"
+            aria-selected="false"
+            tabindex="0"
+          >
             후기
             <span class="product-detail-tab-menu__item--review-number"
               >(1,000)</span
             >
           </li>
-          <li class="product-detail-tab-menu__item" aria-label="문의 탭">
+          <li
+            class="product-detail-tab-menu__item"
+            aria-label="문의 탭"
+            role="tab"
+            aria-controls="tabpanel-4"
+            id="tab-4"
+            aria-selected="false"
+            tabindex="0"
+          >
             문의
           </li>
         </ul>
         <img
+          id="tabpanel-1"
           class="product-detail__product-description-img"
           src="./assets/product-detail/product-description.png"
+          aria-labelledby="tab-1"
         />
         <img
+          id="tabpanel-2"
           class="product-detail__product-detail-img"
           src="./assets/product-detail/product-detail.png"
+          aria-labelledby="tab-2"
         />
       </section>
 
-      <section class="review">
+      <section id="tabpanel-3" class="review" aria-labelledby="tab-3">
         <h2>상품 후기</h2>
       </section>
 
-      <section class="qna">
+      <section id="tabpanel-4" class="qna" aria-labelledby="tab-4">
         <h2>상품 문의</h2>
       </section>
     </main>
