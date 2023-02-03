@@ -212,6 +212,8 @@ export function getProductDetailData(products) {
     `./assets/product/${image.banner}`
   );
 
+  attr('.product-detail__product-description-img', 'alt', `${image.alt}`);
+
   attr(
     '.product-detail__product-detail-img',
     'src',
@@ -231,4 +233,8 @@ export function getProductDetailData(products) {
   ).textContent = `${price}원`;
 
   getNode('.product-summary__total-price-number').textContent = price;
+
+  getNode('.product-description__description').textContent = description;
+
+  getNode('.product-description__title').textContent = title;
 }
