@@ -29,3 +29,5 @@ addCartButtonList.forEach((el) => {
 })
 
 
+import {getNode, renderFooter} from './jiwon.js';
+renderFooter(getNode('body'));
