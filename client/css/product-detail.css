@@ -186,6 +186,14 @@ button{
 
 
 /* 상품 후기 작성 모달 */
+
+.modal-background{
+  position: fixed;
+  top:0; left: 0; bottom: 0; right: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+}
+
 .modal-review{
   position: fixed;
   display: flex;
@@ -200,7 +208,6 @@ button{
   height: 630px;
   background-color: var(--white);
   border-radius: 16px;
-  border: slateblue 1px solid;
 }
 
 .modal-review__top{
@@ -292,11 +299,13 @@ button{
 .modal-review-content__placeholder{
   overflow-y: auto;
   z-index: 1;
+  padding: 16px 16px 16px 22px;
+  width: 629px;
   height: 80%;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%
+  top: 1px;
+  right: 4px;
+  color: var(--gray-400);
 }
 
 .count-char{
