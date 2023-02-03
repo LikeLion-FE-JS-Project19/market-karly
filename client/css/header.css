@@ -281,6 +281,8 @@
   z-index: 1001;
   transition: opacity 0.5s;
   opacity: 0;
+  bottom: -95px;
+  right: -23px;
 }
 
 .add-cart-bubble::before {

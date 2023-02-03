@@ -149,16 +149,10 @@ export function moveToClickedTabMenu() {
 }
 
 export function bubbleAddCartHandler() {
-  const cart = document
-    .querySelector('.header-container__account-menu')
-    .getBoundingClientRect();
-
   const bubble = document.querySelector('.add-cart-bubble');
 
   bubble.style.visibility = 'visible';
   bubble.style.opacity = '1';
-  bubble.style.top = `${window.pageYOffset + cart.bottom + 15}px`;
-  bubble.style.left = `${window.pageXOffset + cart.right - 232}px`;
 
   setTimeout(() => {
     bubble.style.visibility = 'hidden';
