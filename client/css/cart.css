@@ -53,7 +53,7 @@ h2 {
   font-weight: 600;
 }
 
-.all-check-box--true {
+.all-check-box.active{
   background: url(../assets/cart/ic-checked-true.svg) no-repeat ;
   width: 25px;
   height: 25px;
@@ -62,7 +62,25 @@ h2 {
   align-self: center;
 }
 
-.all-check-box--false {
+.single-check-box.active{
+  background: url(../assets/cart/ic-checked-true.svg) no-repeat ;
+  width: 25px;
+  height: 25px;
+  border: none;
+  margin-right: 5px;
+  align-self: center;
+}
+
+.all-check-box {
+  background: url(../assets/cart/ic-checked-false.svg) no-repeat ;
+  width: 25px;
+  height: 25px;
+  border: none;
+  margin-right: 5px;
+  align-self: center;
+}
+
+.single-check-box {
   background: url(../assets/cart/ic-checked-false.svg) no-repeat ;
   width: 25px;
   height: 25px;

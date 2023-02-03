@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/footer.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="./js/main.js" type="module"></script>
+    <!-- <script src="./js/main.js" type="module"></script> -->
+    <script src="./js/cart.js" type="module"></script>
     <script src="./js/juhee.js" type="module"></script>
     <script src="./js/seeun.js" type="module"></script>
     <script src="./js/seokwon.js" type="module"></script>
@@ -92,7 +93,7 @@
       <div class="main-container">
         <section class="cart-list">
           <div class="cart-feature">
-            <button class="all-check-box--false" type="button"></button>
+            <button class="all-check-box active" type="button"></button>
             <span class="cart-feature__text">전체선택(0/8)</span>
           <span class="no-divider" aria-hidden="true">|</span>
           <button class="selector-delete" type="submit" disabled>선택삭제</button>
@@ -107,7 +108,7 @@
           <ul class="cart-list__cold--group">
               <li class="group-list">
                 <div class="cart-feature__list">
-                  <button class="all-check-box--false" type="button"></button>
+                  <button class="single-check-box active" type="button"></button>
                   <span>
                     <img class="group-list__image" src="./assets/product/bacon/detail_banner.jpg" alt="베이컨 사진" />
                   </span>
@@ -131,7 +132,7 @@
               </li>
                 <li class="group-list">
                   <div class="cart-feature__list">
-                    <button class="all-check-box--false" type="button"></button>
+                    <button class="single-check-box active" type="button"></button>
                     <span>
                       <img class="group-list__image" src="./assets/product/bacon/detail_banner.jpg" alt="베이컨 사진" />
                     </span>
@@ -153,7 +154,6 @@
                     </button>
                   </div>
                 </li>
-            
           </ul>
             <div class="cart-list__frozen">
               <span class="cart-list__frozen--icon"></span>
@@ -165,7 +165,7 @@
             <ul class="cart-list__frozen--group">
               <li class="group-list">
                 <div class="cart-feature__list">
-                  <button class="all-check-box--false" type="button"></button>
+                  <button class="single-check-box active" type="button"></button>
                   <span>
                     <img class="group-list__image" src="./assets/product/bacon/detail_banner.jpg" alt="베이컨 사진" />
                   </span>
@@ -189,7 +189,7 @@
               </li>
                 <li class="group-list">
                   <div class="cart-feature__list">
-                    <button class="all-check-box--false" type="button"></button>
+                    <button class="single-check-box active" type="button"></button>
                     <span>
                       <img class="group-list__image" src="./assets/product/bacon/detail_banner.jpg" alt="베이컨 사진" />
                     </span>
@@ -222,7 +222,7 @@
                 <ul class="cart-list__temperature--group">
                     <li class="group-list">
                       <div class="cart-feature__list">
-                        <button class="all-check-box--false" type="button"></button>
+                        <button class="single-check-box active" type="button"></button>
                         <span>
                           <img class="group-list__image" src="./assets/product/bacon/detail_banner.jpg" alt="베이컨 사진" />
                         </span>
@@ -246,7 +246,7 @@
                     </li>
                       <li class="group-list">
                         <div class="cart-feature__list">
-                          <button class="all-check-box--false" type="button"></button>
+                          <button class="single-check-box active" type="button"></button>
                           <span>
                             <img class="group-list__image" src="./assets/product/bacon/detail_banner.jpg" alt="베이컨 사진" />
                           </span>
@@ -270,22 +270,17 @@
                       </li>
                 </ul>
                 <div class="cart-feature">
-                  <button class="all-check-box--false" type="button"></button>
+                  <button class="all-check-box active" type="button"></button>
                   <span class="cart-feature__text">전체선택(0/8)</span>
                 <span class="no-divider" aria-hidden="true">|</span>
                 <button class="selector-delete" type="submit" disabled>선택삭제</button>
               </div>
-
         </section>
-      
         <section class="cart-summary">
-
         </section>
       </div>
-
     </main>
-
-
+    
     <footer class="footer">
       <div class="footer__inner">
         <div class="footer__inner-top">

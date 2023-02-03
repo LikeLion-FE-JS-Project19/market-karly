@@ -1,11 +1,11 @@
 
 
-// import { closeMainModalButton, closeTopBarButton, swiper } from "./kyungseob.js";
+import { closeMainModalButton, closeTopBarButton, swiper } from "./kyungseob.js";
 
 
-// closeTopBarButton()
-// closeMainModalButton()
-// swiper
+closeTopBarButton()
+closeMainModalButton()
+swiper
 
 import {mainHeaderEventHandler} from './seokwon.js'
 import { swiper1, onKeyPressSwiper1Handler } from './seeun.js';
@@ -29,10 +29,3 @@ addCartButtonList.forEach((el) => {
 })
 
 
-import { allCheckBox, coldListAct, deleteList, frozenListAct, temperatureListAct, } from "./cart.js";
-
-allCheckBox()
-coldListAct()
-frozenListAct()
-temperatureListAct()
-deleteList()
