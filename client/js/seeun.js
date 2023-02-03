@@ -78,6 +78,76 @@ export function countProductAmountHandler() {
   if (+totalAmount.textContent <= 2) toggleDisableButtonHandler();
 }
 
+function setAttributeTabItem(ariaLabel) {
+  const tabMenuItems = document.querySelectorAll(
+    'li[class^=product-detail-tab-menu__item]'
+  );
+
+  const className = 'product-detail-tab-menu__item';
+
+  [].forEach.call(tabMenuItems, function (tabMenuItem) {
+    if (tabMenuItem.getAttribute('aria-label') === ariaLabel) {
+      tabMenuItem.setAttribute('class', className + '--selected');
+    } else if (tabMenuItem.getAttribute('class') === className + '--selected') {
+      tabMenuItem.setAttribute('class', className);
+    }
+  });
+}
+
+export function toggleTabMenuHandler() {
+  const productDescription = document
+    .querySelector('.product-description')
+    .getBoundingClientRect().top;
+
+  const productDetail = document
+    .querySelector('.product-detail__product-detail-img')
+    .getBoundingClientRect().top;
+
+  const review = document.querySelector('.review').getBoundingClientRect().top;
+
+  const qna = document.querySelector('.qna').getBoundingClientRect().top;
+
+  if (qna <= 5) {
+    setAttributeTabItem('문의 탭');
+  } else if (review <= 5) {
+    setAttributeTabItem('후기 탭');
+  } else if (productDetail <= 5) {
+    setAttributeTabItem('상세정보 탭');
+  } else if (productDescription <= 70) {
+    setAttributeTabItem('상품설명 탭');
+  } else {
+    setAttributeTabItem();
+  }
+}
+
+export function moveToClickedTabMenu() {
+  const productDescription = document
+    .querySelector('.product-description')
+    .getBoundingClientRect();
+
+  const productDetail = document
+    .querySelector('.product-detail__product-detail-img')
+    .getBoundingClientRect();
+
+  const review = document.querySelector('.review').getBoundingClientRect();
+
+  const qna = document.querySelector('.qna').getBoundingClientRect();
+
+  const tabMenuList = {
+    '상품설명 탭': productDescription,
+    '상세정보 탭': productDetail,
+    '후기 탭': review,
+    '문의 탭': qna,
+  };
+
+  setAttributeTabItem(this.getAttribute('aria-label'));
+  window.scrollTo({
+    top: window.pageYOffset + tabMenuList[this.getAttribute('aria-label')].y,
+    left: 0,
+    behavior: 'smooth',
+  });
+}
+
 export function bubbleAddCartHandler() {
   const cart = document
     .querySelector('.header-container__account-menu')
