@@ -25,7 +25,7 @@ export function onKeyPressSwiper1Handler(e) {
   }
 }
 
-export function onDisabledAmountButton() {
+export function toggleDisableButtonHandler() {
   const minusAmountButton = document.querySelector(
     '.product-summary__detail-choice-button--minus'
   );
@@ -47,7 +47,7 @@ export function onDisabledAmountButton() {
   }
 }
 
-export function onCountAmountHandler() {
+export function countProductAmountHandler() {
   let totalAmount = document.querySelector(
     '.product-summary__detail-choice-number'
   );
@@ -75,5 +75,23 @@ export function onCountAmountHandler() {
     ).toLocaleString('ko-KR');
   }
 
-  if (+totalAmount.textContent <= 2) onDisabledAmountButton();
+  if (+totalAmount.textContent <= 2) toggleDisableButtonHandler();
+}
+
+export function bubbleAddCartHandler() {
+  const cart = document
+    .querySelector('.header-container__account-menu')
+    .getBoundingClientRect();
+
+  const bubble = document.querySelector('.add-cart-bubble');
+
+  bubble.style.visibility = 'visible';
+  bubble.style.opacity = '1';
+  bubble.style.top = `${window.pageYOffset + cart.bottom + 15}px`;
+  bubble.style.left = `${window.pageXOffset + cart.right - 232}px`;
+
+  setTimeout(() => {
+    bubble.style.visibility = 'hidden';
+    bubble.style.opacity = '0';
+  }, 5000);
 }
