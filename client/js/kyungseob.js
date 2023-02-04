@@ -129,14 +129,14 @@ export function temperatureListAct(){
 }
 
 export function deleteList(){
-  const deleteIcon = document.querySelector('.group-list__close')
-  const list = document.querySelector('.group-list')
-
-  deleteIcon.addEventListener('click',isDelete)
-
-  function isDelete (){
-    return list.style.display = 'none'
-  }
+  const deleteButton = document.querySelectorAll('.group-list__close')
+  
+  deleteButton.forEach(function(target){
+    target.addEventListener('click', deleteAct)
+    function deleteAct(event){
+      target.closest('li').remove()    
+    }
+  });
 }
 
 export function selectDelete(){
@@ -144,21 +144,17 @@ export function selectDelete(){
   const activeCheck = document.querySelectorAll('.single-check-box.active')
   const groupList = document.querySelectorAll('.group-list')
   
-  deleteButton.addEventListener('click',test1)
+  deleteButton.addEventListener('click',deleteAct)
 
-  function test1(){
+  function deleteAct(){
   activeCheck.forEach(function(item, index){
   
     if(activeCheck[index].className === 'single-check-box active'){
-      // console.log(activeCheck[index].className);
-
-    console.log(groupList[index]);
+      console.log(deleteButton.closest('body'));
     groupList[index].remove()
     }
-
   })
   }
-
 }
 
 export function productOrder(){
