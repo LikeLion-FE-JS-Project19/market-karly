@@ -299,13 +299,34 @@ button{
 .modal-review-content__placeholder{
   overflow-y: auto;
   z-index: 1;
-  padding: 16px 16px 16px 22px;
+  padding: 16px 16px 0px 22px;
   width: 629px;
   height: 80%;
   position: absolute;
   top: 1px;
-  right: 4px;
+  right: 5px;
   color: var(--gray-400);
+  font-size: var(--text-xs);
+}
+
+.review-notice-title{
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 24px;
+  margin-top: var(--spacing-sm);
+}
+
+.review-notice-list{
+  font-size: var(--text-xs);
+  list-style-type: disc;
+  padding-inline-start: 1rem;
+  margin-top: 4px;
+  line-height: 19.2px;
+}
+
+.warning-message{
+  color: var(--info-error);
+  line-height: 19.2px;
 }
 
 .count-char{
@@ -334,3 +355,4 @@ button{
   background-color: var(--gray-100);
   color: var(--white)
 }
+/* EOL 상품 후기 작성 모달 */
