@@ -1,4 +1,6 @@
 import { insertBefore } from '../lib/dom/insert.js';
+import { getNode } from '../lib/dom/getNode.js';
+import { toggleClass } from '../lib/dom/css.js';
 
 export function swiper2() {
   const swiper = new Swiper('.swiper-2', {
@@ -47,7 +49,7 @@ export function onClickAddCartHandler(e){
 
 
 export function openReviewModalButton() {
-	const openReviewModalButton = document.querySelector('.review-write-button');
+	const openReviewModalButton = getNode('.review-write-button');
 
 	openReviewModalButton.addEventListener('click',openReviewModal)
 
@@ -102,9 +104,9 @@ export function openReviewModalButton() {
 		insertBefore('.review', template);
 
 
-		const closeTopButton = document.querySelector('.modal-review__close-button');
-		const closeBottomButton = document.querySelector('.modal-review-button--cancel');
-		const reviewModal = document.querySelector('.modal-review-background');
+		const closeTopButton = getNode('.modal-review__close-button');
+		const closeBottomButton = getNode('.modal-review-button--cancel');
+		const reviewModal = getNode('.modal-review-background');
 	
 		closeBottomButton.addEventListener('click',closeReviewModal);
 		closeTopButton.addEventListener('click',closeReviewModal);
@@ -113,6 +115,31 @@ export function openReviewModalButton() {
 			const modal = reviewModal;
 			modal.remove()
 		}
+
+
+		const placeholderText = getNode('.modal-review-content__placeholder');
+		const textarea = getNode('#modal-review-content__textarea');
+		
+
+		placeholderText.addEventListener('click', writeReviewContent);
+		
+		function writeReviewContent() {
+			placeholderText.remove();
+			textarea.focus();
+		}
+		
+		const reviewTitle = getNode('#modal-review-title__input');
+		const submitButton = getNode('modal-review-button--submit');
+		
+		reviewTitle.addEventListener('click',activateSubmitButton);
+		
+		function activateSubmitButton(e) {
+			let target = e.target;
+
+			toggleClass(target, 'active');
+			console.log('야호')
+		}
 	}
 }
+
 

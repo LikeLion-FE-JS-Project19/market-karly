@@ -345,7 +345,7 @@ button{
 
 .count-char{
   position: absolute;
-  right: 6px;
+  right: 10px;
   bottom: 7px;
   font-size: var(--text-xs);
   line-height: 19.2px;
@@ -353,20 +353,29 @@ button{
 }
 
 .modal-review-button-group{
-  margin: 20px 172px 0px;
+  margin: 20px auto 0px;
 }
 
 .modal-review-button{
   width: 186px;
   height: 54px;
   border-radius: 4px;
+}
+
+.modal-review-button--cancel{
   border: 1px solid var(--gray-200);
   color: var(--content)
 }
 
 .modal-review-button--submit{
-  border: 0;
+  margin-left: 12px;
   background-color: var(--gray-100);
   color: var(--white)
 }
+
+.modal-review-button--submit .active button{
+  background-color: var(--primary);
+  color: var(--white);
+}
+
 /* EOL 상품 후기 작성 모달 */
