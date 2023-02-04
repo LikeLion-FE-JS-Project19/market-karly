@@ -41,3 +41,17 @@ export function onClickAddCartHandler(e){
   e.preventDefault();
 	console.log('장바구니 담기 완료~')
 }
+
+export function closeReviewModalButton() {
+	const closeTopButton = document.querySelector('.modal-review__close-button');
+	const closeBottomButton = document.querySelector('.modal-review-button--cancel');
+	const reviewModal = document.querySelector('.modal-review-background');
+
+	closeBottomButton.addEventListener('click',closeReviewModal);
+	closeTopButton.addEventListener('click',closeReviewModal);
+
+	function closeReviewModal() {
+		const modal = reviewModal;
+		modal.remove()
+	}
+}
