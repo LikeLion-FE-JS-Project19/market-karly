@@ -58,8 +58,8 @@ export let swiper = new Swiper('.mySwiper', {
 });
 
 export function allSelector(){
-  const totalSelector = document.querySelector('.all-check-box, .all-check-box active')
-  const singleSelector = document.querySelectorAll('.single-check-box', '.single-check-box active')
+  const totalSelector = document.querySelector('.all-check-box, .all-check-box.active')
+  const singleSelector = document.querySelectorAll('.single-check-box', '.single-check-box.active')
 
   totalSelector.addEventListener('click',act)
 
@@ -73,7 +73,7 @@ export function allSelector(){
     } else {
       for (let index = 0; index < singleSelector.length; index++) {
         const element = singleSelector[index];
-        element.className = 'single-check-box  active'
+        element.className = 'single-check-box active'
       }
       totalSelector.className = 'all-check-box active'
       }
@@ -137,6 +137,28 @@ export function deleteList(){
   function isDelete (){
     return list.style.display = 'none'
   }
+}
+
+export function selectDelete(){
+  const deleteButton = document.querySelector('.selector-delete')
+  const activeCheck = document.querySelectorAll('.single-check-box.active')
+  const groupList = document.querySelectorAll('.group-list')
+  
+  deleteButton.addEventListener('click',test1)
+
+  function test1(){
+  activeCheck.forEach(function(item, index){
+  
+    if(activeCheck[index].className === 'single-check-box active'){
+      // console.log(activeCheck[index].className);
+
+    console.log(groupList[index]);
+    groupList[index].remove()
+    }
+
+  })
+  }
+
 }
 
 export function productOrder(){
