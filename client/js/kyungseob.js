@@ -168,34 +168,15 @@ export function totalPrice(){
   expectedPrice.insertAdjacentHTML("beforeend", calculation().toLocaleString())
 }
 
-/* export function allPricesToLocaleString(){
+export function allPricesToLocaleString(){
   const allPrice = document.querySelectorAll('.prices')
-
+  
   allPrice.forEach(function(item, index){
 
-  item.insertAdjacentHTML('beforeend', Number(item.textContent).toLocaleString())
+  const inputValue = Number(item.textContent).toLocaleString()
 
-
-
-  function comma(num){
-    var len, point, str;  
-       
-    num = num + "";  
-    point = num.length % 3 ;
-    len = num.length;  
-   
-    str = num.substring(0, point);  
-    while (point < len) {  
-        if (str != "") str += ",";  
-        str += num.substring(point, point + 3);  
-        point += 3;  
-    }  
-     
-    return str;
- 
-}
-
-
+  item.textContent = ''
+  item.insertAdjacentHTML('beforeend',inputValue)
 
   })
-} */
+}

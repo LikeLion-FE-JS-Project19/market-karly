@@ -1,4 +1,4 @@
-import { allSelector, coldListAct, deleteList, frozenListAct, productOrder, temperatureListAct, totalPrice} from "./kyungseob.js";
+import { allPricesToLocaleString, allSelector, coldListAct, deleteList, frozenListAct, productOrder, temperatureListAct, totalPrice} from "./kyungseob.js";
 
 coldListAct()
 frozenListAct()
@@ -7,6 +7,9 @@ deleteList()
 allSelector()
 productOrder()
 totalPrice()
+allPricesToLocaleString()
+
+
 
 
 
