@@ -80,39 +80,6 @@ export function allSelector(){
     }
   }
 
-
-
-
-
-/* export function allCheckBox(){
-  const allSelector = document.querySelector('.all-check-box--true, .all-check-box--false');
-  
-  allSelector.addEventListener('click', changeCheck) 
-
-function changeCheck (){
-  if(allSelector.className === 'all-check-box--false') {
-   return allSelector.className = 'all-check-box--true'
-  } else {
-   return allSelector.className = 'all-check-box--false'
-  }
- }
-} */
-
-/* export function allCheckBox(){
-  const allSelector = document.querySelector('.all-check-box--true, .all-check-box--false');
-  
-  allSelector.addEventListener('click', changeCheck) 
-
-function changeCheck (){
-  if(allSelector.className === 'all-check-box--false') {
-   return allSelector.className = 'all-check-box--true'
-  } else {
-   return allSelector.className = 'all-check-box--false'
-  }
- }
-}
- */
-
 export function coldListAct(){
   const viewMore = document.querySelector('.vector-1')
   const coldList = document.querySelector('.cart-list__cold--group')
@@ -171,3 +138,64 @@ export function deleteList(){
     return list.style.display = 'none'
   }
 }
+
+export function productOrder(){
+
+  const orderButton = document.querySelector('.summary-bottom__order')
+  const alert = document.querySelector('.alert-order')
+  
+  orderButton.addEventListener('click',order)
+
+  function order(){
+    alert.style.display = 'block'
+    setTimeout(()=> {
+      alert.style.display = 'none'
+    },1500)
+  }
+
+}
+
+export function totalPrice(){
+  const basicPrice = Number(document.querySelector('.product-result__basic--price').textContent)
+  const salePrice = Number(document.querySelector('.product-result__sale--price').textContent)
+  const deliveryPrice = Number(document.querySelector('.product-result__delivery--price').textContent)
+  const expectedPrice = document.querySelector('.product-result__expected--price')
+
+  function calculation(){
+   return basicPrice - salePrice + deliveryPrice
+  }
+
+  expectedPrice.insertAdjacentHTML("beforeend", calculation().toLocaleString())
+}
+
+/* export function allPricesToLocaleString(){
+  const allPrice = document.querySelectorAll('.prices')
+
+  allPrice.forEach(function(item, index){
+
+  item.insertAdjacentHTML('beforeend', Number(item.textContent).toLocaleString())
+
+
+
+  function comma(num){
+    var len, point, str;  
+       
+    num = num + "";  
+    point = num.length % 3 ;
+    len = num.length;  
+   
+    str = num.substring(0, point);  
+    while (point < len) {  
+        if (str != "") str += ",";  
+        str += num.substring(point, point + 3);  
+        point += 3;  
+    }  
+     
+    return str;
+ 
+}
+
+
+
+  })
+} */
