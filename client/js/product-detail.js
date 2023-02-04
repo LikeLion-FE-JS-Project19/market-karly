@@ -1,5 +1,3 @@
+import { openReviewModalButton } from './juhee.js';
 
-import { closeReviewModalButton } from './juhee.js';
-
-
-closeReviewModalButton()
+openReviewModalButton()
