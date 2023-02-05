@@ -190,19 +190,21 @@ export function deleteList() {
 }
 
 export function selectDelete() {
-  const deleteButton = document.querySelector('.selector-delete');
+  const deleteButton = document.querySelectorAll('.selector-delete');
   const activeCheck = document.querySelectorAll('.single-check-box.active');
   const groupList = document.querySelectorAll('.group-list');
 
-  deleteButton.addEventListener('click', deleteAct);
-
-  function deleteAct() {
-    activeCheck.forEach(function (item, index) {
-      if (activeCheck[index].className === 'single-check-box active') {
-        groupList[index].remove();
-      }
-    });
-  }
+  deleteButton.forEach(function (item, index) {
+    deleteButton[index].addEventListener('click', deleteAct);
+    function deleteAct() {
+      activeCheck.forEach(function (item, index) {
+        if (activeCheck[index].className === 'single-check-box active') {
+          groupList[index].remove();
+        }
+      });
+    }
+  });
+  // deleteButton.addEventListener('click', deleteAct);
 }
 
 export function productOrder() {
