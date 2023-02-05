@@ -120,7 +120,7 @@ img[class*='product-swiper-1__img'] {
   all: unset;
   width: 45px;
   height: 45px;
-  background: url(../assets/icons/ic-add-cart.svg) no-repeat;
+  background: url(../assets/main/ic-add-cart.svg) no-repeat;
   background-position: center;
   position: absolute;
   left: 189px;

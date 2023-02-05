@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   width: 100%;
   border-color: var(--secondary);
   display: flex;
@@ -329,4 +330,33 @@
 .add-cart-bubble__comment {
   color: var(--comment);
   font-size: var(--text-xs);
+}
+
+.top-bar {
+  background: var(--primary);
+  color: var(--white);
+  text-align: center;
+  height: 50px;
+}
+
+.top-bar__group {
+  width: 1050px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top-bar__link {
+  display: block;
+  padding: 16px 0;
+}
+
+.top-bar__btn-today-close {
+  background: url(../assets/common/ic-close.svg);
+  border: none;
+  position: absolute;
+  top: 4px;
+  right: 0;
+  width: 42px;
+  height: 42px;
 }

@@ -1,9 +1,8 @@
 
 
-import { closeMainModalButton, closeTopBarButton, swiper } from "./kyungseob.js";
+import { closeMainModalButton, swiper } from "./kyungseob.js";
 
 
-closeTopBarButton()
 closeMainModalButton()
 swiper
 
@@ -29,3 +28,5 @@ addCartButtonList.forEach((el) => {
 })
 
 
+import {getNode, renderFooter} from './jiwon.js';
+renderFooter(getNode('body'));
