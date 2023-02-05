@@ -1,3 +1,3 @@
-import { closeTopBarButton } from "../kyungseob.js";
+import { closeTopBarButton } from '../kyungseob.js';
 
-closeTopBarButton()
+closeTopBarButton();

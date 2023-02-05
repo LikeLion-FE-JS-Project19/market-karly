@@ -57,144 +57,184 @@ export let swiper = new Swiper('.mySwiper', {
   spaceBetween: 10,
 });
 
-export function allSelector(){
-  const totalSelector = document.querySelector('.all-check-box, .all-check-box.active')
-  const singleSelector = document.querySelectorAll('.single-check-box', '.single-check-box.active')
+export function allSelector() {
+  const totalSelector = document.querySelector(
+    '.all-check-box, .all-check-box.active'
+  );
+  const singleSelector = document.querySelectorAll(
+    '.single-check-box',
+    '.single-check-box.active'
+  );
 
-  totalSelector.addEventListener('click',act)
+  totalSelector.addEventListener('click', act);
 
-  function act(){
-    if(totalSelector.className === 'all-check-box active'){
+  function act() {
+    if (totalSelector.className === 'all-check-box active') {
       for (let index = 0; index < singleSelector.length; index++) {
         const element = singleSelector[index];
-        element.className = 'single-check-box'
+        element.className = 'single-check-box';
       }
-      totalSelector.className = 'all-check-box'
+      totalSelector.className = 'all-check-box';
     } else {
       for (let index = 0; index < singleSelector.length; index++) {
         const element = singleSelector[index];
-        element.className = 'single-check-box active'
+        element.className = 'single-check-box active';
       }
-      totalSelector.className = 'all-check-box active'
-      }
+      totalSelector.className = 'all-check-box active';
     }
-  }
-
-export function coldListAct(){
-  const viewMore = document.querySelector('.vector-1')
-  const coldList = document.querySelector('.cart-list__cold--group')
-  
-  viewMore.addEventListener('click',show)
-
-  function show (){
-    if(viewMore.className === 'rotate-deg--bottom'){
-      return viewMore.className = 'rotate-deg--top', coldList.style.display = 'none';
-    } else {
-      return viewMore.className = 'rotate-deg--bottom', coldList.style.display = 'block';
-    }
-    
   }
 }
 
-export function frozenListAct(){
-  const viewMore = document.querySelector('.vector-2')
-  const frozenList = document.querySelector('.cart-list__frozen--group')
-  
-  viewMore.addEventListener('click',show)
+export function coldListAct() {
+  const viewMore = document.querySelector('.vector-1');
+  const coldList = document.querySelector('.cart-list__cold--group');
 
-  function show (){
-    if(viewMore.className === 'rotate-deg--bottom'){
-      return viewMore.className = 'rotate-deg--top', frozenList.style.display = 'none';
+  viewMore.addEventListener('click', show);
+
+  function show() {
+    if (viewMore.className === 'rotate-deg--bottom') {
+      return (
+        (viewMore.className = 'rotate-deg--top'),
+        (coldList.style.display = 'none')
+      );
     } else {
-      return viewMore.className = 'rotate-deg--bottom', frozenList.style.display = 'block';
+      return (
+        (viewMore.className = 'rotate-deg--bottom'),
+        (coldList.style.display = 'block')
+      );
     }
-    
   }
 }
 
-export function temperatureListAct(){
-  const viewMore = document.querySelector('.vector-3')
-  const temperatureList = document.querySelector('.cart-list__temperature--group')
-  
-  viewMore.addEventListener('click',show)
+export function frozenListAct() {
+  const viewMore = document.querySelector('.vector-2');
+  const frozenList = document.querySelector('.cart-list__frozen--group');
 
-  function show (){
-    if(viewMore.className === 'rotate-deg--bottom'){
-      return viewMore.className = 'rotate-deg--top', temperatureList.style.display = 'none';
+  viewMore.addEventListener('click', show);
+
+  function show() {
+    if (viewMore.className === 'rotate-deg--bottom') {
+      return (
+        (viewMore.className = 'rotate-deg--top'),
+        (frozenList.style.display = 'none')
+      );
     } else {
-      return viewMore.className = 'rotate-deg--bottom', temperatureList.style.display = 'block';
+      return (
+        (viewMore.className = 'rotate-deg--bottom'),
+        (frozenList.style.display = 'block')
+      );
     }
-    
   }
 }
 
-export function deleteList(){
-  const deleteButton = document.querySelectorAll('.group-list__close')
-  
-  deleteButton.forEach(function(target){
-    target.addEventListener('click', deleteAct)
-    function deleteAct(event){
-      target.closest('li').remove()    
+export function temperatureListAct() {
+  const viewMore = document.querySelector('.vector-3');
+  const temperatureList = document.querySelector(
+    '.cart-list__temperature--group'
+  );
+
+  viewMore.addEventListener('click', show);
+
+  function show() {
+    if (viewMore.className === 'rotate-deg--bottom') {
+      return (
+        (viewMore.className = 'rotate-deg--top'),
+        (temperatureList.style.display = 'none')
+      );
+    } else {
+      return (
+        (viewMore.className = 'rotate-deg--bottom'),
+        (temperatureList.style.display = 'block')
+      );
+    }
+  }
+}
+
+export function deleteList() {
+  const deleteButton = document.querySelectorAll('.group-list__close');
+
+  deleteButton.forEach(function (target) {
+    target.addEventListener('click', deleteAct);
+    function deleteAct(event) {
+      target.closest('li').remove();
     }
   });
 }
 
-export function selectDelete(){
-  const deleteButton = document.querySelector('.selector-delete')
-  const activeCheck = document.querySelectorAll('.single-check-box.active')
-  const groupList = document.querySelectorAll('.group-list')
-  
-  deleteButton.addEventListener('click',deleteAct)
+export function selectDelete() {
+  const deleteButton = document.querySelector('.selector-delete');
+  const activeCheck = document.querySelectorAll('.single-check-box.active');
+  const groupList = document.querySelectorAll('.group-list');
 
-  function deleteAct(){
-  activeCheck.forEach(function(item, index){
-  
-    if(activeCheck[index].className === 'single-check-box active'){
-      console.log(deleteButton.closest('body'));
-    groupList[index].remove()
+  deleteButton.addEventListener('click', deleteAct);
+
+  function deleteAct() {
+    activeCheck.forEach(function (item, index) {
+      if (activeCheck[index].className === 'single-check-box active') {
+        groupList[index].remove();
+      }
+    });
+  }
+}
+
+export function productOrder() {
+  const orderButton = document.querySelector('.summary-bottom__order');
+  const alert = document.querySelector('.alert-order');
+
+  orderButton.addEventListener('click', order);
+
+  function order() {
+    alert.style.display = 'block';
+    setTimeout(() => {
+      alert.style.display = 'none';
+    }, 1500);
+  }
+}
+
+export function totalPrice() {
+  const basicPrice = Number(
+    document.querySelector('.product-result__basic--price').textContent
+  );
+  const salePrice = Number(
+    document.querySelector('.product-result__sale--price').textContent
+  );
+  const deliveryPrice = Number(
+    document.querySelector('.product-result__delivery--price').textContent
+  );
+  const expectedPrice = document.querySelector(
+    '.product-result__expected--price'
+  );
+
+  function calculation() {
+    return basicPrice - salePrice + deliveryPrice;
+  }
+
+  expectedPrice.insertAdjacentHTML('beforeend', calculation().toLocaleString());
+}
+
+export function allPricesToLocaleString() {
+  const allPrice = document.querySelectorAll('.prices');
+
+  allPrice.forEach(function (item, index) {
+    const inputValue = Number(item.textContent).toLocaleString();
+
+    item.textContent = '';
+    item.insertAdjacentHTML('beforeend', inputValue);
+  });
+}
+
+export function eachSelect() {
+  const activeCheck = document.querySelectorAll('.single-check-box');
+
+  activeCheck.forEach(function (item, index) {
+    activeCheck[index].addEventListener('click', test1);
+
+    function test1() {
+      if (activeCheck[index].className === 'single-check-box') {
+        activeCheck[index].className = 'single-check-box active';
+      } else activeCheck[index].className = 'single-check-box';
     }
-  })
-  }
-}
+  });
 
-export function productOrder(){
-
-  const orderButton = document.querySelector('.summary-bottom__order')
-  const alert = document.querySelector('.alert-order')
-  
-  orderButton.addEventListener('click',order)
-
-  function order(){
-    alert.style.display = 'block'
-    setTimeout(()=> {
-      alert.style.display = 'none'
-    },1500)
-  }
-
-}
-
-export function totalPrice(){
-  const basicPrice = Number(document.querySelector('.product-result__basic--price').textContent)
-  const salePrice = Number(document.querySelector('.product-result__sale--price').textContent)
-  const deliveryPrice = Number(document.querySelector('.product-result__delivery--price').textContent)
-  const expectedPrice = document.querySelector('.product-result__expected--price')
-
-  function calculation(){
-   return basicPrice - salePrice + deliveryPrice
-  }
-
-  expectedPrice.insertAdjacentHTML("beforeend", calculation().toLocaleString())
-}
-
-export function allPricesToLocaleString(){
-  const allPrice = document.querySelectorAll('.prices')
-  
-  allPrice.forEach(function(item, index){
-
-  const inputValue = Number(item.textContent).toLocaleString()
-
-  item.textContent = ''
-  item.insertAdjacentHTML('beforeend',inputValue)
-
-  })
+  // console.log(activeCheck);
 }
