@@ -1,4 +1,4 @@
-import { insertAfter, insertBefore } from '../lib/dom/insert.js';
+import { insertLast, insertBefore } from '../lib/dom/insert.js';
 import { getNode } from '../lib/dom/getNode.js';
 import { addClass, removeClass, toggleClass } from '../lib/dom/css.js';
 
@@ -46,14 +46,14 @@ export function onClickAddCartHandler(e){
 	console.log('장바구니 담기 완료~')
 }
 
+const openReviewModalButton = getNode('.review-write-button');
+const announcementTitleList = getNodes('.announcement-title');
 
+export function openReviewModal() {
 
-export function openReviewModalButton() {
-	const openReviewModalButton = getNode('.review-write-button');
+	openReviewModalButton.addEventListener('click',openReviewModalHandler)
 
-	openReviewModalButton.addEventListener('click',openReviewModal)
-
-	function openReviewModal() {
+	function openReviewModalHandler() {
 		let template = `
 		<div class="modal-review-background">
 					<section class="modal-review">
@@ -93,7 +93,7 @@ export function openReviewModalButton() {
 								</div>
 								<span class="count-char">0/5000</span>
 							</div>
-						</form>
+							</form>
 						<div class="modal-review-button-group">
 							<button class="modal-review-button modal-review-button--cancel">취소</button>
 							<button class="modal-review-button modal-review-button--submit" type="submit">등록</button>
@@ -101,71 +101,72 @@ export function openReviewModalButton() {
 					</section>
 				</div>
 				`;
-		insertBefore('.review', template);
 
+		insertBefore('.review', template);
+		
+		const reviewModal = getNode('.modal-review-background');
 		const closeTopButton = getNode('.modal-review__close-button');
 		const closeBottomButton = getNode('.modal-review-button--cancel');
-		const reviewModal = getNode('.modal-review-background');
-	
-		closeBottomButton.addEventListener('click',closeReviewModal);
-		closeTopButton.addEventListener('click',closeReviewModal);
-	
-		function closeReviewModal() {
-			const modal = reviewModal;
-			modal.remove()
+		const reviewTitle = getNode('#modal-review-title__input');
+		const placeholderText = getNode('.modal-review-content__placeholder');
+		const reviewContent = getNode('#modal-review-content__textarea');
+		const submitButton = getNode('.modal-review-button--submit');
+		const countChar = getNode('.count-char');
+		
+		closeBottomButton.addEventListener('click',closeModalButtonHandler);
+		closeTopButton.addEventListener('click',closeModalButtonHandler);
+		reviewTitle.addEventListener('input', activateSubmitButton);
+		reviewContent.addEventListener('input', activateSubmitButton);
+		reviewContent.addEventListener('input',onKeyUpTextarea)
+		placeholderText.addEventListener('click', writeReviewContent);
+		submitButton.addEventListener('click',submitNewReview)
+		
+		function closeModalButtonHandler() {
+			closeReviewModal(reviewModal)
 		}
 
-
-		const placeholderText = getNode('.modal-review-content__placeholder');
-		const textarea = getNode('#modal-review-content__textarea');
-		
-
-		placeholderText.addEventListener('click', writeReviewContent);
-		
 		function writeReviewContent() {
 			placeholderText.remove();
-			textarea.focus();
+			reviewContent.focus();
 		}
 		
-		const reviewTitle = getNode('#modal-review-title__input');
-		const submitButton = getNode('.modal-review-button--submit');
-		
-		reviewTitle.addEventListener('input', activateSubmitButton);
-		textarea.addEventListener('input', activateSubmitButton);
-		
-		
 		function activateSubmitButton() {
-			if (reviewTitle.value && textarea.value){
+			if (reviewTitle.value && reviewContent.value){
 				addClass(submitButton, 'active');
 			}
 			else{
-				removeClass (submitButton, 'active');
+				removeClass(submitButton, 'active');
 			}
 		}
-
-		const countChar = getNode('.count-char');
-		
-		textarea.addEventListener('input',onKeyUpTextarea)
 		
 		function onKeyUpTextarea() {
-			countCharNum(textarea,5000,countChar);
+			countCharNum(reviewContent,5000,countChar);
 		}
-
-
-		function countCharNum(text, length, countArea) {
-			let limit= length;
-			let str = text.value.length;
-			if (str > limit) {
-				console.log('5000자 이상 입력했습니다!');
-				text.value = text.value.substring(0,limit);
-				text.focus();
-			}
-			countArea.innerHTML = str + "/" + limit;
+		
+		function submitNewReview() {
+			const date = getDate()
+			
+			let reviewTemplate = `
+			<li class="reivew-id">
+			<div class="review-content">
+			<div class="review-writer-info">
+			<span class="tag-best">베스트</span>
+			<span class="tag-membership tag-membership__purple">퍼플</span>
+			<span class="name">윤*한</span>
+			</div>
+			<div class="review-text-container">
+			<p class="review-product-name">[풀무원] 탱탱쫄면 (4개입)</p>
+			<p class="review-text-field">${reviewContent.value}</p>
+			<p class="review-date">${date}</p>
+			</div>
+			</div>
+			</li>
+			`
+			insertLast('.review-container',reviewTemplate);
+			closeReviewModal(reviewModal);
 		}
 	}
 }
-
-const announcementTitleList = getNodes('.announcement-title');
 
 announcementTitleList.forEach((el) => {
 	el.addEventListener('click',openAnnouncement)
@@ -176,7 +177,30 @@ export function openAnnouncement(e) {
 	const parentTarget = target.parentElement;
 	const grandTarget = parentTarget.parentElement;
 	const openTarget = grandTarget.children[1]
-
+	
 	toggleClass(openTarget, 'hidden')
 }
 
+function closeReviewModal(node) {
+	node.remove()
+}
+
+function countCharNum(text, length, countArea) {
+	let limit= length;
+	let str = text.value.length;
+	if (str > limit) {
+		console.log('5000자 이상 입력했습니다!');
+		text.value = text.value.substring(0,limit);
+		text.focus();
+	}
+	countArea.innerHTML = str + "/" + limit;
+}
+
+function getDate(){
+	const today = new Date();
+	const year = today.getFullYear();
+	const month = ('0' + (today.getMonth() + 1)).slice(-2);
+	const day = ('0' + today.getDate()).slice(-2);
+	const dateString = year + '-' + month  + '-' + day;
+	return dateString;
+}
