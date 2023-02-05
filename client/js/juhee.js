@@ -1,6 +1,6 @@
-import { insertBefore } from '../lib/dom/insert.js';
+import { insertAfter, insertBefore } from '../lib/dom/insert.js';
 import { getNode } from '../lib/dom/getNode.js';
-import { addClass, removeClass } from '../lib/dom/css.js';
+import { addClass, removeClass, toggleClass } from '../lib/dom/css.js';
 
 export function swiper2() {
   const swiper = new Swiper('.swiper-2', {
@@ -165,4 +165,18 @@ export function openReviewModalButton() {
 	}
 }
 
+const announcementTitleList = getNodes('.announcement-title');
+
+announcementTitleList.forEach((el) => {
+	el.addEventListener('click',openAnnouncement)
+})
+
+export function openAnnouncement(e) {
+	const target = e.target;
+	const parentTarget = target.parentElement;
+	const grandTarget = parentTarget.parentElement;
+	const openTarget = grandTarget.children[1]
+
+	toggleClass(openTarget, 'hidden')
+}
 

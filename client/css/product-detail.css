@@ -124,6 +124,10 @@ button{
   line-height: 18px;
 }
 
+.announcement-content.hidden {
+  display: none;
+}
+
 .review-content{
   padding: 20px;
   display: flex;
