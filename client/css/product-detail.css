@@ -373,7 +373,7 @@ button{
   color: var(--white)
 }
 
-.modal-review-button--submit .active button{
+.modal-review-button--submit.active {
   background-color: var(--primary);
   color: var(--white);
 }

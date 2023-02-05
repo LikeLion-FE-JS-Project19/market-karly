@@ -1,6 +1,6 @@
 import { insertBefore } from '../lib/dom/insert.js';
 import { getNode } from '../lib/dom/getNode.js';
-import { toggleClass } from '../lib/dom/css.js';
+import { toggleClass, addClass, removeClass } from '../lib/dom/css.js';
 
 export function swiper2() {
   const swiper = new Swiper('.swiper-2', {
@@ -103,7 +103,6 @@ export function openReviewModalButton() {
 				`;
 		insertBefore('.review', template);
 
-
 		const closeTopButton = getNode('.modal-review__close-button');
 		const closeBottomButton = getNode('.modal-review-button--cancel');
 		const reviewModal = getNode('.modal-review-background');
@@ -129,15 +128,19 @@ export function openReviewModalButton() {
 		}
 		
 		const reviewTitle = getNode('#modal-review-title__input');
-		const submitButton = getNode('modal-review-button--submit');
+		const submitButton = getNode('.modal-review-button--submit');
 		
-		reviewTitle.addEventListener('click',activateSubmitButton);
+		reviewTitle.addEventListener('input', activateSubmitButton);
+		textarea.addEventListener('input', activateSubmitButton);
 		
-		function activateSubmitButton(e) {
-			let target = e.target;
-
-			toggleClass(target, 'active');
-			console.log('야호')
+		
+		function activateSubmitButton() {
+			if (reviewTitle.value && textarea.value){
+				addClass(submitButton, 'active');
+			}
+			else{
+				removeClass (submitButton, 'active');
+			}
 		}
 	}
 }
