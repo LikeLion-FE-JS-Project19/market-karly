@@ -1,6 +1,6 @@
 import { insertBefore } from '../lib/dom/insert.js';
 import { getNode } from '../lib/dom/getNode.js';
-import { toggleClass, addClass, removeClass } from '../lib/dom/css.js';
+import { addClass, removeClass } from '../lib/dom/css.js';
 
 export function swiper2() {
   const swiper = new Swiper('.swiper-2', {
@@ -141,6 +141,26 @@ export function openReviewModalButton() {
 			else{
 				removeClass (submitButton, 'active');
 			}
+		}
+
+		const countChar = getNode('.count-char');
+		
+		textarea.addEventListener('input',onKeyUpTextarea)
+		
+		function onKeyUpTextarea() {
+			countCharNum(textarea,5000,countChar);
+		}
+
+
+		function countCharNum(text, length, countArea) {
+			let limit= length;
+			let str = text.value.length;
+			if (str > limit) {
+				console.log('5000자 이상 입력했습니다!');
+				text.value = text.value.substring(0,limit);
+				text.focus();
+			}
+			countArea.innerHTML = str + "/" + limit;
 		}
 	}
 }
