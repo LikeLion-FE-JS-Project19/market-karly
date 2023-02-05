@@ -58,7 +58,35 @@ export let swiper = new Swiper('.mySwiper', {
 });
 
 export function allSelector() {
-  const totalSelector = document.querySelector(
+  const totalSelector = document.querySelectorAll(
+    '.all-check-box, .all-check-box.active'
+  );
+  const singleSelector = document.querySelectorAll(
+    '.single-check-box',
+    '.single-check-box.active'
+  );
+
+  totalSelector.forEach(function (item, index) {
+    totalSelector[index].addEventListener('click', test1);
+
+    function test1() {
+      if (totalSelector[index].className === 'all-check-box active') {
+        totalSelector[0].className = 'all-check-box';
+        totalSelector[1].className = 'all-check-box';
+        singleSelector.forEach(function (item) {
+          item.className = 'single-check-box';
+        });
+      } else {
+        totalSelector[0].className = 'all-check-box active';
+        totalSelector[1].className = 'all-check-box active';
+        singleSelector.forEach(function (item, index) {
+          item.className = 'single-check-box active';
+        });
+      }
+    }
+  });
+
+  /*   const totalSelector = document.querySelector(
     '.all-check-box, .all-check-box.active'
   );
   const singleSelector = document.querySelectorAll(
@@ -82,7 +110,7 @@ export function allSelector() {
       }
       totalSelector.className = 'all-check-box active';
     }
-  }
+  } */
 }
 
 export function coldListAct() {
@@ -227,9 +255,9 @@ export function eachSelect() {
   const activeCheck = document.querySelectorAll('.single-check-box');
 
   activeCheck.forEach(function (item, index) {
-    activeCheck[index].addEventListener('click', test1);
+    activeCheck[index].addEventListener('click', select);
 
-    function test1() {
+    function select() {
       if (activeCheck[index].className === 'single-check-box') {
         activeCheck[index].className = 'single-check-box active';
       } else activeCheck[index].className = 'single-check-box';
