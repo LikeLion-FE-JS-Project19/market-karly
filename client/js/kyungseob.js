@@ -85,32 +85,6 @@ export function allSelector() {
       }
     }
   });
-
-  /*   const totalSelector = document.querySelector(
-    '.all-check-box, .all-check-box.active'
-  );
-  const singleSelector = document.querySelectorAll(
-    '.single-check-box',
-    '.single-check-box.active'
-  );
-
-  totalSelector.addEventListener('click', act);
-
-  function act() {
-    if (totalSelector.className === 'all-check-box active') {
-      for (let index = 0; index < singleSelector.length; index++) {
-        const element = singleSelector[index];
-        element.className = 'single-check-box';
-      }
-      totalSelector.className = 'all-check-box';
-    } else {
-      for (let index = 0; index < singleSelector.length; index++) {
-        const element = singleSelector[index];
-        element.className = 'single-check-box active';
-      }
-      totalSelector.className = 'all-check-box active';
-    }
-  } */
 }
 
 export function coldListAct() {
