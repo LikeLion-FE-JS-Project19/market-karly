@@ -188,7 +188,7 @@ export function bubbleAddCartHandler() {
   }, 5000);
 }
 
-export function getProductDetailData(products) {
+export function setProductDetailData(products) {
   const URLSearch = new URLSearchParams(location.search);
   const id = URLSearch.get('id');
 
@@ -197,6 +197,11 @@ export function getProductDetailData(products) {
   const description = product[0].description;
   const price = product[0].price.toLocaleString('ko-KR');
   const image = product[0].image;
+
+  document.title = title + ' - 마켓칼리';
+  getNode('meta[name="description"]').content =
+    title +
+    ' :: Love Food, Love Life. 마켓칼리! 당일 수확 채소, 과일, 맛집 음식까지 내일 아침 문 앞에서 만나요!';
 
   attr('.add-cart-bubble__img', 'src', `./assets/product/${image.thumbnail}`);
   attr('.add-cart-bubble__img', 'alt', `${image.alt}`);
