@@ -248,7 +248,7 @@
       "salePrice": 3375,
       "image": {
         "thumbnail": "./assets/product/bacon/thumbnail.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "칼리 한돈 삼겹 베이컨"
@@ -267,7 +267,7 @@
       "salePrice": 10990,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1608801577622l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "유명산지 설향딸기 500g"
@@ -286,7 +286,7 @@
       "salePrice": 18990,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/165304027922l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "양념 소불고기 1kg (냉장)"
@@ -305,7 +305,7 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1648206780555l0.jpeg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "짬뽕 2인분 (맵기선택)"
@@ -324,7 +324,7 @@
       "salePrice": 13175,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/165303917855l0.jpeg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "호주산 목초육 치마살"
@@ -343,7 +343,7 @@
       "salePrice": 8910,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1653034267999l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "크림치즈 8종"
@@ -362,12 +362,12 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1653035941542l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "그래놀라 5종"
       },
-      "stock":7,
+      "stock": 7,
       "category": "간식ㆍ과자ㆍ떡",
       "kalryOnly": "true",
       "brand": "그래놀라 하우스"
@@ -381,7 +381,7 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1563948119225l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "네스프레소 호환 캡슐 11종"
@@ -400,7 +400,7 @@
       "salePrice": 9900,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1655468290167l0.jpeg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "콤팩트 초극세모"
@@ -419,7 +419,7 @@
       "salePrice": 19900,
       "image": {
         "thumbnail": "https://product-image.kurly.com/cdn-cgi/image/quality=85,width=676/product/image/b8c4673a-8e39-4dfc-9e3c-d2fd013e8cfa.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "온 가족이 즐기는 큼직한 바베큐 폭립"
@@ -438,7 +438,7 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1655775819130l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": " 오늘의 샐러드"
