@@ -9,9 +9,9 @@
       "salePrice": 5244,
       "image": {
         "thumbnail": "ubuho/thumbnail.jpg",
-        "view": "ubuho/detail_view.jpg",
-        "banner": "ubuho/detail_banner.jpg",
-        "info": "ubuho/detail_info.jpg",
+        "view": "ubuho/detail-view.jpg",
+        "banner": "ubuho/detail-banner.jpg",
+        "info": "ubuho/detail-info.jpg",
         "alt": "유부호 만두"
       },
       "stock": 3
@@ -25,9 +25,9 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "tangtang/thumbnail.jpg",
-        "view": "tangtang/detail_view.jpg",
-        "banner": "tangtang/detail_banner.jpg",
-        "info": "tangtang/detail_info.jpg",
+        "view": "tangtang/detail-view.jpg",
+        "banner": "tangtang/detail-banner.jpg",
+        "info": "tangtang/detail-info.jpg",
         "alt": "풀무원 탱탱쫄면"
       },
       "stock": 10
@@ -41,9 +41,9 @@
       "salePrice": 6800,
       "image": {
         "thumbnail": "jukkumi/thumbnail.jpg",
-        "view": "jukkumi/detail_view.jpg",
-        "banner": "jukkumi/detail_banner.jpg",
-        "info": "jukkumi/detail_info.jpg",
+        "view": "jukkumi/detail-view.jpg",
+        "banner": "jukkumi/detail-banner.jpg",
+        "info": "jukkumi/detail-info.jpg",
         "alt": "홍대 주꾸미"
       },
       "stock": 8
@@ -57,9 +57,9 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "kangnam/thumbnail.jpg",
-        "view": "kangnam/detail_view.jpg",
-        "banner": "kangnam/detail_banner.jpg",
-        "info": "kangnam/detail_info.jpg",
+        "view": "kangnam/detail-view.jpg",
+        "banner": "kangnam/detail-banner.jpg",
+        "info": "kangnam/detail-info.jpg",
         "alt": "강남면옥 소갈비찜"
       },
       "stock": 2
@@ -73,9 +73,9 @@
       "salePrice": 3375,
       "image": {
         "thumbnail": "bacon/thumbnail.jpg",
-        "view": "bacon/detail_view.jpg",
-        "banner": "bacon/detail_banner.jpg",
-        "info": "bacon/detail_info.jpg",
+        "view": "bacon/detail-view.jpg",
+        "banner": "bacon/detail-banner.jpg",
+        "info": "bacon/detail-info.jpg",
         "alt": "칼리 한돈 삼겹 베이컨"
       },
       "stock": 13
