@@ -3,13 +3,15 @@ import {
   toggleTabMenuHandler,
   moveToClickedTabMenu,
   moveTabByKey,
-  getProductDetailData,
+  setProductDetailData,
 } from './seeun.js';
 import { xhrData } from '../lib/utils/xhr.js';
 
 xhrData.get(
   'http://localhost:3001/products',
-  (message) => getProductDetailData(message),
+  (products) => {
+    setProductDetailData(products);
+  },
   (message) => console.log(message)
 );
 

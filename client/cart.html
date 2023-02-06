@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="장바구니 :: Love Food, Love Life. 마켓칼리! 당일 수확 채소, 과일, 맛집 음식까지 내일 아침 문 앞에서 만나요!"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
@@ -25,7 +29,7 @@
     <script src="./js/kyungseob.js" type="module"></script>
     <script src="./js/jiwon.js" type="module"></script>
 
-    <title>Market Karly</title>
+    <title>장바구니 - 마켓칼리</title>
   </head>
 
   <body>
@@ -44,50 +48,111 @@
             <img src="./assets/header/logo-kurly.svg" alt="마켓칼리" />
           </h1>
           <ul class="header-container header-container__karly">
-            <li class="header-container__karly__focus"><a href="/">마켓칼리</a></li>
+            <li class="header-container__karly__focus">
+              <a href="/">마켓칼리</a>
+            </li>
             <li class="beautiKarly">
-              <span class="divider divider__karly" aria-hidden="true">|</span><a href="/">뷰티칼리</a>
-              <img src="./assets/header/ic-new-tag.svg" alt="신상" class="new" />
+              <span class="divider divider__karly" aria-hidden="true">|</span
+              ><a href="/">뷰티칼리</a>
+              <img
+                src="./assets/header/ic-new-tag.svg"
+                alt="신상"
+                class="new"
+              />
             </li>
           </ul>
         </div>
         <form class="searchForm">
-          <input type="text" class="searchBar" placeholder="검색어를 입력해주세요" />
-          <button type="submit" class="searchButton"><img src="./assets/header/ic-search.svg" alt="검색" /></button>
+          <input
+            type="text"
+            class="searchBar"
+            placeholder="검색어를 입력해주세요"
+          />
+          <button type="submit" class="searchButton">
+            <img src="./assets/header/ic-search.svg" alt="검색" />
+          </button>
         </form>
         <ul class="header-container header-container__account-menu">
-          <li><a href=""><img src="./assets/header/ic-location.svg" alt="배송지" /></a></li>
-          <li><a href=""><img src="./assets/header/ic-heart.svg" alt="찜목록" /></a></li>
-          <li><a href=""><img src="./assets/header/ic-cart.svg" alt="장바구니" /></a></li>
+          <li>
+            <a href=""
+              ><img src="./assets/header/ic-location.svg" alt="배송지"
+            /></a>
+          </li>
+          <li>
+            <a href=""
+              ><img src="./assets/header/ic-heart.svg" alt="찜목록"
+            /></a>
+          </li>
+          <li>
+            <a href=""
+              ><img src="./assets/header/ic-cart.svg" alt="장바구니"
+            /></a>
+          </li>
         </ul>
       </div>
       <div class="account-container">
         <ul class="account">
           <li><a href="/">회원가입</a></li>
-          <li><span class="divider divider__account" aria-hidden="true">|</span><a href="/">로그인</a></li>
-          <li><span class="divider divider__account" aria-hidden="true">|</span><a href="/">고객센터</a><img
-              src="./assets/header/ic-down.svg" alt="고객센터" class="account__down-arrow" /></li>
+          <li>
+            <span class="divider divider__account" aria-hidden="true">|</span
+            ><a href="/">로그인</a>
+          </li>
+          <li>
+            <span class="divider divider__account" aria-hidden="true">|</span
+            ><a href="/">고객센터</a
+            ><img
+              src="./assets/header/ic-down.svg"
+              alt="고객센터"
+              class="account__down-arrow"
+            />
+          </li>
         </ul>
       </div>
       <div class="header-container header-container--bottom">
         <div class="header-container header-container--bottom-grid">
           <!-- aria-tab 사용하기 -->
-          <div class="header-container__category" role="tab" aria-controls="categoryPanel" id="categoryTab" tabindex="0">
-            <img src="./assets/header/ic-hamburger.svg" alt="카테고리 햄버거" width="16px" height="14px" />
+          <div
+            class="header-container__category"
+            role="tab"
+            aria-controls="categoryPanel"
+            id="categoryTab"
+            tabindex="0"
+          >
+            <img
+              src="./assets/header/ic-hamburger.svg"
+              alt="카테고리 햄버거"
+              width="16px"
+              height="14px"
+            />
             카테고리
-            <ul class="header-container__category-list" id="categoryPanel" role="tabpanel" tabindex="0"
-              aria-labelledby="categoryTab">
+            <ul
+              class="header-container__category-list"
+              id="categoryPanel"
+              role="tabpanel"
+              tabindex="0"
+              aria-labelledby="categoryTab"
+            >
               <!-- 카테고리 데이터 동적 처리 -->
             </ul>
           </div>
           <ul class="header-container header-container__product-menu">
-            <li class="header-container__product-item"><a href="">신상품</a></li>
-            <li class="header-container__product-item"><a href="">베스트</a></li>
-            <li class="header-container__product-item"><a href="">알뜰쇼핑</a></li>
-            <li class="header-container__product-item"><a href="">특가/혜택</a></li>
+            <li class="header-container__product-item">
+              <a href="">신상품</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="">베스트</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="">알뜰쇼핑</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="">특가/혜택</a>
+            </li>
           </ul>
           <div class="header-container--bottom-last">
-            <div class="header-container__delivery-information"><a href=""><span>샛별ㆍ낮</span> 배송안내</a></div>
+            <div class="header-container__delivery-information">
+              <a href=""><span>샛별ㆍ낮</span> 배송안내</a>
+            </div>
           </div>
         </div>
       </div>
@@ -97,16 +162,10 @@
     <main>
       <h2>장바구니</h2>
 
-      <section>
+      <section></section>
 
-      </section>
-      
-      <section>
-
-      </section>
-
+      <section></section>
     </main>
-
 
     <footer class="footer">
       <div class="footer__inner">
@@ -115,11 +174,15 @@
             <h2 class="footer__customer-service-title">고객행복센터</h2>
             <div class="footer__customer-service-info">
               <p class="footer__customer-service-number">1644-1107</p>
-              <p class="footer__customer-service-time">월~토요일 오전 7시 - 오후 6시</p>
+              <p class="footer__customer-service-time">
+                월~토요일 오전 7시 - 오후 6시
+              </p>
             </div>
             <ul class="footer__inquiry-list">
               <li class="footer__inquiry-item">
-                <a class="footer__inquiry-item-button" href="#">카카오톡 문의</a>
+                <a class="footer__inquiry-item-button" href="#"
+                  >카카오톡 문의</a
+                >
                 <div>
                   <p>
                     <span>월~토요일</span>
@@ -140,12 +203,16 @@
                     <span>365일</span>
                   </p>
                   <p>
-                    <span>고객센터 운영시간에 순차적으로 답변드리겠습니다.</span>
+                    <span
+                      >고객센터 운영시간에 순차적으로 답변드리겠습니다.</span
+                    >
                   </p>
                 </div>
               </li>
               <li class="footer__inquiry-item">
-                <a class="footer__inquiry-item-button" href="#">대량주문 문의</a>
+                <a class="footer__inquiry-item-button" href="#"
+                  >대량주문 문의</a
+                >
                 <div>
                   <p>
                     <span>월~금요일</span>
@@ -161,8 +228,18 @@
               </li>
             </ul>
             <div class="footer__mail">
-              <p>비회원 문의 : <a class="primary-color" href="mailto:help@karlycorp.com">help@karlycorp.com</a></p>
-              <p>비회원 대량주문 문의 : <a class="primary-color" href="mailto:help@karlycorp.com">help@karlycorp.com</a></p>
+              <p>
+                비회원 문의 :
+                <a class="primary-color" href="mailto:help@karlycorp.com"
+                  >help@karlycorp.com</a
+                >
+              </p>
+              <p>
+                비회원 대량주문 문의 :
+                <a class="primary-color" href="mailto:help@karlycorp.com"
+                  >help@karlycorp.com</a
+                >
+              </p>
             </div>
           </div>
           <div class="footer__about">
@@ -180,36 +257,75 @@
               <span>사업자등록번호 : 261-81-23567</span>
               <span class="divider" aria-hidden="true">|</span>
               <a class="primary-color" href="#">사업자정보확인</a>
-              <br>
+              <br />
               <span>통신판매업 : 제 2018-서울강남-01646 호</span>
               <span class="divider" aria-hidden="true">|</span>
               <span>개인정보보호책임자 : 이원준</span>
-              <br>
+              <br />
               <span>주소 : 서울특별시 강남구 테헤란로 133, 18층(역삼동)</span>
               <span class="divider" aria-hidden="true">|</span>
               <span>대표이사 : 김슬아</span>
-              <br>
+              <br />
               <span>입점문의 : 입정문의하기</span>
               <span class="divider" aria-hidden="true">|</span>
-              <span>제휴문의 : <a class="primary-color" href="mailto:business@karlycorp.com">business@karlycorp.com</a></span>
-              <br>
-              <span>채용 문의 : <a class="primary-color" href="mailto:recruit@karlycorp.com">recruit@karlycorp.com</a></span>
-              <br>
+              <span
+                >제휴문의 :
+                <a class="primary-color" href="mailto:business@karlycorp.com"
+                  >business@karlycorp.com</a
+                ></span
+              >
+              <br />
+              <span
+                >채용 문의 :
+                <a class="primary-color" href="mailto:recruit@karlycorp.com"
+                  >recruit@karlycorp.com</a
+                ></span
+              >
+              <br />
               <span>팩스 : 070 - 7500 - 6098</span>
             </address>
             <div>
               <ul class="footer__sns-list">
-                <li class="footer__sns-item"><a target="_blank" href="#"><img class="footer__sns-img"
-                      src="./assets/footer/ic-blog.svg" alt="컬리 네이버블로그 바로가기"></a></li>
-                <li class="footer__sns-item"><a target="_blank" href="#"><img class="footer__sns-img"
-                      src="./assets/footer/ic-face-book.svg" alt="컬리 페이스북 바로가기"></a></li>
-                <li class="footer__sns-item"><a target="_blank" href="#"><img class="footer__sns-img"
-                      src="./assets/footer/ic-instagram.svg" alt="컬리 인스타그램 바로가기"></a></li>
-                <li class="footer__sns-item"><a target="_blank" href="#"><img class="footer__sns-img"
-                      src="./assets/footer/ic-naver-post.svg" alt="컬리 네이버포스트 바로가기"></a>
+                <li class="footer__sns-item">
+                  <a target="_blank" href="#"
+                    ><img
+                      class="footer__sns-img"
+                      src="./assets/footer/ic-blog.svg"
+                      alt="컬리 네이버블로그 바로가기"
+                  /></a>
                 </li>
-                <li class="footer__sns-item"><a target="_blank" href="#"><img class="footer__sns-img"
-                      src="./assets/footer/ic-youtube.svg" alt="컬리 유튜브 바로가기"></a></li>
+                <li class="footer__sns-item">
+                  <a target="_blank" href="#"
+                    ><img
+                      class="footer__sns-img"
+                      src="./assets/footer/ic-face-book.svg"
+                      alt="컬리 페이스북 바로가기"
+                  /></a>
+                </li>
+                <li class="footer__sns-item">
+                  <a target="_blank" href="#"
+                    ><img
+                      class="footer__sns-img"
+                      src="./assets/footer/ic-instagram.svg"
+                      alt="컬리 인스타그램 바로가기"
+                  /></a>
+                </li>
+                <li class="footer__sns-item">
+                  <a target="_blank" href="#"
+                    ><img
+                      class="footer__sns-img"
+                      src="./assets/footer/ic-naver-post.svg"
+                      alt="컬리 네이버포스트 바로가기"
+                  /></a>
+                </li>
+                <li class="footer__sns-item">
+                  <a target="_blank" href="#"
+                    ><img
+                      class="footer__sns-img"
+                      src="./assets/footer/ic-youtube.svg"
+                      alt="컬리 유튜브 바로가기"
+                  /></a>
+                </li>
               </ul>
             </div>
           </div>
@@ -218,40 +334,58 @@
           <ul class="footer__certified-list">
             <li>
               <a href="#" target="_blank" class="footer__certified-item">
-                <img class="footer__certified-img" src="./assets/footer/logo-isms.svg" alt="I.S.M.S 로고">
+                <img
+                  class="footer__certified-img"
+                  src="./assets/footer/logo-isms.svg"
+                  alt="I.S.M.S 로고"
+                />
                 <p class="footer__certified-info">
                   [인증범위] 마켓칼리 쇼핑몰 서비스 개발 운영
-                  <br>
+                  <br />
                   (심사받지 않은 물리적 인프라 제외)
-                  <br>
+                  <br />
                   [유효기간] 2022.01.19 ~ 2025.01.18
                 </p>
               </a>
             </li>
             <li>
               <a href="#" target="_blank" class="footer__certified-item">
-                <img class="footer__certified-img" src="./assets/footer/logo-privacy.svg" alt="E.privacy plus 로고">
+                <img
+                  class="footer__certified-img"
+                  src="./assets/footer/logo-privacy.svg"
+                  alt="E.privacy plus 로고"
+                />
                 <p class="footer__certified-info">
-                  개인정보보호 우수 웹사이트<br>
-                  개인정보처리시스템 인증<br>
+                  개인정보보호 우수 웹사이트<br />
+                  개인정보처리시스템 인증<br />
                   (ePRIVACY PLUS)
                 </p>
               </a>
             </li>
             <li>
               <a href="#" target="_blank" class="footer__certified-item">
-                <img class="footer__certified-img" src="./assets/footer/logo-tosspayments.svg" alt="payments 로고">
+                <img
+                  class="footer__certified-img"
+                  src="./assets/footer/logo-tosspayments.svg"
+                  alt="payments 로고"
+                />
                 <p class="footer__certified-info">
-                  토스페이먼츠 구매안전(에스크로) 서비스를 <br>
+                  토스페이먼츠 구매안전(에스크로) 서비스를 <br />
                   이용하실 수 있습니다.
                 </p>
               </a>
             </li>
             <li>
               <a href="#" target="_blank" class="footer__certified-item">
-                <img class="footer__certified-img" src="./assets/footer/logo-woori-bank.svg" alt="우리은행 로고">
+                <img
+                  class="footer__certified-img"
+                  src="./assets/footer/logo-woori-bank.svg"
+                  alt="우리은행 로고"
+                />
                 <p class="footer__certified-info">
-                  고객님이 현금으로 결제한 금액에 대해 우리은행과 <br>채무지급보증 계약을 체결하여 안전거래를 보장하고 <br>있습니다.
+                  고객님이 현금으로 결제한 금액에 대해 우리은행과
+                  <br />채무지급보증 계약을 체결하여 안전거래를 보장하고
+                  <br />있습니다.
                 </p>
               </a>
             </li>
@@ -259,9 +393,16 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <p>마켓컬리에서 판매되는 상품 중에는 마켓컬리에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.</p>
-        <p>마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.</p>
-        <br>
+        <p>
+          마켓컬리에서 판매되는 상품 중에는 마켓컬리에 입점한 개별 판매자가
+          판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.
+        </p>
+        <p>
+          마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서
+          통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불
+          등 의무와 책임을 부담하지 않습니다.
+        </p>
+        <br />
         <p>© KURLY CORP. ALL RIGHTS RESERVED</p>
       </div>
     </footer>
