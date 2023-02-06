@@ -4,57 +4,54 @@ import { addClass, removeClass, toggleClass } from '../lib/dom/css.js';
 
 export function swiper2() {
   const swiper = new Swiper('.swiper-2', {
+    slidesPerView: 4,
+    spaceBetween: 18,
+    slidesPerGroup: 4,
 
-	slidesPerView : 4, 
-	spaceBetween : 18, 
-	slidesPerGroup : 4,
+    loopFillGroupWithBlank: true,
 
-	loopFillGroupWithBlank : true,
-
-	navigation : { 
-		nextEl : '.swiper-button-next', 
-		prevEl : '.swiper-button-prev', 
-	},
-});
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 }
 
 export function swiper3() {
   const swiper = new Swiper('.swiper-3', {
+    slidesPerView: 4,
+    spaceBetween: 18,
+    slidesPerGroup: 4,
 
-	slidesPerView : 4, 
-	spaceBetween : 18, 
-	slidesPerGroup : 4,
+    loopFillGroupWithBlank: true,
 
-	loopFillGroupWithBlank : true,
-
-	navigation : { 
-		nextEl : '.swiper-button-next', 
-		prevEl : '.swiper-button-prev', 
-	},
-});
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 }
 
-export function getNodes(node){
-  if(typeof node !== 'string'){
+export function getNodes(node) {
+  if (typeof node !== 'string') {
     throw new Error('getNode 함수의 인자는 문자 타입 이여야 합니다.');
   }
-  return document.querySelectorAll(node)
+  return document.querySelectorAll(node);
 }
 
-export function onClickAddCartHandler(e){
+export function onClickAddCartHandler(e) {
   e.preventDefault();
-	console.log('장바구니 담기 완료~')
+  console.log('장바구니 담기 완료~');
 }
 
 const openReviewModalButton = getNode('.review-write-button');
 const announcementTitleList = getNodes('.announcement-title');
 
 export function openReviewModal() {
+  openReviewModalButton.addEventListener('click', openReviewModalHandler);
 
-	openReviewModalButton.addEventListener('click',openReviewModalHandler)
-
-	function openReviewModalHandler() {
-		let template = `
+  function openReviewModalHandler() {
+    let template = `
 		<div class="modal-review-background">
 					<section class="modal-review">
 						<div class="modal-review__top">
@@ -102,51 +99,50 @@ export function openReviewModal() {
 				</div>
 				`;
 
-		insertBefore('.review', template);
-		
-		const reviewModal = getNode('.modal-review-background');
-		const closeTopButton = getNode('.modal-review__close-button');
-		const closeBottomButton = getNode('.modal-review-button--cancel');
-		const reviewTitle = getNode('#modal-review-title__input');
-		const placeholderText = getNode('.modal-review-content__placeholder');
-		const reviewContent = getNode('#modal-review-content__textarea');
-		const submitButton = getNode('.modal-review-button--submit');
-		const countChar = getNode('.count-char');
-		
-		closeBottomButton.addEventListener('click',closeModalButtonHandler);
-		closeTopButton.addEventListener('click',closeModalButtonHandler);
-		reviewTitle.addEventListener('input', activateSubmitButton);
-		reviewContent.addEventListener('input', activateSubmitButton);
-		reviewContent.addEventListener('input',onKeyUpTextarea)
-		placeholderText.addEventListener('click', writeReviewContent);
-		submitButton.addEventListener('click',submitNewReview)
-		
-		function closeModalButtonHandler() {
-			closeReviewModal(reviewModal)
-		}
+    insertBefore('.review', template);
 
-		function writeReviewContent() {
-			placeholderText.remove();
-			reviewContent.focus();
-		}
-		
-		function activateSubmitButton() {
-			if (reviewTitle.value && reviewContent.value){
-				addClass(submitButton, 'active');
-			}
-			else{
-				removeClass(submitButton, 'active');
-			}
-		}
-		
-		function onKeyUpTextarea() {
-			countCharNum(reviewContent,5000,countChar);
-		}
-		
-		function submitNewReview() {
-			const date = getDate()
-			
-			let reviewTemplate = `
+    const reviewModal = getNode('.modal-review-background');
+    const closeTopButton = getNode('.modal-review__close-button');
+    const closeBottomButton = getNode('.modal-review-button--cancel');
+    const reviewTitle = getNode('#modal-review-title__input');
+    const placeholderText = getNode('.modal-review-content__placeholder');
+    const reviewContent = getNode('#modal-review-content__textarea');
+    const submitButton = getNode('.modal-review-button--submit');
+    const countChar = getNode('.count-char');
+
+    closeBottomButton.addEventListener('click', closeModalButtonHandler);
+    closeTopButton.addEventListener('click', closeModalButtonHandler);
+    reviewTitle.addEventListener('input', activateSubmitButton);
+    reviewContent.addEventListener('input', activateSubmitButton);
+    reviewContent.addEventListener('input', onKeyUpTextarea);
+    placeholderText.addEventListener('click', writeReviewContent);
+    submitButton.addEventListener('click', submitNewReview);
+
+    function closeModalButtonHandler() {
+      closeReviewModal(reviewModal);
+    }
+
+    function writeReviewContent() {
+      placeholderText.remove();
+      reviewContent.focus();
+    }
+
+    function activateSubmitButton() {
+      if (reviewTitle.value && reviewContent.value) {
+        addClass(submitButton, 'active');
+      } else {
+        removeClass(submitButton, 'active');
+      }
+    }
+
+    function onKeyUpTextarea() {
+      countCharNum(reviewContent, 5000, countChar);
+    }
+
+    function submitNewReview() {
+      const date = getDate();
+
+      let reviewTemplate = `
 			<li class="reivew-id">
 			<div class="review-content">
 			<div class="review-writer-info">
@@ -161,46 +157,46 @@ export function openReviewModal() {
 			</div>
 			</div>
 			</li>
-			`
-			insertLast('.review-container',reviewTemplate);
-			closeReviewModal(reviewModal);
-		}
-	}
+			`;
+      insertLast('.review-container', reviewTemplate);
+      closeReviewModal(reviewModal);
+    }
+  }
 }
 
 announcementTitleList.forEach((el) => {
-	el.addEventListener('click',openAnnouncement)
-})
+  el.addEventListener('click', openAnnouncement);
+});
 
 export function openAnnouncement(e) {
-	const target = e.target;
-	const parentTarget = target.parentElement;
-	const grandTarget = parentTarget.parentElement;
-	const openTarget = grandTarget.children[1]
-	
-	toggleClass(openTarget, 'hidden')
+  const target = e.target;
+  const parentTarget = target.parentElement;
+  const grandTarget = parentTarget.parentElement;
+  const openTarget = grandTarget.children[1];
+
+  toggleClass(openTarget, 'hidden');
 }
 
 function closeReviewModal(node) {
-	node.remove()
+  node.remove();
 }
 
 function countCharNum(text, length, countArea) {
-	let limit= length;
-	let str = text.value.length;
-	if (str > limit) {
-		console.log('5000자 이상 입력했습니다!');
-		text.value = text.value.substring(0,limit);
-		text.focus();
-	}
-	countArea.innerHTML = str + "/" + limit;
+  let limit = length;
+  let str = text.value.length;
+  if (str > limit) {
+    console.log('5000자 이상 입력했습니다!');
+    text.value = text.value.substring(0, limit);
+    text.focus();
+  }
+  countArea.innerHTML = str + '/' + limit;
 }
 
-function getDate(){
-	const today = new Date();
-	const year = today.getFullYear();
-	const month = ('0' + (today.getMonth() + 1)).slice(-2);
-	const day = ('0' + today.getDate()).slice(-2);
-	const dateString = year + '-' + month  + '-' + day;
-	return dateString;
+function getDate() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = ('0' + (today.getMonth() + 1)).slice(-2);
+  const day = ('0' + today.getDate()).slice(-2);
+  const dateString = year + '-' + month + '-' + day;
+  return dateString;
 }
