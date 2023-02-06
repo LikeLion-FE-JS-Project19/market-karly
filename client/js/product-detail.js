@@ -64,3 +64,7 @@ const qnaModalSubmit = document.querySelector('.qna__modal-submit');
 
 qnaModalSubmit.addEventListener('click', qnaModalSubmitHandler);
 renderFooter(getNode('body'));
+
+import { openReviewModal } from './juhee.js';
+
+openReviewModal()

@@ -665,3 +665,383 @@ label[for='qna__modal-form-contents'] {
   background-color: var(--gray-100);
   color: var(--white);
 }
+
+/* 상품 후기 */
+button {
+  all: unset;
+  text-align: center;
+}
+
+.review {
+  width: var(--container-width);
+  margin: 0 auto 72px auto;
+  position: relative;
+}
+
+.review-title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.review-write-button {
+  width: 155px;
+  height: 44px;
+  font-weight: 600;
+  background-color: var(--primary);
+  color: var(--white);
+  border: 0;
+  border-radius: 4px;
+  position: absolute;
+  right: 0;
+}
+
+.review-benefit {
+  margin-top: var(--spacing-lg);
+}
+.review-benefit__content {
+  color: var(--content);
+}
+
+.review-benefit__content {
+  font-size: var(--text-xs);
+  line-height: var(--text-md);
+  color: var(--gray-500);
+}
+
+.review-wrapper {
+  margin-top: 56px;
+}
+
+.review-wrapper__top {
+  margin-bottom: var(--spacing-base);
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-count {
+  font-size: var(--text-xs);
+  line-height: 18px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.sorting {
+  font-size: var(--text-base);
+  font-weight: 600;
+  height: 24px;
+  line-height: 24px;
+  display: flex-box;
+}
+
+.sorting-deactive {
+  color: var(--gray-300);
+}
+
+.sorting-active {
+  color: var(--content);
+}
+
+.sorting__recommend::after {
+  content: '';
+  height: 50%;
+  border-left: 1px solid var(--gray-300);
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.announcement-container {
+  border-top: 1px solid var(--black);
+}
+.announcement-summary {
+  padding: 17px 20px 17px;
+  border-bottom: 1px solid var(--gray-100);
+  color: var(--content);
+}
+
+.tag-announcement {
+  padding: 0 8px 0 8px;
+  height: 18px;
+  line-height: 18px;
+  font-size: var(--text-sm);
+  background-color: var(--gray-100);
+  border-radius: 1px;
+  margin-right: var(--spacing-md);
+}
+
+.announcement-title {
+  font-weight: 600;
+}
+
+.announcement-content,
+.review-text-field {
+  white-space: pre-line;
+  font-size: var(--text-xs);
+}
+
+.announcement-content {
+  background-color: var(--gray-50);
+  border-bottom: 1px solid var(--gray-100);
+  padding: 20px;
+  line-height: 18px;
+}
+
+.announcement-content.hidden {
+  display: none;
+}
+
+.review-content {
+  padding: 20px;
+  display: flex;
+  font-size: var(--text-xs);
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.review-writer-info {
+  flex: 0 0 225px;
+}
+
+.tag-best {
+  padding: 0 8px 0 8px;
+  height: 18px;
+  line-height: 18px;
+  font-size: var(--text-sm);
+  background-color: var(--secondary);
+  color: var(--white);
+  border-radius: 1px;
+  margin-right: var(--spacing-xs);
+}
+
+.tag-membership {
+  padding: 0 8px;
+  height: 18px;
+  line-height: 18px;
+  font-size: var(--text-sm);
+  background-color: var(--white);
+  color: var(--primary);
+  border-radius: 1px;
+  border: 1px solid var(--primary);
+  margin-right: var(--spacing-xs);
+}
+
+.reivew-text-container {
+  flex: 1 1 0%;
+}
+
+.review-text-field {
+  margin: 20px 0;
+}
+
+.review-date,
+.review-product-name {
+  color: var(--gray-400);
+  font-weight: 600;
+}
+
+.review-button-group {
+  margin: 16px auto 0 auto;
+  width: 128px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-page-button__prev,
+.review-page-button__next {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--gray-100);
+  border-radius: 4px;
+}
+
+.review-page-button__prev svg {
+  transform: rotate(180deg);
+  margin: 10px;
+}
+
+.review-page-button__next img {
+  margin: 10px;
+}
+
+/* EOL - 상품 후기 */
+
+/* 상품 후기 작성 모달 */
+
+.modal-review-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+}
+
+.modal-review {
+  position: fixed;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 32px;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: 9999;
+
+  width: 793px;
+  height: 630px;
+  background-color: var(--white);
+  border-radius: 16px;
+}
+
+.modal-review__top {
+  position: relative;
+}
+
+.modal-review__title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: var(--spacing-md);
+}
+
+.modal-review__close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.modal-review__product-info {
+  border-top: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+}
+
+.modal-review__product-info > img {
+  width: 72px;
+  height: 72px;
+
+  margin-right: 24px;
+}
+
+.modal-review__product-info .product-name {
+  font-weight: 600;
+}
+
+.modal-review__form {
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.modal-review-title {
+  margin-top: var(--spacing-base);
+}
+
+.modal-review-content {
+  margin-top: var(--spacing-sm);
+  margin-bottom: 58px;
+  position: relative;
+}
+
+.modal-review-content * {
+  vertical-align: top;
+}
+
+.modal-review-title > label,
+.modal-review-content > label {
+  color: var(--content);
+  font-weight: 600;
+  margin-right: 64px;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+#modal-review-title__input,
+#modal-review-content__textarea {
+  width: 629px;
+  border-radius: 4px;
+  border: 1px solid var(--gray-300);
+  color: var(--content);
+}
+
+#modal-review-title__input {
+  height: 44px;
+  padding-left: var(--spacing-md);
+}
+
+#modal-review-title__input::placeholder {
+  color: var(--gray-400);
+}
+
+#modal-review-content__textarea {
+  padding: 16px;
+  height: 198px;
+  resize: none;
+}
+
+.modal-review-content__placeholder {
+  overflow-y: auto;
+  z-index: 1;
+  padding: 16px 16px 0px 22px;
+  width: 629px;
+  height: 80%;
+  position: absolute;
+  top: 1px;
+  right: 5px;
+  color: var(--gray-400);
+  font-size: var(--text-xs);
+}
+
+.review-notice-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 24px;
+  margin-top: var(--spacing-sm);
+}
+
+.review-notice-list {
+  font-size: var(--text-xs);
+  list-style-type: disc;
+  padding-inline-start: 1rem;
+  margin-top: 4px;
+  line-height: 19.2px;
+}
+
+.warning-message {
+  color: var(--info-error);
+  line-height: 19.2px;
+}
+
+.count-char {
+  position: absolute;
+  right: 10px;
+  bottom: 7px;
+  font-size: var(--text-xs);
+  line-height: 19.2px;
+  color: var(--gray-300);
+}
+
+.modal-review-button-group {
+  margin: 20px auto 0px;
+}
+
+.modal-review-button {
+  width: 186px;
+  height: 54px;
+  border-radius: 4px;
+}
+
+.modal-review-button--cancel {
+  border: 1px solid var(--gray-200);
+  color: var(--content);
+}
+
+.modal-review-button--submit {
+  margin-left: 12px;
+  background-color: var(--gray-100);
+  color: var(--white);
+}
+
+.modal-review-button--submit.active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* EOL 상품 후기 작성 모달 */
