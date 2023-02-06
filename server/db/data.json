@@ -14,7 +14,8 @@
         "info": "ubuho/detail_info.jpg",
         "alt": "유부호 만두"
       },
-      "stock": 3
+      "stock": 3,
+      "qnas": []
     },
     {
       "id": "product-ekfk",
@@ -30,7 +31,61 @@
         "info": "tangtang/detail_info.jpg",
         "alt": "풀무원 탱탱쫄면"
       },
-      "stock": 10
+      "stock": 10,
+      "qnas": [
+        {
+          "id": 1,
+          "type": "public",
+          "title": "팩이 터져서 왔어요",
+          "writer": "홍길동",
+          "contents": "스티로폼 박스도 손상되어 있어 포장이 터져 엉망이네요\n환불 요청합니다.",
+          "questionDatetime": "20230101",
+          "answer": "안녕하세요. 칼리입니다\n믿고 찾아주신 상품에 불편을 드려 정말 죄송합니다.\n\n더불어, 해당 게시판은 실시간으로 상담이 어려워 순차적으로 답변드리고 있는 관계로 신속하게 답변 드리지 못하여 대단히 죄송합니다.\n다행히도 고객님의 불편하셨던 사항은 고객행복센터를 통해 안내 받으신 점 확인하였습니다\n\n불편을 드려 정말 죄송할 따름이며, 고객님께 늘 신선하고 최상의 상품을 불편 없이 전달드리기 위해 최선을 다하는 칼리가 되겠습니다.\n\n칼리 드림.",
+          "answerDatetime": "20230102"
+        },
+        {
+          "id": 2,
+          "type": "public",
+          "title": "탱탱쫄면 문의글 2 제목",
+          "writer": "김철수",
+          "contents": "탱탱쫄면 문의글 2 콘텐츠(답변 없음)",
+          "questionDatetime": "20230102"
+        },
+        {
+          "id": 3,
+          "type": "notice",
+          "title": "판매 (일시)중단 제품 안내 (23.02.02 업데이트)",
+          "writer": "컬리",
+          "contents": "안녕하세요. 컬리입니다.\n\n하기와 같은 사유로 인하여 판매(일시)중단 되었음을 안내드립니다.\n이하 무수히 많은 제품들...",
+          "questionDatetime": "20230103"
+        },
+        {
+          "id": 4,
+          "type": "private",
+          "title": "탱탱쫄면 문의글 4 제목(비밀글로 문의글 남김)",
+          "writer": "야무",
+          "questionDatetime": "20230104",
+          "contents": "비밀글인데 이 글이 보인다면 로그인한 사용자가 쓴 글이거나 완전 보안 엉망인 것임.",
+          "answer": "안녕하세요. 컬리입니다.\n\n 제품과 관련된 문의를 남겨주시기 바랍니다.",
+          "answerDatetime": "20230104"
+        },
+        {
+          "id": 5,
+          "type": "public",
+          "title": "3일 전에 주문했는데 언제쯤 오려나요?",
+          "writer": "심선범",
+          "contents": "새벽배송이라는데 왜 아직 안 오나요?",
+          "questionDatetime": "20230105"
+        },
+        {
+          "id": 6,
+          "type": "private",
+          "title": "비밀글로 작성...",
+          "writer": "김데레사",
+          "contents": "비밀로 작성한 글...",
+          "questionDatetime": "20230106"
+        }
+      ]
     },
     {
       "id": "product-akqk",
@@ -46,7 +101,61 @@
         "info": "jukkumi/detail_info.jpg",
         "alt": "홍대 주꾸미"
       },
-      "stock": 8
+      "stock": 8,
+      "qnas": [
+        {
+          "id": 1,
+          "type": "public",
+          "title": "팩이 터져서 왔어요",
+          "writer": "홍길동",
+          "contents": "스티로폼 박스도 손상되어 있어 포장이 터져 엉망이네요\n환불 요청합니다.",
+          "questionDatetime": "20230101",
+          "answer": "안녕하세요. 칼리입니다\n믿고 찾아주신 상품에 불편을 드려 정말 죄송합니다.\n\n더불어, 해당 게시판은 실시간으로 상담이 어려워 순차적으로 답변드리고 있는 관계로 신속하게 답변 드리지 못하여 대단히 죄송합니다.\n다행히도 고객님의 불편하셨던 사항은 고객행복센터를 통해 안내 받으신 점 확인하였습니다\n\n불편을 드려 정말 죄송할 따름이며, 고객님께 늘 신선하고 최상의 상품을 불편 없이 전달드리기 위해 최선을 다하는 칼리가 되겠습니다.\n\n칼리 드림.",
+          "answerDatetime": "20230102"
+        },
+        {
+          "id": 2,
+          "type": "public",
+          "title": "홍대 주꾸미 문의글 2 제목",
+          "writer": "김철수",
+          "contents": "홍대 주꾸미 문의글 2 콘텐츠(답변 없음)",
+          "questionDatetime": "20230102"
+        },
+        {
+          "id": 3,
+          "type": "notice",
+          "title": "판매 (일시)중단 제품 안내 (23.02.02 업데이트)",
+          "writer": "컬리",
+          "contents": "안녕하세요. 컬리입니다.\n\n하기와 같은 사유로 인하여 판매(일시)중단 되었음을 안내드립니다.\n이하 무수히 많은 제품들...",
+          "questionDatetime": "20230103"
+        },
+        {
+          "id": 4,
+          "type": "private",
+          "title": "홍대 주꾸미 문의글 4 제목(비밀글로 문의글 남김)",
+          "writer": "야무",
+          "questionDatetime": "20230104",
+          "contents": "비밀글인데 이 글이 보인다면 로그인한 사용자가 쓴 글이거나 완전 보안 엉망인 것임.",
+          "answer": "안녕하세요. 컬리입니다.\n\n 제품과 관련된 문의를 남겨주시기 바랍니다.",
+          "answerDatetime": "20230104"
+        },
+        {
+          "id": 5,
+          "type": "public",
+          "title": "3일 전에 주문했는데 언제쯤 오려나요?",
+          "writer": "김미애",
+          "contents": "새벽배송이라는데 왜 아직 안 오나요?",
+          "questionDatetime": "20230105"
+        },
+        {
+          "id": 6,
+          "type": "private",
+          "title": "비밀글로 작성...",
+          "writer": "김데레사",
+          "contents": "비밀로 작성한 글...",
+          "questionDatetime": "20230106"
+        }
+      ]
     },
     {
       "id": "product-tkwk",
@@ -62,7 +171,61 @@
         "info": "kangnam/detail_info.jpg",
         "alt": "강남면옥 소갈비찜"
       },
-      "stock": 2
+      "stock": 2,
+      "qnas": [
+        {
+          "id": 1,
+          "type": "public",
+          "title": "팩이 터져서 왔어요",
+          "writer": "홍길동",
+          "contents": "스티로폼 박스도 손상되어 있어 포장이 터져 엉망이네요\n환불 요청합니다.",
+          "questionDatetime": "20230101",
+          "answer": "안녕하세요. 칼리입니다\n믿고 찾아주신 상품에 불편을 드려 정말 죄송합니다.\n\n더불어, 해당 게시판은 실시간으로 상담이 어려워 순차적으로 답변드리고 있는 관계로 신속하게 답변 드리지 못하여 대단히 죄송합니다.\n다행히도 고객님의 불편하셨던 사항은 고객행복센터를 통해 안내 받으신 점 확인하였습니다\n\n불편을 드려 정말 죄송할 따름이며, 고객님께 늘 신선하고 최상의 상품을 불편 없이 전달드리기 위해 최선을 다하는 칼리가 되겠습니다.\n\n칼리 드림.",
+          "answerDatetime": "20230102"
+        },
+        {
+          "id": 2,
+          "type": "public",
+          "title": "소갈비찜 문의글 2 제목",
+          "writer": "김철수",
+          "contents": "소갈비찜 문의글 2 콘텐츠(답변 없음)",
+          "questionDatetime": "20230102"
+        },
+        {
+          "id": 3,
+          "type": "notice",
+          "title": "판매 (일시)중단 제품 안내 (23.02.02 업데이트)",
+          "writer": "컬리",
+          "contents": "안녕하세요. 컬리입니다.\n\n하기와 같은 사유로 인하여 판매(일시)중단 되었음을 안내드립니다.\n이하 무수히 많은 제품들...",
+          "questionDatetime": "20230103"
+        },
+        {
+          "id": 4,
+          "type": "private",
+          "title": "소갈비찜 문의글 4 제목(비밀글로 문의글 남김)",
+          "writer": "야무",
+          "questionDatetime": "20230104",
+          "contents": "비밀글인데 이 글이 보인다면 로그인한 사용자가 쓴 글이거나 완전 보안 엉망인 것임.",
+          "answer": "안녕하세요. 컬리입니다.\n\n 제품과 관련된 문의를 남겨주시기 바랍니다.",
+          "answerDatetime": "20230104"
+        },
+        {
+          "id": 5,
+          "type": "public",
+          "title": "3일 전에 주문했는데 언제쯤 오려나요?",
+          "writer": "김미애",
+          "contents": "새벽배송이라는데 왜 아직 안 오나요?",
+          "questionDatetime": "20230105"
+        },
+        {
+          "id": 6,
+          "type": "private",
+          "title": "비밀글로 작성...",
+          "writer": "김데레사",
+          "contents": "비밀로 작성한 글...",
+          "questionDatetime": "20230106"
+        }
+      ]
     },
     {
       "id": "product-ckzk",
@@ -78,7 +241,147 @@
         "info": "bacon/detail_info.jpg",
         "alt": "칼리 한돈 삼겹 베이컨"
       },
-      "stock": 13
+      "stock": 13,
+      "qnas": [
+        {
+          "id": 1,
+          "type": "public",
+          "title": "팩이 터져서 왔어요",
+          "writer": "홍길동",
+          "contents": "스티로폼 박스도 손상되어 있어 포장이 터져 엉망이네요\n환불 요청합니다.",
+          "questionDatetime": "20230101",
+          "answer": "안녕하세요. 칼리입니다\n믿고 찾아주신 상품에 불편을 드려 정말 죄송합니다.\n\n더불어, 해당 게시판은 실시간으로 상담이 어려워 순차적으로 답변드리고 있는 관계로 신속하게 답변 드리지 못하여 대단히 죄송합니다.\n다행히도 고객님의 불편하셨던 사항은 고객행복센터를 통해 안내 받으신 점 확인하였습니다\n\n불편을 드려 정말 죄송할 따름이며, 고객님께 늘 신선하고 최상의 상품을 불편 없이 전달드리기 위해 최선을 다하는 칼리가 되겠습니다.\n\n칼리 드림.",
+          "answerDatetime": "20230102"
+        },
+        {
+          "id": 2,
+          "type": "public",
+          "title": "삼겹 베이컨 문의글 2 제목",
+          "writer": "김철수",
+          "contents": "삼겹 베이컨 문의글 2 콘텐츠(답변 없음)",
+          "questionDatetime": "20230102"
+        },
+        {
+          "id": 3,
+          "type": "notice",
+          "title": "판매 (일시)중단 제품 안내 (23.02.02 업데이트)",
+          "writer": "컬리",
+          "contents": "안녕하세요. 컬리입니다.\n\n하기와 같은 사유로 인하여 판매(일시)중단 되었음을 안내드립니다.\n이하 무수히 많은 제품들...",
+          "questionDatetime": "20230103"
+        },
+        {
+          "id": 4,
+          "type": "private",
+          "title": "삼겹 베이컨 문의글 4 제목(비밀글로 문의글 남김)",
+          "writer": "야무",
+          "questionDatetime": "20230104",
+          "contents": "비밀글인데 이 글이 보인다면 로그인한 사용자가 쓴 글이거나 완전 보안 엉망인 것임.",
+          "answer": "안녕하세요. 컬리입니다.\n\n 제품과 관련된 문의를 남겨주시기 바랍니다.",
+          "answerDatetime": "20230104"
+        },
+        {
+          "id": 5,
+          "type": "public",
+          "title": "3일 전에 주문했는데 언제쯤 오려나요?",
+          "writer": "김미애",
+          "contents": "새벽배송이라는데 왜 아직 안 오나요?",
+          "questionDatetime": "20230105"
+        },
+        {
+          "id": 6,
+          "type": "private",
+          "title": "비밀글로 작성...",
+          "writer": "김데레사",
+          "contents": "비밀로 작성한 글...",
+          "questionDatetime": "20230106"
+        }
+      ]
+    },
+    {
+      "id": "product-gkgk",
+      "name": "[Kalry's] 하하하하",
+      "description": "무항생제 한돈 삼겹살의 고소한 풍미 그대로",
+      "price": 4500,
+      "saleRatio": 0.25,
+      "salePrice": 3375,
+      "image": {
+        "thumbnail": "bacon/thumbnail.jpg",
+        "view": "bacon/detail_view.jpg",
+        "banner": "bacon/detail_banner.jpg",
+        "info": "bacon/detail_info.jpg",
+        "alt": "칼리 한돈 삼겹 베이컨"
+      },
+      "stock": 13,
+      "qnas": [
+        {
+          "id": 1,
+          "type": "public",
+          "title": "팩이 터져서 왔어요",
+          "writer": "홍길동",
+          "contents": "스티로폼 박스도 손상되어 있어 포장이 터져 엉망이네요\n환불 요청합니다.",
+          "questionDatetime": "20230101",
+          "answer": "안녕하세요. 칼리입니다\n믿고 찾아주신 상품에 불편을 드려 정말 죄송합니다.\n\n더불어, 해당 게시판은 실시간으로 상담이 어려워 순차적으로 답변드리고 있는 관계로 신속하게 답변 드리지 못하여 대단히 죄송합니다.\n다행히도 고객님의 불편하셨던 사항은 고객행복센터를 통해 안내 받으신 점 확인하였습니다\n\n불편을 드려 정말 죄송할 따름이며, 고객님께 늘 신선하고 최상의 상품을 불편 없이 전달드리기 위해 최선을 다하는 칼리가 되겠습니다.\n\n칼리 드림.",
+          "answerDatetime": "20230102"
+        },
+        {
+          "id": 2,
+          "type": "public",
+          "title": "삼겹 베이컨 문의글 2 제목",
+          "writer": "김철수",
+          "contents": "삼겹 베이컨 문의글 2 콘텐츠(답변 없음)",
+          "questionDatetime": "20230102"
+        },
+        {
+          "id": 3,
+          "type": "notice",
+          "title": "판매 (일시)중단 제품 안내 (23.02.02 업데이트)",
+          "writer": "컬리",
+          "contents": "안녕하세요. 컬리입니다.\n\n하기와 같은 사유로 인하여 판매(일시)중단 되었음을 안내드립니다.\n이하 무수히 많은 제품들...",
+          "questionDatetime": "20230103"
+        },
+        {
+          "id": 4,
+          "type": "private",
+          "title": "삼겹 베이컨 문의글 4 제목(비밀글로 문의글 남김)",
+          "writer": "야무",
+          "questionDatetime": "20230104",
+          "contents": "비밀글인데 이 글이 보인다면 로그인한 사용자가 쓴 글이거나 완전 보안 엉망인 것임.",
+          "answer": "안녕하세요. 컬리입니다.\n\n 제품과 관련된 문의를 남겨주시기 바랍니다.",
+          "answerDatetime": "20230104"
+        },
+        {
+          "id": 5,
+          "type": "public",
+          "title": "3일 전에 주문했는데 언제쯤 오려나요?",
+          "writer": "김미애",
+          "contents": "새벽배송이라는데 왜 아직 안 오나요?",
+          "questionDatetime": "20230105"
+        },
+        {
+          "id": 6,
+          "type": "private",
+          "title": "비밀글로 작성...",
+          "writer": "김데레사",
+          "contents": "비밀로 작성한 글...",
+          "questionDatetime": "20230106"
+        }
+      ]
+    },
+    {
+      "qna__modal-form-title": "ㅇㅇㅇ",
+      "qna__modal-form-contents": "ㅇㅇㅇ",
+      "id": "wvrBMlb"
+    },
+    {
+      "qna__modal-form-title": "",
+      "qna__modal-form-contents": "",
+      "id": "a_MUBPE"
+    },
+    {
+      "qna__modal-form-title": "ㅇㅇ",
+      "qna__modal-form-contents": "ㅇㅇ",
+      "qna__modal-form-private": "on",
+      "id": "DeX1iby"
     }
   ]
 }

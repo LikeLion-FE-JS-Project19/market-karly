@@ -1,21 +1,17 @@
-function typeOf(data){
-  return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+function typeOf(data) {
+  return Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
 }
 
-export function typeError(message){
-  throw new TypeError( message );
-}
+export const isString = (data) => typeOf(data) === 'string';
 
-export const isString = data => typeOf(data) === 'string';
-
-export function getNode(node){
-  if(!isString(node)){
+export function getNode(node) {
+  if (!isString(node)) {
     typeError('getNode 함수의 인자는 문자 타입 이여야 합니다.');
   }
 
   // if(!isString(node)) typeError('에러가 발생했습니다.');
-  
-  return document.querySelector(node)
+
+  return document.querySelector(node);
 }
 
 export function insertLast(node, text) {
@@ -26,12 +22,12 @@ export function insertLast(node, text) {
   node.insertAdjacentHTML('beforeend', text);
 }
 
-export const renderFooter = (target) =>{
-  insertLast(target,createFooter())
-}
+export const renderFooter = (target) => {
+  insertLast(target, createFooter());
+};
 
 export function createFooter() {
-  return /* html */`
+  return /* html */ `
   <footer class="footer">
   <div class="footer__inner">
     <div class="footer__inner-top">
@@ -201,7 +197,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="./assets/footer/logo-isms.svg"
+              src="/assets/footer/logo-isms.svg"
               alt="I.S.M.S 로고"
             />
             <p class="footer__certified-info">
@@ -217,7 +213,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="./assets/footer/logo-privacy.svg"
+              src="/assets/footer/logo-privacy.svg"
               alt="E.privacy plus 로고"
             />
             <p class="footer__certified-info">
@@ -231,7 +227,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="./assets/footer/logo-tosspayments.svg"
+              src="/assets/footer/logo-tosspayments.svg"
               alt="payments 로고"
             />
             <p class="footer__certified-info">
@@ -244,7 +240,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="./assets/footer/logo-woori-bank.svg"
+              src="/assets/footer/logo-woori-bank.svg"
               alt="우리은행 로고"
             />
             <p class="footer__certified-info">
@@ -271,5 +267,328 @@ export function createFooter() {
     <p>© KURLY CORP. ALL RIGHTS RESERVED</p>
   </div>
 </footer>
-  `
+  `;
+}
+
+export function renderQnaList(qnaList) {
+  const qnaTable = document.querySelector('.qna__table');
+  const tbody = document.querySelector('.qna__table tbody');
+  if (qnaList.length === 0) {
+    tbody.insertAdjacentHTML('beforeend', createEmptyQnaTr());
+  }
+  qnaList.forEach((data) => {
+    if (data.type === 'notice') {
+      // type이 공지사항일 때, tbody의 첫 번째 tr로 추가한다.
+      tbody.insertAdjacentHTML('afterbegin', createNoticeTr(data));
+    } else if (data.type === 'private') {
+      // type이 비밀글일 때, 제목을 `비밀글입니다`로, 클래스를 `qna__item--private`로, 작성자명 마스킹 처리
+      tbody.insertAdjacentHTML('beforeend', createPrivateTr(data));
+    } else if (data.type === 'public') {
+      // type이 공개글일 때, 작성자명 마스킹 처리
+      tbody.insertAdjacentHTML('beforeend', createPublicTr(data));
+    }
+  });
+}
+function createEmptyQnaTr() {
+  return /* html */ `
+    <tr class="qna__item--empty">
+      <td colspan="4">문의글이 없습니다.</td>
+    </tr>
+  `;
+}
+function createNoticeTr(data) {
+  const {
+    id,
+    type,
+    title,
+    writer,
+    contents,
+    questionDatetime,
+    answer,
+    answerDatetime,
+  } = data;
+  return /* html */ `
+  <tr class="qna__item--notice" data-kind="public" data-id="${id}">
+    <td>
+      ${title}
+    </td>
+    <td>
+      ${writer}
+    </td>
+    <td>
+      ${questionDatetime}
+    </td>
+    <td>
+      -
+    </td>
+  </tr>
+  `;
+}
+
+const maskingName = function (strName) {
+  if (strName.length > 2) {
+    var originName = strName.split('');
+    originName.forEach(function (name, i) {
+      if (i === 0 || i === originName.length - 1) return;
+      originName[i] = '*';
+    });
+    var joinName = originName.join();
+    return joinName.replace(/,/g, '');
+  } else {
+    var pattern = /.$/; // 정규식
+    return strName.replace(pattern, '*');
+  }
+};
+
+function createPrivateTr(data) {
+  const {
+    id,
+    type,
+    title,
+    writer,
+    contents,
+    questionDatetime,
+    answer,
+    answerDatetime,
+  } = data;
+  const answerStatusClass = answerDatetime ? 'qna__item--complete' : '';
+  const answerStatus = answerDatetime ? '답변완료' : '답변대기';
+  return /* html */ `
+  <tr class="qna__item--private ${answerStatusClass}" data-kind="private" data-id="${id}">
+    <td>비밀글입니다.</td>
+    <td>${maskingName(writer)}</td>
+    <td>${questionDatetime}</td>
+    <td>${answerStatus}</td>
+  </tr>
+  `;
+}
+
+function createPublicTr(data) {
+  const {
+    id,
+    type,
+    title,
+    writer,
+    contents,
+    questionDatetime,
+    answer,
+    answerDatetime,
+  } = data;
+  const answerStatusClass = answerDatetime ? 'qna__item--complete' : '';
+  const answerStatus = answerDatetime ? '답변완료' : '답변대기';
+  return /* html */ `
+  <tr class="${answerStatusClass}" data-kind="public" data-id="${id}">
+    <td>${title}</td>
+    <td>${maskingName(writer)}</td>
+    <td>${questionDatetime}</td>
+    <td>${answerStatus}</td>
+  </tr>
+  `;
+}
+
+export function toggleContent(qnas) {
+  const qnaTable = document.querySelector('.qna__table');
+  qnaTable.addEventListener('click', (e) => {
+    const tr = e.target.closest('tr');
+
+    if (tr.dataset.kind === 'private') {
+      alert('비밀글입니다.');
+      return;
+    } else if (tr.dataset.kind === 'public') {
+      const content = document.querySelector('.content');
+      if (content) {
+        content.remove();
+        return;
+      }
+      const qna = qnas.find((item) => item.id === Number(tr.dataset.id));
+      tr.insertAdjacentHTML('afterend', createContentTr(qna));
+    }
+  });
+}
+
+function createContentTr({
+  id,
+  type,
+  title,
+  writer,
+  contents,
+  questionDatetime,
+  answer,
+  answerDatetime,
+} = qna) {
+  const splitedContents = contents.split('\n');
+  const contentsResult = splitedContents.map((item) => `<span>${item}</span>`);
+  const contentsHtml = contentsResult.join('');
+
+  if (answerDatetime) {
+    const splitedAnswer = answer.split('\n');
+    const answerResult = splitedAnswer.map((item) => `<span>${item}</span>`);
+    const answerHtml = answerResult.join('');
+
+    return /* html */ `
+    <tr class="content">
+      <td colspan="4">
+        <div class="qna__question-container">
+          <div class="qna__question">
+          ${contentsHtml}
+          </div>
+        </div>
+        <div class="qna__answer-container">
+          <div class="qna__answer">
+          ${answerHtml}
+          <span>${answerDatetime}</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+    `;
+  } else {
+    return /* html */ `
+    <tr class="content">
+      <td colspan="4">
+        <div class="qna__question-container">
+          <div class="qna__question">
+          ${contentsHtml}
+          </div>
+        </div>
+      </td>
+    </tr>
+    `;
+  }
+}
+
+export function renderModal(data) {
+  const qnaPopupBtn = document.querySelector('.qna__popup-btn');
+  qnaPopupBtn.insertAdjacentHTML('afterend', createModal(data));
+  const qnaModalContainer = document.querySelector('.qna__modal-container');
+  const qnaModalCloseBtn = document.querySelector('.qna__modal-close-btn');
+  const qnaModalCancel = document.querySelector('.qna__modal-cancel');
+
+  qnaPopupBtn.addEventListener('click', (e) => {
+    qnaModalContainer.classList.remove('hidden');
+  });
+
+  qnaModalCloseBtn.addEventListener('click', (e) => {
+    qnaModalContainer.classList.add('hidden');
+  });
+
+  qnaModalCancel.addEventListener('click', () => {
+    qnaModalContainer.classList.add('hidden');
+  });
+
+  // 모달 placeHolder
+  const placeHolder = document.querySelector(
+    '.qna__modal-form-contents-placeholder'
+  );
+  const textArea = document.querySelector('#qna__modal-form-contents');
+  const wordCount = document.querySelector('.qna__modal-word-count');
+
+  textArea.onfocus = () => {
+    placeHolder.style.display = 'none';
+  };
+
+  textArea.onblur = (e) => {
+    if (e.target.value !== '') {
+      return;
+    }
+    placeHolder.style.display = 'block';
+  };
+
+  function count(e) {
+    wordCount.innerText = e.target.value.length;
+    if (e.target.value.length > 5000) {
+      e.target.value = e.target.value.substring(0, 5000);
+    }
+  }
+  textArea.addEventListener('keyup', count);
+
+  placeHolder.addEventListener('click', (e) => {
+    e.target.closest('.qna__modal-form-contents-placeholder').style.display =
+      'none';
+    textArea.focus();
+  });
+}
+
+function createModal({ name, image } = data) {
+  return /* html */ `
+  <div class="qna__modal-container hidden">
+    <div class="qna__modal">
+      <div class="qna__modal-header">
+        <h3 class="qna__modal-title">상품 문의하기</h3>
+        <button class="qna__modal-close-btn" type="button"><img src="./assets/product-detail/ic-cancel.svg" alt="모달 닫기"></button>
+      </div>
+      <div class="qna__modal-product">
+        <img src="./assets/product/${image.thumbnail}" alt="${image.alt}">
+        <span>${name}</span>
+      </div>
+      <div class="qna__modal-form-container">
+        <div class="qna__modal-form-title-container">
+          <label for="qna__modal-form-title">제목</label>
+          <input type="text" name="qna__modal-form-title" id="qna__modal-form-title" placeholder="제목을 입력해 주세요">
+        </div>
+        <div class="qna__modal-form-contents-container">
+          <label for="qna__modal-form-contents">내용</label>
+          <textarea name="qna__modal-form-contents" id="qna__modal-form-contents"></textarea>
+          <div class="qna__modal-form-contents-placeholder">
+            <div>
+              <h4>상품 문의 작성 전 확인해 주세요.</h4>
+              <ul>
+                <li>답변은 영업일 기준 2~3일 소요됩니다.</li>
+                <li>해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
+                <li>배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이칼리 내 1:1 문의에 남겨주세요.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>제품</h4>
+              <ul>
+                <li>입고일 : 품절 상품 입고 일이 확정된 경우, 섬네일에 기재되어 있습니다. (종 모양을 클릭하여, 재입고 알림 설정 가능)</li>
+                <li>제품 상세정보 : 영양성분 및 함량, 용량, 보관 및 취급 방법 등 제품 정보는 상세이미지 또는 상세정보에서 확인 가능합니다. &#10;</li>
+              </ul>
+            </div>
+            <div>
+              <h4>주문취소</h4>
+              <ul>
+                <li>배송 단계별로 주문취소 방법이 상이합니다.</li>
+                <li>[입금확인] 단계 : [마이칼리 > 주문내역 상세페이지] 에서 직접 취소 가능</li>
+                <li>[입금확인] 이후 단계 : 고객센터로 문의</li>
+                <li>생산이 시작된 [상품 준비중] 이후에는 취소가 제한되는 점 고객님의 양해 부탁드립니다.</li>
+                <li>비회원은 모바일 App 또는 모바일 웹사이트에서 [마이칼리 > 비회원 주문 조회 페이지] 에서 취소가 가능합니다.</li>
+                <li>일부 예약상품은 배송 3~4일 전에만 취소 가능합니다.</li>
+                <li class="red-color">※ 주문상품의 부분 취소는 불가능합니다. 전체 주문 취소 후 재구매 해주세요.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>배송</h4>
+              <ul>
+                <li>주문 완료 후 배송 방법(샛별/택배)은 변경이 불가능합니다.</li>
+                <li>배송일 배송시간 지정은 불가능합니다. (예약배송 포함)</li>
+                <li class="red-color">※ 전화번호, 이메일, 주소, 계좌번호 등의 상세 개인정보가 문의 내용에 저장되지 않도록 주의해 주시기 바랍니다.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span>(</span>
+          <span class="qna__modal-word-count">0</span>
+          <span>/ 5000)</span>
+        </div>
+        <div class="qna__modal-form-private-container">
+          <input type="checkbox" name="qna__modal-form-private" id="qna__modal-form-private">
+          <label for="qna__modal-form-private">비밀글로 문의하기</label>
+        </div>
+      </div>
+      <div class="qna__modal-dicision-container">
+        <button class="qna__modal-cancel" type="button">취소</button>
+        <button class="qna__modal-submit" type="button">등록</button>
+      </div>
+    </div>
+  </div>
+  `;
+}
+
+export function qnaModalSubmitHandler(event) {
+  const qnaModalFormTitle = document.querySelector('#qna__modal-form-title');
+  const qnaModalFormContents = document.querySelector(
+    '#qna__modal-form-contents'
+  );
 }
