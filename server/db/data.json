@@ -511,9 +511,9 @@
       "salePrice": 3375,
       "image": {
         "thumbnail": "bacon/thumbnail.jpg",
-        "view": "bacon/detail-view.jpg",
-        "banner": "bacon/detail-banner.jpg",
-        "info": "bacon/detail-info.jpg",
+        "view": "bacon/detail_view.jpg",
+        "banner": "bacon/detail_banner.jpg",
+        "info": "bacon/detail_info.jpg",
         "alt": "칼리 한돈 삼겹 베이컨"
       },
       "stock": 13,
