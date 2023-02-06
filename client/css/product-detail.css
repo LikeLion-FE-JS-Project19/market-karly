@@ -327,6 +327,11 @@ button[class^='product-summary__detail-choice-button'] {
   right: 10px;
 }
 
+.qna__popup-btn:focus {
+  outline: 2px solid black;
+  outline-offset: 2px;
+}
+
 .qna__info-list {
   margin-top: var(--spacing-lg);
   margin-bottom: 55px;
@@ -592,7 +597,7 @@ button[class^='product-summary__detail-choice-button'] {
 #qna__modal-form-contents {
   flex-grow: 1;
   border-radius: 4px;
-  padding-left: 20px;
+  padding: 10px;
 }
 
 .qna__modal-form-contents-container {
@@ -652,10 +657,6 @@ label[for='qna__modal-form-contents'] {
   padding-left: 101px;
 }
 
-#qna__modal-form-private {
-  display: none;
-}
-
 #qna__modal-form-private + label {
   cursor: pointer;
 }
@@ -668,6 +669,12 @@ label[for='qna__modal-form-contents'] {
   height: 24px;
   margin-right: 10px;
   vertical-align: middle;
+}
+
+#qna__modal-form-private:focus + label::before {
+  outline: 2px solid black;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 #qna__modal-form-private:checked + label::before {
