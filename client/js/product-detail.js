@@ -39,3 +39,28 @@ window.addEventListener('scroll', toggleTabMenuHandler);
 [].forEach.call(tabMenuItems, (tabMenuItem) =>
   tabMenuItem.addEventListener('keydown', moveTabByKey)
 );
+
+import {
+  renderQnaList,
+  toggleContent,
+  renderModal,
+  getNode,
+  qnaModalSubmitHandler,
+  renderFooter,
+} from './jiwon.js';
+
+// 요청
+const URLSearch = new URLSearchParams(location.search);
+const id = URLSearch.get('id');
+const [data] = await fetch(`http://localhost:3001/products?id=${id}`).then(
+  (response) => response.json()
+);
+renderQnaList(data.qnas);
+
+toggleContent(data.qnas);
+renderModal(data);
+
+const qnaModalSubmit = document.querySelector('.qna__modal-submit');
+
+qnaModalSubmit.addEventListener('click', qnaModalSubmitHandler);
+renderFooter(getNode('body'));
