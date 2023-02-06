@@ -1,9 +1,6 @@
-// 린트 일단 바꿈 (머지할떄 일단 원래대로?)
-// 핸들러 이름 꼭 바꿔주기
 import { tiger } from '../lib/utils/index.js';
 import { attr } from '../lib/dom/attr.js';
 
-// 모듈화?
 const categotyData = [
   { title: '선물하기', imgSrc: './assets/header/ic-gift.svg' },
   { title: '채소', imgSrc: './assets/header/ic-vegetable.svg' },
@@ -54,7 +51,6 @@ export async function mainHeaderEventHandler() {
 
   categotyData.map((data, index) => {
     const categoryItem = document.createElement('li');
-    // 이미지를 보내주는 것이 아니기 때문에 html 입장에서의 경로를 압력해야함
     categoryItem.innerHTML = `<img src="${data.imgSrc}" alt="선물하기" width="24px" height="24px" class="header-container__category-img"/>${data.title}`;
     categotyList.insertAdjacentElement('beforeend', categoryItem);
   });
@@ -229,6 +225,7 @@ export async function productListEventHandler() {
       result.data = await result.json();
     }
     curData = await result.data;
+    await console.log(await curData);
     listRendering(result.data);
   }
 
@@ -376,13 +373,15 @@ export async function productListEventHandler() {
         result.data = await result.json();
       }
       let idx = 0;
-      await result.data.map((data, index) => {
+      result.data.map((data, index) => {
         if (data.id === id) {
           idx = index;
           //여기서 직접 리턴을 하면 왜 오류가 날까요....
+          // console.log(typeof data);
           // return data
         }
       });
+      console.log(typeof result.data[idx]);
       return result.data[idx];
     } catch (error) {
       console.log('통신 에러가 발생했습니다!');
@@ -440,7 +439,6 @@ export async function productListEventHandler() {
   //   ]
   // }
 
-  // 뭔가.. 클린코드로 깔끔하게 할 수 있을듯.... 제일 마지막에 생각해보자,,
   async function getFilterObject() {
     let filterObj = {};
 
@@ -453,9 +451,6 @@ export async function productListEventHandler() {
       if (result.ok) {
         result.data = await result.json();
       }
-      // 다 함수로 분리해야 하나...
-
-      // 카테고리부터 시작...
       let categoryArray = [];
       categotyData.map((data) => {
         const title = data['title'];
@@ -466,7 +461,6 @@ export async function productListEventHandler() {
           }
         });
 
-        // 왜 바로 key값에 data["title"] 주면 작동안됨..?
         categoryArray.push({ [title]: tmp });
       });
       filterObj.category = categoryArray;
@@ -486,13 +480,9 @@ export async function productListEventHandler() {
           brandArray.push({ [br]: [data] });
         }
       });
-      // 가나다순 정렬어케??
-      // brandArray.sort((a,b)=>{Object.keys(a)[0]>Object.keys(b)[0]?1:-1})
+
       filterObj.brand = brandArray;
 
-      // 가격....
-      // 동적으로,,,,
-      // 가격 구하는 함수 있어야 할듯
       let priceArray = [];
       const PRICEFILTERQUATER = 4;
       let tmp = [...result.data];
@@ -555,7 +545,6 @@ export async function productListEventHandler() {
     }
   }
 
-  // 문자열로 리턴되네여..
   function getPrice(data) {
     if (data.saleRatio) {
       return data.salePrice;
@@ -584,10 +573,7 @@ export async function productListEventHandler() {
     except: '제외',
   };
 
-  // 아코디언 토글버튼
-  // 나중에 이벤트 위임으로 만들어야할듯
   const filter = document.querySelector('.product-list__filter');
-  // 탐색비교보단 동일한 인덱스를 가질것 같음
 
   async function makeFilterAccordian() {
     let filterBox = document.querySelector('.product-list__filter--box');
@@ -612,10 +598,8 @@ export async function productListEventHandler() {
         `;
         filterBox.insertAdjacentElement('beforeend', accoderianHead);
         type[1].slice(0, 10).map((data, idx) => {
-          //돔 요소 만들기
           let type2;
           if (type[0] == 'price') {
-            console.log('가격');
             if (idx == 0) {
               type2 = `${Object.keys(data)[0]}원 미만`;
             } else if (idx == type[1].length - 1) {
@@ -656,17 +640,13 @@ export async function productListEventHandler() {
             }
 
             if (target.dataset.elementname == 'accordian__item') {
-              //유효성을 고치긴해야할듯
-              // 로직 좀더 세분화해야할듯...
               let flag = JSON.parse(target.dataset.flag);
-              console.log(type[0]);
               if (flag) {
                 delete filterData[type[0]][type2];
               } else {
                 filterData[type[0]][type2] = Object.values(data)[0];
               }
               target.dataset.flag = !flag;
-              console.log(filterData);
               let listdata = filteringData(filterData);
               listdata[1] ? listRendering(listdata[0]) : getProductItems();
               checkAccordian();
@@ -677,21 +657,21 @@ export async function productListEventHandler() {
     });
   }
 
-  // 변수명 정리,,,,, 흐어ㅓㅓㅓㅓㅓㅓㅓ
   function filteringData(filterData) {
-    let fd = Object.values(filterData);
-    let aa = fd.map((t) => {
-      let tmp2 = [];
-      Object.values(t).map((da) => {
+    console.log(filterData);
+    let filterDataArray = Object.values(filterData);
+    let aa = filterDataArray.map((product) => {
+      let innerfilteredData = [];
+      Object.values(product).map((da) => {
         let arData = Object.values(da);
         arData.reduce((acc, ad) => {
           if (!acc.includes(ad)) {
-            tmp2.push(ad);
+            innerfilteredData.push(ad);
           }
-          return tmp2;
-        }, tmp2);
+          return innerfilteredData;
+        }, innerfilteredData);
       });
-      return tmp2;
+      return innerfilteredData;
     });
 
     let tmp3 = [];
@@ -716,8 +696,9 @@ export async function productListEventHandler() {
     return [tmp3, flag];
   }
 
-  function listRendering(listData) {
+  async function listRendering(listData) {
     curData = listData;
+    await console.log(curData);
     const productItemList = document.querySelector('.product-list__items-list');
     productItemList.innerHTML = '';
     listData.map((data) => {
@@ -744,7 +725,6 @@ export async function productListEventHandler() {
 
   function filterHandler(e) {
     let target = e.target;
-    console.log(target);
     while (!attr(target, 'data-elementname')) {
       target = target.parentNode;
 
@@ -753,7 +733,6 @@ export async function productListEventHandler() {
         return;
       }
     }
-    console.log('aa');
     if (target.dataset.elementname === 'accordian__head') {
       let flag = JSON.parse(target.dataset['check']);
       target.dataset['check'] = !flag;
@@ -769,12 +748,12 @@ export async function productListEventHandler() {
       checkAccordian();
     }
   }
+
   //아코디언 플래그 확인 함수
   function checkAccordian() {
     accordianHeads.forEach((obj) => {
       let body = accordianBodys[obj.dataset.idx];
       let toggle = accordianToggles[obj.dataset.idx];
-      // 불린형 변환 주의!!
       if (JSON.parse(obj.dataset.check)) {
         body.classList.add('accordian__body-open');
         toggle.style.transform = `rotate(${-180}deg)`;
@@ -792,5 +771,40 @@ export async function productListEventHandler() {
         obj.classList.remove('accordian__check-checked');
       }
     });
+  }
+
+  const orderList = document.querySelector('.product-list__sort')
+
+  orderList.addEventListener('click', orderListHandeler)
+
+  function orderListHandeler(e) {
+    console.log('aaaa');
+    let target = e.target
+    while(!attr(target, 'data-name')) {
+      target = target.parentNode;
+
+      if (target.nodeName === 'BODY') {
+        target = null;
+        return;
+      }
+    }
+
+  if (target.dataset.name == 'desc') {
+    curData.sort((a, b) => {
+      if (parseInt(a.price) < parseInt(b.price)) return 1
+      else if (parseInt(a.price) > parseInt(b.price)) return -1
+      return 0
+    })
+    listRendering(curData)
+  }
+
+  if (target.dataset. name == 'asc') {
+    curData.sort((a, b) => {
+      if (parseInt(a.price) > parseInt(b.price)) return 1
+      else if (parseInt(a.price) < parseInt(b.price)) return -1
+      return 0
+    })
+    listRendering(curData)
+  }
   }
 }
