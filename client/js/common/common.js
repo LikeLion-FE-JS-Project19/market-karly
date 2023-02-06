@@ -1,5 +1,5 @@
 import { bubbleAddCartHandler } from '../seeun.js';
-import { closeTopBarButton } from "../kyungseob.js";
+import { closeTopBarButton } from '../kyungseob.js';
 
 const addCartButton = document.querySelector(
   '.product-summary__add-cart-button'
@@ -7,4 +7,4 @@ const addCartButton = document.querySelector(
 
 addCartButton.addEventListener('click', bubbleAddCartHandler);
 
-closeTopBarButton()
+closeTopBarButton();
