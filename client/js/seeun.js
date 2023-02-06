@@ -17,7 +17,7 @@ export function swiper1() {
   });
 }
 
-export function onKeyPressSwiper1Handler(e) {
+export function onKeyPressSwiperHandler(e) {
   const swiperName = this.getAttribute('class').slice(27, 35);
   const keyDirection = this.getAttribute('class').slice(44, 49);
   const swiper = document.querySelector(`.${swiperName}`).swiper;
@@ -29,42 +29,45 @@ export function onKeyPressSwiper1Handler(e) {
 }
 
 export function toggleDisableButtonHandler() {
-  const minusAmountButton = document.querySelector(
-    '.product-summary__detail-choice-button--minus'
-  );
-
-  const minusIcon = document.querySelector(
-    '.product-summary__detail-choice-button--minus-icon'
-  );
-
-  let totalAmount = document.querySelector(
+  let totalAmount = getNode(
     '.product-summary__detail-choice-number'
   ).textContent;
 
+  const minusAmountButton = getNode(
+    '.product-summary__detail-choice-button--minus'
+  );
+
   if (+totalAmount === 1) {
-    minusAmountButton.setAttribute('disabled', 'disabled');
-    minusIcon.setAttribute('fill', '#a6a6a6');
+    attr(
+      '.product-summary__detail-choice-button--minus',
+      'disabled',
+      'disabled'
+    );
+    attr(
+      '.product-summary__detail-choice-button--minus-icon',
+      'fill',
+      '#a6a6a6'
+    );
   } else {
     minusAmountButton.removeAttribute('disabled');
-    minusIcon.setAttribute('fill', '#333333');
+    attr(
+      '.product-summary__detail-choice-button--minus-icon',
+      'fill',
+      '#333333'
+    );
   }
 }
 
 export function countProductAmountHandler() {
-  let totalAmount = document.querySelector(
-    '.product-summary__detail-choice-number'
-  );
+  let totalAmount = getNode('.product-summary__detail-choice-number');
 
   const pricePerProduct = Number(
-    document
-      .querySelector('.product-summary__detail-price-per-piece')
+    getNode('.product-summary__detail-price-per-piece')
       .textContent.match(/\d/g)
       .join('')
   );
 
-  let totalPrice = document.querySelector(
-    '.product-summary__total-price-number'
-  );
+  let totalPrice = getNode('.product-summary__total-price-number');
 
   if (this.getAttribute('class').slice(-4) === 'plus') {
     totalAmount.textContent = ++totalAmount.textContent;
@@ -82,9 +85,7 @@ export function countProductAmountHandler() {
 }
 
 function setAttributeTabItem(ariaLabel) {
-  const tabMenuItems = document.querySelectorAll(
-    'li[class^=product-detail-tab-menu__item]'
-  );
+  const tabMenuItems = getNodes('li[class^=product-detail-tab-menu__item]');
 
   const className = 'product-detail-tab-menu__item';
 
@@ -100,17 +101,17 @@ function setAttributeTabItem(ariaLabel) {
 }
 
 export function toggleTabMenuHandler() {
-  const productDescription = document
-    .querySelector('.product-description')
-    .getBoundingClientRect().top;
+  const productDescription = getNode(
+    '.product-description'
+  ).getBoundingClientRect().top;
 
-  const productDetail = document
-    .querySelector('.product-detail__product-detail-img')
-    .getBoundingClientRect().top;
+  const productDetail = getNode(
+    '.product-detail__product-detail-img'
+  ).getBoundingClientRect().top;
 
-  const review = document.querySelector('.review').getBoundingClientRect().top;
+  const review = getNode('.review').getBoundingClientRect().top;
 
-  const qna = document.querySelector('.qna').getBoundingClientRect().top;
+  const qna = getNode('.qna').getBoundingClientRect().top;
 
   if (qna <= 5) {
     setAttributeTabItem('문의 탭');
@@ -126,17 +127,17 @@ export function toggleTabMenuHandler() {
 }
 
 export function moveToClickedTabMenu() {
-  const productDescription = document
-    .querySelector('.product-description')
-    .getBoundingClientRect();
+  const productDescription = getNode(
+    '.product-description'
+  ).getBoundingClientRect();
 
-  const productDetail = document
-    .querySelector('.product-detail__product-detail-img')
-    .getBoundingClientRect();
+  const productDetail = getNode(
+    '.product-detail__product-detail-img'
+  ).getBoundingClientRect();
 
-  const review = document.querySelector('.review').getBoundingClientRect();
+  const review = getNode('.review').getBoundingClientRect();
 
-  const qna = document.querySelector('.qna').getBoundingClientRect();
+  const qna = getNode('.qna').getBoundingClientRect();
 
   const tabMenuList = {
     '상품설명 탭': productDescription,
@@ -159,25 +160,21 @@ export function moveToClickedTabMenu() {
 export function moveTabByKey(e) {
   let tabNumber = this.getAttribute('id')[this.getAttribute('id').length - 1];
   if (e.keyCode === 37 && tabNumber > 1) {
-    document
-      .querySelector(
-        `ul[class='product-detail-tab-menu'] > li[id*='${+tabNumber - 1}']`
-      )
-      .focus();
+    getNode(
+      `ul[class='product-detail-tab-menu'] > li[id*='${+tabNumber - 1}']`
+    ).focus();
     return;
   }
   if ((e.keyCode === 39 || e.keyCode === 13) && tabNumber < 4) {
-    document
-      .querySelector(
-        `ul[class='product-detail-tab-menu'] > li[id*='${+tabNumber + 1}']`
-      )
-      .focus();
+    getNode(
+      `ul[class='product-detail-tab-menu'] > li[id*='${+tabNumber + 1}']`
+    ).focus();
     return;
   }
 }
 
 export function bubbleAddCartHandler() {
-  const bubble = document.querySelector('.add-cart-bubble');
+  const bubble = getNode('.add-cart-bubble');
 
   bubble.style.visibility = 'visible';
   bubble.style.opacity = '1';
@@ -200,41 +197,28 @@ export function getProductDetailData(products) {
 
   attr('.add-cart-bubble__img', 'src', `./assets/product/${image.thumbnail}`);
   attr('.add-cart-bubble__img', 'alt', `${image.alt}`);
-
   getNode('.add-cart-bubble__product').textContent = title;
-
   attr('.product-summary__img', 'src', `./assets/product/${image.thumbnail}`);
   attr('.product-summary__img', 'alt', `${image.alt}`);
-
   attr(
     '.product-detail__product-description-img',
     'src',
     `./assets/product/${image.banner}`
   );
-
   attr('.product-detail__product-description-img', 'alt', `${image.alt}`);
-
   attr(
     '.product-detail__product-detail-img',
     'src',
     `./assets/product/${image.info}`
   );
-
   getNode('.product-summary__title').textContent = title;
-
   getNode('.product-summary__detail-choice-title').textContent = title;
-
   getNode('.product-summary__description').textContent = description;
-
   getNode('.product-summary__price--number').textContent = price;
-
   getNode(
     '.product-summary__detail-price-per-piece'
   ).textContent = `${price}원`;
-
   getNode('.product-summary__total-price-number').textContent = price;
-
   getNode('.product-description__description').textContent = description;
-
   getNode('.product-description__title').textContent = title;
 }
