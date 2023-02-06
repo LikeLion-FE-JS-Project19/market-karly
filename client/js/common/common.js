@@ -6,3 +6,5 @@ const addCartButton = document.querySelector(
 );
 
 addCartButton.addEventListener('click', bubbleAddCartHandler);
+
+closeTopBarButton();

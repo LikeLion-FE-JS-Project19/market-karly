@@ -8,10 +8,10 @@
       "saleRatio": 0.24,
       "salePrice": 5244,
       "image": {
-        "thumbnail": "./assets/product/ubuho/thumbnail.jpg",
-        "view": "ubuho/detail_view.jpg",
-        "banner": "ubuho/detail_banner.jpg",
-        "info": "ubuho/detail_info.jpg",
+        "thumbnail": "ubuho/thumbnail.jpg",
+        "view": "ubuho/detail-view.jpg",
+        "banner": "ubuho/detail-banner.jpg",
+        "info": "ubuho/detail-info.jpg",
         "alt": "유부호 만두"
       },
       "stock": 3,
@@ -28,10 +28,10 @@
       "saleRatio": 0,
       "salePrice": 0,
       "image": {
-        "thumbnail": "./assets/product/tangtang/thumbnail.jpg",
-        "view": "tangtang/detail_view.jpg",
-        "banner": "tangtang/detail_banner.jpg",
-        "info": "tangtang/detail_info.jpg",
+        "thumbnail": "tangtang/thumbnail.jpg",
+        "view": "tangtang/detail-view.jpg",
+        "banner": "tangtang/detail-banner.jpg",
+        "info": "tangtang/detail-info.jpg",
         "alt": "풀무원 탱탱쫄면"
       },
       "stock": 11,
@@ -101,10 +101,10 @@
       "saleRatio": 0.13,
       "salePrice": 6800,
       "image": {
-        "thumbnail": "./assets/product/jukkumi/thumbnail.jpg",
-        "view": "jukkumi/detail_view.jpg",
-        "banner": "jukkumi/detail_banner.jpg",
-        "info": "jukkumi/detail_info.jpg",
+        "thumbnail": "jukkumi/thumbnail.jpg",
+        "view": "jukkumi/detail-view.jpg",
+        "banner": "jukkumi/detail-banner.jpg",
+        "info": "jukkumi/detail-info.jpg",
         "alt": "홍대 주꾸미"
       },
       "stock": 8,
@@ -174,10 +174,10 @@
       "saleRatio": 0,
       "salePrice": 0,
       "image": {
-        "thumbnail": "./assets/product/kangnam/thumbnail.jpg",
-        "view": "kangnam/detail_view.jpg",
-        "banner": "kangnam/detail_banner.jpg",
-        "info": "kangnam/detail_info.jpg",
+        "thumbnail": "kangnam/thumbnail.jpg",
+        "view": "kangnam/detail-view.jpg",
+        "banner": "kangnam/detail-banner.jpg",
+        "info": "kangnam/detail-info.jpg",
         "alt": "강남면옥 소갈비찜"
       },
       "stock": 2,
@@ -447,7 +447,6 @@
       "category": "샐러드ㆍ간편식",
       "kalryOnly": "false",
       "brand": "스윗밸런스"
-=======
       "qnas": [
         {
           "id": 1,
@@ -512,9 +511,9 @@
       "salePrice": 3375,
       "image": {
         "thumbnail": "bacon/thumbnail.jpg",
-        "view": "bacon/detail_view.jpg",
-        "banner": "bacon/detail_banner.jpg",
-        "info": "bacon/detail_info.jpg",
+        "view": "bacon/detail-view.jpg",
+        "banner": "bacon/detail-banner.jpg",
+        "info": "bacon/detail-info.jpg",
         "alt": "칼리 한돈 삼겹 베이컨"
       },
       "stock": 13,
