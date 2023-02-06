@@ -8,11 +8,9 @@
   color: #333333;
 }
 
-
-
 .divider {
   margin: 0 12px 0 12px;
-  color: #D9D9D9;
+  color: #d9d9d9;
 }
 
 .header-container {
@@ -27,7 +25,6 @@
   justify-content: center;
   align-items: center;
   width: 1050px;
-
 }
 
 .header-container__logo {
@@ -41,12 +38,11 @@
   color: var(--gray-400);
 }
 
-
 .header-container__karly {
   margin-left: var(--spacing-sm);
 }
 
-.header-container__karly>li {
+.header-container__karly > li {
   font-size: 21px;
   line-height: 150%;
   font-weight: 500;
@@ -67,7 +63,7 @@
 }
 
 .header-container__karly__focus {
-  color: #5F0080;
+  color: #5f0080;
 }
 
 /* Form 영역 */
@@ -75,7 +71,7 @@
   width: 400px;
   height: 52px;
   position: relative;
-  border: 1px solid #5F0080;
+  border: 1px solid #5f0080;
   border-radius: 8px;
 }
 
@@ -122,12 +118,12 @@
   align-items: center;
 }
 
-.header-container__account-menu>li {
+.header-container__account-menu > li {
   width: 36px;
   height: 36px;
 }
 
-.header-container__account-menu-fixed>li {
+.header-container__account-menu-fixed > li {
   width: 36px;
   height: 36px;
 }
@@ -204,17 +200,17 @@
   z-index: 30;
 }
 
-.header-container__category-list>li:hover {
+.header-container__category-list > li:hover {
   background: var(--gray-100);
   color: var(--primary);
 }
 
-.header-container__category-list>li:focus {
+.header-container__category-list > li:focus {
   background: var(--gray-100);
   color: var(--primary);
 }
 
-.header-container__category-list>li {
+.header-container__category-list > li {
   width: 240px;
   height: 40px;
   display: flex;
@@ -296,7 +292,7 @@
 }
 
 .top-bar__btn-today-close {
-  background: url(/market-karly/client/assets/common/ic-close.svg);
+  background: url(../assets/common/ic-close.svg);
   border: none;
   position: absolute;
   top: 4px;

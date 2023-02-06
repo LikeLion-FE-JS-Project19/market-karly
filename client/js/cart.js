@@ -1,5 +1,4 @@
 import {
-  allPricesToLocaleString,
   allSelector,
   coldListAct,
   deleteList,
@@ -8,9 +7,16 @@ import {
   productOrder,
   selectDelete,
   temperatureListAct,
-  totalPrice,
+  totalBasicPrice,
+  getNumber,
+  totalExpectedPrice,
+  totalSalePrice,
 } from './kyungseob.js';
 
+getNumber();
+totalBasicPrice();
+totalSalePrice();
+totalExpectedPrice();
 allSelector();
 coldListAct();
 frozenListAct();
@@ -18,6 +24,4 @@ temperatureListAct();
 deleteList();
 selectDelete();
 productOrder();
-totalPrice();
-allPricesToLocaleString();
 eachSelect();

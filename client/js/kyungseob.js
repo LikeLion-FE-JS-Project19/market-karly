@@ -57,36 +57,6 @@ export let swiper = new Swiper('.mySwiper', {
   spaceBetween: 10,
 });
 
-export function allSelector() {
-  const totalSelector = document.querySelectorAll(
-    '.all-check-box, .all-check-box.active'
-  );
-  const singleSelector = document.querySelectorAll(
-    '.single-check-box',
-    '.single-check-box.active'
-  );
-
-  totalSelector.forEach(function (item, index) {
-    totalSelector[index].addEventListener('click', test1);
-
-    function test1() {
-      if (totalSelector[index].className === 'all-check-box active') {
-        totalSelector[0].className = 'all-check-box';
-        totalSelector[1].className = 'all-check-box';
-        singleSelector.forEach(function (item) {
-          item.className = 'single-check-box';
-        });
-      } else {
-        totalSelector[0].className = 'all-check-box active';
-        totalSelector[1].className = 'all-check-box active';
-        singleSelector.forEach(function (item, index) {
-          item.className = 'single-check-box active';
-        });
-      }
-    }
-  });
-}
-
 export function coldListAct() {
   const viewMore = document.querySelector('.vector-1');
   const coldList = document.querySelector('.cart-list__cold--group');
@@ -152,6 +122,38 @@ export function temperatureListAct() {
   }
 }
 
+export function allSelector() {
+  const totalSelector = document.querySelectorAll(
+    '.all-check-box, .all-check-box.active'
+  );
+  const singleSelector = document.querySelectorAll(
+    '.single-check-box',
+    '.single-check-box.active'
+  );
+
+  totalSelector.forEach(function (item, index) {
+    totalSelector[index].addEventListener('click', test1);
+
+    function test1() {
+      if (totalSelector[index].className === 'all-check-box active') {
+        totalSelector[0].className = 'all-check-box';
+        totalSelector[1].className = 'all-check-box';
+        singleSelector.forEach(function (item) {
+          item.className = 'single-check-box';
+        });
+        getNumber();
+      } else {
+        totalSelector[0].className = 'all-check-box active';
+        totalSelector[1].className = 'all-check-box active';
+        singleSelector.forEach(function (item, index) {
+          item.className = 'single-check-box active';
+        });
+        getNumber();
+      }
+    }
+  });
+}
+
 export function deleteList() {
   const deleteButton = document.querySelectorAll('.group-list__close');
 
@@ -159,6 +161,7 @@ export function deleteList() {
     target.addEventListener('click', deleteAct);
     function deleteAct(event) {
       target.closest('li').remove();
+      reloadGroup();
     }
   });
 }
@@ -174,11 +177,11 @@ export function selectDelete() {
       activeCheck.forEach(function (item, index) {
         if (activeCheck[index].className === 'single-check-box active') {
           groupList[index].remove();
+          reloadGroup();
         }
       });
     }
   });
-  // deleteButton.addEventListener('click', deleteAct);
 }
 
 export function productOrder() {
@@ -195,7 +198,36 @@ export function productOrder() {
   }
 }
 
-export function totalPrice() {
+export function eachSelect() {
+  const activeCheck = document.querySelectorAll('.single-check-box');
+
+  activeCheck.forEach(function (item, index) {
+    activeCheck[index].addEventListener('click', select);
+
+    function select() {
+      if (activeCheck[index].className === 'single-check-box') {
+        activeCheck[index].className = 'single-check-box active';
+        getNumber();
+      } else activeCheck[index].className = 'single-check-box';
+      getNumber();
+    }
+  });
+}
+
+export function getNumber() {
+  const totalNumber = document.querySelectorAll('.single-check-box').length;
+  const selectNumber = document.querySelectorAll(
+    '.single-check-box.active'
+  ).length;
+  const allSelectText = document.querySelectorAll('.cart-feature__text');
+
+  allSelectText.forEach(function (item) {
+    item.textContent = '';
+    item.textContent = `전체선택(${selectNumber}/${totalNumber})`;
+  });
+}
+
+export function totalExpectedPrice() {
   const basicPrice = Number(
     document.querySelector('.product-result__basic--price').textContent
   );
@@ -209,36 +241,48 @@ export function totalPrice() {
     '.product-result__expected--price'
   );
 
-  function calculation() {
+  function calculate() {
     return basicPrice - salePrice + deliveryPrice;
   }
-
-  expectedPrice.insertAdjacentHTML('beforeend', calculation().toLocaleString());
+  expectedPrice.textContent = '';
+  expectedPrice.textContent = calculate();
 }
 
-export function allPricesToLocaleString() {
-  const allPrice = document.querySelectorAll('.prices');
+export function totalBasicPrice() {
+  const productBasicPrice = document.querySelectorAll('.product-price');
+  const basicPrice = document.querySelector('.product-result__basic--price');
 
-  allPrice.forEach(function (item, index) {
-    const inputValue = Number(item.textContent).toLocaleString();
+  let total = Number(0);
 
-    item.textContent = '';
-    item.insertAdjacentHTML('beforeend', inputValue);
+  productBasicPrice.forEach(function (item, index) {
+    total = total + Number(productBasicPrice[index].textContent);
+    basicPrice.textContent = '';
+    basicPrice.textContent = total;
   });
+  if (productBasicPrice.length === 0) {
+    basicPrice.textContent = 0;
+  }
 }
 
-export function eachSelect() {
-  const activeCheck = document.querySelectorAll('.single-check-box');
+export function totalSalePrice() {
+  const productSalePrice = document.querySelectorAll('.product-price-sale');
+  const salePrice = document.querySelector('.product-result__sale--price');
 
-  activeCheck.forEach(function (item, index) {
-    activeCheck[index].addEventListener('click', select);
+  let total = Number(0);
 
-    function select() {
-      if (activeCheck[index].className === 'single-check-box') {
-        activeCheck[index].className = 'single-check-box active';
-      } else activeCheck[index].className = 'single-check-box';
-    }
+  productSalePrice.forEach(function (item, index) {
+    total = total + Number(productSalePrice[index].textContent);
+    salePrice.textContent = '';
+    salePrice.textContent = total;
   });
+  if (productSalePrice.length === 0) {
+    salePrice.textContent = Number(0);
+  }
+}
 
-  // console.log(activeCheck);
+function reloadGroup() {
+  getNumber();
+  totalBasicPrice();
+  totalSalePrice();
+  totalExpectedPrice();
 }

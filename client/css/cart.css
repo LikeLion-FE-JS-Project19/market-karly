@@ -4,8 +4,6 @@
 @import url(./theme.css);
 @import url(./base.css);
 
-
-
 main {
   width: 1050px;
   margin-left: auto;
@@ -29,6 +27,7 @@ h2 {
 .cart-list {
   width: 742px;
   float: left;
+  padding-bottom: 50px;
 }
 
 .no-divider {
@@ -53,8 +52,8 @@ h2 {
   font-weight: 600;
 }
 
-.all-check-box.active{
-  background: url(../assets/cart/ic-checked-true.svg) no-repeat ;
+.all-check-box.active {
+  background: url(../assets/cart/ic-checked-true.svg) no-repeat;
   width: 25px;
   height: 25px;
   border: none;
@@ -62,8 +61,8 @@ h2 {
   align-self: center;
 }
 
-.single-check-box.active{
-  background: url(../assets/cart/ic-checked-true.svg) no-repeat ;
+.single-check-box.active {
+  background: url(../assets/cart/ic-checked-true.svg) no-repeat;
   width: 25px;
   height: 25px;
   border: none;
@@ -72,7 +71,7 @@ h2 {
 }
 
 .all-check-box {
-  background: url(../assets/cart/ic-checked-false.svg) no-repeat ;
+  background: url(../assets/cart/ic-checked-false.svg) no-repeat;
   width: 25px;
   height: 25px;
   border: none;
@@ -81,7 +80,7 @@ h2 {
 }
 
 .single-check-box {
-  background: url(../assets/cart/ic-checked-false.svg) no-repeat ;
+  background: url(../assets/cart/ic-checked-false.svg) no-repeat;
   width: 25px;
   height: 25px;
   border: none;
@@ -96,7 +95,7 @@ h2 {
 
 .check-box__is-checked {
   width: 24px;
-  height:24px;
+  height: 24px;
 }
 
 .cart-feature__list {
@@ -107,14 +106,18 @@ h2 {
   font-weight: 600;
   font-size: 18px;
   align-self: center;
-  width: 400px;
+  width: 350px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .group-list__link {
   padding: 30px 100px 30px 20px;
+  width: 350px;
 }
 
-.cart-feature__text{
+.cart-feature__text {
   align-self: center;
   font-weight: 600;
 }
@@ -127,13 +130,12 @@ h2 {
   align-self: center;
 }
 
-.cart-list__cold{
+.cart-list__cold {
   display: flex;
   flex-flow: row nowrap;
   padding: 19px 0;
   border-top: 1px solid var(--black);
 }
-
 
 .group-list__image {
   margin: 0 15px 0 5px;
@@ -152,7 +154,7 @@ h2 {
 
 .count-box {
   width: 30px;
-  text-align: center;  
+  text-align: center;
   align-self: center;
 }
 
@@ -164,7 +166,22 @@ h2 {
   align-self: center;
 }
 
-.list-count__down, .list-count__up {
+.price-divide {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: right;
+  align-self: center;
+  width: 200px;
+}
+
+.product-price-sale {
+  color: blue;
+  font-size: 12px;
+  width: 100px;
+}
+
+.list-count__down,
+.list-count__up {
   font-size: 20px;
   border: none;
   background: transparent;
@@ -180,22 +197,20 @@ h2 {
   height: 40px;
 }
 
-
 .group-list {
   padding: 20px 0;
   display: flex;
   border-bottom: 1px solid var(--gray-50);
 }
 
-
-.cart-list__frozen{
+.cart-list__frozen {
   display: flex;
   flex-flow: row nowrap;
   padding: 19px 0;
   border-top: 1px solid var(--black);
 }
 
-.cart-list__temperature{
+.cart-list__temperature {
   display: flex;
   flex-flow: row nowrap;
   padding: 19px 0;
@@ -243,13 +258,6 @@ h2 {
   height: 30px;
   align-self: center;
 }
-
-
-
-
-
-
-
 
 .cart-summary {
   margin-left: 24px;
@@ -309,7 +317,10 @@ h2 {
   background: var(--gray-50);
 }
 
-.product-result__basic, .product-result__sale, .product-result__delivery, .product-result__expected{
+.product-result__basic,
+.product-result__sale,
+.product-result__delivery,
+.product-result__expected {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -322,7 +333,7 @@ h2 {
   padding-bottom: 24px;
 }
 
-.product-result__expected span{
+.product-result__expected span {
   padding: 24px 0 11px 0;
   margin-top: auto;
   margin-bottom: auto;
