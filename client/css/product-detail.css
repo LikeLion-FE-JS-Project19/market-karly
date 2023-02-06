@@ -696,7 +696,6 @@ button {
 .review-write-button {
   width: 155px;
   height: 44px;
-  font-weight: 600;
   background-color: var(--primary);
   color: var(--white);
   border: 0;
