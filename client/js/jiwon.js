@@ -566,12 +566,17 @@ function createModal({ name, image } = data) {
               </ul>
             </div>
           </div>
+
+
+          <div class="qna__modal-word-count-container">
+            <span>(</span>
+            <span class="qna__modal-word-count">0</span>
+            <span>/ 5000 )</span>
+          </div>
+
+
         </div>
-        <div>
-          <span>(</span>
-          <span class="qna__modal-word-count">0</span>
-          <span>/ 5000)</span>
-        </div>
+
         <div class="qna__modal-form-private-container">
           <input type="checkbox" name="qna__modal-form-private" id="qna__modal-form-private">
           <label for="qna__modal-form-private">비밀글로 문의하기</label>
