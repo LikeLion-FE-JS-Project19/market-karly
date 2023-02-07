@@ -252,7 +252,7 @@ export async function productListEventHandler() {
     }
 
     if (target.dataset.name === 'product-box') {
-      location.href = `/client/product-detail.html?data=${target.dataset.id}`;
+      location.href = `/client/product-detail.html?id=${target.dataset.id}`;
       return;
     }
   }
@@ -778,7 +778,6 @@ export async function productListEventHandler() {
   orderList.addEventListener('click', orderListHandeler)
 
   function orderListHandeler(e) {
-    console.log('aaaa');
     let target = e.target
     while(!attr(target, 'data-name')) {
       target = target.parentNode;

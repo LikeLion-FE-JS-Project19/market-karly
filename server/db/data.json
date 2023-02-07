@@ -8,7 +8,7 @@
       "saleRatio": 0.24,
       "salePrice": 5244,
       "image": {
-        "thumbnail": "ubuho/thumbnail.jpg",
+        "thumbnail": "./assets/product/ubuho/thumbnail.jpg",
         "view": "ubuho/detail-view.jpg",
         "banner": "ubuho/detail-banner.jpg",
         "info": "ubuho/detail-info.jpg",
@@ -28,7 +28,7 @@
       "saleRatio": 0,
       "salePrice": 0,
       "image": {
-        "thumbnail": "tangtang/thumbnail.jpg",
+        "thumbnail": "./assets/product/tangtang/thumbnail.jpg",
         "view": "tangtang/detail-view.jpg",
         "banner": "tangtang/detail-banner.jpg",
         "info": "tangtang/detail-info.jpg",
@@ -101,7 +101,7 @@
       "saleRatio": 0.13,
       "salePrice": 6800,
       "image": {
-        "thumbnail": "jukkumi/thumbnail.jpg",
+        "thumbnail": "./assets/product/jukkumi/thumbnail.jpg",
         "view": "jukkumi/detail-view.jpg",
         "banner": "jukkumi/detail-banner.jpg",
         "info": "jukkumi/detail-info.jpg",
@@ -174,7 +174,7 @@
       "saleRatio": 0,
       "salePrice": 0,
       "image": {
-        "thumbnail": "kangnam/thumbnail.jpg",
+        "thumbnail": "./assets/product/kangnam/thumbnail.jpg",
         "view": "kangnam/detail-view.jpg",
         "banner": "kangnam/detail-banner.jpg",
         "info": "kangnam/detail-info.jpg",

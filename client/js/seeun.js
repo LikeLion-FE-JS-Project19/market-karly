@@ -200,10 +200,10 @@ export function setProductDetailData(products) {
     title +
     ' :: Love Food, Love Life. 마켓칼리! 당일 수확 채소, 과일, 맛집 음식까지 내일 아침 문 앞에서 만나요!';
 
-  attr('.add-cart-bubble__img', 'src', `./assets/product/${image.thumbnail}`);
+  attr('.add-cart-bubble__img', 'src', `${image.thumbnail}`);
   attr('.add-cart-bubble__img', 'alt', `${image.alt}`);
   getNode('.add-cart-bubble__product').textContent = title;
-  attr('.product-summary__img', 'src', `./assets/product/${image.thumbnail}`);
+  attr('.product-summary__img', 'src', `${image.thumbnail}`);
   attr('.product-summary__img', 'alt', `${image.alt}`);
   attr(
     '.product-detail__product-description-img',
