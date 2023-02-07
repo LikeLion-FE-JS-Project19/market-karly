@@ -225,7 +225,6 @@ export async function productListEventHandler() {
       result.data = await result.json();
     }
     curData = await result.data;
-    await console.log(await curData);
     listRendering(result.data);
   }
 
@@ -252,7 +251,7 @@ export async function productListEventHandler() {
     }
 
     if (target.dataset.name === 'product-box') {
-      location.href = `/client/product-detail.html?data=${target.dataset.id}`;
+      location.href = `/client/product-detail.html?id=${target.dataset.id}`;
       return;
     }
   }
@@ -376,12 +375,8 @@ export async function productListEventHandler() {
       result.data.map((data, index) => {
         if (data.id === id) {
           idx = index;
-          //여기서 직접 리턴을 하면 왜 오류가 날까요....
-          // console.log(typeof data);
-          // return data
         }
       });
-      console.log(typeof result.data[idx]);
       return result.data[idx];
     } catch (error) {
       console.log('통신 에러가 발생했습니다!');
@@ -658,7 +653,6 @@ export async function productListEventHandler() {
   }
 
   function filteringData(filterData) {
-    console.log(filterData);
     let filterDataArray = Object.values(filterData);
     let aa = filterDataArray.map((product) => {
       let innerfilteredData = [];
@@ -698,7 +692,6 @@ export async function productListEventHandler() {
 
   async function listRendering(listData) {
     curData = listData;
-    await console.log(curData);
     const productItemList = document.querySelector('.product-list__items-list');
     productItemList.innerHTML = '';
     listData.map((data) => {
@@ -778,7 +771,6 @@ export async function productListEventHandler() {
   orderList.addEventListener('click', orderListHandeler)
 
   function orderListHandeler(e) {
-    console.log('aaaa');
     let target = e.target
     while(!attr(target, 'data-name')) {
       target = target.parentNode;

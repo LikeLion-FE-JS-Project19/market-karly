@@ -526,7 +526,7 @@ function createModal({ name, image, id } = data) {
         <button class="qna__modal-close-btn" type="button"><img src="./assets/product-detail/ic-cancel.svg" alt="모달 닫기"></button>
       </div>
       <div class="qna__modal-product">
-        <img src="./assets/product/${image.thumbnail}" alt="${image.alt}">
+        <img src="${image.thumbnail}" alt="${image.alt}">
         <span data-product-id="${id}" id="qna__modal-product-id">${name}</span>
       </div>
       <div class="qna__modal-form-container">

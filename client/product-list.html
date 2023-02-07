@@ -22,12 +22,6 @@
     <!-- <link rel="stylesheet" href="./css/header.css" /> -->
     <link rel="stylesheet" href="./css/footer.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="./js/common/common.js" type="module"></script>
-    <script src="./js/juhee.js" type="module"></script>
-    <script src="./js/seeun.js" type="module"></script>
-    <script src="./js/seokwon.js" type="module"></script>
-    <script src="./js/kyungseob.js" type="module"></script>
-    <script src="./js/jiwon.js" type="module"></script>
     <script src="./js/product-list.js" type="module"></script>
 
     <title>베스트 - 마켓칼리</title>
@@ -163,7 +157,7 @@
     <main>
       <div class="container">
         <div class="title">
-          <h2>베스트!!!!!</h2>
+          <h2>베스트</h2>
         </div>
         <section class="product-list__filter">
           <ul class="product-list__filter--box">
@@ -190,9 +184,13 @@
               <span class="divider divider__sort" aria-hidden="true">|</span>
               <span>혜택순</span>
               <span class="divider divider__sort" aria-hidden="true">|</span>
-              <span data-name="asc">낮은 가격순</span>
+              <button class="product-list__sort__button">
+                <span data-name="asc">낮은 가격순</span>
+              </button>
               <span class="divider divider__sort" aria-hidden="true">|</span>
-              <span data-name="desc">높은 가격순</span>
+              <button class="product-list__sort__button">
+                <span data-name="desc">높은 가격순</span>
+              </button>
             </div>
           </div>
           <ul class="product-list__items-list"></ul>
