@@ -22,6 +22,3 @@ const addCartButtonList = getNodes('.btn-add-cart');
 addCartButtonList.forEach((el) => {
   el.addEventListener('click', onClickAddCartHandler);
 });
-
-import { getNode, renderFooter } from './jiwon.js';
-renderFooter(getNode('body'));
