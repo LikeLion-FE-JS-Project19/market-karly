@@ -5,7 +5,7 @@
 @import url(./base.css);
 @import url(./header.css);
 
-body{
+body {
   position: relative;
 }
 
@@ -16,7 +16,7 @@ main {
   line-height: 150%;
 }
 
-.title{
+.title {
   width: 1050px;
   height: 120px;
   display: flex;
@@ -32,15 +32,14 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
 }
 
-.product-list__filter{
+.product-list__filter {
   font-size: var(--text-base);
   font-weight: 600;
 }
 
-.product-list__filter--header{
+.product-list__filter--header {
   width: 220px;
   height: 52px;
   display: flex;
@@ -48,7 +47,7 @@ main {
   align-items: center;
 }
 
-.product-list__reset{
+.product-list__reset {
   color: var(--gray-300);
   font-size: 12px;
   font-weight: 600;
@@ -58,11 +57,11 @@ main {
   background: #fff;
 }
 
-.product-list__reset:hover{
+.product-list__reset:hover {
   color: var(--black);
 }
 
-.accordian__head{
+.accordian__head {
   width: 220px;
   height: 52px;
   display: flex;
@@ -74,7 +73,7 @@ main {
   cursor: pointer;
 }
 
-.accordian__body{
+.accordian__body {
   border-top: 2px solid var(--gray-50);
   display: flex;
   flex-direction: column;
@@ -84,12 +83,11 @@ main {
   /* display: none; */
 }
 
-.accordian__body-open{
+.accordian__body-open {
   height: fit-content;
 }
 
-
-.accordian__item{
+.accordian__item {
   width: 220px;
   display: flex;
   height: 36px;
@@ -97,7 +95,7 @@ main {
   font-weight: 400;
 }
 
-.accordian__check{
+.accordian__check {
   margin-left: 8px;
   width: 20px;
   height: 20px;
@@ -108,25 +106,25 @@ main {
   /* filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(81deg) brightness(105%) contrast(101%); */
 }
 
-.accordian__check-checked{
+.accordian__check-checked {
   border: none;
   background: var(--primary);
 }
 
-.check{
+.check {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
-.product-list__filter--index-count{
+.product-list__filter--index-count {
   font-weight: 300;
   font-size: var(--text-xs);
   margin-left: 4px;
 }
 
-.product-list__filter--index-togle{
+.product-list__filter--index-togle {
   border: none;
   background-color: transparent;
   padding: 4px;
@@ -134,29 +132,29 @@ main {
   transition: all 400ms;
 }
 
-.accordian__item-name{
+.accordian__item-name {
   font-size: 14px;
   margin-right: 4px;
   font-weight: 500;
 }
 
-.accordian__item:hover{
+.accordian__item:hover {
   color: var(--secondary);
   cursor: pointer;
 }
 
-.accordian__item-count{
+.accordian__item-count {
   font-size: var(--text-sm);
   color: var(--gray-300);
 }
 
-.product-list__items-section{
+.product-list__items-section {
   width: 780px;
   min-height: 1200px;
   margin-left: 50px;
 }
 
-.product-list__items--header{
+.product-list__items--header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -165,12 +163,12 @@ main {
   margin-bottom: 20px;
 }
 
-.divider__sort{
+.divider__sort {
   margin-left: 4px;
   margin-right: 4px;
 }
 
-.product-list__items-list{
+.product-list__items-list {
   display: flex;
   gap: 14px;
   flex-flow: wrap;
@@ -213,7 +211,7 @@ main {
   margin-top: var(--spacing-base);
 }
 
-.product-name--product-list{
+.product-name--product-list {
   margin-top: var(--spacing-xs);
 }
 
@@ -235,33 +233,32 @@ main {
   text-decoration: line-through;
 }
 /* 주희님 작성 코드 끝*/
-.product-list__item:hover{
+.product-list__item:hover {
   cursor: pointer;
 }
 
-
-.product-mark--morning-star{
+.product-mark--morning-star {
   font-size: var(--text-sm);
   color: var(--gray-400);
   margin-top: var(--spacing-base);
 }
 
-.product-mark--info{
+.product-mark--info {
   margin-top: var(--spacing-xs);
   color: var(--gray-400);
   font-size: var(--text-xs);
   font-weight: 500;
 }
 
-.product-special-mark{
+.product-special-mark {
   margin-top: var(--spacing-xs);
 }
 
-.product-special-mark:hover{
+.product-special-mark:hover {
   cursor: default;
 }
 
-.product-special-mark__mark{
+.product-special-mark__mark {
   padding: 4px;
   margin-right: 8px;
   background: var(--gray-100);
@@ -269,29 +266,29 @@ main {
   font-weight: 700;
 }
 
-.product-special-mark--karly-only{
+.product-special-mark--karly-only {
   color: var(--primary);
 }
 
 /* 장바구니 모달---------------------------------------*/
-.cart-modal{
+.cart-modal {
   height: 292px;
   width: 396px;
   border-radius: 16px;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
   background: #fff;
   z-index: 2000;
   display: none;
   justify-content: center;
-  padding: 24px 20px 24px 20px ;
+  padding: 24px 20px 24px 20px;
   flex-direction: column;
   transition: all 400ms;
 }
 
-.cart-modal--info{
+.cart-modal--info {
   width: 356px;
   height: 66px;
   margin-bottom: 28px;
@@ -300,47 +297,46 @@ main {
   font-size: var(--text-base);
 }
 
-.cart-modal--total-price{
+.cart-modal--total-price {
   width: 356px;
   height: 66px;
   margin-bottom: 28px;
   position: relative;
 }
 
-.cart-modal--button-box{
+.cart-modal--button-box {
   width: 356px;
   height: 54px;
   display: flex;
   justify-content: space-between;
 }
 
-.cart-modal--title{
+.cart-modal--title {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.cart-modal--price-box{
+.cart-modal--price-box {
   position: absolute;
   bottom: 0;
   left: 0;
   transform: translateY(-50%);
   line-height: 16px;
-
 }
 
-.cart-modal--price{
+.cart-modal--price {
   font-size: 16px;
   margin-right: 4px;
 }
 
-.cart-modal--price-sale{
+.cart-modal--price-sale {
   font-size: 14px;
   text-decoration: line-through;
   color: var(--gray-400);
 }
 
-.cart-modal--count-box{
+.cart-modal--count-box {
   border: var(--gray-200) 1px solid;
   width: 84px;
   height: 30px;
@@ -352,7 +348,7 @@ main {
   align-items: center;
 }
 
-.cart-modal--count-button{
+.cart-modal--count-button {
   border: none;
   background: none;
   display: flex;
@@ -362,28 +358,28 @@ main {
   height: 30px;
 }
 
-.cart-modal--count-button--minus{
-  background: url("../assets/modal/ic-minus.svg") 50% 50% / 100%;
+.cart-modal--count-button--minus {
+  background: url('../assets/modal/ic-minus.svg') 50% 50% / 100%;
 }
 
-.cart-modal--count-buttot--plus{
-  background: url("../assets/modal/ic-plus.svg") 50% 50% / 100%;
+.cart-modal--count-buttot--plus {
+  background: url('../assets/modal/ic-plus.svg') 50% 50% / 100%;
 }
 
-.cart-modal--total-price-top{
+.cart-modal--total-price-top {
   height: 40px;
   margin-bottom: 4px;
   position: relative;
 }
 
-.cart-modal--total-price-top--total{
+.cart-modal--total-price-top--total {
   position: absolute;
   bottom: 4px;
   left: 0;
   font-weight: 700;
 }
 
-.cart-modal--total-price-top--price{
+.cart-modal--total-price-top--price {
   position: absolute;
   right: 0;
   font-weight: bold;
@@ -391,7 +387,7 @@ main {
   line-height: 40px;
 }
 
-.cart-modal--total-price-bottom{
+.cart-modal--total-price-bottom {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -399,7 +395,7 @@ main {
   align-items: center;
 }
 
-.cart-modal--total-price-top--mark{
+.cart-modal--total-price-top--mark {
   width: 37px;
   height: 18px;
   background: var(--accent-yellow);
@@ -412,12 +408,12 @@ main {
   margin-right: 12px;
 }
 
-.cart-modal--total-price-top--info{
+.cart-modal--total-price-top--info {
   font-size: 16px;
   font-weight: 600;
 }
 
-.cart-modal--button{
+.cart-modal--button {
   height: 54px;
   width: 174px;
   font-size: var(--text-base);
@@ -428,13 +424,13 @@ main {
   border-radius: 4px;
 }
 
-.cart-modal--button--cancel{
+.cart-modal--button--cancel {
   background: var(--primary);
   color: #fff;
   border: none;
 }
 
-.cart-modal--button--add{
+.cart-modal--button--add {
   background: #fff;
   color: var(--primary);
   border: 1px solid var(--gray-400);
@@ -465,3 +461,4 @@ main {
   margin: 0;
   padding: 0;
 }
+

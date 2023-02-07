@@ -56,3 +56,233 @@ export let swiper = new Swiper('.mySwiper', {
   },
   spaceBetween: 10,
 });
+
+export function coldListAct() {
+  const viewMore = document.querySelector('.vector-1');
+  const coldList = document.querySelector('.cart-list__cold--group');
+
+  viewMore.addEventListener('click', show);
+
+  function show() {
+    if (viewMore.className === 'rotate-deg--bottom') {
+      return (
+        (viewMore.className = 'rotate-deg--top'),
+        (coldList.style.display = 'none')
+      );
+    } else {
+      return (
+        (viewMore.className = 'rotate-deg--bottom'),
+        (coldList.style.display = 'block')
+      );
+    }
+  }
+}
+
+export function frozenListAct() {
+  const viewMore = document.querySelector('.vector-2');
+  const frozenList = document.querySelector('.cart-list__frozen--group');
+
+  viewMore.addEventListener('click', show);
+
+  function show() {
+    if (viewMore.className === 'rotate-deg--bottom') {
+      return (
+        (viewMore.className = 'rotate-deg--top'),
+        (frozenList.style.display = 'none')
+      );
+    } else {
+      return (
+        (viewMore.className = 'rotate-deg--bottom'),
+        (frozenList.style.display = 'block')
+      );
+    }
+  }
+}
+
+export function temperatureListAct() {
+  const viewMore = document.querySelector('.vector-3');
+  const temperatureList = document.querySelector(
+    '.cart-list__temperature--group'
+  );
+
+  viewMore.addEventListener('click', show);
+
+  function show() {
+    if (viewMore.className === 'rotate-deg--bottom') {
+      return (
+        (viewMore.className = 'rotate-deg--top'),
+        (temperatureList.style.display = 'none')
+      );
+    } else {
+      return (
+        (viewMore.className = 'rotate-deg--bottom'),
+        (temperatureList.style.display = 'block')
+      );
+    }
+  }
+}
+
+export function allSelector() {
+  const totalSelector = document.querySelectorAll(
+    '.all-check-box, .all-check-box.active'
+  );
+  const singleSelector = document.querySelectorAll(
+    '.single-check-box',
+    '.single-check-box.active'
+  );
+
+  totalSelector.forEach(function (item, index) {
+    totalSelector[index].addEventListener('click', test1);
+
+    function test1() {
+      if (totalSelector[index].className === 'all-check-box active') {
+        totalSelector[0].className = 'all-check-box';
+        totalSelector[1].className = 'all-check-box';
+        singleSelector.forEach(function (item) {
+          item.className = 'single-check-box';
+        });
+        getNumber();
+      } else {
+        totalSelector[0].className = 'all-check-box active';
+        totalSelector[1].className = 'all-check-box active';
+        singleSelector.forEach(function (item, index) {
+          item.className = 'single-check-box active';
+        });
+        getNumber();
+      }
+    }
+  });
+}
+
+export function deleteList() {
+  const deleteButton = document.querySelectorAll('.group-list__close');
+
+  deleteButton.forEach(function (target) {
+    target.addEventListener('click', deleteAct);
+    function deleteAct(event) {
+      target.closest('li').remove();
+      reloadGroup();
+    }
+  });
+}
+
+export function selectDelete() {
+  const deleteButton = document.querySelectorAll('.selector-delete');
+  const activeCheck = document.querySelectorAll('.single-check-box.active');
+  const groupList = document.querySelectorAll('.group-list');
+
+  deleteButton.forEach(function (item, index) {
+    deleteButton[index].addEventListener('click', deleteAct);
+    function deleteAct() {
+      activeCheck.forEach(function (item, index) {
+        if (activeCheck[index].className === 'single-check-box active') {
+          groupList[index].remove();
+          reloadGroup();
+        }
+      });
+    }
+  });
+}
+
+export function productOrder() {
+  const orderButton = document.querySelector('.summary-bottom__order');
+  const alert = document.querySelector('.alert-order');
+
+  orderButton.addEventListener('click', order);
+
+  function order() {
+    alert.style.display = 'block';
+    setTimeout(() => {
+      alert.style.display = 'none';
+    }, 1500);
+  }
+}
+
+export function eachSelect() {
+  const activeCheck = document.querySelectorAll('.single-check-box');
+
+  activeCheck.forEach(function (item, index) {
+    activeCheck[index].addEventListener('click', select);
+
+    function select() {
+      if (activeCheck[index].className === 'single-check-box') {
+        activeCheck[index].className = 'single-check-box active';
+        getNumber();
+      } else activeCheck[index].className = 'single-check-box';
+      getNumber();
+    }
+  });
+}
+
+export function getNumber() {
+  const totalNumber = document.querySelectorAll('.single-check-box').length;
+  const selectNumber = document.querySelectorAll(
+    '.single-check-box.active'
+  ).length;
+  const allSelectText = document.querySelectorAll('.cart-feature__text');
+
+  allSelectText.forEach(function (item) {
+    item.textContent = '';
+    item.textContent = `전체선택(${selectNumber}/${totalNumber})`;
+  });
+}
+
+export function totalExpectedPrice() {
+  const basicPrice = Number(
+    document.querySelector('.product-result__basic--price').textContent
+  );
+  const salePrice = Number(
+    document.querySelector('.product-result__sale--price').textContent
+  );
+  const deliveryPrice = Number(
+    document.querySelector('.product-result__delivery--price').textContent
+  );
+  const expectedPrice = document.querySelector(
+    '.product-result__expected--price'
+  );
+
+  function calculate() {
+    return basicPrice - salePrice + deliveryPrice;
+  }
+  expectedPrice.textContent = '';
+  expectedPrice.textContent = calculate();
+}
+
+export function totalBasicPrice() {
+  const productBasicPrice = document.querySelectorAll('.product-price');
+  const basicPrice = document.querySelector('.product-result__basic--price');
+
+  let total = Number(0);
+
+  productBasicPrice.forEach(function (item, index) {
+    total = total + Number(productBasicPrice[index].textContent);
+    basicPrice.textContent = '';
+    basicPrice.textContent = total;
+  });
+  if (productBasicPrice.length === 0) {
+    basicPrice.textContent = 0;
+  }
+}
+
+export function totalSalePrice() {
+  const productSalePrice = document.querySelectorAll('.product-price-sale');
+  const salePrice = document.querySelector('.product-result__sale--price');
+
+  let total = Number(0);
+
+  productSalePrice.forEach(function (item, index) {
+    total = total + Number(productSalePrice[index].textContent);
+    salePrice.textContent = '';
+    salePrice.textContent = total;
+  });
+  if (productSalePrice.length === 0) {
+    salePrice.textContent = Number(0);
+  }
+}
+
+function reloadGroup() {
+  getNumber();
+  totalBasicPrice();
+  totalSalePrice();
+  totalExpectedPrice();
+}
