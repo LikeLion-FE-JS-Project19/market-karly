@@ -1,6 +1,7 @@
 import { insertLast, insertBefore } from '../lib/dom/insert.js';
 import { getNode } from '../lib/dom/getNode.js';
 import { addClass, removeClass, toggleClass } from '../lib/dom/css.js';
+import { attr } from '../lib/dom/attr.js';
 
 export function swiper2() {
   const swiper = new Swiper('.swiper-2', {
@@ -51,6 +52,9 @@ export function openReviewModal() {
   openReviewModalButton.addEventListener('click', openReviewModalHandler);
 
   function openReviewModalHandler() {
+    const productName = getNode('.product-summary__title').textContent;
+    const productImg = attr('.product-summary__img', 'src');
+
     let template = `
 		<div class="modal-review-background">
 					<section class="modal-review">
@@ -61,8 +65,8 @@ export function openReviewModal() {
 							</button>
 						</div>
 						<div class="modal-review__product-info">
-							<img src="./assets/product/tangtang/thumbnail.jpg" alt="[풀무원] 탱탱쫄면 (4개입)"/>
-							<span class="product-name">[풀무원] 탱탱쫄면 (4개입)</span>
+							<img src="${productImg}" />
+							<span class="product-name">${productName}</span>
 						</div>
 						<form class="modal-review__form">
 							<div class="modal-review-title">
@@ -109,7 +113,6 @@ export function openReviewModal() {
     const reviewContent = getNode('#modal-review-content__textarea');
     const submitButton = getNode('.modal-review-button--submit');
     const countChar = getNode('.count-char');
-    const productName = getNode('.product-summary__title').textContent;
 
     closeBottomButton.addEventListener('click', closeModalButtonHandler);
     closeTopButton.addEventListener('click', closeModalButtonHandler);
