@@ -1,3 +1,7 @@
+.protect {
+  display: none;
+}
+
 .main-modal {
   position: fixed;
   display: flex;
