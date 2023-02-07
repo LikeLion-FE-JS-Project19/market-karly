@@ -109,6 +109,7 @@ export function openReviewModal() {
     const reviewContent = getNode('#modal-review-content__textarea');
     const submitButton = getNode('.modal-review-button--submit');
     const countChar = getNode('.count-char');
+    const productName = getNode('.product-summary__title').textContent;
 
     closeBottomButton.addEventListener('click', closeModalButtonHandler);
     closeTopButton.addEventListener('click', closeModalButtonHandler);
@@ -151,7 +152,7 @@ export function openReviewModal() {
 			<span class="name">윤*한</span>
 			</div>
 			<div class="review-text-container">
-			<p class="review-product-name">[풀무원] 탱탱쫄면 (4개입)</p>
+			<p class="review-product-name">${productName}</p>
 			<p class="review-text-field">${reviewContent.value}</p>
 			<p class="review-date">${date}</p>
 			</div>
