@@ -1,32 +1,10 @@
-function typeOf(data) {
-  return Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
-}
-
-export const isString = (data) => typeOf(data) === 'string';
-
-export function getNode(node) {
-  if (!isString(node)) {
-    typeError('getNode 함수의 인자는 문자 타입 이여야 합니다.');
-  }
-
-  // if(!isString(node)) typeError('에러가 발생했습니다.');
-
-  return document.querySelector(node);
-}
-
-export function insertLast(node, text) {
-  if (typeof node === 'string') node = getNode(node);
-  if (node.nodeType !== document.ELEMENT_NODE) {
-    refError('insertLast 함수의 첫 번째 인자는 ELEMENT 노드여야 합니다.');
-  }
-  node.insertAdjacentHTML('beforeend', text);
-}
+import { insertLast } from '../lib/index.js';
 
 export const renderFooter = (target) => {
   insertLast(target, createFooter());
 };
 
-export function createFooter() {
+function createFooter() {
   return /* html */ `
   <footer class="footer">
   <div class="footer__inner">
@@ -151,7 +129,7 @@ export function createFooter() {
               <a target="_blank" href="#"
                 ><img
                   class="footer__sns-img"
-                  src="/assets/footer/ic-blog.svg"
+                  src="./assets/footer/ic-blog.svg"
                   alt="컬리 네이버블로그 바로가기"
               /></a>
             </li>
@@ -159,7 +137,7 @@ export function createFooter() {
               <a target="_blank" href="#"
                 ><img
                   class="footer__sns-img"
-                  src="/assets/footer/ic-face-book.svg"
+                  src="./assets/footer/ic-face-book.svg"
                   alt="컬리 페이스북 바로가기"
               /></a>
             </li>
@@ -167,7 +145,7 @@ export function createFooter() {
               <a target="_blank" href="#"
                 ><img
                   class="footer__sns-img"
-                  src="/assets/footer/ic-instagram.svg"
+                  src="./assets/footer/ic-instagram.svg"
                   alt="컬리 인스타그램 바로가기"
               /></a>
             </li>
@@ -175,7 +153,7 @@ export function createFooter() {
               <a target="_blank" href="#"
                 ><img
                   class="footer__sns-img"
-                  src="/assets/footer/ic-naver-post.svg"
+                  src="./assets/footer/ic-naver-post.svg"
                   alt="컬리 네이버포스트 바로가기"
               /></a>
             </li>
@@ -183,7 +161,7 @@ export function createFooter() {
               <a target="_blank" href="#"
                 ><img
                   class="footer__sns-img"
-                  src="/assets/footer/ic-youtube.svg"
+                  src="./assets/footer/ic-youtube.svg"
                   alt="컬리 유튜브 바로가기"
               /></a>
             </li>
@@ -197,7 +175,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="/assets/footer/logo-isms.svg"
+              src="./assets/footer/logo-isms.svg"
               alt="I.S.M.S 로고"
             />
             <p class="footer__certified-info">
@@ -213,7 +191,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="/assets/footer/logo-privacy.svg"
+              src="./assets/footer/logo-privacy.svg"
               alt="E.privacy plus 로고"
             />
             <p class="footer__certified-info">
@@ -227,7 +205,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="/assets/footer/logo-tosspayments.svg"
+              src="./assets/footer/logo-tosspayments.svg"
               alt="payments 로고"
             />
             <p class="footer__certified-info">
@@ -240,7 +218,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="/assets/footer/logo-woori-bank.svg"
+              src="./assets/footer/logo-woori-bank.svg"
               alt="우리은행 로고"
             />
             <p class="footer__certified-info">
@@ -644,5 +622,6 @@ export async function qnaModalSubmitHandler(event) {
       }),
     });
     const result = await response.json();
+    // location.reload();
   }
 }

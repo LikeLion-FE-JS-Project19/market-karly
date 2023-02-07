@@ -7,6 +7,13 @@ import {
 } from './seeun.js';
 import { xhrData } from '../lib/utils/xhr.js';
 
+import {
+  renderQnaList,
+  toggleContent,
+  renderModal,
+  qnaModalSubmitHandler,
+} from './jiwon.js';
+
 xhrData.get(
   'http://localhost:3001/products',
   (products) => {
@@ -46,16 +53,7 @@ import { openReviewModal } from './juhee.js';
 
 openReviewModal();
 
-import {
-  renderQnaList,
-  toggleContent,
-  renderModal,
-  getNode,
-  qnaModalSubmitHandler,
-  renderFooter,
-} from './jiwon.js';
-
-// 요청
+// QnA 요청
 const URLSearch = new URLSearchParams(location.search);
 const id = URLSearch.get('id');
 const [data] = await fetch(`http://localhost:3001/products?id=${id}`).then(
@@ -74,5 +72,3 @@ document.querySelector('.qna__table tbody').addEventListener('keyup', (e) => {
 renderModal(data);
 const qnaModalSubmit = document.querySelector('.qna__modal-submit');
 qnaModalSubmit.addEventListener('click', qnaModalSubmitHandler);
-
-renderFooter(getNode('body'));

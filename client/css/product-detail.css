@@ -304,7 +304,7 @@ button[class^='product-summary__detail-choice-button'] {
 .qna {
   position: relative;
   width: var(--container-width);
-  margin: 0 auto;
+  margin: 0px auto 72px auto;
 }
 
 .qna__title {
