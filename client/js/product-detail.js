@@ -62,11 +62,17 @@ const [data] = await fetch(`http://localhost:3001/products?id=${id}`).then(
   (response) => response.json()
 );
 renderQnaList(data.qnas);
-
 toggleContent(data.qnas);
+
+document.querySelector('.qna__table tbody').addEventListener('keyup', (e) => {
+  const tr = e.target.closest('tr');
+  if (e.keyCode === 13) {
+    tr.click();
+  }
+});
+
 renderModal(data);
-
 const qnaModalSubmit = document.querySelector('.qna__modal-submit');
-
 qnaModalSubmit.addEventListener('click', qnaModalSubmitHandler);
+
 renderFooter(getNode('body'));

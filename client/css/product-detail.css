@@ -327,6 +327,11 @@ button[class^='product-summary__detail-choice-button'] {
   right: 10px;
 }
 
+.qna__popup-btn:focus {
+  outline: 2px solid black;
+  outline-offset: 2px;
+}
+
 .qna__info-list {
   margin-top: var(--spacing-lg);
   margin-bottom: 55px;
@@ -592,7 +597,7 @@ button[class^='product-summary__detail-choice-button'] {
 #qna__modal-form-contents {
   flex-grow: 1;
   border-radius: 4px;
-  padding-left: 20px;
+  padding: 10px;
 }
 
 .qna__modal-form-contents-container {
@@ -631,6 +636,13 @@ button[class^='product-summary__detail-choice-button'] {
 .qna__modal-form-contents-placeholder ul {
   list-style-type: disc;
 }
+.qna__modal-word-count-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: var(--text-sm);
+}
+
 label[for='qna__modal-form-title'],
 label[for='qna__modal-form-contents'] {
   padding: 8px 64px 10px 8px;
@@ -642,13 +654,37 @@ label[for='qna__modal-form-contents'] {
 
 .qna__modal-form-private-container {
   position: relative;
-  left: 101px;
+  padding-left: 101px;
 }
 
-.qna__modal-form-secret {
+#qna__modal-form-private + label {
+  cursor: pointer;
 }
 
-.qna__modal-form-private {
+#qna__modal-form-private + label::before {
+  content: '';
+  background: url(../assets/common/ic-check.svg) -8px -8px no-repeat;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+#qna__modal-form-private:focus + label::before {
+  outline: 2px solid black;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+#qna__modal-form-private:checked + label::before {
+  content: '';
+  background: url(../assets/common/ic-check.svg) -8px -40px no-repeat;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 .qna__modal-dicision-container {
