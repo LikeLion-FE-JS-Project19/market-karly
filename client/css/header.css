@@ -272,6 +272,66 @@
   z-index: 30;
 }
 
+.add-cart-bubble {
+  position: absolute;
+  width: 256px;
+  height: 100px;
+  padding: var(--spacing-md);
+  border: 1px solid var(--gray-200);
+  background-color: var(--white);
+  z-index: 1001;
+  transition: opacity 0.5s;
+  opacity: 0;
+  bottom: -95px;
+  right: -23px;
+}
+
+.add-cart-bubble::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 16px solid var(--gray-200);
+  top: -14px;
+  right: 28px;
+}
+
+.add-cart-bubble:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 0px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 16px solid var(--white);
+  top: -12px;
+  right: 28px;
+}
+
+.add-cart-bubble__img {
+  width: 46px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: var(--spacing-lg);
+  float: left;
+}
+
+.add-cart-bubble__product {
+  color: var(--gray-300);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+}
+
+.add-cart-bubble__comment {
+  color: var(--comment);
+  font-size: var(--text-xs);
+}
+
 .top-bar {
   background: var(--primary);
   color: var(--white);

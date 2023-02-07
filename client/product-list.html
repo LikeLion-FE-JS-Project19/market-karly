@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="지금 마켓칼리에서 제공하는 다양한 베스트 상품을 확인해보세요."
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
@@ -14,8 +18,8 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"
     />
-    <link rel="stylesheet" href="./css/product-detail.css" />
-    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/product-list.css" />
+    <!-- <link rel="stylesheet" href="./css/header.css" /> -->
     <link rel="stylesheet" href="./css/footer.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="./js/common/common.js" type="module"></script>
@@ -24,20 +28,20 @@
     <script src="./js/seokwon.js" type="module"></script>
     <script src="./js/kyungseob.js" type="module"></script>
     <script src="./js/jiwon.js" type="module"></script>
+    <script src="./js/product-list.js" type="module"></script>
 
-    <title>Market Karly</title>
+    <title>베스트 - 마켓칼리</title>
   </head>
 
-  <div class="top-bar">
-    <div class="top-bar__group">
-      <a class="top-bar__link" href=""
-        >지금 가입하고 인기상품 100원에 받아가세요!</a
-      >
-      <button class="top-bar__btn-today-close" aria-label="닫기버튼"></button>
-    </div>
-  </div>
-
   <body>
+    <div class="top-bar">
+      <div class="top-bar__group">
+        <a class="top-bar__link" href=""
+          >지금 가입하고 인기상품 100원에 받아가세요!</a
+        >
+        <button class="top-bar__btn-today-close" aria-label="닫기버튼"></button>
+      </div>
+    </div>
     <header class="header">
       <div class="header-container header-container--mid">
         <div class="header-container__logo">
@@ -157,11 +161,48 @@
     </header>
 
     <main>
-      <h2>베스트</h2>
-      <section></section>
+      <div class="container">
+        <div class="title">
+          <h2>베스트!!!!!</h2>
+        </div>
+        <section class="product-list__filter">
+          <ul class="product-list__filter--box">
+            <li>
+              <div class="product-list__filter--header">
+                <span>필터</span
+                ><button class="product-list__reset" data-elementname="reset">
+                  초기화
+                </button>
+              </div>
+            </li>
+          </ul>
+        </section>
 
-      <section></section>
+        <section class="product-list__items-section">
+          <div class="product-list__items--header">
+            <div class="product-list__total-count">총 284건</div>
+            <div class="product-list__sort">
+              <span>추천순</span>
+              <span class="divider divider__sort" aria-hidden="true">|</span>
+              <span>신상품순</span>
+              <span class="divider divider__sort" aria-hidden="true">|</span>
+              <span>판매량순</span>
+              <span class="divider divider__sort" aria-hidden="true">|</span>
+              <span>혜택순</span>
+              <span class="divider divider__sort" aria-hidden="true">|</span>
+              <span data-name="asc">낮은 가격순</span>
+              <span class="divider divider__sort" aria-hidden="true">|</span>
+              <span data-name="desc">높은 가격순</span>
+            </div>
+          </div>
+          <ul class="product-list__items-list"></ul>
+        </section>
+      </div>
     </main>
+
+    <!-- 클래스명 짓기 너무 빡세요... -->
+    <div class="cart-modal" data-count="1"></div>
+    <div class="dark-filter">dadad</div>
 
     <footer class="footer">
       <div class="footer__inner">
