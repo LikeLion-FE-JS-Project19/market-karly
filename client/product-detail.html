@@ -385,8 +385,10 @@
         />
       </section>
 
-      <section class="review">
-        <button class="review-write-button">후기 작성하기</button>
+      <section id="tabpanel-3" class="review" aria-labelledby="tab-3">
+        <button class="review-write-button" aria-label="후기 작성 버튼">
+          후기 작성하기
+        </button>
         <h2 class="review-title">상품 후기</h2>
         <ul class="review-benefit">
           <li class="review-benefit__title">
@@ -408,8 +410,16 @@
           <div class="review-wrapper__top">
             <span class="review-count">총 2개</span>
             <div class="sorting">
-              <button class="sorting__recommend sorting-active">추천순</button>
-              <button class="sorting__recent sorting-deactive">
+              <button
+                class="sorting__recommend sorting-active"
+                aria-label="추천순 정렬 버튼"
+              >
+                추천순
+              </button>
+              <button
+                class="sorting__recent sorting-deactive"
+                aria-label="최근 등록순 정렬 버튼"
+              >
                 최근 등록순
               </button>
             </div>
@@ -420,7 +430,10 @@
               <li class="id">
                 <div class="announcement-summary">
                   <span class="tag-announcement">공지</span>
-                  <button class="announcement-title">
+                  <button
+                    class="announcement-title"
+                    aria-label="공지 게시글 열기 버튼"
+                  >
                     금주의 베스트 후기 안내
                   </button>
                 </div>
@@ -501,7 +514,10 @@
               <li class="id">
                 <div class="announcement-summary">
                   <span class="tag-announcement">공지</span>
-                  <button class="announcement-title">
+                  <button
+                    class="announcement-title"
+                    aria-label="공지 게시글 열기 버튼"
+                  >
                     상품 후기 적립금 정책 안내
                   </button>
                 </div>
@@ -601,7 +617,10 @@
         </div>
 
         <div class="review-button-group">
-          <button class="review-page-button__prev">
+          <button
+            class="review-page-button__prev"
+            aria-label="상품 후기 이전 페이지 버튼"
+          >
             <svg
               width="36"
               height="36"
@@ -616,7 +635,10 @@
               />
             </svg>
           </button>
-          <button class="review-page-button__next">
+          <button
+            class="review-page-button__next"
+            aria-label="상품 후기 다음 페이지 버튼"
+          >
             <img src="./assets/product-detail/arrow.svg" alt="arrow" />
           </button>
         </div>

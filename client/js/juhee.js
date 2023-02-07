@@ -116,6 +116,7 @@ export function openReviewModal() {
     reviewTitle.addEventListener('input', activateSubmitButton);
     reviewContent.addEventListener('input', activateSubmitButton);
     reviewContent.addEventListener('input', onKeyUpTextarea);
+    reviewContent.addEventListener('keydown', writeReviewContent);
     placeholderText.addEventListener('click', writeReviewContent);
     submitButton.addEventListener('click', submitNewReview);
 
