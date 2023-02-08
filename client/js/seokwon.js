@@ -777,8 +777,8 @@ export async function productListEventHandler() {
 
     if (target.dataset.name == 'asc') {
       curData.sort((a, b) => {
-        if (parseInt(a.price) > parseInt(b.price)) return 1;
-        else if (parseInt(a.price) < parseInt(b.price)) return -1;
+        if (parseInt(getPrice(a)) > parseInt(getPrice(b))) return 1;
+        else if (parseInt(getPrice(a)) < parseInt(getPrice(b))) return -1;
         return 0;
       });
       listRendering(curData);
