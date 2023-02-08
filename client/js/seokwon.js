@@ -1,5 +1,5 @@
-import { axios } from '../lib/utils/index.js';
-import { attr } from '../lib/dom/attr.js';
+import { axios, attr, getNode, getNodes } from '../lib/index.js';
+
 
 
 const categoryData = [
@@ -150,7 +150,7 @@ export async function productListEventHandler() {
 
   async function getProductItems() {
     try {
-      const result = await tiger.get('http://localhost:3001/products');
+      const result = await axios.get('http://localhost:3001/products');
       curData = result.data;
       listRendering(curData);
     } catch (error) {
@@ -296,7 +296,7 @@ export async function productListEventHandler() {
   // id에 맞는 데이터 가져오기
   async function getItemById(id) {
     try {
-      let result = await tiger.get('http://localhost:3001/products');
+      let result = await axios.get('http://localhost:3001/products');
       let value = result.data.filter((data) => data.id === id);
       return value[0];
     } catch (error) {
@@ -384,7 +384,7 @@ export async function productListEventHandler() {
     let filterObj = {};
     try {
       // 유틸함수 사용하기
-      let result = await tiger.get('http://localhost:3001/products');
+      let result = await axios.get('http://localhost:3001/products');
       filterObj.category = getCategoryFilterArray(result);
       filterObj.brand = getBrandFilterArray(result);
       filterObj.price = getPriceFilterArray(result);
