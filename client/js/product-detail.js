@@ -7,12 +7,7 @@ import {
 } from './seeun.js';
 import { xhrData } from '../lib/utils/xhr.js';
 
-import {
-  renderQnaList,
-  toggleContent,
-  renderModal,
-  qnaModalSubmitHandler,
-} from './jiwon.js';
+import { renderQnATable, renderModal, qnaModalSubmitHandler } from './jiwon.js';
 
 xhrData.get(
   'http://localhost:3001/products',
@@ -50,18 +45,15 @@ window.addEventListener('scroll', toggleTabMenuHandler);
 );
 
 import { openReviewModal } from './juhee.js';
+import { axios } from '../lib/index.js';
 
 openReviewModal();
 
 // QnA 요청
 const URLSearch = new URLSearchParams(location.search);
 const id = URLSearch.get('id');
-const [data] = await fetch(`http://localhost:3001/products?id=${id}`).then(
-  (response) => response.json()
-);
-renderQnaList(data.qnas);
-toggleContent(data.qnas);
 
+renderQnATable(id);
 document.querySelector('.qna__table tbody').addEventListener('keyup', (e) => {
   const tr = e.target.closest('tr');
   if (e.keyCode === 13) {
@@ -69,6 +61,9 @@ document.querySelector('.qna__table tbody').addEventListener('keyup', (e) => {
   }
 });
 
+const [data] = await fetch(`http://localhost:3001/products?id=${id}`).then(
+  (response) => response.json()
+);
 renderModal(data);
 const qnaModalSubmit = document.querySelector('.qna__modal-submit');
 qnaModalSubmit.addEventListener('click', qnaModalSubmitHandler);

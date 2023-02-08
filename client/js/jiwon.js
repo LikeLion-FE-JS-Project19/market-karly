@@ -1,9 +1,127 @@
-import { insertLast } from '../lib/index.js';
+import { axios, insertLast } from '../lib/index.js';
 
 export const renderFooter = (target) => {
   insertLast(target, createFooter());
 };
+export const renderModal = (data) => {
+  const qnaPopupBtn = document.querySelector('.qna__popup-btn');
+  qnaPopupBtn.insertAdjacentHTML('afterend', createModal(data));
+  const qnaModalContainer = document.querySelector('.qna__modal-container');
+  const qnaModalCloseBtn = document.querySelector('.qna__modal-close-btn');
+  const qnaModalCancel = document.querySelector('.qna__modal-cancel');
 
+  qnaPopupBtn.addEventListener('click', (e) => {
+    qnaModalContainer.classList.remove('hidden');
+  });
+
+  qnaModalCloseBtn.addEventListener('click', (e) => {
+    qnaModalContainer.classList.add('hidden');
+  });
+
+  qnaModalCancel.addEventListener('click', () => {
+    qnaModalContainer.classList.add('hidden');
+  });
+
+  // 모달 placeHolder
+  const placeHolder = document.querySelector(
+    '.qna__modal-form-contents-placeholder'
+  );
+  const textArea = document.querySelector('#qna__modal-form-contents');
+  const wordCount = document.querySelector('.qna__modal-word-count');
+
+  textArea.onfocus = () => {
+    placeHolder.style.display = 'none';
+  };
+
+  textArea.onblur = (e) => {
+    if (e.target.value !== '') {
+      return;
+    }
+    placeHolder.style.display = 'block';
+  };
+
+  function count(e) {
+    wordCount.innerText = e.target.value.length;
+    if (e.target.value.length > 5000) {
+      e.target.value = e.target.value.substring(0, 5000);
+    }
+  }
+  textArea.addEventListener('keyup', count);
+
+  placeHolder.addEventListener('click', (e) => {
+    e.target.closest('.qna__modal-form-contents-placeholder').style.display =
+      'none';
+    textArea.focus();
+  });
+};
+export const qnaModalSubmitHandler = async (event) => {
+  const qnaModalProductId = document.querySelector('#qna__modal-product-id')
+    ?.dataset.productId;
+  const qnaModalFormTitle = document.querySelector(
+    '#qna__modal-form-title'
+  )?.value;
+  const qnaModalFormContents = document.querySelector(
+    '#qna__modal-form-contents'
+  )?.value;
+  const qnaModaFormPrivate = document.querySelector('#qna__modal-form-private')
+    ?.checked
+    ? 'private'
+    : 'public';
+  const now = new Date();
+  let year = now.getFullYear();
+  let month = now.getMonth() + 1;
+  month = month < 10 ? '0' + month : month;
+  let date = now.getDate();
+  date = date < 10 ? '0' + date : date;
+  const questionDatetime = `${year}${month}${date}`;
+
+  if (qnaModalFormTitle.trim() === '' || qnaModalFormContents.trim() === '') {
+    alert('제목과 내용을 입력해주세요.');
+  } else {
+    const response = await fetch('http://localhost:3001/QnAs', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        id: '',
+        type: qnaModaFormPrivate,
+        product: qnaModalProductId,
+        title: qnaModalFormTitle,
+        writer: '홍길동',
+        contents: qnaModalFormContents,
+        questionDatetime: questionDatetime,
+      }),
+    });
+    const result = await response.json();
+    location.reload();
+  }
+};
+export const renderQnATable = async (productId) => {
+  try {
+    let result = [];
+    const qnaNoticesResult = await axios.get(
+      'http://localhost:3001/QnANotices'
+    );
+    const qnasResult = await axios.get(
+      `http://localhost:3001/QnAs?product=${productId}`
+    );
+    result.push(...qnaNoticesResult.data, ...qnasResult.data);
+
+    renderQnANoticeList(qnaNoticesResult.data);
+    renderQnaList(qnasResult.data);
+
+    toggleContent(result);
+
+    return result;
+  } catch (error) {
+    console.log(error);
+    alert('예기치 못한 에러로 실패했습니다.');
+    return error;
+  }
+};
+
+// 푸터
 function createFooter() {
   return /* html */ `
   <footer class="footer">
@@ -248,253 +366,7 @@ function createFooter() {
   `;
 }
 
-export function renderQnaList(qnaList) {
-  const qnaTable = document.querySelector('.qna__table');
-  const tbody = document.querySelector('.qna__table tbody');
-  if (qnaList.length === 0) {
-    tbody.insertAdjacentHTML('beforeend', createEmptyQnaTr());
-  }
-  qnaList.forEach((data) => {
-    if (data.type === 'notice') {
-      // type이 공지사항일 때, tbody의 첫 번째 tr로 추가한다.
-      tbody.insertAdjacentHTML('afterbegin', createNoticeTr(data));
-    } else if (data.type === 'private') {
-      // type이 비밀글일 때, 제목을 `비밀글입니다`로, 클래스를 `qna__item--private`로, 작성자명 마스킹 처리
-      tbody.insertAdjacentHTML('beforeend', createPrivateTr(data));
-    } else if (data.type === 'public') {
-      // type이 공개글일 때, 작성자명 마스킹 처리
-      tbody.insertAdjacentHTML('beforeend', createPublicTr(data));
-    }
-  });
-}
-function createEmptyQnaTr() {
-  return /* html */ `
-    <tr class="qna__item--empty">
-      <td colspan="4">문의글이 없습니다.</td>
-    </tr>
-  `;
-}
-function createNoticeTr(data) {
-  const {
-    id,
-    type,
-    title,
-    writer,
-    contents,
-    questionDatetime,
-    answer,
-    answerDatetime,
-  } = data;
-  return /* html */ `
-  <tr class="qna__item--notice" data-kind="public" data-id="${id}" role="button" aria-expanded="false" tabindex="0">
-    <td>
-      ${title}
-    </td>
-    <td>
-      ${writer}
-    </td>
-    <td>
-      ${questionDatetime}
-    </td>
-    <td>
-      -
-    </td>
-  </tr>
-  `;
-}
-
-const maskingName = function (strName) {
-  if (strName.length > 2) {
-    var originName = strName.split('');
-    originName.forEach(function (name, i) {
-      if (i === 0 || i === originName.length - 1) return;
-      originName[i] = '*';
-    });
-    var joinName = originName.join();
-    return joinName.replace(/,/g, '');
-  } else {
-    var pattern = /.$/; // 정규식
-    return strName.replace(pattern, '*');
-  }
-};
-
-function createPrivateTr(data) {
-  const {
-    id,
-    type,
-    title,
-    writer,
-    contents,
-    questionDatetime,
-    answer,
-    answerDatetime,
-  } = data;
-  const answerStatusClass = answerDatetime ? 'qna__item--complete' : '';
-  const answerStatus = answerDatetime ? '답변완료' : '답변대기';
-  return /* html */ `
-  <tr class="qna__item--private ${answerStatusClass}" data-kind="private" data-id="${id}" role="button" aria-expanded="false"  tabindex="0">
-    <td>비밀글입니다.</td>
-    <td>${maskingName(writer)}</td>
-    <td>${questionDatetime}</td>
-    <td>${answerStatus}</td>
-  </tr>
-  `;
-}
-
-function createPublicTr(data) {
-  const {
-    id,
-    type,
-    title,
-    writer,
-    contents,
-    questionDatetime,
-    answer,
-    answerDatetime,
-  } = data;
-  const answerStatusClass = answerDatetime ? 'qna__item--complete' : '';
-  const answerStatus = answerDatetime ? '답변완료' : '답변대기';
-  return /* html */ `
-  <tr class="${answerStatusClass}" data-kind="public" data-id="${id}" role="button" aria-expanded="false" tabindex="0">
-    <td>${title}</td>
-    <td>${maskingName(writer)}</td>
-    <td>${questionDatetime}</td>
-    <td>${answerStatus}</td>
-  </tr>
-  `;
-}
-
-export function toggleContent(qnas) {
-  const qnaTable = document.querySelector('.qna__table');
-  qnaTable.addEventListener('click', (e) => {
-    const tr = e.target.closest('tr');
-
-    if (tr.dataset.kind === 'private') {
-      alert('비밀글입니다.');
-      return;
-    } else if (tr.dataset.kind === 'public') {
-      const content = document.querySelector('.content');
-      if (content) {
-        if (content.previousElementSibling.dataset.id === tr.dataset.id) {
-          // 클릭하여 열려는 행이 이미 열려있는 행과 같으면 닫고 끝난다(토글).
-          content.previousElementSibling.ariaExpanded = false;
-          content.remove();
-          return;
-        } else {
-          content.previousElementSibling.ariaExpanded = false;
-          content.remove();
-        }
-      }
-      const qna = qnas.find((item) => item.id === Number(tr.dataset.id));
-      tr.ariaExpanded = true;
-      tr.insertAdjacentHTML('afterend', createContentTr(qna));
-    }
-  });
-}
-
-function createContentTr({
-  id,
-  type,
-  title,
-  writer,
-  contents,
-  questionDatetime,
-  answer,
-  answerDatetime,
-} = qna) {
-  const splitedContents = contents.split('\n');
-  const contentsResult = splitedContents.map((item) => `<span>${item}</span>`);
-  const contentsHtml = contentsResult.join('');
-
-  if (answerDatetime) {
-    const splitedAnswer = answer.split('\n');
-    const answerResult = splitedAnswer.map((item) => `<span>${item}</span>`);
-    const answerHtml = answerResult.join('');
-
-    return /* html */ `
-    <tr class="content">
-      <td colspan="4">
-        <div class="qna__question-container">
-          <div class="qna__question">
-          ${contentsHtml}
-          </div>
-        </div>
-        <div class="qna__answer-container">
-          <div class="qna__answer">
-          ${answerHtml}
-          <span>${answerDatetime}</span>
-          </div>
-        </div>
-      </td>
-    </tr>
-    `;
-  } else {
-    return /* html */ `
-    <tr class="content">
-      <td colspan="4">
-        <div class="qna__question-container">
-          <div class="qna__question">
-          ${contentsHtml}
-          </div>
-        </div>
-      </td>
-    </tr>
-    `;
-  }
-}
-
-export function renderModal(data) {
-  const qnaPopupBtn = document.querySelector('.qna__popup-btn');
-  qnaPopupBtn.insertAdjacentHTML('afterend', createModal(data));
-  const qnaModalContainer = document.querySelector('.qna__modal-container');
-  const qnaModalCloseBtn = document.querySelector('.qna__modal-close-btn');
-  const qnaModalCancel = document.querySelector('.qna__modal-cancel');
-
-  qnaPopupBtn.addEventListener('click', (e) => {
-    qnaModalContainer.classList.remove('hidden');
-  });
-
-  qnaModalCloseBtn.addEventListener('click', (e) => {
-    qnaModalContainer.classList.add('hidden');
-  });
-
-  qnaModalCancel.addEventListener('click', () => {
-    qnaModalContainer.classList.add('hidden');
-  });
-
-  // 모달 placeHolder
-  const placeHolder = document.querySelector(
-    '.qna__modal-form-contents-placeholder'
-  );
-  const textArea = document.querySelector('#qna__modal-form-contents');
-  const wordCount = document.querySelector('.qna__modal-word-count');
-
-  textArea.onfocus = () => {
-    placeHolder.style.display = 'none';
-  };
-
-  textArea.onblur = (e) => {
-    if (e.target.value !== '') {
-      return;
-    }
-    placeHolder.style.display = 'block';
-  };
-
-  function count(e) {
-    wordCount.innerText = e.target.value.length;
-    if (e.target.value.length > 5000) {
-      e.target.value = e.target.value.substring(0, 5000);
-    }
-  }
-  textArea.addEventListener('keyup', count);
-
-  placeHolder.addEventListener('click', (e) => {
-    e.target.closest('.qna__modal-form-contents-placeholder').style.display =
-      'none';
-    textArea.focus();
-  });
-}
-
+// 모달
 function createModal({ name, image, id } = data) {
   return /* html */ `
   <div class="qna__modal-container hidden" role="dialog" aria-labelledby="qna-submit-title-dialog">
@@ -577,46 +449,215 @@ function createModal({ name, image, id } = data) {
   `;
 }
 
-export async function qnaModalSubmitHandler(event) {
-  const qnaModalProductId = document.querySelector('#qna__modal-product-id')
-    ?.dataset.productId;
-  const qnaModalFormTitle = document.querySelector(
-    '#qna__modal-form-title'
-  )?.value;
-  const qnaModalFormContents = document.querySelector(
-    '#qna__modal-form-contents'
-  )?.value;
-  const qnaModaFormPrivate = document.querySelector('#qna__modal-form-private')
-    ?.checked
-    ? 'private'
-    : 'public';
-  const now = new Date();
-  let year = now.getFullYear();
-  let month = now.getMonth() + 1;
-  month = month < 10 ? '0' + month : month;
-  let date = now.getDate();
-  date = date < 10 ? '0' + date : date;
-  const questionDatetime = `${year}${month}${date}`;
-
-  if (qnaModalFormTitle.trim() === '' || qnaModalFormContents.trim() === '') {
-    alert('제목과 내용을 입력해주세요.');
-  } else {
-    const response = await fetch('http://localhost:3001/QnAs', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify({
-        id: '',
-        type: qnaModaFormPrivate,
-        product: qnaModalProductId,
-        title: qnaModalFormTitle,
-        writer: '홍길동',
-        contents: qnaModalFormContents,
-        questionDatetime: questionDatetime,
-      }),
+// 문의하기 테이블 행
+function renderQnANoticeList(qnaNoticeList) {
+  const qnaTable = document.querySelector('.qna__table');
+  const tbody = document.querySelector('.qna__table tbody');
+  qnaNoticeList.sort(function (a, b) {
+    if (a.datetime < b.datetime) return 1;
+    if (a.datetime === b.datetime) return 1;
+    if (a.datetime > b.datetime) return -1;
+  });
+  qnaNoticeList.forEach((data) => {
+    tbody.insertAdjacentHTML('afterbegin', createNoticeTr(data));
+  });
+}
+function renderQnaList(qnaList) {
+  const qnaTable = document.querySelector('.qna__table');
+  const tbody = document.querySelector('.qna__table tbody');
+  if (qnaList.length === 0) {
+    tbody.insertAdjacentHTML('beforeend', createEmptyQnaTr());
+  }
+  qnaList.sort(function (a, b) {
+    if (a.questionDatetime < b.questionDatetime) return 1;
+    if (a.questionDatetime === b.questionDatetime) return 1;
+    if (a.questionDatetime > b.questionDatetime) return -1;
+  });
+  qnaList.forEach((data) => {
+    if (data.type === 'private') {
+      // type이 비밀글일 때, 제목을 `비밀글입니다`로, 클래스를 `qna__item--private`로, 작성자명 마스킹 처리
+      tbody.insertAdjacentHTML('beforeend', createPrivateTr(data));
+    } else if (data.type === 'public') {
+      // type이 공개글일 때, 작성자명 마스킹 처리
+      tbody.insertAdjacentHTML('beforeend', createPublicTr(data));
+    }
+  });
+}
+function toggleContent(records) {
+  const qnaTable = document.querySelector('.qna__table');
+  qnaTable.addEventListener('click', (e) => {
+    const tr = e.target.closest('tr');
+    if (tr.dataset.kind === 'private') {
+      alert('비밀글입니다.');
+      return;
+    } else if (tr.dataset.kind === 'public' || tr.dataset.kind === 'notice') {
+      const content = document.querySelector('.content');
+      if (content) {
+        if (content.previousElementSibling.dataset.id === tr.dataset.id) {
+          // 클릭하여 열려는 행이 이미 열려있는 행과 같으면 닫고 끝난다(토글).
+          content.previousElementSibling.ariaExpanded = false;
+          content.remove();
+          return;
+        } else {
+          content.previousElementSibling.ariaExpanded = false;
+          content.remove();
+        }
+      }
+      const recordData = records.find(
+        (item) =>
+          item.id === Number(tr.dataset.id) && item.type === tr.dataset.kind
+      );
+      tr.ariaExpanded = true;
+      tr.insertAdjacentHTML('afterend', createContentTr(recordData));
+    }
+  });
+}
+function maskingName(strName) {
+  if (strName.length > 2) {
+    var originName = strName.split('');
+    originName.forEach(function (name, i) {
+      if (i === 0 || i === originName.length - 1) return;
+      originName[i] = '*';
     });
-    const result = await response.json();
-    location.reload();
+    var joinName = originName.join();
+    return joinName.replace(/,/g, '');
+  } else {
+    var pattern = /.$/; // 정규식
+    return strName.replace(pattern, '*');
+  }
+}
+function createEmptyQnaTr() {
+  return /* html */ `
+    <tr class="qna__item--empty">
+      <td colspan="4">문의글이 없습니다.</td>
+    </tr>
+  `;
+}
+function createNoticeTr(notice) {
+  const { id, type, title, writer, contents, datetime } = notice;
+  return /* html */ `
+  <tr class="qna__item--notice" data-kind=${type} data-id="${id}" role="button" aria-expanded="false" tabindex="0">
+    <td>
+      ${title}
+    </td>
+    <td>
+      ${writer}
+    </td>
+    <td>
+      ${datetime}
+    </td>
+    <td>
+      -
+    </td>
+  </tr>
+  `;
+}
+function createPublicTr(data) {
+  const {
+    id,
+    type,
+    title,
+    writer,
+    contents,
+    questionDatetime,
+    answer,
+    answerDatetime,
+  } = data;
+  const answerStatusClass = answerDatetime ? 'qna__item--complete' : '';
+  const answerStatus = answerDatetime ? '답변완료' : '답변대기';
+  return /* html */ `
+  <tr class="${answerStatusClass}" data-kind="public" data-id="${id}" role="button" aria-expanded="false" tabindex="0">
+    <td>${title}</td>
+    <td>${maskingName(writer)}</td>
+    <td>${questionDatetime}</td>
+    <td>${answerStatus}</td>
+  </tr>
+  `;
+}
+function createPrivateTr(data) {
+  const {
+    id,
+    type,
+    title,
+    writer,
+    contents,
+    questionDatetime,
+    answer,
+    answerDatetime,
+  } = data;
+  const answerStatusClass = answerDatetime ? 'qna__item--complete' : '';
+  const answerStatus = answerDatetime ? '답변완료' : '답변대기';
+  return /* html */ `
+  <tr class="qna__item--private ${answerStatusClass}" data-kind="private" data-id="${id}" role="button" aria-expanded="false"  tabindex="0">
+    <td>비밀글입니다.</td>
+    <td>${maskingName(writer)}</td>
+    <td>${questionDatetime}</td>
+    <td>${answerStatus}</td>
+  </tr>
+  `;
+}
+function createContentTr({
+  id,
+  type,
+  title,
+  writer,
+  contents,
+  questionDatetime,
+  answer,
+  answerDatetime,
+  datetime,
+} = record) {
+  const splitedContents = contents.split('\n');
+  const contentsResult = splitedContents.map((item) => `<span>${item}</span>`);
+  const contentsHtml = contentsResult.join('');
+
+  if (type === 'notice') {
+    return /* html */ `
+    <tr class="content">
+      <td colspan="4">
+        <div class="qna__notice-container">
+          <div class="qna__notice">
+          ${contentsHtml}
+          </div>
+        </div>
+      </td>
+    </tr>
+    `;
+  }
+
+  if (answerDatetime) {
+    const splitedAnswer = answer.split('\n');
+    const answerResult = splitedAnswer.map((item) => `<span>${item}</span>`);
+    const answerHtml = answerResult.join('');
+
+    return /* html */ `
+    <tr class="content">
+      <td colspan="4">
+        <div class="qna__question-container">
+          <div class="qna__question">
+          ${contentsHtml}
+          </div>
+        </div>
+        <div class="qna__answer-container">
+          <div class="qna__answer">
+          ${answerHtml}
+          <span>${answerDatetime}</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+    `;
+  } else {
+    return /* html */ `
+    <tr class="content">
+      <td colspan="4">
+        <div class="qna__question-container">
+          <div class="qna__question">
+          ${contentsHtml}
+          </div>
+        </div>
+      </td>
+    </tr>
+    `;
   }
 }
