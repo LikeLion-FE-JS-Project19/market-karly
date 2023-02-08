@@ -57,4 +57,4 @@ document.querySelector('.qna__table tbody').addEventListener('keyup', (e) => {
 });
 
 const qnaModalSubmit = document.querySelector('.qna__modal-submit');
-qnaModalSubmit?.addEventListener('click', qnaModalSubmitHandler);
+qnaModalSubmit.addEventListener('click', qnaModalSubmitHandler);
