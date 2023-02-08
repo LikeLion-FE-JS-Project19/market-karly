@@ -9,9 +9,9 @@
       "salePrice": 5244,
       "image": {
         "thumbnail": "./assets/product/ubuho/thumbnail.jpg",
-        "view": "ubuho/detail_view.jpg",
-        "banner": "ubuho/detail_banner.jpg",
-        "info": "ubuho/detail_info.jpg",
+        "view": "ubuho/detail-view.jpg",
+        "banner": "ubuho/detail-banner.jpg",
+        "info": "ubuho/detail-info.jpg",
         "alt": "유부호 만두"
       },
       "stock": 3,
@@ -29,9 +29,9 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "./assets/product/tangtang/thumbnail.jpg",
-        "view": "tangtang/detail_view.jpg",
-        "banner": "tangtang/detail_banner.jpg",
-        "info": "tangtang/detail_info.jpg",
+        "view": "tangtang/detail-view.jpg",
+        "banner": "tangtang/detail-banner.jpg",
+        "info": "tangtang/detail-info.jpg",
         "alt": "풀무원 탱탱쫄면"
       },
       "stock": 11,
@@ -102,9 +102,9 @@
       "salePrice": 6800,
       "image": {
         "thumbnail": "./assets/product/jukkumi/thumbnail.jpg",
-        "view": "jukkumi/detail_view.jpg",
-        "banner": "jukkumi/detail_banner.jpg",
-        "info": "jukkumi/detail_info.jpg",
+        "view": "jukkumi/detail-view.jpg",
+        "banner": "jukkumi/detail-banner.jpg",
+        "info": "jukkumi/detail-info.jpg",
         "alt": "홍대 주꾸미"
       },
       "stock": 8,
@@ -175,9 +175,9 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "./assets/product/kangnam/thumbnail.jpg",
-        "view": "kangnam/detail_view.jpg",
-        "banner": "kangnam/detail_banner.jpg",
-        "info": "kangnam/detail_info.jpg",
+        "view": "kangnam/detail-view.jpg",
+        "banner": "kangnam/detail-banner.jpg",
+        "info": "kangnam/detail-info.jpg",
         "alt": "강남면옥 소갈비찜"
       },
       "stock": 2,
@@ -248,7 +248,7 @@
       "salePrice": 3375,
       "image": {
         "thumbnail": "./assets/product/bacon/thumbnail.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "칼리 한돈 삼겹 베이컨"
@@ -267,7 +267,7 @@
       "salePrice": 10990,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1608801577622l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "유명산지 설향딸기 500g"
@@ -286,7 +286,7 @@
       "salePrice": 18990,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/165304027922l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "양념 소불고기 1kg (냉장)"
@@ -305,7 +305,7 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1648206780555l0.jpeg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "짬뽕 2인분 (맵기선택)"
@@ -324,7 +324,7 @@
       "salePrice": 13175,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/165303917855l0.jpeg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "호주산 목초육 치마살"
@@ -343,7 +343,7 @@
       "salePrice": 8910,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1653034267999l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "크림치즈 8종"
@@ -362,12 +362,12 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1653035941542l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "그래놀라 5종"
       },
-      "stock":7,
+      "stock": 7,
       "category": "간식ㆍ과자ㆍ떡",
       "kalryOnly": "true",
       "brand": "그래놀라 하우스"
@@ -381,7 +381,7 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1563948119225l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "네스프레소 호환 캡슐 11종"
@@ -400,7 +400,7 @@
       "salePrice": 9900,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1655468290167l0.jpeg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "콤팩트 초극세모"
@@ -419,7 +419,7 @@
       "salePrice": 19900,
       "image": {
         "thumbnail": "https://product-image.kurly.com/cdn-cgi/image/quality=85,width=676/product/image/b8c4673a-8e39-4dfc-9e3c-d2fd013e8cfa.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": "온 가족이 즐기는 큼직한 바베큐 폭립"
@@ -438,7 +438,7 @@
       "salePrice": 0,
       "image": {
         "thumbnail": "https://img-cf.kurly.com/cdn-cgi/image/quality=85,width=676/shop/data/goods/1655775819130l0.jpg",
-        "view": "bacon/detail_view.jpg",
+        "view": "bacon/detail-view.jpg",
         "banner": "bacon/detail_banner.jpg",
         "info": "bacon/detail_info.jpg",
         "alt": " 오늘의 샐러드"
@@ -447,147 +447,150 @@
       "category": "샐러드ㆍ간편식",
       "kalryOnly": "false",
       "brand": "스윗밸런스"
-=======
-      "qnas": [
-        {
-          "id": 1,
-          "type": "public",
-          "title": "팩이 터져서 왔어요",
-          "writer": "홍길동",
-          "contents": "스티로폼 박스도 손상되어 있어 포장이 터져 엉망이네요\n환불 요청합니다.",
-          "questionDatetime": "20230101",
-          "answer": "안녕하세요. 칼리입니다\n믿고 찾아주신 상품에 불편을 드려 정말 죄송합니다.\n\n더불어, 해당 게시판은 실시간으로 상담이 어려워 순차적으로 답변드리고 있는 관계로 신속하게 답변 드리지 못하여 대단히 죄송합니다.\n다행히도 고객님의 불편하셨던 사항은 고객행복센터를 통해 안내 받으신 점 확인하였습니다\n\n불편을 드려 정말 죄송할 따름이며, 고객님께 늘 신선하고 최상의 상품을 불편 없이 전달드리기 위해 최선을 다하는 칼리가 되겠습니다.\n\n칼리 드림.",
-          "answerDatetime": "20230102"
-        },
-        {
-          "id": 2,
-          "type": "public",
-          "title": "삼겹 베이컨 문의글 2 제목",
-          "writer": "김철수",
-          "contents": "삼겹 베이컨 문의글 2 콘텐츠(답변 없음)",
-          "questionDatetime": "20230102"
-        },
-        {
-          "id": 3,
-          "type": "notice",
-          "title": "판매 (일시)중단 제품 안내 (23.02.02 업데이트)",
-          "writer": "컬리",
-          "contents": "안녕하세요. 컬리입니다.\n\n하기와 같은 사유로 인하여 판매(일시)중단 되었음을 안내드립니다.\n이하 무수히 많은 제품들...",
-          "questionDatetime": "20230103"
-        },
-        {
-          "id": 4,
-          "type": "private",
-          "title": "삼겹 베이컨 문의글 4 제목(비밀글로 문의글 남김)",
-          "writer": "야무",
-          "questionDatetime": "20230104",
-          "contents": "비밀글인데 이 글이 보인다면 로그인한 사용자가 쓴 글이거나 완전 보안 엉망인 것임.",
-          "answer": "안녕하세요. 컬리입니다.\n\n 제품과 관련된 문의를 남겨주시기 바랍니다.",
-          "answerDatetime": "20230104"
-        },
-        {
-          "id": 5,
-          "type": "public",
-          "title": "3일 전에 주문했는데 언제쯤 오려나요?",
-          "writer": "김미애",
-          "contents": "새벽배송이라는데 왜 아직 안 오나요?",
-          "questionDatetime": "20230105"
-        },
-        {
-          "id": 6,
-          "type": "private",
-          "title": "비밀글로 작성...",
-          "writer": "김데레사",
-          "contents": "비밀로 작성한 글...",
-          "questionDatetime": "20230106"
-        }
-      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "writer": "금윤호",
+      "product": "product-ekfk",
+      "title": "와 진짜 맛있네요",
+      "contents": "진짜 너무 맛있어서 기절",
+      "reviewDate": "2023.02.02",
+      "best": true,
+      "membership": "purple"
     },
     {
-      "id": "product-gkgk",
-      "name": "[Kalry's] 하하하하",
-      "description": "무항생제 한돈 삼겹살의 고소한 풍미 그대로",
-      "price": 4500,
-      "saleRatio": 0.25,
-      "salePrice": 3375,
-      "image": {
-        "thumbnail": "bacon/thumbnail.jpg",
-        "view": "bacon/detail_view.jpg",
-        "banner": "bacon/detail_banner.jpg",
-        "info": "bacon/detail_info.jpg",
-        "alt": "칼리 한돈 삼겹 베이컨"
-      },
-      "stock": 13,
-      "qnas": [
-        {
-          "id": 1,
-          "type": "public",
-          "title": "팩이 터져서 왔어요",
-          "writer": "홍길동",
-          "contents": "스티로폼 박스도 손상되어 있어 포장이 터져 엉망이네요\n환불 요청합니다.",
-          "questionDatetime": "20230101",
-          "answer": "안녕하세요. 칼리입니다\n믿고 찾아주신 상품에 불편을 드려 정말 죄송합니다.\n\n더불어, 해당 게시판은 실시간으로 상담이 어려워 순차적으로 답변드리고 있는 관계로 신속하게 답변 드리지 못하여 대단히 죄송합니다.\n다행히도 고객님의 불편하셨던 사항은 고객행복센터를 통해 안내 받으신 점 확인하였습니다\n\n불편을 드려 정말 죄송할 따름이며, 고객님께 늘 신선하고 최상의 상품을 불편 없이 전달드리기 위해 최선을 다하는 칼리가 되겠습니다.\n\n칼리 드림.",
-          "answerDatetime": "20230102"
-        },
-        {
-          "id": 2,
-          "type": "public",
-          "title": "삼겹 베이컨 문의글 2 제목",
-          "writer": "김철수",
-          "contents": "삼겹 베이컨 문의글 2 콘텐츠(답변 없음)",
-          "questionDatetime": "20230102"
-        },
-        {
-          "id": 3,
-          "type": "notice",
-          "title": "판매 (일시)중단 제품 안내 (23.02.02 업데이트)",
-          "writer": "컬리",
-          "contents": "안녕하세요. 컬리입니다.\n\n하기와 같은 사유로 인하여 판매(일시)중단 되었음을 안내드립니다.\n이하 무수히 많은 제품들...",
-          "questionDatetime": "20230103"
-        },
-        {
-          "id": 4,
-          "type": "private",
-          "title": "삼겹 베이컨 문의글 4 제목(비밀글로 문의글 남김)",
-          "writer": "야무",
-          "questionDatetime": "20230104",
-          "contents": "비밀글인데 이 글이 보인다면 로그인한 사용자가 쓴 글이거나 완전 보안 엉망인 것임.",
-          "answer": "안녕하세요. 컬리입니다.\n\n 제품과 관련된 문의를 남겨주시기 바랍니다.",
-          "answerDatetime": "20230104"
-        },
-        {
-          "id": 5,
-          "type": "public",
-          "title": "3일 전에 주문했는데 언제쯤 오려나요?",
-          "writer": "김미애",
-          "contents": "새벽배송이라는데 왜 아직 안 오나요?",
-          "questionDatetime": "20230105"
-        },
-        {
-          "id": 6,
-          "type": "private",
-          "title": "비밀글로 작성...",
-          "writer": "김데레사",
-          "contents": "비밀로 작성한 글...",
-          "questionDatetime": "20230106"
-        }
-      ]
+      "id": 2,
+      "writer": "홍성욱",
+      "product": "product-ekfk",
+      "title": "와 진짜 맛있네예",
+      "contents": "저 이거 부산에서 먹고 싶은디",
+      "reviewDate": "2023.02.01",
+      "best": true,
+      "membership": "purple"
     },
     {
-      "qna__modal-form-title": "ㅇㅇㅇ",
-      "qna__modal-form-contents": "ㅇㅇㅇ",
-      "id": "wvrBMlb"
+      "id": 3,
+      "writer": "김하연",
+      "product": "product-ekfk",
+      "title": "이거 못먹겠어요",
+      "contents": "이거 진짜 못 먹겠어요.\n없어서 못먹겠어요.\n제주도에서도 많이 좀 팔아주세요.",
+      "reviewDate": "2023.02.04",
+      "best": true,
+      "membership": "purple"
     },
     {
-      "qna__modal-form-title": "",
-      "qna__modal-form-contents": "",
-      "id": "a_MUBPE"
+      "id": 4,
+      "writer": "서석원",
+      "product": "product-ekfk",
+      "title": "저한텐 조금 맵지만",
+      "contents": "조금 맵지만 넘 맛있네요\n많이 파시길..",
+      "reviewDate": "2023.02.04",
+      "best": true,
+      "membership": "purple"
     },
     {
-      "qna__modal-form-title": "ㅇㅇ",
-      "qna__modal-form-contents": "ㅇㅇ",
-      "qna__modal-form-private": "on",
-      "id": "DeX1iby"
+      "id": 5,
+      "writer": "심선범",
+      "product": "product-rksk",
+      "title": "아주 맛도리",
+      "contents": "둘이 먹다가 둘 다 죽어도 모를 맛이네요.\n최고였습니다.",
+      "reviewDate": "2023.02.01",
+      "best": true,
+      "membership": "purple"
+    },
+    {
+      "id": 6,
+      "writer": "최지연",
+      "product": "product-rksk",
+      "title": "맥주 안주",
+      "contents": "친구들이랑 집들이 간식으로 먹었어요.\n진짜 맛있었어요.",
+      "reviewDate": "2023.02.02",
+      "best": true,
+      "membership": "purple"
+    },
+    {
+      "id": 7,
+      "writer": "오승택",
+      "product": "product-rksk",
+      "title": "떡볶이랑 먹기",
+      "contents": "진짜 잠시만요\n이 만두 안에는 대체 뭐가 들어간거죠?\n비범이 궁금하네요. 아니 비법.",
+      "reviewDate": "2023.02.06",
+      "best": true,
+      "membership": "purple"
+    },
+    {
+      "id": 8,
+      "writer": "최영민",
+      "product": "product-rksk",
+      "title": "참기름",
+      "contents": "만두에 참기름도 제법 어울리는 것 같아요",
+      "reviewDate": "2023.02.05",
+      "best": true,
+      "membership": "purple"
+    }
+  ],
+  "QnAs": [
+    {
+      "id": 1,
+      "type": "public",
+      "product": "product-ekfk",
+      "title": "두자님의 공개 문의글 - 팩이 터져서 왔어요",
+      "writer": "두자",
+      "contents": "스티로폼 박스도 손상되어 있어 포장이 터져 엉망이네요\n환불 요청합니다.",
+      "questionDatetime": "20230101",
+      "answer": "안녕하세요. 칼리입니다\n믿고 찾아주신 상품에 불편을 드려 정말 죄송합니다.\n\n더불어, 해당 게시판은 실시간으로 상담이 어려워 순차적으로 답변드리고 있는 관계로 신속하게 답변 드리지 못하여 대단히 죄송합니다.\n다행히도 고객님의 불편하셨던 사항은 고객행복센터를 통해 안내 받으신 점 확인하였습니다\n\n불편을 드려 정말 죄송할 따름이며, 고객님께 늘 신선하고 최상의 상품을 불편 없이 전달드리기 위해 최선을 다하는 칼리가 되겠습니다.\n\n칼리 드림.",
+      "answerDatetime": "20230102"
+    },
+    {
+      "id": 2,
+      "type": "public",
+      "product": "product-ekfk",
+      "title": "세글자님의 공개 문의글 - 배송일",
+      "writer": "세글자",
+      "contents": "배송일이 언제인가요.",
+      "questionDatetime": "20230101"
+    },
+    {
+      "id": 3,
+      "type": "public",
+      "product": "product-ekfk",
+      "title": "다섯글자명님의 공개 문의글 - 산간 배송",
+      "writer": "다섯글자명",
+      "contents": "오지 산간 배송도 가능한가요?",
+      "questionDatetime": "20230101"
+    },
+    {
+      "id": 4,
+      "type": "private",
+      "product": "product-ekfk",
+      "title": "세글자님의 비공개 문의글",
+      "writer": "세글자",
+      "contents": "질문 내용",
+      "questionDatetime": "20230102",
+      "answer": "칼리입니다.",
+      "answerDatetime": "20230103"
+    },
+    {
+      "id": 5,
+      "type": "private",
+      "product": "product-akqk",
+      "title": "세글자님의 비공개 문의글",
+      "writer": "세글자",
+      "contents": "질문 내용",
+      "questionDatetime": "20230102",
+      "answer": "칼리입니다.",
+      "answerDatetime": "20230103"
+    }
+  ],
+  "QnANotices": [
+    {
+      "id": 1,
+      "title": "판매 중단 제품 안내",
+      "writer": "칼리",
+      "contents": "안녕하세요. 칼리입니다.\n 하기와 같은 사유로 인하여 판매(일시)중단 되었음을 안내드립니다.",
+      "datetime": "20230206"
     }
   ]
 }

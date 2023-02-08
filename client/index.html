@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko-KR">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Love Food, Love Life. 마켓칼리! 당일 수확 채소, 과일, 맛집 음식까지 내일 아침 문 앞에서 만나요!"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
@@ -27,30 +31,32 @@
     <script src="./js/kyungseob.js" type="module"></script>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
 
-    <title>Market Karly</title>
+    <title>마켓칼리</title>
   </head>
 
   <body>
-    <section class="main-modal">
-      <a class="main-modal__link" href="">
-        <img
-          class="main-modal__img"
-          src="./assets/modal/main-modal.jpg"
-          aria-label="지금 바로 만나보세요"
-          alt="뷰티 칼리"
-        />
-      </a>
-      <div class="main-modal__close-group">
-        <button class="main-modal__btn-today-close" type="button">
-          오늘 하루 안 보기
-        </button>
-        <button class="main-modal__btn-close" type="button">닫기</button>
-      </div>
-    </section>
+    <div class="protect">
+      <section class="main-modal">
+        <a class="main-modal__link" href="#">
+          <img
+            class="main-modal__img"
+            src="./assets/modal/main-modal.jpg"
+            aria-label="지금 바로 만나보세요"
+            alt="뷰티 칼리"
+          />
+        </a>
+        <div class="main-modal__close-group">
+          <button class="main-modal__btn-today-close" type="button">
+            오늘 하루 안 보기
+          </button>
+          <button class="main-modal__btn-close" type="button">닫기</button>
+        </div>
+      </section>
+    </div>
 
     <div class="top-bar">
       <div class="top-bar__group">
-        <a class="top-bar__link" href=""
+        <a class="top-bar__link" href="#"
           >지금 가입하고 인기상품 100원에 받아가세요!</a
         >
         <button class="top-bar__btn-today-close" aria-label="닫기버튼"></button>
@@ -100,7 +106,7 @@
             /></a>
           </li>
           <li>
-            <a href=""
+            <a href="./cart.html"
               ><img src="./assets/header/ic-cart.svg" alt="장바구니"
             /></a>
           </li>
@@ -233,7 +239,7 @@
               <button
                 type="button"
                 class="btn-add-cart"
-                aria-label="장바구니"
+                aria-label="장바구니 담기 버튼"
               ></button>
               <p class="product-name">[풀무원] 탱탱쫄면 (4개입)</p>
               <p class="product-price">4,980원</p>
@@ -246,7 +252,7 @@
               <button
                 type="button"
                 class="btn-add-cart"
-                aria-label="장바구니"
+                aria-label="장바구니 담기 버튼"
               ></button>
               <p class="product-name">[온더바디] 죠르디 시카 자석 선쿠션</p>
               <p class="product-price">32,500원</p>
@@ -259,7 +265,7 @@
               <button
                 type="button"
                 class="btn-add-cart"
-                aria-label="장바구니"
+                aria-label="장바구니 담기 버튼"
               ></button>
               <p class="product-name">유기농 밀키퀸 현미 4kg</p>
               <p class="product-price">25,000원</p>
@@ -272,7 +278,7 @@
               <button
                 type="button"
                 class="btn-add-cart"
-                aria-label="장바구니"
+                aria-label="장바구니 담기 버튼"
               ></button>
               <p class="product-name">[프로쉬] 베이비 세탁세제</p>
               <p class="product-price">
@@ -288,7 +294,7 @@
               <button
                 type="button"
                 class="btn-add-cart"
-                aria-label="장바구니"
+                aria-label="장바구니 담기 버튼"
               ></button>
               <p class="product-name">[풀무원] 탱탱쫄면 (4개입)</p>
               <p class="product-price">4,980원</p>
@@ -301,7 +307,7 @@
               <button
                 type="button"
                 class="btn-add-cart"
-                aria-label="장바구니"
+                aria-label="장바구니 담기 버튼"
               ></button>
               <p class="product-name">[온더바디] 죠르디 시카 자석 선쿠션</p>
               <p class="product-price">32,500원</p>
@@ -314,7 +320,7 @@
               <button
                 type="button"
                 class="btn-add-cart"
-                aria-label="장바구니"
+                aria-label="장바구니 담기 버튼"
               ></button>
               <p class="product-name">유기농 밀키퀸 현미 4kg</p>
               <p class="product-price">25,000원</p>
@@ -327,7 +333,7 @@
               <button
                 type="button"
                 class="btn-add-cart"
-                aria-label="장바구니"
+                aria-label="장바구니 담기 버튼"
               ></button>
               <p class="product-name">[프로쉬] 베이비 세탁세제</p>
               <p class="product-price">
@@ -364,7 +370,11 @@
                 src="./assets/product/tangtang/thumbnail.jpg"
                 alt="[플무원] 탱탱쫄면 (4개입)"
               />
-              <button type="button" class="btn-add-cart"></button>
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
               <p class="product-name">[풀무원] 탱탱쫄면 (4개입)</p>
               <p class="product-price">4,980원</p>
             </div>
@@ -373,7 +383,11 @@
                 src="./assets/product/suncushion/thumbnail.png"
                 alt="[온더바디] 죠르디 시카 자석 선쿠션"
               />
-              <button type="button" class="btn-add-cart"></button>
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
               <p class="product-name">[온더바디] 죠르디 시카 자석 선쿠션</p>
               <p class="product-price">32,500원</p>
             </div>
@@ -382,7 +396,11 @@
                 src="./assets/product/brownrice/thumbnail.png"
                 alt="유기농 밀키퀸 현미 4kg"
               />
-              <button type="button" class="btn-add-cart"></button>
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
               <p class="product-name">유기농 밀키퀸 현미 4kg</p>
               <p class="product-price">25,000원</p>
             </div>
@@ -391,7 +409,11 @@
                 src="./assets/product/detergent/thumbnail.png"
                 alt="[프로쉬] 베이비 세탁세제"
               />
-              <button type="button" class="btn-add-cart"></button>
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
               <p class="product-name">[프로쉬] 베이비 세탁세제</p>
               <p class="product-price">
                 <span class="sale-percent">24%</span>18,900원
@@ -403,7 +425,11 @@
                 src="./assets/product/tangtang/thumbnail.jpg"
                 alt="[플무원] 탱탱쫄면 (4개입)"
               />
-              <button type="button" class="btn-add-cart"></button>
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
               <p class="product-name">[풀무원] 탱탱쫄면 (4개입)</p>
               <p class="product-price">4,980원</p>
             </div>
@@ -412,7 +438,11 @@
                 src="./assets/product/bacon/thumbnail.jpg"
                 alt="[온더바디] 죠르디 시카 자석 선쿠션"
               />
-              <button type="button" class="btn-add-cart"></button>
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
               <p class="product-name">[온더바디] 죠르디 시카 자석 선쿠션</p>
               <p class="product-price">32,500원</p>
             </div>
@@ -421,7 +451,11 @@
                 src="./assets/product/kangnam/thumbnail.jpg"
                 alt="유기농 밀키퀸 현미 4kg"
               />
-              <button type="button" class="btn-add-cart"></button>
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
               <p class="product-name">유기농 밀키퀸 현미 4kg</p>
               <p class="product-price">25,000원</p>
             </div>
@@ -430,7 +464,11 @@
                 src="./assets/product/jukkumi/thumbnail.jpg"
                 alt="[프로쉬] 베이비 세탁세제"
               />
-              <button type="button" class="btn-add-cart"></button>
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
               <p class="product-name">[프로쉬] 베이비 세탁세제</p>
               <p class="product-price">
                 <span class="sale-percent">24%</span>18,900원

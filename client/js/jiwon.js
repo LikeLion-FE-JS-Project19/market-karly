@@ -1,32 +1,10 @@
-function typeOf(data) {
-  return Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
-}
-
-export const isString = (data) => typeOf(data) === 'string';
-
-export function getNode(node) {
-  if (!isString(node)) {
-    typeError('getNode 함수의 인자는 문자 타입 이여야 합니다.');
-  }
-
-  // if(!isString(node)) typeError('에러가 발생했습니다.');
-
-  return document.querySelector(node);
-}
-
-export function insertLast(node, text) {
-  if (typeof node === 'string') node = getNode(node);
-  if (node.nodeType !== document.ELEMENT_NODE) {
-    refError('insertLast 함수의 첫 번째 인자는 ELEMENT 노드여야 합니다.');
-  }
-  node.insertAdjacentHTML('beforeend', text);
-}
+import { insertLast } from '../lib/index.js';
 
 export const renderFooter = (target) => {
   insertLast(target, createFooter());
 };
 
-export function createFooter() {
+function createFooter() {
   return /* html */ `
   <footer class="footer">
   <div class="footer__inner">
@@ -151,7 +129,7 @@ export function createFooter() {
               <a target="_blank" href="#"
                 ><img
                   class="footer__sns-img"
-                  src="/assets/footer/ic-blog.svg"
+                  src="./assets/footer/ic-blog.svg"
                   alt="컬리 네이버블로그 바로가기"
               /></a>
             </li>
@@ -159,7 +137,7 @@ export function createFooter() {
               <a target="_blank" href="#"
                 ><img
                   class="footer__sns-img"
-                  src="/assets/footer/ic-face-book.svg"
+                  src="./assets/footer/ic-face-book.svg"
                   alt="컬리 페이스북 바로가기"
               /></a>
             </li>
@@ -167,7 +145,7 @@ export function createFooter() {
               <a target="_blank" href="#"
                 ><img
                   class="footer__sns-img"
-                  src="/assets/footer/ic-instagram.svg"
+                  src="./assets/footer/ic-instagram.svg"
                   alt="컬리 인스타그램 바로가기"
               /></a>
             </li>
@@ -175,7 +153,7 @@ export function createFooter() {
               <a target="_blank" href="#"
                 ><img
                   class="footer__sns-img"
-                  src="/assets/footer/ic-naver-post.svg"
+                  src="./assets/footer/ic-naver-post.svg"
                   alt="컬리 네이버포스트 바로가기"
               /></a>
             </li>
@@ -183,7 +161,7 @@ export function createFooter() {
               <a target="_blank" href="#"
                 ><img
                   class="footer__sns-img"
-                  src="/assets/footer/ic-youtube.svg"
+                  src="./assets/footer/ic-youtube.svg"
                   alt="컬리 유튜브 바로가기"
               /></a>
             </li>
@@ -197,7 +175,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="/assets/footer/logo-isms.svg"
+              src="./assets/footer/logo-isms.svg"
               alt="I.S.M.S 로고"
             />
             <p class="footer__certified-info">
@@ -213,7 +191,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="/assets/footer/logo-privacy.svg"
+              src="./assets/footer/logo-privacy.svg"
               alt="E.privacy plus 로고"
             />
             <p class="footer__certified-info">
@@ -227,7 +205,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="/assets/footer/logo-tosspayments.svg"
+              src="./assets/footer/logo-tosspayments.svg"
               alt="payments 로고"
             />
             <p class="footer__certified-info">
@@ -240,7 +218,7 @@ export function createFooter() {
           <a href="#" target="_blank" class="footer__certified-item">
             <img
               class="footer__certified-img"
-              src="/assets/footer/logo-woori-bank.svg"
+              src="./assets/footer/logo-woori-bank.svg"
               alt="우리은행 로고"
             />
             <p class="footer__certified-info">
@@ -308,7 +286,7 @@ function createNoticeTr(data) {
     answerDatetime,
   } = data;
   return /* html */ `
-  <tr class="qna__item--notice" data-kind="public" data-id="${id}">
+  <tr class="qna__item--notice" data-kind="public" data-id="${id}" role="button" aria-expanded="false" tabindex="0">
     <td>
       ${title}
     </td>
@@ -354,7 +332,7 @@ function createPrivateTr(data) {
   const answerStatusClass = answerDatetime ? 'qna__item--complete' : '';
   const answerStatus = answerDatetime ? '답변완료' : '답변대기';
   return /* html */ `
-  <tr class="qna__item--private ${answerStatusClass}" data-kind="private" data-id="${id}">
+  <tr class="qna__item--private ${answerStatusClass}" data-kind="private" data-id="${id}" role="button" aria-expanded="false"  tabindex="0">
     <td>비밀글입니다.</td>
     <td>${maskingName(writer)}</td>
     <td>${questionDatetime}</td>
@@ -377,7 +355,7 @@ function createPublicTr(data) {
   const answerStatusClass = answerDatetime ? 'qna__item--complete' : '';
   const answerStatus = answerDatetime ? '답변완료' : '답변대기';
   return /* html */ `
-  <tr class="${answerStatusClass}" data-kind="public" data-id="${id}">
+  <tr class="${answerStatusClass}" data-kind="public" data-id="${id}" role="button" aria-expanded="false" tabindex="0">
     <td>${title}</td>
     <td>${maskingName(writer)}</td>
     <td>${questionDatetime}</td>
@@ -397,10 +375,18 @@ export function toggleContent(qnas) {
     } else if (tr.dataset.kind === 'public') {
       const content = document.querySelector('.content');
       if (content) {
-        content.remove();
-        return;
+        if (content.previousElementSibling.dataset.id === tr.dataset.id) {
+          // 클릭하여 열려는 행이 이미 열려있는 행과 같으면 닫고 끝난다(토글).
+          content.previousElementSibling.ariaExpanded = false;
+          content.remove();
+          return;
+        } else {
+          content.previousElementSibling.ariaExpanded = false;
+          content.remove();
+        }
       }
       const qna = qnas.find((item) => item.id === Number(tr.dataset.id));
+      tr.ariaExpanded = true;
       tr.insertAdjacentHTML('afterend', createContentTr(qna));
     }
   });
@@ -509,17 +495,17 @@ export function renderModal(data) {
   });
 }
 
-function createModal({ name, image } = data) {
+function createModal({ name, image, id } = data) {
   return /* html */ `
-  <div class="qna__modal-container hidden">
-    <div class="qna__modal">
+  <div class="qna__modal-container hidden" role="dialog" aria-labelledby="qna-submit-title-dialog">
+    <div class="qna__modal" role="document">
       <div class="qna__modal-header">
-        <h3 class="qna__modal-title">상품 문의하기</h3>
+        <h3 class="qna__modal-title" id="qna-submit-title-dialog">상품 문의하기</h3>
         <button class="qna__modal-close-btn" type="button"><img src="./assets/product-detail/ic-cancel.svg" alt="모달 닫기"></button>
       </div>
       <div class="qna__modal-product">
-        <img src="./assets/product/${image.thumbnail}" alt="${image.alt}">
-        <span>${name}</span>
+        <img src="${image.thumbnail}" alt="${image.alt}">
+        <span data-product-id="${id}" id="qna__modal-product-id">${name}</span>
       </div>
       <div class="qna__modal-form-container">
         <div class="qna__modal-form-title-container">
@@ -566,14 +552,19 @@ function createModal({ name, image } = data) {
               </ul>
             </div>
           </div>
+
+
+          <div class="qna__modal-word-count-container">
+            <span>(</span>
+            <span class="qna__modal-word-count">0</span>
+            <span>/ 5000 )</span>
+          </div>
+
+
         </div>
-        <div>
-          <span>(</span>
-          <span class="qna__modal-word-count">0</span>
-          <span>/ 5000)</span>
-        </div>
+
         <div class="qna__modal-form-private-container">
-          <input type="checkbox" name="qna__modal-form-private" id="qna__modal-form-private">
+          <input type="checkbox" name="qna__modal-form-private" id="qna__modal-form-private" class="a11yHidden">
           <label for="qna__modal-form-private">비밀글로 문의하기</label>
         </div>
       </div>
@@ -586,9 +577,46 @@ function createModal({ name, image } = data) {
   `;
 }
 
-export function qnaModalSubmitHandler(event) {
-  const qnaModalFormTitle = document.querySelector('#qna__modal-form-title');
+export async function qnaModalSubmitHandler(event) {
+  const qnaModalProductId = document.querySelector('#qna__modal-product-id')
+    ?.dataset.productId;
+  const qnaModalFormTitle = document.querySelector(
+    '#qna__modal-form-title'
+  )?.value;
   const qnaModalFormContents = document.querySelector(
     '#qna__modal-form-contents'
-  );
+  )?.value;
+  const qnaModaFormPrivate = document.querySelector('#qna__modal-form-private')
+    ?.checked
+    ? 'private'
+    : 'public';
+  const now = new Date();
+  let year = now.getFullYear();
+  let month = now.getMonth() + 1;
+  month = month < 10 ? '0' + month : month;
+  let date = now.getDate();
+  date = date < 10 ? '0' + date : date;
+  const questionDatetime = `${year}${month}${date}`;
+
+  if (qnaModalFormTitle.trim() === '' || qnaModalFormContents.trim() === '') {
+    alert('제목과 내용을 입력해주세요.');
+  } else {
+    const response = await fetch('http://localhost:3001/QnAs', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        id: '',
+        type: qnaModaFormPrivate,
+        product: qnaModalProductId,
+        title: qnaModalFormTitle,
+        writer: '홍길동',
+        contents: qnaModalFormContents,
+        questionDatetime: questionDatetime,
+      }),
+    });
+    const result = await response.json();
+    location.reload();
+  }
 }

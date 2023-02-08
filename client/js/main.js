@@ -1,9 +1,9 @@
-import { closeMainModalButton } from './kyungseob.js';
+import { closeMainModalButton, test1 } from './kyungseob.js';
 import { mainHeaderEventHandler } from './seokwon.js';
 import { onClickAddCartHandler } from './juhee.js';
-import { renderFooter } from './jiwon.js';
 import { getNode, getNodes } from '../lib/dom/getNode.js';
 
+test1();
 closeMainModalButton();
 
 // 스와이퍼
@@ -163,5 +163,3 @@ const addCartButtonList = getNodes('.btn-add-cart');
 addCartButtonList.forEach((el) => {
   el.addEventListener('click', onClickAddCartHandler);
 });
-
-renderFooter(getNode('body'));
