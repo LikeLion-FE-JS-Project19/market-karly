@@ -48,7 +48,10 @@ export async function mainHeaderEventHandler() {
 
   categoryData.map((data, index) => {
     const categoryItem = document.createElement('li');
-    categoryItem.innerHTML = `<img src="${data.imgSrc}" alt="선물하기" width="24px" height="24px" class="header-container__category-img"/>${data.title}`;
+    categoryItem.innerHTML = `
+    <button class="header-container__category-button">
+      <img src="${data.imgSrc}" alt="선물하기" width="24px" height="24px" class="header-container__category-img"/>${data.title}
+    </button>`;
     categoryList.insertAdjacentElement('beforeend', categoryItem);
   });
 
@@ -60,8 +63,6 @@ export async function mainHeaderEventHandler() {
   category.addEventListener('focus', categoryFocusHandler);
 
   function categoryFocusHandler(e) {
-    categoryList.ariaSelected = 'true';
-    categoryList.ariaExpanded = 'true';
     categoryList.style.display = 'block';
   }
 
