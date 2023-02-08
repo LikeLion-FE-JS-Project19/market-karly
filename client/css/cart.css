@@ -225,22 +225,21 @@ h2 {
   align-self: center;
 }
 
-.cart-list--button {
-  background: transparent;
+.cart-list--button--top {
+  background: url(../assets/common/../common/ic-vector-top.svg) no-repeat center;
+  background-size: 30px 20px;
   border: none;
   float: right;
-  padding: 9px;
+  padding: 15px;
 }
 
-.rotate-deg--bottom {
-  width: 30px;
-  height: 20px;
-  transform: rotate(180deg);
-}
-
-.rotate-deg--top {
-  width: 30px;
-  height: 20px;
+.cart-list--button--bottom {
+  background: url(../assets/common/../common/ic-vector-bottom.svg) no-repeat
+    center;
+  background-size: 30px 20px;
+  border: none;
+  float: right;
+  padding: 15px;
 }
 
 .cart-list__frozen--icon {

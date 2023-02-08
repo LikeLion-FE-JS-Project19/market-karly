@@ -1,4 +1,4 @@
-export function test1() {
+export function protection() {
   const protect = document.querySelector('.protect');
 
   function protectShow() {
@@ -59,18 +59,18 @@ export function closeMainModalButton() {
 }
 
 export function listToggle() {
-  const viewMore = document.querySelectorAll('.vector-1');
+  const viewMore = document.querySelectorAll('.toggle-list');
   const allList = document.querySelectorAll('.groups');
 
   viewMore.forEach(function (item, index) {
-    viewMore[index].addEventListener('click', show);
+    item.addEventListener('click', show);
     function show() {
-      if (viewMore[index].className === 'rotate-deg--bottom') {
-        (viewMore[index].className = 'rotate-deg--top'),
-          (allList[index].style.display = 'none');
-      } else {
-        (viewMore[index].className = 'rotate-deg--bottom'),
+      if (viewMore[index].className === 'cart-list--button--bottom') {
+        (viewMore[index].className = 'cart-list--button--top'),
           (allList[index].style.display = 'block');
+      } else {
+        (viewMore[index].className = 'cart-list--button--bottom'),
+          (allList[index].style.display = 'none');
       }
     }
   });
