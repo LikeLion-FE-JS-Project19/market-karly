@@ -161,19 +161,23 @@
     </header>
 
     <main>
-      <h2>장바구니</h2>
+      <h2 tabindex="0">장바구니</h2>
 
       <div class="main-container">
         <section class="cart-list">
           <div class="cart-feature">
-            <button class="all-check-box active" type="button"></button>
+            <button
+              class="all-check-box active"
+              type="button"
+              aria-label="전체선택"
+            ></button>
             <span class="cart-feature__text"></span>
             <span class="no-divider" aria-hidden="true">|</span>
             <button class="selector-delete" type="button">선택삭제</button>
           </div>
           <div class="cart-list__cold">
             <span class="cart-list__cold--icon"></span>
-            <span class="cart-list__text">냉장 식품</span>
+            <span class="cart-list__text" tabindex="0">냉장 식품</span>
             <button
               class="toggle-list cart-list--button"
               type="button"
@@ -189,11 +193,15 @@
           <ul class="groups cart-list__cold--group">
             <li class="group-list">
               <div class="cart-feature__list">
-                <button class="single-check-box active" type="button"></button>
+                <button
+                  class="single-check-box active"
+                  type="button"
+                  aria-label="선택"
+                ></button>
                 <span>
                   <img
                     class="group-list__image"
-                    src="./assets/product/bacon/detail-banner.jpg"
+                    src="./assets/product/bacon/thumbnail.jpg"
                     alt="베이컨 사진"
                   />
                 </span>
@@ -209,23 +217,32 @@
                     <button class="list-count__up" type="button">+</button>
                   </div>
                 </div>
-                <span class="prices product-price">4500</span>
+                <span
+                  class="prices product-price"
+                  tabindex="0"
+                  aria-label="4500원"
+                  >4500</span
+                >
                 <button class="group-list__close" type="button">
                   <img
                     class="group-list__close-image"
                     src="./assets/cart/ic-cancel.svg"
-                    alt=""
+                    alt="닫기"
                   />
                 </button>
               </div>
             </li>
             <li class="group-list">
               <div class="cart-feature__list">
-                <button class="single-check-box active" type="button"></button>
+                <button
+                  class="single-check-box active"
+                  type="button"
+                  aria-label="선택"
+                ></button>
                 <span>
                   <img
                     class="group-list__image"
-                    src="./assets/product/kangnam/detail-banner.jpg"
+                    src="./assets/product/kangnam/thumbnail.jpg"
                     alt="강남면옥 소갈비찜"
                   />
                 </span>
@@ -239,12 +256,17 @@
                     <button class="list-count__up" type="button">+</button>
                   </div>
                 </div>
-                <span class="prices product-price">29800</span>
+                <span
+                  class="prices product-price"
+                  tabindex="0"
+                  aria-label="29800원"
+                  >29800</span
+                >
                 <button class="group-list__close" type="button">
                   <img
                     class="group-list__close-image"
                     src="./assets/cart/ic-cancel.svg"
-                    alt=""
+                    alt="닫기"
                   />
                 </button>
               </div>
@@ -252,7 +274,7 @@
           </ul>
           <div class="cart-list__frozen">
             <span class="cart-list__frozen--icon"></span>
-            <span class="cart-list__text">냉동 식품</span>
+            <span class="cart-list__text" tabindex="0">냉동 식품</span>
             <button
               class="cart-list--button"
               type="button"
@@ -268,11 +290,15 @@
           <ul class="groups cart-list__frozen--group">
             <li class="group-list">
               <div class="cart-feature__list">
-                <button class="single-check-box active" type="button"></button>
+                <button
+                  class="single-check-box active"
+                  type="button"
+                  aria-label="선택"
+                ></button>
                 <span>
                   <img
                     class="group-list__image"
-                    src="./assets/product/jukkumi/detail-banner.jpg"
+                    src="./assets/product/jukkumi/thumbnail.jpg"
                     alt="홍대 주꾸미"
                   />
                 </span>
@@ -288,23 +314,32 @@
                     <button class="list-count__up" type="button">+</button>
                   </div>
                 </div>
-                <span class="prices product-price">7900</span>
+                <span
+                  class="prices product-price"
+                  tabindex="0"
+                  aria-label="7900원"
+                  >7900</span
+                >
                 <button class="group-list__close" type="button">
                   <img
                     class="group-list__close-image"
                     src="./assets/cart/ic-cancel.svg"
-                    alt=""
+                    alt="닫기"
                   />
                 </button>
               </div>
             </li>
             <li class="group-list">
               <div class="cart-feature__list">
-                <button class="single-check-box active" type="button"></button>
+                <button
+                  class="single-check-box active"
+                  type="button"
+                  aria-label="선택"
+                ></button>
                 <span>
                   <img
                     class="group-list__image"
-                    src="./assets/product/ubuho/detail-banner.jpg"
+                    src="./assets/product/ubuho/thumbnail.jpg"
                     alt="유부호 만두"
                   />
                 </span>
@@ -321,7 +356,12 @@
                   </div>
                 </div>
                 <div class="price-divide">
-                  <span class="prices product-price">6900</span>
+                  <span
+                    class="prices product-price"
+                    tabindex="0"
+                    aria-label="6900원"
+                    >6900</span
+                  >
                   <span
                     >-<span class="prices product-price-sale">1656</span></span
                   >
@@ -330,7 +370,7 @@
                   <img
                     class="group-list__close-image"
                     src="./assets/cart/ic-cancel.svg"
-                    alt=""
+                    alt="닫기"
                   />
                 </button>
               </div>
@@ -338,7 +378,7 @@
           </ul>
           <div class="cart-list__temperature">
             <span class="cart-list__temperature--icon"></span>
-            <span class="cart-list__text">상온 식품</span>
+            <span class="cart-list__text" tabindex="0">상온 식품</span>
             <button
               class="toggle-list cart-list--button"
               type="button"
@@ -354,11 +394,15 @@
           <ul class="groups cart-list__temperature--group">
             <li class="group-list">
               <div class="cart-feature__list">
-                <button class="single-check-box active" type="button"></button>
+                <button
+                  class="single-check-box active"
+                  type="button"
+                  aria-label="선택"
+                ></button>
                 <span>
                   <img
                     class="group-list__image"
-                    src="./assets/product/tangtang/detail-banner.jpg"
+                    src="./assets/product/tangtang/thumbnail.jpg"
                     alt="풀무원 탱탱쫄면"
                   />
                 </span>
@@ -374,20 +418,29 @@
                     <button class="list-count__up" type="button">+</button>
                   </div>
                 </div>
-                <span class="prices product-price">4980</span>
+                <span
+                  class="prices product-price"
+                  tabindex="0"
+                  aria-label="4980원"
+                  >4980</span
+                >
                 <button class="group-list__close" type="button">
                   <img
                     class="group-list__close-image"
                     src="./assets/cart/ic-cancel.svg"
-                    alt=""
+                    alt="닫기"
                   />
                 </button>
               </div>
             </li>
           </ul>
           <div class="cart-feature">
-            <button class="all-check-box active" type="button"></button>
-            <span class="cart-feature__text">전체선택(6/6)</span>
+            <button
+              class="all-check-box active"
+              type="button"
+              aria-label="전체선택"
+            ></button>
+            <span class="cart-feature__text"></span>
             <span class="no-divider" aria-hidden="true">|</span>
             <button class="selector-delete" type="button">선택삭제</button>
           </div>
@@ -395,7 +448,11 @@
         <section class="cart-summary">
           <div class="summary-top">
             <div class="shipping-address">
-              <button class="shipping-address__icon" type="button"></button>
+              <button
+                class="shipping-address__icon"
+                type="button"
+                aria-label="배송지 이미지"
+              ></button>
               <p>배송지</p>
             </div>
             <div class="searching-address">
@@ -407,22 +464,22 @@
           <div class="summary-middle">
             <div class="product-result">
               <div class="product-result__basic">
-                <span>상품금액</span>
-                <span
+                <span tabindex="0">상품금액</span>
+                <span tabindex="0" aria-label=""
                   ><span class="prices product-result__basic--price"></span>
                   원</span
                 >
               </div>
               <div class="product-result__sale">
-                <span>상품할인금액</span>
-                <span
+                <span tabindex="0">상품할인금액</span>
+                <span tabindex="0" aria-label=""
                   >-<span class="prices product-result__sale--price"></span>
                   원</span
                 >
               </div>
               <div class="product-result__delivery">
-                <span>배송비</span>
-                <span
+                <span tabindex="0">배송비</span>
+                <span tabindex="0" aria-label=""
                   >+<span class="prices product-result__delivery--price"
                     >3000</span
                   >
@@ -431,8 +488,8 @@
               </div>
               <div class="product-result--expected">
                 <div class="product-result__expected">
-                  <span>결제예정금액</span>
-                  <span
+                  <span tabindex="0">결제예정금액</span>
+                  <span tabindex="0" aria-label=""
                     ><span
                       class="prices product-result__expected--price"
                     ></span>
