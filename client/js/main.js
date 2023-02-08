@@ -1,9 +1,9 @@
-import { closeMainModalButton, test1 } from './kyungseob.js';
+import { closeMainModalButton, protection } from './kyungseob.js';
 import { mainHeaderEventHandler } from './seokwon.js';
 import { onClickAddCartHandler } from './juhee.js';
 import { getNode, getNodes } from '../lib/dom/getNode.js';
 
-test1();
+protection();
 closeMainModalButton();
 
 // 스와이퍼
