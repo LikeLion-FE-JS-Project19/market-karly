@@ -306,6 +306,7 @@
   opacity: 0;
   bottom: -95px;
   right: -23px;
+  visibility: hidden;
 }
 
 .add-cart-bubble::before {

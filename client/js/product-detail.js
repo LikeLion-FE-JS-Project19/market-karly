@@ -2,35 +2,40 @@ import {
   countProductAmountHandler,
   toggleTabMenuHandler,
   moveToClickedTabMenu,
-  moveTabByKey,
   setProductDetailData,
 } from './seeun.js';
-import { xhrData } from '../lib/utils/xhr.js';
-
 import { renderQnATable, renderModal, qnaModalSubmitHandler } from './jiwon.js';
+import { openReviewModal } from './juhee.js';
+import { axios, getNode, getNodes } from '../lib/index.js';
 
-xhrData.get(
-  'http://localhost:3001/products',
-  (products) => {
-    setProductDetailData(products);
-  },
-  (message) => console.log(message)
-);
+const URLSearch = new URLSearchParams(location.search);
+const id = URLSearch.get('id');
+
+async function getProductData() {
+  try {
+    let { data } = await axios.get(`http://localhost:3001/products?id=${id}`);
+    data = data[0];
+    setProductDetailData(data);
+    renderModal(data);
+  } catch (err) {
+    alert('예기치 못한 에러로 실패했습니다.');
+  }
+}
+
+getProductData();
 
 const minusAmountButton = document.querySelector(
   '.product-summary__detail-choice-button--minus'
 );
-
-const plusAmountButton = document.querySelector(
+const plusAmountButton = getNode(
   '.product-summary__detail-choice-button--plus'
 );
-
-const tabMenuItems = document.querySelectorAll(
-  'li[class^=product-detail-tab-menu__item]'
-);
+const tabMenuItems = getNodes('li[class^=product-detail-tab-menu__item]');
 
 minusAmountButton.addEventListener('click', countProductAmountHandler);
+
 plusAmountButton.addEventListener('click', countProductAmountHandler);
+
 window.addEventListener('scroll', toggleTabMenuHandler);
 [].forEach.call(tabMenuItems, (tabMenuItem) =>
   tabMenuItem.addEventListener('click', moveToClickedTabMenu)
@@ -40,19 +45,9 @@ window.addEventListener('scroll', toggleTabMenuHandler);
   tabMenuItem.addEventListener('focus', moveToClickedTabMenu)
 );
 
-[].forEach.call(tabMenuItems, (tabMenuItem) =>
-  tabMenuItem.addEventListener('keydown', moveTabByKey)
-);
-
-import { openReviewModal } from './juhee.js';
-import { axios } from '../lib/index.js';
-
 openReviewModal();
 
 // QnA 요청
-const URLSearch = new URLSearchParams(location.search);
-const id = URLSearch.get('id');
-
 renderQnATable(id);
 document.querySelector('.qna__table tbody').addEventListener('keyup', (e) => {
   const tr = e.target.closest('tr');
@@ -61,9 +56,5 @@ document.querySelector('.qna__table tbody').addEventListener('keyup', (e) => {
   }
 });
 
-const [data] = await fetch(`http://localhost:3001/products?id=${id}`).then(
-  (response) => response.json()
-);
-renderModal(data);
 const qnaModalSubmit = document.querySelector('.qna__modal-submit');
 qnaModalSubmit.addEventListener('click', qnaModalSubmitHandler);
