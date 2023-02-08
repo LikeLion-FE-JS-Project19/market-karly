@@ -654,6 +654,8 @@ export async function productListEventHandler() {
 
   async function listRendering(listData) {
     curData = listData;
+    let totalCount = getNode('.product-list__total-count');
+    totalCount.innerHTML=`총 ${curData.length}건`;
     const productItemList = document.querySelector('.product-list__items-list');
     productItemList.innerHTML = '';
     listData.map((data) => {
