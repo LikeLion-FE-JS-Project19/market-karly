@@ -162,7 +162,7 @@ export async function productListEventHandler() {
     return (
       `
       <img src="${data.image.thumbnail}" alt="${data.name}" />
-      <button type="button" class="btn-add-cart" data-name="button" data-id=${data.id}></button>
+      <button type="button" class="btn-add-cart" data-name="button" data-id=${data.id} aria-label="${data.name} 장바구니 버튼"></button>
       <p class="product-mark--morning-star">샛별 배송</p>
       <p class="product-name--product-list">${data.name}</p>
       ` +
