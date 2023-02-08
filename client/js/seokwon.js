@@ -517,21 +517,21 @@ export async function productListEventHandler() {
     await filterObj.then((obj) => {
       Object.entries(obj).forEach(([filterHead, filteritems], idx) => {
         let accoderionHead = document.createElement('li');
-        accoderionHead.innerHTML = getAccoderionHead(filterHead, idx);
+        accoderionHead.innerHTML = getAccoderionHeadMarkUp(filterHead, idx);
         filterBox.insertAdjacentElement('beforeend', accoderionHead);
         getAccoderionItems(filterHead, filteritems);
       });
     });
   }
 
-  function getAccoderionHead(filterHead, idx) {
+  function getAccoderionHeadMarkUp(filterHead, idx) {
     return `
-          <div class="accordion__head" data-name="${filterHead}" data-check="false" data-elementname="accordion__head" data-idx="${idx}";>
+          <button class="accordion__head" data-name="${filterHead}" data-check="false" data-elementname="accordion__head" data-idx="${idx}" aria-expanded="false">
             <div>
               <span class="product-list__filter--index-title">${categoryMatchName[filterHead]}</span><span class="product-list__filter--index-count"></span>
             </div>
             <img src="assets/product-list/ic-arrow-down.svg" alt="펼치기" class="product-list__filter--index-togle" />
-          </div>
+          </button>
           <ul class="accordion__body accordion__body-${filterHead}" data-name="${filterHead}">
           </ul>
         `;
@@ -550,7 +550,8 @@ export async function productListEventHandler() {
       list.dataset.flag = false;
       list.innerHTML = getAccoderionItemMarkUp(
         filterItemName,
-        filterItems.length
+        filterItems.length,
+        filterHead
       );
       let body = getNode(`.accordion__body-${filterHead}`);
       body.insertAdjacentElement('beforeend', list);
@@ -594,13 +595,15 @@ export async function productListEventHandler() {
     }
   }
 
-  function getAccoderionItemMarkUp(filterItemName, count) {
+  function getAccoderionItemMarkUp(filterItemName, count, filterHead) {
     return `
+                  <button class="accordion__item-button accordion__body-${filterHead}-button" tabindex="-1">
                     <div class="accordion__check">
                       <img src="./assets/product-list/ic-check.svg" alt="체크하기" class="check" />
                     </div>
                     <span class="accordion__item-name">${filterItemName}</span>
                     <span class="accordion__item-count">${count}</span>
+                  </button>
             `;
   }
 
@@ -702,7 +705,7 @@ export async function productListEventHandler() {
   //아코디언 플래그 확인 함수
   function checkAccordion() {
     checkAccordionHeads();
-    checkAccordionItems()
+    checkAccordionItems();
   }
 
   function checkAccordionHeads() {
@@ -710,9 +713,17 @@ export async function productListEventHandler() {
       let body = accordionBodys[obj.dataset.idx];
       let toggle = accordionToggles[obj.dataset.idx];
       if (JSON.parse(obj.dataset.check)) {
+        const itemButtons = getNodes(`.${body.classList[1]}-button`);
+        itemButtons.forEach((button) => {
+          button.tabIndex = '0';
+        });
         body.classList.add('accordion__body-open');
         toggle.style.transform = `rotate(${-180}deg)`;
       } else {
+        const itemButtons = getNodes(`.${body.classList[1]}-button`);
+        itemButtons.forEach((button) => {
+          button.tabIndex = '-1';
+        });
         body.classList.remove('accordion__body-open');
         toggle.style.transform = `rotate(${0}deg)`;
       }
