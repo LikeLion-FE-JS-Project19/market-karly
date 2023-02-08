@@ -407,7 +407,8 @@ button[class^='product-summary__detail-choice-button'] {
   margin-left: 20px;
 }
 
-.qna__question-container {
+.qna__question-container,
+.qna__notice-container {
   display: flex;
   flex-direction: row;
 }
@@ -421,7 +422,8 @@ button[class^='product-summary__detail-choice-button'] {
   margin-right: var(--spacing-sm);
 }
 
-.qna__question {
+.qna__question,
+.qna__notice {
   display: flex;
   flex-direction: column;
 }
