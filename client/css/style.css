@@ -259,6 +259,7 @@ div[class^='swiper-slide product-swiper']:focus {
 
 .ad-banner img {
   width: var(--container-width);
+  height: 100%;
 }
 
 .sale-product {

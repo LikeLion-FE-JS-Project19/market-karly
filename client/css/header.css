@@ -38,6 +38,11 @@
   color: var(--gray-400);
 }
 
+.header-container__main {
+  width: 82px;
+  height: 42px;
+}
+
 .header-container__karly {
   margin-left: var(--spacing-sm);
 }
@@ -103,6 +108,11 @@
   transform: translateY(-50%);
 }
 
+.searchButton img {
+  width: 36px;
+  height: 36px;
+}
+
 .header-container__account-menu {
   position: absolute;
   right: 0;
@@ -118,7 +128,8 @@
   align-items: center;
 }
 
-.header-container__account-menu > li {
+.header-container__account-menu > li,
+.header-container__account-menu li img {
   width: 36px;
   height: 36px;
 }
@@ -183,7 +194,7 @@
   position: relative;
 }
 
-.header-container__category-button{
+.header-container__category-button {
   margin: 0;
   padding: 0;
   border: none;
