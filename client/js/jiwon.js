@@ -599,10 +599,10 @@ export async function qnaModalSubmitHandler(event) {
   const questionDatetime = `${year}${month}${date}`;
 
   if (
-    qnaModalFormTitle ||
-    qnaModalFormContents ||
-    qnaModalFormTitle.trim() ||
-    qnaModalFormContents.trim()
+    !qnaModalFormTitle ||
+    !qnaModalFormContents ||
+    !qnaModalFormTitle.trim() ||
+    !qnaModalFormContents.trim()
   ) {
     alert('제목과 내용을 입력해주세요.');
   } else {
@@ -622,6 +622,6 @@ export async function qnaModalSubmitHandler(event) {
       }),
     });
     const result = await response.json();
-    // location.reload();
+    location.reload();
   }
 }
