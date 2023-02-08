@@ -1,8 +1,8 @@
 ---
 name: "\U0001F41B BUG"
 about: 발견한 Bug를 위한 작업 사항을 입력해주세요.
-title: ''
-labels: ''
+title: "[BUG] 작업 내용"
+labels: "\U0001F41B bug"
 assignees: ''
 
 ---
