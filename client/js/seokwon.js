@@ -1,4 +1,4 @@
-import { tiger } from '../lib/utils/index.js';
+import { axios } from '../lib/utils/index.js';
 import { attr } from '../lib/dom/attr.js';
 
 const categotyData = [
