@@ -35,26 +35,28 @@
   </head>
 
   <body>
-    <section class="main-modal">
-      <a class="main-modal__link" href="">
-        <img
-          class="main-modal__img"
-          src="./assets/modal/main-modal.jpg"
-          aria-label="지금 바로 만나보세요"
-          alt="뷰티 칼리"
-        />
-      </a>
-      <div class="main-modal__close-group">
-        <button class="main-modal__btn-today-close" type="button">
-          오늘 하루 안 보기
-        </button>
-        <button class="main-modal__btn-close" type="button">닫기</button>
-      </div>
-    </section>
+    <div class="protect">
+      <section class="main-modal">
+        <a class="main-modal__link" href="#">
+          <img
+            class="main-modal__img"
+            src="./assets/modal/main-modal.jpg"
+            aria-label="지금 바로 만나보세요"
+            alt="뷰티 칼리"
+          />
+        </a>
+        <div class="main-modal__close-group">
+          <button class="main-modal__btn-today-close" type="button">
+            오늘 하루 안 보기
+          </button>
+          <button class="main-modal__btn-close" type="button">닫기</button>
+        </div>
+      </section>
+    </div>
 
     <div class="top-bar">
       <div class="top-bar__group">
-        <a class="top-bar__link" href=""
+        <a class="top-bar__link" href="#"
           >지금 가입하고 인기상품 100원에 받아가세요!</a
         >
         <button class="top-bar__btn-today-close" aria-label="닫기버튼"></button>
@@ -476,41 +478,48 @@
     </main>
 
     <article class="side-bar">
-      <input
+      <button
         class="side-bar__top-button"
-        type="image"
-        src="./assets/common/ic-vector-top.svg"
+        type="button"
         alt="위로 올리기"
-      />
+      ></button>
       <p class="side-bar__text">최근 본 상품</p>
       <div class="swiper mySwiper">
         <div class="swiper-wrapper swiper-wrapper-3">
           <div class="swiper-slide swiper-slide-3">
-            <img src="./assets/product/bacon/detail-banner.jpg" alt="" />
+            <img src="./assets/product/bacon/thumbnail.jpg" alt="베이컨 사진" />
           </div>
           <div class="swiper-slide swiper-slide-3">
-            <img src="./assets/product/jukkumi/detail-banner.jpg" alt="" />
+            <img
+              src="./assets/product/jukkumi/thumbnail.jpg"
+              alt="홍대 주꾸미"
+            />
           </div>
           <div class="swiper-slide swiper-slide-3">
-            <img src="./assets/product/kangnam/detail-banner.jpg" alt="" />
+            <img
+              src="./assets/product/kangnam/thumbnail.jpg"
+              alt="강남면옥 소갈비찜"
+            />
           </div>
           <div class="swiper-slide swiper-slide-3">
-            <img src="./assets/product/tangtang/detail-banner.jpg" alt="" />
+            <img
+              src="./assets/product/tangtang/thumbnail.jpg"
+              alt="풀무원 탱탱쫄면"
+            />
           </div>
           <div class="swiper-slide swiper-slide-3">
-            <img src="./assets/product/ubuho/detail-banner.jpg" alt="" />
+            <img src="./assets/product/ubuho/thumbnail.jpg" alt="유부호 만두" />
           </div>
           <div class="swiper-slide swiper-slide-3">
-            <img src="./assets/product/bacon/detail-banner.jpg" alt="" />
+            <img src="./assets/product/bacon/thumbnail.jpg" alt="베이컨 사진" />
           </div>
         </div>
       </div>
-      <input
+      <button
         class="side-bar__bottom-button"
-        type="image"
-        src="./assets/common/ic-vector-bottom.svg"
-        alt="아래로 내리기"
-      />
+        type="button"
+        alt="위로 올리기"
+      ></button>
     </article>
   </body>
 </html>

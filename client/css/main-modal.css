@@ -1,3 +1,7 @@
+.protect {
+  display: none;
+}
+
 .main-modal {
   position: fixed;
   display: flex;
@@ -87,6 +91,9 @@
 }
 
 .side-bar__top-button {
+  background: url(../assets/common/ic-vector-top.svg) no-repeat center;
+  background-size: 18px 18px;
+  border: none;
   align-self: center;
   margin: 8px 28px 0 28px;
   width: 18px;
@@ -94,8 +101,11 @@
 }
 
 .side-bar__bottom-button {
+  background: url(../assets/common/ic-vector-bottom.svg) no-repeat center;
+  background-size: 18px 18px;
+  border: none;
   align-self: center;
-  margin: 8px 28px 8px 28px;
+  margin: 8px 28px 0 28px;
   width: 18px;
   height: 18px;
 }
