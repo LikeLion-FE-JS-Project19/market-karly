@@ -46,13 +46,3 @@ export function closeMainModalButton() {
     closeModal();
   }
 }
-
-export let swiper = new Swiper('.mySwiper', {
-  direction: 'vertical',
-  slidesPerView: 'auto',
-  navigation: {
-    nextEl: '.side-bar__bottom-button',
-    prevEl: '.side-bar__top-button',
-  },
-  spaceBetween: 10,
-});
