@@ -789,3 +789,270 @@ export async function productListEventHandler() {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export async function mainCarouselEventHandler() {
+  console.log('hello');
+  const sw1 = getNode('.swiper-wrapper-fst-carousel')
+  const cartModal = getNode('.cart-modal');
+   await getProductItems()
+
+
+  
+  async function getProductItems() {
+    try {
+      const result = await axios.get('http://localhost:3001/products');
+      curData = result.data;
+      listRendering(curData.slice(0,8));
+    } catch (error) {
+      console.log('리스트 페이지를 불러오지 못했습니다');
+    }
+  }
+
+  function getProductItemMarkup(data) {
+    const priceMarkup = getProductPriceMarkup(data);
+    return (
+      `
+      <img src="${data.image.thumbnail}" alt="${data.name}" width="249" height="538" class='product-list__item-img'/>
+      <button type="button" class="btn-add-cart" data-name="button" data-id=${data.id} aria-label="${data.name} 장바구니 버튼"></button>
+      <p class="product-name--product-list">${data.name}</p>
+      ` +
+      priceMarkup
+    );
+  }
+
+  function getProductPriceMarkup(data) {
+    const isSale = data.saleRatio;
+    if (isSale) {
+      return `
+        <p class="product-price">
+          <span class="sale-percent">${getSalePercent(data.saleRatio)}%</span>
+          ${getPriceFormat(data.salePrice)}원
+        </p>
+        <p class="first-price">${getPriceFormat(data.price)}원</p>
+      `;
+    } else {
+      return `<p class="product-price">${getPriceFormat(data.price)}원</p>`;
+    }
+  }
+
+  // 유틸
+  function getPriceFormat(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  // 유틸
+  function getSalePercent(saleRatio) {
+    return Math.floor(saleRatio * 100);
+  }
+
+
+  function productItemClickHandler(e) {
+    let target = e.target;
+    while (!attr(target, 'data-name')) {
+      target = target.parentNode;
+
+      if (target.nodeName === 'BODY') {
+        target = null;
+        return;
+      }
+    }
+
+    if (target.dataset.name === 'button') {
+      makeDarkFiltering();
+      makeCartModal(target.dataset.id);
+      return;
+    }
+
+    if (target.dataset.name === 'label') {
+      return;
+    }
+
+    if (target.dataset.name === 'product-box') {
+      const queries = { id: target.dataset.id };
+      changeLocation('/product-detail.html', queries);
+    }
+  }
+
+  // 유틸
+  function changeLocation(url, queries) {
+    let query = '';
+    queries = Object.entries(queries);
+    queries.forEach((q, idx) => {
+      query += `${q[0]}=${q[1]}`;
+      if (idx !== queries.length - 1) {
+        query += '&';
+      }
+    });
+    location.href = `${url}?${query}`;
+  }
+
+  async function listRendering(listData) {
+    listData.map((data, idx) => {
+      let productItem = document.createElement('div');
+      productItem.classList.add('swiper-slide');
+      productItem.classList.add(`product-swiper-2__slide0${idx}`);
+      productItem.dataset.id = data.id;
+      productItem.dataset.name = 'product-box';
+      productItem.tabIndex = "-1"
+      productItem.role = "group"
+      // console.log(sw1);
+      productItem.innerHTML = getProductItemMarkup(data);
+      productItem.addEventListener('click', productItemClickHandler);
+      sw1.insertAdjacentElement('beforeend', productItem);
+    });
+}
+
+
+
+  async function makeCartModal(id) {
+    const itemData = await getItemById(id);
+    const currentPrice = getPrice(itemData);
+    const priceValue = getCartPriceMarkup(itemData);
+    cartModal.innerHTML = getCartModalMarkup(itemData, priceValue);
+    cartModal.dataset.count = 1;
+    cartModal.style.display = 'flex';
+
+    const cartModalCancelButton = getNode('.cart-modal--button--cancel');
+
+    cartModalCancelButton.addEventListener('click', () => {
+      cartModal.style.display = 'none';
+      removeDarkFiltering();
+    });
+
+    // 숫자 증감 기능
+    const minusButton = getNode('.cart-modal--count-button--minus');
+    const plusButton = getNode('.cart-modal--count-buttot--plus');
+
+    minusButton.addEventListener('click', () => {
+      cartModal.dataset.count = parseInt(cartModal.dataset.count) - 1;
+      changeTotalPrice();
+    });
+
+    plusButton.addEventListener('click', () => {
+      cartModal.dataset.count = parseInt(cartModal.dataset.count) + 1;
+      changeTotalPrice();
+    });
+
+    // 수량 버튼 기능
+    function changeTotalPrice() {
+      const count = getNode('.cart-modal--count-value');
+      const totalPrice = getNode('.cart-modal--total-price-top--price');
+      count.innerHTML = cartModal.dataset.count;
+      totalPrice.innerHTML = `${getPriceFormat(
+        cartModal.dataset.count * parseInt(currentPrice)
+      )}원`;
+    }
+    changeTotalPrice();
+  }
+
+  // id에 맞는 데이터 가져오기
+  async function getItemById(id) {
+    try {
+      let result = await axios.get('http://localhost:3001/products');
+      let value = result.data.filter((data) => data.id === id);
+      return value[0];
+    } catch (error) {
+      console.log('통신 에러가 발생했습니다!');
+    }
+  }
+
+  // 유틸?
+  function getPrice(data) {
+    if (data.saleRatio) {
+      return data.salePrice;
+    } else {
+      return data.price;
+    }
+  }
+
+  function getCartPriceMarkup(data) {
+    if (data.saleRatio) {
+      return `
+        <span class="cart-modal--price">${getPriceFormat(
+          data.salePrice
+        )}원</span>
+        <span class="cart-modal--price-sale">${getPriceFormat(
+          data.price
+        )}원</span>
+        `;
+    } else {
+      return `
+       <span class="cart-modal--price">${getPriceFormat(data.price)}원</span>
+      `;
+    }
+  }
+
+  // 모달 제외하고 어두워지는 기능
+  function makeDarkFiltering() {
+    const darkFilter = document.querySelector('.dark-filter');
+    darkFilter.style.display = 'block';
+  }
+
+  function removeDarkFiltering() {
+    const darkFilter = document.querySelector('.dark-filter');
+    darkFilter.style.display = 'none';
+  }
+
+  function getCartModalMarkup(data, price) {
+    return (
+      `
+      <div class="cart-modal--info">
+        <span class="cart-modal--title">${data.name}</span>
+        <span class="cart-modal--price-box">` +
+      price +
+      `
+        </span>
+        <div class="cart-modal--count-box">
+          <button class="cart-modal--count-button cart-modal--count-button--minus"></button>        
+          <span class="cart-modal--count-value"></span>
+          <button class="cart-modal--count-button cart-modal--count-buttot--plus"></button>       
+        </div>
+      </div>
+      <div class="cart-modal--total-price">
+        <div class="cart-modal--total-price-top">
+          <span class="cart-modal--total-price-top--total">합계</span>
+          <span class="cart-modal--total-price-top--price"></span>
+        </div>
+        <div class="cart-modal--total-price-bottom">
+          <span class="cart-modal--total-price-top--mark">적립</span>
+          <span class="cart-modal--total-price-top--info">구매시 5원 적립</span>
+        </div>
+      </div>
+      <div class="cart-modal--button-box">
+        <button class="cart-modal--button cart-modal--button--cancel">
+          취소
+        </button>
+        <button class="cart-modal--button cart-modal--button--add">
+          장바구니 담기
+        </button>
+      </div>
+    `
+    );
+
+}
+
+
+
+}
