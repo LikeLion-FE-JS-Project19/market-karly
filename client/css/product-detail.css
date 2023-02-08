@@ -559,6 +559,13 @@ button[class^='product-summary__detail-choice-button'] {
   border: 0;
 }
 
+.qna__modal-close-btn:focus,
+.qna__modal-cancel:focus,
+.qna__modal-submit:focus {
+  outline: 2px solid var(--black);
+  border-radius: 4px;
+}
+
 .qna__modal-product {
   height: 104px;
   padding: 16px 0;
@@ -708,7 +715,7 @@ label[for='qna__modal-form-contents'] {
 }
 
 .qna__modal-submit {
-  background-color: var(--gray-100);
+  background-color: var(--primary);
   color: var(--white);
 }
 
