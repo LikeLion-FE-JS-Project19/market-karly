@@ -1,4 +1,6 @@
-import { getNode, getNodes, attr, tiger } from '../lib/index.js';
+import { axios } from '../lib/utils/index.js';
+import { attr } from '../lib/dom/attr.js';
+
 
 const categoryData = [
   { title: '선물하기', imgSrc: './assets/header/ic-gift.svg' },

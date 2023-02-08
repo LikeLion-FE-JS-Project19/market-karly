@@ -497,10 +497,10 @@ export function renderModal(data) {
 
 function createModal({ name, image, id } = data) {
   return /* html */ `
-  <div class="qna__modal-container hidden">
-    <div class="qna__modal">
+  <div class="qna__modal-container hidden" role="dialog" aria-labelledby="qna-submit-title-dialog">
+    <div class="qna__modal" role="document">
       <div class="qna__modal-header">
-        <h3 class="qna__modal-title">상품 문의하기</h3>
+        <h3 class="qna__modal-title" id="qna-submit-title-dialog">상품 문의하기</h3>
         <button class="qna__modal-close-btn" type="button"><img src="./assets/product-detail/ic-cancel.svg" alt="모달 닫기"></button>
       </div>
       <div class="qna__modal-product">
@@ -598,12 +598,7 @@ export async function qnaModalSubmitHandler(event) {
   date = date < 10 ? '0' + date : date;
   const questionDatetime = `${year}${month}${date}`;
 
-  if (
-    qnaModalFormTitle ||
-    qnaModalFormContents ||
-    qnaModalFormTitle.trim() ||
-    qnaModalFormContents.trim()
-  ) {
+  if (qnaModalFormTitle.trim() === '' || qnaModalFormContents.trim() === '') {
     alert('제목과 내용을 입력해주세요.');
   } else {
     const response = await fetch('http://localhost:3001/QnAs', {
@@ -622,6 +617,6 @@ export async function qnaModalSubmitHandler(event) {
       }),
     });
     const result = await response.json();
-    // location.reload();
+    location.reload();
   }
 }

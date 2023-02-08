@@ -1,8 +1,9 @@
-import { closeMainModalButton, swiper } from './kyungseob.js';
+import { closeMainModalButton, swiper, test1 } from './kyungseob.js';
 import { mainHeaderEventHandler } from './seokwon.js';
 import { swiper1, onKeyPressSwiperHandler } from './seeun.js';
 import { swiper2, swiper3, onClickAddCartHandler, getNodes } from './juhee.js';
 
+test1();
 closeMainModalButton();
 swiper;
 

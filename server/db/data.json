@@ -449,6 +449,88 @@
       "brand": "스윗밸런스"
     }
   ],
+  "reviews": [
+    {
+      "id": 1,
+      "writer": "금윤호",
+      "product": "product-ekfk",
+      "title": "와 진짜 맛있네요",
+      "contents": "진짜 너무 맛있어서 기절",
+      "reviewDate": "2023.02.02",
+      "best": true,
+      "membership": "purple"
+    },
+    {
+      "id": 2,
+      "writer": "홍성욱",
+      "product": "product-ekfk",
+      "title": "와 진짜 맛있네예",
+      "contents": "저 이거 부산에서 먹고 싶은디",
+      "reviewDate": "2023.02.01",
+      "best": true,
+      "membership": "purple"
+    },
+    {
+      "id": 3,
+      "writer": "김하연",
+      "product": "product-ekfk",
+      "title": "이거 못먹겠어요",
+      "contents": "이거 진짜 못 먹겠어요.\n없어서 못먹겠어요.\n제주도에서도 많이 좀 팔아주세요.",
+      "reviewDate": "2023.02.04",
+      "best": true,
+      "membership": "purple"
+    },
+    {
+      "id": 4,
+      "writer": "서석원",
+      "product": "product-ekfk",
+      "title": "저한텐 조금 맵지만",
+      "contents": "조금 맵지만 넘 맛있네요\n많이 파시길..",
+      "reviewDate": "2023.02.04",
+      "best": true,
+      "membership": "purple"
+    },
+    {
+      "id": 5,
+      "writer": "심선범",
+      "product": "product-rksk",
+      "title": "아주 맛도리",
+      "contents": "둘이 먹다가 둘 다 죽어도 모를 맛이네요.\n최고였습니다.",
+      "reviewDate": "2023.02.01",
+      "best": true,
+      "membership": "purple"
+    },
+    {
+      "id": 6,
+      "writer": "최지연",
+      "product": "product-rksk",
+      "title": "맥주 안주",
+      "contents": "친구들이랑 집들이 간식으로 먹었어요.\n진짜 맛있었어요.",
+      "reviewDate": "2023.02.02",
+      "best": true,
+      "membership": "purple"
+    },
+    {
+      "id": 7,
+      "writer": "오승택",
+      "product": "product-rksk",
+      "title": "떡볶이랑 먹기",
+      "contents": "진짜 잠시만요\n이 만두 안에는 대체 뭐가 들어간거죠?\n비범이 궁금하네요. 아니 비법.",
+      "reviewDate": "2023.02.06",
+      "best": true,
+      "membership": "purple"
+    },
+    {
+      "id": 8,
+      "writer": "최영민",
+      "product": "product-rksk",
+      "title": "참기름",
+      "contents": "만두에 참기름도 제법 어울리는 것 같아요",
+      "reviewDate": "2023.02.05",
+      "best": true,
+      "membership": "purple"
+    }
+  ],
   "QnAs": [
     {
       "id": 1,

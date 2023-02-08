@@ -1,3 +1,14 @@
+export function test1() {
+  const protect = document.querySelector('.protect');
+
+  function protectShow() {
+    setTimeout(() => {
+      protect.style.display = 'block';
+    }, 100);
+  }
+  protectShow();
+}
+
 export function closeTopBarButton() {
   const closeButton = document.querySelector('.top-bar__btn-today-close');
   const topBar = document.querySelector('.top-bar');
@@ -57,69 +68,22 @@ export let swiper = new Swiper('.mySwiper', {
   spaceBetween: 10,
 });
 
-export function coldListAct() {
-  const viewMore = document.querySelector('.vector-1');
-  const coldList = document.querySelector('.cart-list__cold--group');
+export function listToggle() {
+  const viewMore = document.querySelectorAll('.vector-1');
+  const allList = document.querySelectorAll('.groups');
 
-  viewMore.addEventListener('click', show);
-
-  function show() {
-    if (viewMore.className === 'rotate-deg--bottom') {
-      return (
-        (viewMore.className = 'rotate-deg--top'),
-        (coldList.style.display = 'none')
-      );
-    } else {
-      return (
-        (viewMore.className = 'rotate-deg--bottom'),
-        (coldList.style.display = 'block')
-      );
+  viewMore.forEach(function (item, index) {
+    viewMore[index].addEventListener('click', show);
+    function show() {
+      if (viewMore[index].className === 'rotate-deg--bottom') {
+        (viewMore[index].className = 'rotate-deg--top'),
+          (allList[index].style.display = 'none');
+      } else {
+        (viewMore[index].className = 'rotate-deg--bottom'),
+          (allList[index].style.display = 'block');
+      }
     }
-  }
-}
-
-export function frozenListAct() {
-  const viewMore = document.querySelector('.vector-2');
-  const frozenList = document.querySelector('.cart-list__frozen--group');
-
-  viewMore.addEventListener('click', show);
-
-  function show() {
-    if (viewMore.className === 'rotate-deg--bottom') {
-      return (
-        (viewMore.className = 'rotate-deg--top'),
-        (frozenList.style.display = 'none')
-      );
-    } else {
-      return (
-        (viewMore.className = 'rotate-deg--bottom'),
-        (frozenList.style.display = 'block')
-      );
-    }
-  }
-}
-
-export function temperatureListAct() {
-  const viewMore = document.querySelector('.vector-3');
-  const temperatureList = document.querySelector(
-    '.cart-list__temperature--group'
-  );
-
-  viewMore.addEventListener('click', show);
-
-  function show() {
-    if (viewMore.className === 'rotate-deg--bottom') {
-      return (
-        (viewMore.className = 'rotate-deg--top'),
-        (temperatureList.style.display = 'none')
-      );
-    } else {
-      return (
-        (viewMore.className = 'rotate-deg--bottom'),
-        (temperatureList.style.display = 'block')
-      );
-    }
-  }
+  });
 }
 
 export function allSelector() {
@@ -132,24 +96,23 @@ export function allSelector() {
   );
 
   totalSelector.forEach(function (item, index) {
-    totalSelector[index].addEventListener('click', test1);
+    totalSelector[index].addEventListener('click', select);
 
-    function test1() {
+    function select() {
       if (totalSelector[index].className === 'all-check-box active') {
         totalSelector[0].className = 'all-check-box';
         totalSelector[1].className = 'all-check-box';
         singleSelector.forEach(function (item) {
           item.className = 'single-check-box';
         });
-        getNumber();
       } else {
         totalSelector[0].className = 'all-check-box active';
         totalSelector[1].className = 'all-check-box active';
         singleSelector.forEach(function (item, index) {
           item.className = 'single-check-box active';
         });
-        getNumber();
       }
+      getNumber();
     }
   });
 }
@@ -177,9 +140,9 @@ export function selectDelete() {
       activeCheck.forEach(function (item, index) {
         if (activeCheck[index].className === 'single-check-box active') {
           groupList[index].remove();
-          reloadGroup();
         }
       });
+      reloadGroup();
     }
   });
 }
@@ -207,8 +170,9 @@ export function eachSelect() {
     function select() {
       if (activeCheck[index].className === 'single-check-box') {
         activeCheck[index].className = 'single-check-box active';
-        getNumber();
-      } else activeCheck[index].className = 'single-check-box';
+      } else {
+        activeCheck[index].className = 'single-check-box';
+      }
       getNumber();
     }
   });
@@ -241,11 +205,8 @@ export function totalExpectedPrice() {
     '.product-result__expected--price'
   );
 
-  function calculate() {
-    return basicPrice - salePrice + deliveryPrice;
-  }
   expectedPrice.textContent = '';
-  expectedPrice.textContent = calculate();
+  expectedPrice.textContent = basicPrice - salePrice + deliveryPrice;
 }
 
 export function totalBasicPrice() {
