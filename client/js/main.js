@@ -1,7 +1,9 @@
 import { closeMainModalButton, protection } from './kyungseob.js';
-import { mainHeaderEventHandler } from './seokwon.js';
+import { mainHeaderEventHandler, mainCarouselEventHandler } from './seokwon.js';
 import { onClickAddCartHandler } from './juhee.js';
 import { getNode, getNodes } from '../lib/dom/getNode.js';
+
+
 
 protection();
 closeMainModalButton();
@@ -39,38 +41,43 @@ const swiper1 = new Swiper('.swiper-1', {
   },
 });
 
-const swiper2 = new Swiper('.swiper-2', {
-  slidesPerView: 4,
-  spaceBetween: 18,
-  slidesPerGroup: 4,
-
-  loopFillGroupWithBlank: true,
-
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-  on: {
-    init() {
-      handleSwiperInert(this, 4);
-      notifySwiperMessage(this);
+async function test() {
+  await mainCarouselEventHandler()
+  const swiper2 = await new Swiper('.swiper-2', {
+    slidesPerView: 4,
+    spaceBetween: 18,
+    slidesPerGroup: 4,
+  
+    loopFillGroupWithBlank: true,
+  
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
-    slideChange() {
-      handleSwiperInert(this, 4);
+  
+    on: {
+      init() {
+        handleSwiperInert(this, 4);
+        notifySwiperMessage(this);
+      },
+      slideChange() {
+        handleSwiperInert(this, 4);
+      },
+      activeIndexChange() {
+        notifySwiperMessage(this);
+      },
     },
-    activeIndexChange() {
-      notifySwiperMessage(this);
+  
+    a11y: {
+      prevSlideMessage: '이전 슬라이드',
+      nextSlideMessage: '다음 슬라이드',
+      slideLabelMessage:
+        '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
     },
-  },
+  });
+}
 
-  a11y: {
-    prevSlideMessage: '이전 슬라이드',
-    nextSlideMessage: '다음 슬라이드',
-    slideLabelMessage:
-      '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
-  },
-});
+test()
 
 const swiper3 = new Swiper('.swiper-3', {
   slidesPerView: 4,
@@ -157,9 +164,11 @@ function handleSwiperInert(swiper, slidesPerGroup) {
   });
 }
 
+// window.addEventListener('DOMContentLoaded', mainCarouselEventHandler);
 window.addEventListener('DOMContentLoaded', mainHeaderEventHandler);
 
 const addCartButtonList = getNodes('.btn-add-cart');
 addCartButtonList.forEach((el) => {
   el.addEventListener('click', onClickAddCartHandler);
 });
+
