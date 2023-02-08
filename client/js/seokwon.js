@@ -161,7 +161,7 @@ export async function productListEventHandler() {
     const specialMarkMarkup = getProductSpecialMarkup(data);
     return (
       `
-      <img src="${data.image.thumbnail}" alt="${data.name}" />
+      <img src="${data.image.thumbnail}" alt="${data.name}" width="249" height="538" />
       <button type="button" class="btn-add-cart" data-name="button" data-id=${data.id} aria-label="${data.name} 장바구니 버튼"></button>
       <p class="product-mark--morning-star">샛별 배송</p>
       <p class="product-name--product-list">${data.name}</p>
@@ -531,7 +531,7 @@ export async function productListEventHandler() {
             <div>
               <span class="product-list__filter--index-title">${categoryMatchName[filterHead]}</span><span class="product-list__filter--index-count"></span>
             </div>
-            <img src="assets/product-list/ic-arrow-down.svg" alt="펼치기" class="product-list__filter--index-togle" />
+            <img src="assets/product-list/ic-arrow-down.svg" width="10" height="6" alt="펼치기" class="product-list__filter--index-togle" />
           </button>
           <ul class="accordion__body accordion__body-${filterHead}" data-name="${filterHead}">
           </ul>
@@ -694,6 +694,14 @@ export async function productListEventHandler() {
     }
     if (target.dataset.elementname === 'reset') {
       getProductItems();
+      selectedfilterData = {
+        category: {},
+        brand: {},
+        price: {},
+        benefit: {},
+        type: {},
+        except: {},
+      };
       let accordionitmes = getNodes('.accordion__item');
       accordionitmes.forEach((item) => {
         item.dataset.flag = false;
