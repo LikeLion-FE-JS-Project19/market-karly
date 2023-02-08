@@ -77,22 +77,20 @@ export function toggleTabMenuHandler() {
   const productDescription = getNode(
     '.product-description'
   ).getBoundingClientRect().top;
-
   const productDetail = getNode(
     '.product-detail__product-detail-img'
   ).getBoundingClientRect().top;
-
   const review = getNode('.review').getBoundingClientRect().top;
-
   const qna = getNode('.qna').getBoundingClientRect().top;
+  const MENU_HEIGHT = 140;
 
-  if (qna <= 5) {
+  if (qna <= MENU_HEIGHT) {
     setAttributeTabItem('문의 탭');
-  } else if (review <= 5) {
+  } else if (review <= MENU_HEIGHT) {
     setAttributeTabItem('후기 탭');
-  } else if (productDetail <= 5) {
+  } else if (productDetail <= MENU_HEIGHT) {
     setAttributeTabItem('상세정보 탭');
-  } else if (productDescription <= 70) {
+  } else if (productDescription <= MENU_HEIGHT) {
     setAttributeTabItem('상품설명 탭');
   } else {
     setAttributeTabItem();
@@ -103,14 +101,12 @@ export function moveToClickedTabMenu() {
   const productDescription = getNode(
     '.product-description'
   ).getBoundingClientRect();
-
   const productDetail = getNode(
     '.product-detail__product-detail-img'
   ).getBoundingClientRect();
-
   const review = getNode('.review').getBoundingClientRect();
-
   const qna = getNode('.qna').getBoundingClientRect();
+  const MENU_HEIGHT = 140;
 
   const tabMenuList = {
     '상품설명 탭': productDescription,
@@ -123,27 +119,14 @@ export function moveToClickedTabMenu() {
 
   setTimeout(() => {
     window.scrollTo({
-      top: window.pageYOffset + tabMenuList[this.getAttribute('aria-label')].y,
+      top:
+        window.pageYOffset +
+        tabMenuList[this.getAttribute('aria-label')].y -
+        MENU_HEIGHT,
       left: 0,
       behavior: 'smooth',
     });
   }, 0);
-}
-
-export function moveTabByKey(e) {
-  let tabNumber = this.getAttribute('id')[this.getAttribute('id').length - 1];
-  if (e.keyCode === 37 && tabNumber > 1) {
-    getNode(
-      `ul[class='product-detail-tab-menu'] > li[id*='${+tabNumber - 1}']`
-    ).focus();
-    return;
-  }
-  if ((e.keyCode === 39 || e.keyCode === 13) && tabNumber < 4) {
-    getNode(
-      `ul[class='product-detail-tab-menu'] > li[id*='${+tabNumber + 1}']`
-    ).focus();
-    return;
-  }
 }
 
 export function bubbleAddCartHandler() {
@@ -158,15 +141,11 @@ export function bubbleAddCartHandler() {
   }, 5000);
 }
 
-export function setProductDetailData(products) {
-  const URLSearch = new URLSearchParams(location.search);
-  const id = URLSearch.get('id');
-
-  const product = products.filter((product) => product.id === id);
-  const title = product[0].name;
-  const description = product[0].description;
-  const price = product[0].price.toLocaleString('ko-KR');
-  const image = product[0].image;
+export function setProductDetailData(product) {
+  const title = product.name;
+  const description = product.description;
+  const price = product.price.toLocaleString('ko-KR');
+  const image = product.image;
 
   document.title = title + ' - 마켓칼리';
   getNode('meta[name="description"]').content =

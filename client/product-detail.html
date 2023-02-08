@@ -26,7 +26,7 @@
   <body>
     <div class="top-bar">
       <div class="top-bar__group">
-        <a class="top-bar__link" href=""
+        <a class="top-bar__link" href="#"
           >지금 가입하고 인기상품 100원에 받아가세요!</a
         >
         <button class="top-bar__btn-today-close" aria-label="닫기버튼"></button>
@@ -223,6 +223,7 @@
                   class="product-summary__detail-choice-button--minus"
                   aria-label="감소 버튼"
                   disabled
+                  tabindex="0"
                 >
                   <svg
                     width="30"
@@ -241,6 +242,7 @@
                 ><button
                   class="product-summary__detail-choice-button--plus"
                   aria-label="증가 버튼"
+                  tabindex="0"
                 >
                   <svg
                     width="30"
@@ -271,26 +273,27 @@
             <button
               class="product-summary__like-button"
               aria-label="좋아요 버튼"
+              tabindex="0"
             ></button>
             <button
               class="product-summary__alarm-button"
               aria-label="알림 버튼"
+              tabindex="0"
             ></button>
-            <button class="product-summary__add-cart-button">
+            <button class="product-summary__add-cart-button" tabindex="0">
               장바구니 담기
             </button>
           </div>
         </div>
       </section>
 
-      <section class="product-description">
-        <h2 class="a11yHidden" aria-hidden="true">상품 설명</h2>
-        <ul
-          class="product-detail-tab-menu"
-          aria-orientation="horizontal"
-          role="tablist"
-          aria-label="상품 상세페이지 탭"
-        >
+      <ul
+        class="product-detail-tab-menu"
+        aria-orientation="horizontal"
+        role="tablist"
+        aria-label="상품 상세페이지 탭"
+      >
+        <div class="product-detail-tab-menu-box">
           <li
             class="product-detail-tab-menu__item"
             aria-label="상품설명 탭"
@@ -338,7 +341,11 @@
           >
             문의
           </li>
-        </ul>
+        </div>
+      </ul>
+
+      <section class="product-description">
+        <h2 class="a11yHidden" aria-hidden="true">상품 설명</h2>
         <img
           id="tabpanel-1"
           class="product-detail__product-description-img"
