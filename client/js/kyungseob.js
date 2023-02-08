@@ -58,16 +58,6 @@ export function closeMainModalButton() {
   }
 }
 
-export let swiper = new Swiper('.mySwiper', {
-  direction: 'vertical',
-  slidesPerView: 'auto',
-  navigation: {
-    nextEl: '.side-bar__bottom-button',
-    prevEl: '.side-bar__top-button',
-  },
-  spaceBetween: 10,
-});
-
 export function listToggle() {
   const viewMore = document.querySelectorAll('.vector-1');
   const allList = document.querySelectorAll('.groups');

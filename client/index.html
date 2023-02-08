@@ -182,57 +182,56 @@
     </header>
 
     <main>
-      <section class="swiper-1 product-swiper-1">
+      <section
+        aria-label="메인 배너"
+        aria-roledescription="carousel"
+        class="swiper-1 product-swiper-1 swiper-container"
+      >
+        <div class="swiper-button-prev product-swiper-1__button-prev"></div>
+        <div class="swiper-button-next product-swiper-1__button-next"></div>
+
         <div class="swiper-wrapper">
-          <a
-            href="#"
-            class="swiper-slide product-swiper-1__slide01"
-            tabindex="-1"
+          <div class="swiper-message" aria-live="polite"></div>
+          <a href="#" class="swiper-slide product-swiper-1__slide01"
             ><img
               class="product-swiper-1__img01"
               src="./assets/main/banner01.jpg"
               alt="이주의 특가 한 눈에 보기"
           /></a>
-          <a
-            href="#"
-            class="swiper-slide product-swiper-1__slide02"
-            tabindex="-1"
+          <a href="#" class="swiper-slide product-swiper-1__slide02"
             ><img
               class="product-swiper-1__img02"
               src="./assets/main/banner02.jpg"
               alt="이달의 카드 혜택"
           /></a>
-          <a
-            href="#"
-            class="swiper-slide product-swiper-1__slide03"
-            tabindex="-1"
+          <a href="#" class="swiper-slide product-swiper-1__slide03"
             ><img
               class="product-swiper-1__img03"
               src="./assets/main/banner03.jpg"
-              alt="컬리 과일 가게"
+              alt="칼리 과일 가게"
           /></a>
-          <a
-            href="#"
-            class="swiper-slide product-swiper-1__slide04"
-            tabindex="-1"
+          <a href="#" class="swiper-slide product-swiper-1__slide04"
             ><img
               class="product-swiper-1__img04"
               src="./assets/main/banner04.jpg"
-              alt="KURLY PURPLE WEEK"
+              alt="KARLY PURPLE WEEK"
           /></a>
         </div>
 
         <div class="swiper-pagination product-swiper-1__pagination"></div>
-
-        <div class="swiper-button-prev product-swiper-1__button-prev"></div>
-        <div class="swiper-button-next product-swiper-1__button-next"></div>
       </section>
 
       <section class="recommend-product">
-        <h2 class="swiper-title">이 상품은 어때요?</h2>
-        <div class="swiper-container swiper-2">
+        <h2 class="swiper-title">이 상품 어때요?</h2>
+        <div
+          role="region"
+          aria-label="이 상품 어때요?"
+          aria-roledescription="carousel"
+          class="swiper-2 swiper-container"
+        >
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <div class="swiper-message" aria-live="polite"></div>
+            <div class="swiper-slide product-swiper-2__slide01">
               <img
                 src="./assets/product/tangtang/thumbnail.jpg"
                 alt="[플무원] 탱탱쫄면 (4개입)"
@@ -245,7 +244,7 @@
               <p class="product-name">[풀무원] 탱탱쫄면 (4개입)</p>
               <p class="product-price">4,980원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-2__slide02">
               <img
                 src="./assets/product/suncushion/thumbnail.png"
                 alt="[온더바디] 죠르디 시카 자석 선쿠션"
@@ -258,7 +257,7 @@
               <p class="product-name">[온더바디] 죠르디 시카 자석 선쿠션</p>
               <p class="product-price">32,500원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-2__slide03">
               <img
                 src="./assets/product/brownrice/thumbnail.png"
                 alt="유기농 밀키퀸 현미 4kg"
@@ -271,7 +270,7 @@
               <p class="product-name">유기농 밀키퀸 현미 4kg</p>
               <p class="product-price">25,000원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-2__slide04">
               <img
                 src="./assets/product/detergent/thumbnail.png"
                 alt="[프로쉬] 베이비 세탁세제"
@@ -287,7 +286,7 @@
               </p>
               <p class="first-price">24,000원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-2__slide05">
               <img
                 src="./assets/product/tangtang/thumbnail.jpg"
                 alt="[플무원] 탱탱쫄면 (4개입)"
@@ -300,7 +299,7 @@
               <p class="product-name">[풀무원] 탱탱쫄면 (4개입)</p>
               <p class="product-price">4,980원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-2__slide06">
               <img
                 src="./assets/product/bacon/thumbnail.jpg"
                 alt="[온더바디] 죠르디 시카 자석 선쿠션"
@@ -313,7 +312,7 @@
               <p class="product-name">[온더바디] 죠르디 시카 자석 선쿠션</p>
               <p class="product-price">32,500원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-2__slide07">
               <img
                 src="./assets/product/kangnam/thumbnail.jpg"
                 alt="유기농 밀키퀸 현미 4kg"
@@ -326,7 +325,7 @@
               <p class="product-name">유기농 밀키퀸 현미 4kg</p>
               <p class="product-price">25,000원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-2__slide08">
               <img
                 src="./assets/product/jukkumi/thumbnail.jpg"
                 alt="[프로쉬] 베이비 세탁세제"
@@ -358,9 +357,15 @@
 
       <section class="sale-product">
         <h2 class="swiper-title">놓치면 후회할 가격</h2>
-        <div class="swiper-container swiper-3">
+        <div
+          role="region"
+          aria-label="놓치면 후회할 가격"
+          aria-roledescription="carousel"
+          class="swiper-3 swiper-container"
+        >
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <div class="swiper-message" aria-live="polite"></div>
+            <div class="swiper-slide product-swiper-3__slide01">
               <img
                 src="./assets/product/tangtang/thumbnail.jpg"
                 alt="[플무원] 탱탱쫄면 (4개입)"
@@ -373,7 +378,7 @@
               <p class="product-name">[풀무원] 탱탱쫄면 (4개입)</p>
               <p class="product-price">4,980원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-3__slide02">
               <img
                 src="./assets/product/suncushion/thumbnail.png"
                 alt="[온더바디] 죠르디 시카 자석 선쿠션"
@@ -386,7 +391,7 @@
               <p class="product-name">[온더바디] 죠르디 시카 자석 선쿠션</p>
               <p class="product-price">32,500원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-3__slide03">
               <img
                 src="./assets/product/brownrice/thumbnail.png"
                 alt="유기농 밀키퀸 현미 4kg"
@@ -399,7 +404,7 @@
               <p class="product-name">유기농 밀키퀸 현미 4kg</p>
               <p class="product-price">25,000원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-3__slide04">
               <img
                 src="./assets/product/detergent/thumbnail.png"
                 alt="[프로쉬] 베이비 세탁세제"
@@ -415,7 +420,7 @@
               </p>
               <p class="first-price">24,000원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-3__slide05">
               <img
                 src="./assets/product/tangtang/thumbnail.jpg"
                 alt="[플무원] 탱탱쫄면 (4개입)"
@@ -428,7 +433,7 @@
               <p class="product-name">[풀무원] 탱탱쫄면 (4개입)</p>
               <p class="product-price">4,980원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-3__slide06">
               <img
                 src="./assets/product/bacon/thumbnail.jpg"
                 alt="[온더바디] 죠르디 시카 자석 선쿠션"
@@ -441,7 +446,7 @@
               <p class="product-name">[온더바디] 죠르디 시카 자석 선쿠션</p>
               <p class="product-price">32,500원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-3__slide07">
               <img
                 src="./assets/product/kangnam/thumbnail.jpg"
                 alt="유기농 밀키퀸 현미 4kg"
@@ -454,7 +459,7 @@
               <p class="product-name">유기농 밀키퀸 현미 4kg</p>
               <p class="product-price">25,000원</p>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide product-swiper-3__slide08">
               <img
                 src="./assets/product/jukkumi/thumbnail.jpg"
                 alt="[프로쉬] 베이비 세탁세제"
@@ -475,51 +480,60 @@
           <div class="swiper-button-next product-swiper-3__button-next"></div>
         </div>
       </section>
-    </main>
 
-    <article class="side-bar">
-      <button
-        class="side-bar__top-button"
-        type="button"
-        alt="위로 올리기"
-      ></button>
-      <p class="side-bar__text">최근 본 상품</p>
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper swiper-wrapper-3">
-          <div class="swiper-slide swiper-slide-3">
-            <img src="./assets/product/bacon/thumbnail.jpg" alt="베이컨 사진" />
-          </div>
-          <div class="swiper-slide swiper-slide-3">
-            <img
-              src="./assets/product/jukkumi/thumbnail.jpg"
-              alt="홍대 주꾸미"
-            />
-          </div>
-          <div class="swiper-slide swiper-slide-3">
-            <img
-              src="./assets/product/kangnam/thumbnail.jpg"
-              alt="강남면옥 소갈비찜"
-            />
-          </div>
-          <div class="swiper-slide swiper-slide-3">
-            <img
-              src="./assets/product/tangtang/thumbnail.jpg"
-              alt="풀무원 탱탱쫄면"
-            />
-          </div>
-          <div class="swiper-slide swiper-slide-3">
-            <img src="./assets/product/ubuho/thumbnail.jpg" alt="유부호 만두" />
-          </div>
-          <div class="swiper-slide swiper-slide-3">
-            <img src="./assets/product/bacon/thumbnail.jpg" alt="베이컨 사진" />
+      <article class="side-bar">
+        <div class="side-bar__box">
+          <p class="side-bar__text">최근 본 상품</p>
+          <div
+            role="region"
+            aria-label="최근 본 상품"
+            aria-roledescription="carousel"
+            class="swiper-4 swiper-container"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-message" aria-live="polite"></div>
+              <div class="swiper-slide product-swiper-4__slide01" tabindex="0">
+                <img
+                  src="./assets/product/jukkumi/detail_banner.jpg"
+                  alt="쭈꾸미"
+                />
+              </div>
+              <div class="swiper-slide product-swiper-4__slide02" tabindex="0">
+                <img
+                  src="./assets/product/jukkumi/detail_banner.jpg"
+                  alt="쭈꾸미"
+                />
+              </div>
+              <div class="swiper-slide product-swiper-4__slide03" tabindex="0">
+                <img
+                  src="./assets/product/jukkumi/detail_banner.jpg"
+                  alt="쭈꾸미"
+                />
+              </div>
+              <div class="swiper-slide product-swiper-4__slide04" tabindex="0">
+                <img
+                  src="./assets/product/jukkumi/detail_banner.jpg"
+                  alt="쭈꾸미"
+                />
+              </div>
+              <div class="swiper-slide product-swiper-4__slide05" tabindex="0">
+                <img
+                  src="./assets/product/jukkumi/detail_banner.jpg"
+                  alt="쭈꾸미"
+                />
+              </div>
+              <div class="swiper-slide product-swiper-4__slide06" tabindex="0">
+                <img
+                  src="./assets/product/jukkumi/detail_banner.jpg"
+                  alt="쭈꾸미"
+                />
+              </div>
+            </div>
+            <div class="swiper-button-prev product-swiper-4__button-prev"></div>
+            <div class="swiper-button-next product-swiper-4__button-next"></div>
           </div>
         </div>
-      </div>
-      <button
-        class="side-bar__bottom-button"
-        type="button"
-        alt="위로 올리기"
-      ></button>
-    </article>
+      </article>
+    </main>
   </body>
 </html>

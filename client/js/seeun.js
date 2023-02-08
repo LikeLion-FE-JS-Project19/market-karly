@@ -1,33 +1,6 @@
 import { getNode, getNodes } from '../lib/dom/getNode.js';
 import { attr } from '../lib/dom/attr.js';
 
-export function swiper1() {
-  const swiper = new Swiper('.swiper-1', {
-    loop: true,
-
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'fraction',
-    },
-
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
-}
-
-export function onKeyPressSwiperHandler(e) {
-  const swiperName = this.getAttribute('class').slice(27, 35);
-  const keyDirection = this.getAttribute('class').slice(44, 49);
-  const swiper = document.querySelector(`.${swiperName}`).swiper;
-  if (keyDirection === 'prev' && e.keyCode === 37) {
-    swiper.slidePrev();
-  } else if (keyDirection === 'next' && e.keyCode === 39) {
-    swiper.slideNext();
-  }
-}
-
 export function toggleDisableButtonHandler() {
   let totalAmount = getNode(
     '.product-summary__detail-choice-number'

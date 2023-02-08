@@ -1,23 +1,163 @@
-import { closeMainModalButton, swiper, test1 } from './kyungseob.js';
+import { closeMainModalButton, test1 } from './kyungseob.js';
 import { mainHeaderEventHandler } from './seokwon.js';
-import { swiper1, onKeyPressSwiperHandler } from './seeun.js';
-import { swiper2, swiper3, onClickAddCartHandler, getNodes } from './juhee.js';
+import { onClickAddCartHandler } from './juhee.js';
+import { getNode, getNodes } from '../lib/dom/getNode.js';
 
 test1();
 closeMainModalButton();
-swiper;
 
-window.addEventListener('DOMContentLoaded', swiper1);
+// 스와이퍼
+const swiper1 = new Swiper('.swiper-1', {
+  slidesPerView: 1,
+  loop: true,
 
-const swiperButtons = document.querySelectorAll('[class^=swiper-button]');
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'fraction',
+  },
 
-swiperButtons.forEach((button) =>
-  button.addEventListener('keydown', onKeyPressSwiperHandler)
-);
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  on: {
+    init() {
+      handleSwiperInert(this, 1);
+    },
+    slideChange() {
+      handleSwiperInert(this, 1);
+      notifySwiperMessage(this);
+    },
+  },
+
+  a11y: {
+    prevSlideMessage: '이전 슬라이드',
+    nextSlideMessage: '다음 슬라이드',
+    slideLabelMessage:
+      '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
+  },
+});
+
+const swiper2 = new Swiper('.swiper-2', {
+  slidesPerView: 4,
+  spaceBetween: 18,
+  slidesPerGroup: 4,
+
+  loopFillGroupWithBlank: true,
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  on: {
+    init() {
+      handleSwiperInert(this, 4);
+      notifySwiperMessage(this);
+    },
+    slideChange() {
+      handleSwiperInert(this, 4);
+    },
+    activeIndexChange() {
+      notifySwiperMessage(this);
+    },
+  },
+
+  a11y: {
+    prevSlideMessage: '이전 슬라이드',
+    nextSlideMessage: '다음 슬라이드',
+    slideLabelMessage:
+      '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
+  },
+});
+
+const swiper3 = new Swiper('.swiper-3', {
+  slidesPerView: 4,
+  spaceBetween: 18,
+  slidesPerGroup: 4,
+
+  loopFillGroupWithBlank: true,
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  on: {
+    init() {
+      handleSwiperInert(this, 4);
+      notifySwiperMessage(this);
+    },
+    slideChange() {
+      handleSwiperInert(this, 4);
+    },
+    activeIndexChange() {
+      notifySwiperMessage(this);
+    },
+  },
+
+  a11y: {
+    prevSlideMessage: '이전 슬라이드',
+    nextSlideMessage: '다음 슬라이드',
+    slideLabelMessage:
+      '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
+  },
+});
+
+const swiper4 = new Swiper('.swiper-4', {
+  direction: 'vertical',
+  slidesPerView: 'auto',
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  spaceBetween: 4,
+
+  on: {
+    init() {
+      notifySwiperMessage(this);
+    },
+    activeIndexChange() {
+      notifySwiperMessage(this);
+    },
+  },
+
+  a11y: {
+    prevSlideMessage: '이전 슬라이드',
+    nextSlideMessage: '다음 슬라이드',
+    slideLabelMessage:
+      '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
+  },
+});
+
+function notifySwiperMessage(swiper) {
+  const swiperName = swiper.el.getAttribute('class').slice(0, 8);
+  const currentSlide = swiper.slides[swiper.activeIndex];
+  swiper.slides.forEach((slide) => {
+    if (slide === currentSlide) {
+      getNode(`.${swiperName} .swiper-message`).textContent = '';
+      getNode(`.${swiperName} .swiper-message`).appendChild(
+        slide.firstElementChild.cloneNode()
+      );
+    }
+  });
+}
+
+function handleSwiperInert(swiper, slidesPerGroup) {
+  const currentSlide = swiper.activeIndex;
+  swiper.slides.forEach((slide, index) => {
+    if (index >= currentSlide && index <= currentSlide + slidesPerGroup - 1) {
+      slide.setAttribute('tabindex', '0');
+      slide.setAttribute('aria-hidden', 'false');
+    } else {
+      slide.setAttribute('tabindex', '-1');
+      slide.setAttribute('aria-hidden', 'true');
+    }
+  });
+}
 
 window.addEventListener('DOMContentLoaded', mainHeaderEventHandler);
-window.addEventListener('DOMContentLoaded', swiper2);
-window.addEventListener('DOMContentLoaded', swiper3);
 
 const addCartButtonList = getNodes('.btn-add-cart');
 addCartButtonList.forEach((el) => {
