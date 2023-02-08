@@ -8,10 +8,7 @@
       name="description"
       content="지금 마켓칼리에서 제공하는 다양한 베스트 상품을 확인해보세요."
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link
       rel="stylesheet"
       as="style"
@@ -31,7 +28,7 @@
   <body>
     <div class="top-bar">
       <div class="top-bar__group">
-        <a class="top-bar__link" href=""
+        <a class="top-bar__link" href="/"
           >지금 가입하고 인기상품 100원에 받아가세요!</a
         >
         <button class="top-bar__btn-today-close" aria-label="닫기버튼"></button>
@@ -41,7 +38,7 @@
       <div class="header-container header-container--mid">
         <div class="header-container__logo">
           <h1>
-            <img src="./assets/header/logo-kurly.svg" alt="마켓칼리" />
+            <img src="./assets/header/logo-kurly.svg" alt="마켓칼리" width="82" height="42" />
           </h1>
           <ul class="header-container header-container__karly">
             <li class="header-container__karly__focus">
@@ -54,6 +51,7 @@
                 src="./assets/header/ic-new-tag.svg"
                 alt="신상"
                 class="new"
+                width="7" height="7"
               />
             </li>
           </ul>
@@ -65,23 +63,23 @@
             placeholder="검색어를 입력해주세요"
           />
           <button type="submit" class="searchButton">
-            <img src="./assets/header/ic-search.svg" alt="검색" />
+            <img src="./assets/header/ic-search.svg" width="36" height="36" alt="검색" />
           </button>
         </form>
         <ul class="header-container header-container__account-menu">
           <li>
-            <a href=""
-              ><img src="./assets/header/ic-location.svg" alt="배송지"
+            <a href="/"
+              ><img src="./assets/header/ic-location.svg" width="36" height="36"  alt="배송지"
             /></a>
           </li>
           <li>
-            <a href=""
-              ><img src="./assets/header/ic-heart.svg" alt="찜목록"
+            <a href="/"
+              ><img src="./assets/header/ic-heart.svg" width="36" height="36" alt="찜목록"
             /></a>
           </li>
           <li>
-            <a href=""
-              ><img src="./assets/header/ic-cart.svg" alt="장바구니"
+            <a href="/"
+              ><img src="./assets/header/ic-cart.svg" width="36" height="36" alt="장바구니"
             /></a>
           </li>
         </ul>
@@ -100,6 +98,7 @@
               src="./assets/header/ic-down.svg"
               alt="고객센터"
               class="account__down-arrow"
+              width="8" height="7"
             />
           </li>
         </ul>
@@ -109,9 +108,6 @@
           <!-- aria-tab 사용하기 -->
           <div
             class="header-container__category"
-            role="tab"
-            aria-controls="categoryPanel"
-            id="categoryTab"
             tabindex="0"
           >
             <img
@@ -123,31 +119,27 @@
             카테고리
             <ul
               class="header-container__category-list"
-              id="categoryPanel"
-              role="tabpanel"
-              tabindex="0"
-              aria-labelledby="categoryTab"
             >
               <!-- 카테고리 데이터 동적 처리 -->
             </ul>
           </div>
           <ul class="header-container header-container__product-menu">
             <li class="header-container__product-item">
-              <a href="">신상품</a>
+              <a href="/product-list.html">신상품</a>
             </li>
             <li class="header-container__product-item">
-              <a href="">베스트</a>
+              <a href="/product-list.html">베스트</a>
             </li>
             <li class="header-container__product-item">
-              <a href="">알뜰쇼핑</a>
+              <a href="/product-list.html">알뜰쇼핑</a>
             </li>
             <li class="header-container__product-item">
-              <a href="">특가/혜택</a>
+              <a href="/product-list.html">특가/혜택</a>
             </li>
           </ul>
           <div class="header-container--bottom-last">
             <div class="header-container__delivery-information">
-              <a href=""><span>샛별ㆍ낮</span> 배송안내</a>
+              <a href="/"><span>샛별ㆍ낮</span> 배송안내</a>
             </div>
           </div>
         </div>
@@ -185,12 +177,12 @@
               <span class="divider divider__sort" aria-hidden="true">|</span>
               <span>혜택순</span>
               <span class="divider divider__sort" aria-hidden="true">|</span>
-              <button class="product-list__sort__button">
-                <span data-name="asc">낮은 가격순</span>
+              <button class="product-list__sort__button" data-name="asc">
+                <span>낮은 가격순</span>
               </button>
               <span class="divider divider__sort" aria-hidden="true">|</span>
-              <button class="product-list__sort__button">
-                <span data-name="desc">높은 가격순</span>
+              <button class="product-list__sort__button" data-name="desc">
+                <span>높은 가격순</span>
               </button>
             </div>
           </div>

@@ -183,6 +183,17 @@
   position: relative;
 }
 
+.header-container__category-button{
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .header-container__category:hover {
   cursor: pointer;
 }

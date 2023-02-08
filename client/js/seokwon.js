@@ -1,7 +1,8 @@
 import { axios } from '../lib/utils/index.js';
 import { attr } from '../lib/dom/attr.js';
 
-const categotyData = [
+
+const categoryData = [
   { title: '선물하기', imgSrc: './assets/header/ic-gift.svg' },
   { title: '채소', imgSrc: './assets/header/ic-vegetable.svg' },
   { title: '과일ㆍ견과ㆍ쌀', imgSrc: './assets/header/ic-fruit.svg' },
@@ -29,8 +30,8 @@ const categotyData = [
 let curData = [];
 export async function mainHeaderEventHandler() {
   // 카테고리 관련 돔객체
-  const categoty = document.querySelector('.header-container__category');
-  const categotyList = document.querySelector(
+  const category = document.querySelector('.header-container__category');
+  const categoryList = document.querySelector(
     '.header-container__category-list'
   );
 
@@ -42,38 +43,37 @@ export async function mainHeaderEventHandler() {
   const searchForm = document.querySelector('.searchForm');
   const accountMenu = document.querySelector('.header-container__account-menu');
   const subInfo = document.querySelector('.header-container--bottom-last');
-  const productItems = document.querySelectorAll(
-    '.header-container__product-item'
-  );
+  const productItems = getNodes('.header-container__product-item');
   const containerMid = document.querySelector('.header-container--mid');
   const header = document.querySelector('.header');
   const shadowLine = document.querySelector('.header__shadow-line');
 
-  categotyData.map((data, index) => {
+  categoryData.map((data, index) => {
     const categoryItem = document.createElement('li');
-    categoryItem.innerHTML = `<img src="${data.imgSrc}" alt="선물하기" width="24px" height="24px" class="header-container__category-img"/>${data.title}`;
-    categotyList.insertAdjacentElement('beforeend', categoryItem);
+    categoryItem.innerHTML = `
+    <button class="header-container__category-button">
+      <img src="${data.imgSrc}" alt="선물하기" width="24px" height="24px" class="header-container__category-img"/>${data.title}
+    </button>`;
+    categoryList.insertAdjacentElement('beforeend', categoryItem);
   });
 
-  categoty.addEventListener('mouseover', categotyMouseoverHandler);
-  categoty.addEventListener('mouseout', categotyMouseoutHandler);
-  categotyList.addEventListener('mouseover', categotyMouseoutHandler);
-  categotyList.addEventListener('blur', categotyMouseoutHandler);
+  category.addEventListener('mouseover', categoryMouseoverHandler);
+  category.addEventListener('mouseout', categoryMouseoutHandler);
+  categoryList.addEventListener('mouseover', categoryMouseoutHandler);
+  categoryList.addEventListener('blur', categoryMouseoutHandler);
 
-  categoty.addEventListener('focus', categotyFocusHandler);
+  category.addEventListener('focus', categoryFocusHandler);
 
-  function categotyFocusHandler(e) {
-    categotyList.ariaSelected = 'true';
-    categotyList.ariaExpanded = 'true';
-    categotyList.style.display = 'block';
+  function categoryFocusHandler(e) {
+    categoryList.style.display = 'block';
   }
 
-  function categotyMouseoverHandler(e) {
-    categotyList.style.display = 'block';
+  function categoryMouseoverHandler(e) {
+    categoryList.style.display = 'block';
   }
 
-  function categotyMouseoutHandler() {
-    categotyList.style.display = 'none';
+  function categoryMouseoutHandler() {
+    categoryList.style.display = 'none';
   }
 
   // 스크롤 관련 상태
@@ -134,32 +134,6 @@ export async function mainHeaderEventHandler() {
 }
 
 export async function productListEventHandler() {
-  // 상위 리스트 블록 -> 카운트 존재, 하위리스트 목록을 배열 형태로 가지고 있음 [{이름:강남면옥, 개수: 1 ...}, {}]
-  // 배열 확인후 없으면 하위리스트 블록을 새로 생성하고, 있으면 해당하는 블록으로 이동
-  // How 하위블록을 순환하면서 dataset에 특정하게 분류할수 있도록함 ex> dataset.name = "강남면옥"
-  // 찾아서 내용 수정, ex> count +1 상위리스트와 비슷하게 목록을 배열형태로 -> 필터링이 가능하게
-  // 하위 리스트 블록 -> 카운트 존재, 이들만의 객체
-  // 체크가 되면 해당 객체를 탐색해서 목록들 가져오기 -> (id로만 가지고 있다가 필요할떄 json을 다시 탐색할지,,, 아니면 원래 데이터 형태를 그대로 보존하고 있다가 탐색없이 추가만 할지 고민해봅시다...!)
-
-  // !! 그냥 json 파일을 필터에 맞게 새롭게 객체 체이닝 형태로 먼저 분석해도 될듯..!!!!
-
-  // 데이터들을 순환
-  // 카테고리는 패스
-  // 이름확인하면서 브랜드의 카운트 증가
-  // 그거에 맞는
-
-  // 필터인덱스 칸 가져오기
-  // 클릭이벤트 플래그 부여
-  // 플래그에 따른 토글이미지 부여
-  // 플래그가 열려 있으면 세부칸을 보여줌
-
-  // 초기화 버튼 누르면 다 false
-
-  // innerHTML대신 쓸수 있는것이 뭘까요...?
-  // asynk를 중복으로 계속 사용가능한가?
-
-  const URLSearch = new URLSearchParams(location.search);
-
   const defaultOptions = {
     method: 'GET',
     mode: 'cors',
@@ -172,41 +146,25 @@ export async function productListEventHandler() {
       'Content-Type': 'application/json; charset=UTF-8',
     },
   };
+  const cartModal = getNode('.cart-modal');
+
+  async function getProductItems() {
+    try {
+      const result = await tiger.get('http://localhost:3001/products');
+      curData = result.data;
+      listRendering(curData);
+    } catch (error) {
+      console.log('리스트 페이지를 불러오지 못했습니다');
+    }
+  }
 
   function getProductItemMarkup(data) {
-    let priceMarkup;
-    let specialMarkMarkup = '';
-
-    // 나중에 함수들 분리하기
-    if (data.saleRatio) {
-      priceMarkup = `
-        <p class="product-price"><span class="sale-percent">${Math.floor(
-          data.saleRatio * 100
-        )}%</span>${data.salePrice
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
-        <p class="first-price">${data.price
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
-      `;
-    } else {
-      priceMarkup = `<p class="product-price">${data.price
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>`;
-    }
-    if (JSON.parse(data.kalryOnly)) {
-      specialMarkMarkup += `<span class="product-special-mark__mark product-special-mark--karly-only">Kalry Only</span>`;
-    }
-    if (data.stock <= 10) {
-      specialMarkMarkup += `<span class="product-special-mark__mark product-special-mark--limited-quantity">한정수량</span>`;
-    }
-
-    // 캐로셀인지 상품리스트에 따라 다르게 줘야함 + 이름 간격도
-    // 숫자 콤마 함수로 만들기
+    const priceMarkup = getProductPriceMarkup(data);
+    const specialMarkMarkup = getProductSpecialMarkup(data);
     return (
       `
-      <img src="${data.image.thumbnail}" alt="${data.name}" />
-      <button type="button" class="btn-add-cart" data-name="button" data-id=${data.id}></button>
+      <img src="${data.image.thumbnail}" alt="${data.name}" width="249" height="538" />
+      <button type="button" class="btn-add-cart" data-name="button" data-id=${data.id} aria-label="${data.name} 장바구니 버튼"></button>
       <p class="product-mark--morning-star">샛별 배송</p>
       <p class="product-name--product-list">${data.name}</p>
       ` +
@@ -218,17 +176,42 @@ export async function productListEventHandler() {
     );
   }
 
-  async function getProductItems() {
-    // 통신 유틸함수로 하기
-    let result = await fetch('http://localhost:3001/products', defaultOptions);
-    if (result.ok) {
-      result.data = await result.json();
+  function getProductPriceMarkup(data) {
+    const isSale = data.saleRatio;
+    if (isSale) {
+      return `
+        <p class="product-price">
+          <span class="sale-percent">${getSalePercent(data.saleRatio)}%</span>
+          ${getPriceFormat(data.salePrice)}원
+        </p>
+        <p class="first-price">${getPriceFormat(data.price)}원</p>
+      `;
+    } else {
+      return `<p class="product-price">${getPriceFormat(data.price)}원</p>`;
     }
-    curData = await result.data;
-    listRendering(result.data);
   }
 
-  // 상품에 이벤트 위임 설정
+  // 유틸
+  function getPriceFormat(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  // 유틸
+  function getSalePercent(saleRatio) {
+    return Math.floor(saleRatio * 100);
+  }
+
+  function getProductSpecialMarkup(data) {
+    let specialMarkMarkup = '';
+    if (JSON.parse(data.kalryOnly)) {
+      specialMarkMarkup += `<span class="product-special-mark__mark product-special-mark--karly-only">Kalry Only</span>`;
+    }
+    if (data.stock <= 10) {
+      specialMarkMarkup += `<span class="product-special-mark__mark product-special-mark--limited-quantity">한정수량</span>`;
+    }
+    return specialMarkMarkup;
+  }
+
   function productItemClickHandler(e) {
     let target = e.target;
     while (!attr(target, 'data-name')) {
@@ -251,104 +234,42 @@ export async function productListEventHandler() {
     }
 
     if (target.dataset.name === 'product-box') {
-      location.href = `/client/product-detail.html?id=${target.dataset.id}`;
-      return;
+      const queries = { id: target.dataset.id };
+      changeLocation('/product-detail.html', queries);
     }
   }
 
-  // 모달이 html에 마크업이 된상태가 좋을까? 아니면 js에서 만드는게 좋을까?
-  // 다른곳에도 쓰이니깐 js에서 만드는게 좋을것 같다.. 뇌피셜
-  const cartModal = document.querySelector('.cart-modal');
+  // 유틸
+  function changeLocation(url, queries) {
+    let query = '';
+    queries = Object.entries(queries);
+    queries.forEach((q, idx) => {
+      query += `${q[0]}=${q[1]}`;
+      if (idx !== queries.length - 1) {
+        query += '&';
+      }
+    });
+    location.href = `${url}?${query}`;
+  }
 
   async function makeCartModal(id) {
-    cartModal.dataset.count = 1;
     const itemData = await getItemById(id);
-    let currentPrice;
-    let priceValue;
-    if (itemData.saleRatio) {
-      currentPrice = itemData.salePrice;
-      priceValue = `
-      <span class="cart-modal--price">${itemData.salePrice
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span>
-      <span class="cart-modal--price-sale">${itemData.price
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span>
-      `;
-    } else {
-      currentPrice = itemData.price;
-      priceValue = `
-      <span class="cart-modal--price">${itemData.price
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</span>
-      `;
-    }
+    const currentPrice = getPrice(itemData);
+    const priceValue = getCartPriceMarkup(itemData);
+    cartModal.innerHTML = getCartModalMarkup(itemData, priceValue);
+    cartModal.dataset.count = 1;
     cartModal.style.display = 'flex';
-    const modalData =
-      `
-      <div class="cart-modal--info">
-        <span class="cart-modal--title">${itemData.name}</span>
-        <span class="cart-modal--price-box">` +
-      priceValue +
-      `
-        </span>
-        <div class="cart-modal--count-box">
-          <button class="cart-modal--count-button cart-modal--count-button--minus"></button>        
-          <span class="cart-modal--count-value"></span>
-          <button class="cart-modal--count-button cart-modal--count-buttot--plus"></button>       
-        </div>
-      </div>
-      <div class="cart-modal--total-price">
-        <div class="cart-modal--total-price-top">
-          <span class="cart-modal--total-price-top--total">합계</span>
-          <span class="cart-modal--total-price-top--price">4,980원</span>
-        </div>
-        <div class="cart-modal--total-price-bottom">
-          <span class="cart-modal--total-price-top--mark">적립</span>
-          <span class="cart-modal--total-price-top--info">구매시 5원 적립</span>
-        </div>
-      </div>
-      <div class="cart-modal--button-box">
-        <button class="cart-modal--button cart-modal--button--cancel">
-          취소
-        </button>
-        <button class="cart-modal--button cart-modal--button--add">
-          장바구니 담기
-        </button>
-      </div>
-    `;
-    cartModal.innerHTML = modalData;
-    const cartModalCancelButton = document.querySelector(
-      '.cart-modal--button--cancel'
-    );
+
+    const cartModalCancelButton = getNode('.cart-modal--button--cancel');
+
     cartModalCancelButton.addEventListener('click', () => {
       cartModal.style.display = 'none';
       removeDarkFiltering();
     });
 
-    // 수량 버튼 기능
-    function changeTotalPrice() {
-      const count = document.querySelector('.cart-modal--count-value');
-      const totalPrice = document.querySelector(
-        '.cart-modal--total-price-top--price'
-      );
-
-      count.innerHTML = cartModal.dataset.count;
-      totalPrice.innerHTML = `${(
-        cartModal.dataset.count * parseInt(currentPrice)
-      )
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원`;
-    }
-
-    changeTotalPrice();
     // 숫자 증감 기능
-    const minusButton = document.querySelector(
-      '.cart-modal--count-button--minus'
-    );
-    const plusButton = document.querySelector(
-      '.cart-modal--count-buttot--plus'
-    );
+    const minusButton = getNode('.cart-modal--count-button--minus');
+    const plusButton = getNode('.cart-modal--count-buttot--plus');
 
     minusButton.addEventListener('click', () => {
       cartModal.dataset.count = parseInt(cartModal.dataset.count) - 1;
@@ -359,27 +280,53 @@ export async function productListEventHandler() {
       cartModal.dataset.count = parseInt(cartModal.dataset.count) + 1;
       changeTotalPrice();
     });
+
+    // 수량 버튼 기능
+    function changeTotalPrice() {
+      const count = getNode('.cart-modal--count-value');
+      const totalPrice = getNode('.cart-modal--total-price-top--price');
+      count.innerHTML = cartModal.dataset.count;
+      totalPrice.innerHTML = `${getPriceFormat(
+        cartModal.dataset.count * parseInt(currentPrice)
+      )}원`;
+    }
+    changeTotalPrice();
   }
 
   // id에 맞는 데이터 가져오기
   async function getItemById(id) {
     try {
-      let result = await fetch(
-        'http://localhost:3001/products',
-        defaultOptions
-      );
-      if (result.ok) {
-        result.data = await result.json();
-      }
-      let idx = 0;
-      result.data.map((data, index) => {
-        if (data.id === id) {
-          idx = index;
-        }
-      });
-      return result.data[idx];
+      let result = await tiger.get('http://localhost:3001/products');
+      let value = result.data.filter((data) => data.id === id);
+      return value[0];
     } catch (error) {
       console.log('통신 에러가 발생했습니다!');
+    }
+  }
+
+  // 유틸?
+  function getPrice(data) {
+    if (data.saleRatio) {
+      return data.salePrice;
+    } else {
+      return data.price;
+    }
+  }
+
+  function getCartPriceMarkup(data) {
+    if (data.saleRatio) {
+      return `
+        <span class="cart-modal--price">${getPriceFormat(
+          data.salePrice
+        )}원</span>
+        <span class="cart-modal--price-sale">${getPriceFormat(
+          data.price
+        )}원</span>
+        `;
+    } else {
+      return `
+       <span class="cart-modal--price">${getPriceFormat(data.price)}원</span>
+      `;
     }
   }
 
@@ -394,163 +341,161 @@ export async function productListEventHandler() {
     darkFilter.style.display = 'none';
   }
 
+  function getCartModalMarkup(data, price) {
+    return (
+      `
+      <div class="cart-modal--info">
+        <span class="cart-modal--title">${data.name}</span>
+        <span class="cart-modal--price-box">` +
+      price +
+      `
+        </span>
+        <div class="cart-modal--count-box">
+          <button class="cart-modal--count-button cart-modal--count-button--minus"></button>        
+          <span class="cart-modal--count-value"></span>
+          <button class="cart-modal--count-button cart-modal--count-buttot--plus"></button>       
+        </div>
+      </div>
+      <div class="cart-modal--total-price">
+        <div class="cart-modal--total-price-top">
+          <span class="cart-modal--total-price-top--total">합계</span>
+          <span class="cart-modal--total-price-top--price"></span>
+        </div>
+        <div class="cart-modal--total-price-bottom">
+          <span class="cart-modal--total-price-top--mark">적립</span>
+          <span class="cart-modal--total-price-top--info">구매시 5원 적립</span>
+        </div>
+      </div>
+      <div class="cart-modal--button-box">
+        <button class="cart-modal--button cart-modal--button--cancel">
+          취소
+        </button>
+        <button class="cart-modal--button cart-modal--button--add">
+          장바구니 담기
+        </button>
+      </div>
+    `
+    );
+  }
+
   getProductItems();
-
-  // 데이터 분석 로직 (필터 구현에 사용될 객체 만들기)
-  // 일단 나중에
-  // {
-  //   "category" : [
-  //     // 종류는 정적
-  //     "면ㆍ양념ㆍ오일": [
-  //       // 해당카테고리의 json() 데이터
-  //     ],
-  //     "건강식품": [
-  //       // 해당카테고리의 json() 데이터
-  //     ],
-  //     ...
-  //   ],
-  //   "brand": [
-  //     // 종류 동적으로
-  //    // json에 브랜드도 추가하자,......................................ㅠㅠ
-
-  //   ],
-  //   "가격": [
-  //     // 동적인듯 (사이트에서 볼때 4항목에서 개수가 거의 동일함)
-  //     // 일단은 정적으로 넣기
-
-  //   ],
-  //   "혜택":[
-  //     // 정적
-  //     // 할인상품
-  //     // 한정수량
-  //   ]
-  //   "유형":[
-  //     // 정적
-  //     // kalryOnly
-  //     // 희소가치 프로젝트 -> json 속성에 추가하면될듯
-  //   ]
-  //   "특정상품제외":[
-  //     // 반려동물인데 일단 제외...
-  //   ]
-  // }
 
   async function getFilterObject() {
     let filterObj = {};
-
     try {
       // 유틸함수 사용하기
-      let result = await fetch(
-        'http://localhost:3001/products',
-        defaultOptions
-      );
-      if (result.ok) {
-        result.data = await result.json();
-      }
-      let categoryArray = [];
-      categotyData.map((data) => {
-        const title = data['title'];
-        let tmp = [];
-        result.data.map((data) => {
-          if (data.category === title) {
-            tmp.push(data);
-          }
-        });
-
-        categoryArray.push({ [title]: tmp });
-      });
-      filterObj.category = categoryArray;
-
-      // 브랜드 구성
-      let brandArray = [];
-      result.data.map((data) => {
-        let isEx = false;
-        brandArray?.map((brandData) => {
-          if (brandData.key === data.brand) {
-            isEx = true;
-            brand.value.push(data);
-          }
-        });
-        if (!isEx) {
-          let br = data.brand;
-          brandArray.push({ [br]: [data] });
-        }
-      });
-
-      filterObj.brand = brandArray;
-
-      let priceArray = [];
-      const PRICEFILTERQUATER = 4;
-      let tmp = [...result.data];
-      tmp.sort((a, b) =>
-        parseInt(getPrice(a)) > parseInt(getPrice(b)) ? 1 : -1
-      );
-      let quarter = Math.round(tmp.length / PRICEFILTERQUATER);
-      let quarterPrice = [];
-      for (let i = 0; i < PRICEFILTERQUATER - 1; i++) {
-        quarterPrice.push(parseInt(getPrice(tmp[PRICEFILTERQUATER * (i + 1)])));
-      }
-      quarterPrice.push(99999999);
-      let saveIdx = 0; // 성능보완
-      let idx = 0; // 성능보완
-      quarterPrice.map((price) => {
-        // 맵함수는 중단이 안됨 나중에 for문으로 바꿔야 할듯,,,
-        tmp.map((data, index) => {
-          if (parseInt(getPrice(data)) < price) {
-            idx = index;
-          }
-        });
-        priceArray.push({ [price]: tmp.slice(saveIdx, idx + 1) });
-        saveIdx = idx + 1;
-      });
-      filterObj.price = priceArray;
-
-      // 해당 객체를 가지고 있을 필욘 없으나 서버에서 바로 가져올수 있는 상황이 아니기 때문에 분석된걸 저장한 상태의 배열이 좋을 것 같ㅊ다.,
-      let benefitArray = [];
-      let sale = [];
-      let limit = [];
-      result.data.map((data) => {
-        if (data.saleRatio !== 0) {
-          sale.push(data);
-        }
-        if (parseInt(data.stock) <= 10) {
-          limit.push(data);
-        }
-      });
-      benefitArray.push({ 할인상품: sale });
-      benefitArray.push({ 한정수량: limit });
-      filterObj.benefit = benefitArray;
-
-      // 유형
-      let typeArray = [];
-      let karlyOnly = [];
-      let scarcityValue = [];
-      result.data.map((data) => {
-        if (data.kalryOnly == "true") {
-          karlyOnly.push(data);
-        }
-      });
-      typeArray.push({ 'Karly Only': karlyOnly });
-      typeArray.push({ '희소가치 프로젝트': scarcityValue });
-
-      filterObj.type = typeArray;
-      filterObj.except = [{ '반려동물 상품': [] }];
+      let result = await tiger.get('http://localhost:3001/products');
+      filterObj.category = getCategoryFilterArray(result);
+      filterObj.brand = getBrandFilterArray(result);
+      filterObj.price = getPriceFilterArray(result);
+      filterObj.benefit = getBenefitFilterArray(result);
+      filterObj.type = getTypeFilterArray(result);
+      filterObj.except = getExceptFilterArray(result);
       return filterObj;
     } catch (error) {
-      console.log('통신에 에러가 발생했습니다!!');
+      console.log('필터링 객체를 만들 수 없습니다.');
     }
   }
 
-  function getPrice(data) {
-    if (data.saleRatio) {
-      return data.salePrice;
-    } else {
-      return data.price;
+  function getCategoryFilterArray(items) {
+    let categoryArray = [];
+    categoryData.map((category) => {
+      const title = category['title'];
+      let ar = [];
+      items.data.map((item) => {
+        if (item.category === title) {
+          ar.push(item);
+        }
+      });
+
+      categoryArray.push({ [title]: ar });
+    });
+    return categoryArray;
+  }
+
+  function getBrandFilterArray(items) {
+    let brandArray = [];
+    items.data.map((item) => {
+      let isExist = false;
+      brandArray?.map((brand) => {
+        if (brand.key === item.brand) {
+          isExist = true;
+          brand.value.push(item);
+        }
+      });
+      if (!isExist) {
+        let br = item.brand;
+        brandArray.push({ [br]: [item] });
+      }
+    });
+    return brandArray;
+  }
+
+  function getPriceFilterArray(items) {
+    let priceArray = [];
+    const PRICEFILTERQUATER = 4;
+    let tmp = [...items.data];
+    tmp.sort((a, b) =>
+      parseInt(getPrice(a)) > parseInt(getPrice(b)) ? 1 : -1
+    );
+    let quarterPrice = [];
+    for (let i = 0; i < PRICEFILTERQUATER - 1; i++) {
+      quarterPrice.push(parseInt(getPrice(tmp[PRICEFILTERQUATER * (i + 1)])));
     }
+    quarterPrice.push(99999999);
+    let saveIdx = 0; // 성능보완
+    let idx = 0; // 성능보완
+    quarterPrice.map((price) => {
+      // 맵함수는 중단이 안됨 나중에 for문으로 바꿔야 할듯,,,
+      tmp.map((data, index) => {
+        if (parseInt(getPrice(data)) < price) {
+          idx = index;
+        }
+      });
+      priceArray.push({ [price]: tmp.slice(saveIdx, idx + 1) });
+      saveIdx = idx + 1;
+    });
+    return priceArray;
+  }
+
+  function getBenefitFilterArray(items) {
+    let benefitArray = [];
+    let sale = [];
+    let limit = [];
+    items.data.map((item) => {
+      if (item.saleRatio !== 0) {
+        sale.push(item);
+      }
+      if (parseInt(item.stock) <= 10) {
+        limit.push(item);
+      }
+    });
+    benefitArray.push({ 할인상품: sale });
+    benefitArray.push({ 한정수량: limit });
+    return benefitArray;
+  }
+
+  function getTypeFilterArray(items) {
+    let typeArray = [];
+    let karlyOnly = [];
+    let scarcityValue = [];
+    items.data.map((item) => {
+      if (item.kalryOnly == 'true') {
+        karlyOnly.push(item);
+      }
+    });
+    typeArray.push({ 'Karly Only': karlyOnly });
+    typeArray.push({ '희소가치 프로젝트': scarcityValue });
+    return typeArray;
+  }
+
+  function getExceptFilterArray(items) {
+    return [{ '반려동물 상품': [] }];
   }
 
   const filterObj = getFilterObject();
 
-  let filterData = {
+  let selectedfilterData = {
     category: {},
     brand: {},
     price: {},
@@ -568,136 +513,158 @@ export async function productListEventHandler() {
     except: '제외',
   };
 
-  const filter = document.querySelector('.product-list__filter');
+  const filter = getNode('.product-list__filter');
 
-  async function makeFilterAccordian() {
-    let filterBox = document.querySelector('.product-list__filter--box');
+  async function makeFilterAccordion() {
+    let filterBox = getNode('.product-list__filter--box');
     await filterObj.then((obj) => {
-      Object.entries(obj).forEach((type, idx) => {
-        let accoderianHead = document.createElement('li');
-        accoderianHead.innerHTML = `
-          <div class="accordian__head" data-name="${
-            type[0]
-          }" data-check="false" data-elementname="accordian__head" data-idx="${idx}";>
-            <div>
-              <span class="product-list__filter--index-title">${
-                categoryMatchName[type[0]]
-              }</span><span class="product-list__filter--index-count"></span>
-            </div>
-            <img src="assets/product-list/ic-arrow-down.svg" alt="펼치기" class="product-list__filter--index-togle" />
-          </div>
-          <ul class="accordian__body accordian__body-${type[0]}" data-name="${
-          type[0]
-        }">
-          </ul>
-        `;
-        filterBox.insertAdjacentElement('beforeend', accoderianHead);
-        type[1].slice(0, 10).map((data, idx) => {
-          let type2;
-          if (type[0] == 'price') {
-            if (idx == 0) {
-              type2 = `${Object.keys(data)[0]}원 미만`;
-            } else if (idx == type[1].length - 1) {
-              type2 = `${Object.keys(type[1][idx - 1])}원 이상`;
-            } else {
-              type2 = `${Object.keys(type[1][idx - 1])}원 ~ ${Object.keys(
-                type[1][idx]
-              )}원`;
-            }
-          } else {
-            type2 = Object.keys(data)[0];
-          }
-          const list = document.createElement('li');
-          list.classList.add('accordian__item');
-          list.dataset.elementname = 'accordian__item';
-          list.dataset.flag = false;
-          list.innerHTML = `
-                    <div class="accordian__check">
-                      <img src="./assets/product-list/ic-check.svg" alt="체크하기" class="check" />
-                    </div>
-                    <span class="accordian__item-name">${type2}</span>
-                    <span class="accordian__item-count">${
-                      Object.values(data)[0].length
-                    }</span>
-            `;
-          let body = document.querySelector(`.accordian__body-${type[0]}`);
-          body.insertAdjacentElement('beforeend', list);
-
-          list.addEventListener('click', (e) => {
-            let target = e.target;
-            while (!attr(target, 'data-elementname')) {
-              target = target.parentNode;
-
-              if (target.nodeName === 'BODY') {
-                target = null;
-                return;
-              }
-            }
-
-            if (target.dataset.elementname == 'accordian__item') {
-              let flag = JSON.parse(target.dataset.flag);
-              if (flag) {
-                delete filterData[type[0]][type2];
-              } else {
-                filterData[type[0]][type2] = Object.values(data)[0];
-              }
-              target.dataset.flag = !flag;
-              let listdata = filteringData(filterData);
-              listdata[1] ? listRendering(listdata[0]) : getProductItems();
-              checkAccordian();
-            }
-          });
-        });
+      Object.entries(obj).forEach(([filterHead, filteritems], idx) => {
+        let accoderionHead = document.createElement('li');
+        accoderionHead.innerHTML = getAccoderionHeadMarkUp(filterHead, idx);
+        filterBox.insertAdjacentElement('beforeend', accoderionHead);
+        getAccoderionItems(filterHead, filteritems);
       });
     });
   }
 
-  function filteringData(filterData) {
-    let filterDataArray = Object.values(filterData);
-    let aa = filterDataArray.map((product) => {
-      let innerfilteredData = [];
-      Object.values(product).map((da) => {
-        let arData = Object.values(da);
-        arData.reduce((acc, ad) => {
-          if (!acc.includes(ad)) {
-            innerfilteredData.push(ad);
-          }
-          return innerfilteredData;
-        }, innerfilteredData);
-      });
-      return innerfilteredData;
-    });
+  function getAccoderionHeadMarkUp(filterHead, idx) {
+    return `
+          <button class="accordion__head" data-name="${filterHead}" data-check="false" data-elementname="accordion__head" data-idx="${idx}" aria-expanded="false">
+            <div>
+              <span class="product-list__filter--index-title">${categoryMatchName[filterHead]}</span><span class="product-list__filter--index-count"></span>
+            </div>
+            <img src="assets/product-list/ic-arrow-down.svg" width="10" height="6" alt="펼치기" class="product-list__filter--index-togle" />
+          </button>
+          <ul class="accordion__body accordion__body-${filterHead}" data-name="${filterHead}">
+          </ul>
+        `;
+  }
 
-    let tmp3 = [];
-    let flag = false;
-    aa.map((data) => {
-      if (data.length == 0) {
-      } else {
-        flag = true;
-        if (tmp3.length == 0) {
-          tmp3 = data;
+  function getAccoderionItems(filterHead, filteritems) {
+    filteritems.slice(0, 10).map((item, idx) => {
+      let filterItemName = Object.keys(item)[0];
+      let filterItems = Object.values(item)[0];
+      if (filterHead == 'price') {
+        filterItemName = getPriceAccoderionItem(filteritems, idx);
+      }
+      const list = document.createElement('li');
+      list.classList.add('accordion__item');
+      list.dataset.elementname = 'accordion__item';
+      list.dataset.flag = false;
+      list.innerHTML = getAccoderionItemMarkUp(
+        filterItemName,
+        filterItems.length,
+        filterHead
+      );
+      let body = getNode(`.accordion__body-${filterHead}`);
+      body.insertAdjacentElement('beforeend', list);
+
+      list.addEventListener('click', (e) => {
+        let target = e.target;
+        while (!attr(target, 'data-elementname')) {
+          target = target.parentNode;
+
+          if (target.nodeName === 'BODY') {
+            target = null;
+            return;
+          }
+        }
+
+        if (target.dataset.elementname == 'accordion__item') {
+          let flag = JSON.parse(target.dataset.flag);
+          if (flag) {
+            delete selectedfilterData[filterHead][filterItemName];
+          } else {
+            selectedfilterData[filterHead][filterItemName] = filterItems;
+          }
+          target.dataset.flag = !flag;
+          let [listdata, isFiltered] = filteringData(selectedfilterData);
+          isFiltered ? listRendering(listdata) : getProductItems();
+          checkAccordion();
+        }
+      });
+    });
+  }
+
+  function getPriceAccoderionItem(filteritems, idx) {
+    if (idx == 0) {
+      return `${Object.keys(filteritems[0])}원 미만`;
+    } else if (idx == filteritems.length - 1) {
+      return `${Object.keys(filteritems[idx - 1])}원 이상`;
+    } else {
+      return `${Object.keys(filteritems[idx - 1])}원 ~ ${Object.keys(
+        filteritems[idx]
+      )}원`;
+    }
+  }
+
+  function getAccoderionItemMarkUp(filterItemName, count, filterHead) {
+    return `
+                  <button class="accordion__item-button accordion__body-${filterHead}-button" tabindex="-1">
+                    <div class="accordion__check">
+                      <img src="./assets/product-list/ic-check.svg" alt="체크하기" class="check" />
+                    </div>
+                    <span class="accordion__item-name">${filterItemName}</span>
+                    <span class="accordion__item-count">${count}</span>
+                  </button>
+            `;
+  }
+
+  function filteringData(selectedfilterData) {
+    let selectedfilterDataArray = Object.values(selectedfilterData);
+    let itemFilteredData = selectedfilterDataArray.map((filterHead) =>
+      filterItems(Object.values(Object.values(filterHead)))
+    );
+    return filterHeads(itemFilteredData);
+  }
+
+  // 중복제거
+  function filterItems(ar) {
+    let filteredData = [];
+    ar.map((items) => {
+      items.reduce((acc, item) => {
+        if (!acc.includes(item)) {
+          filteredData.push(item);
+        }
+        return filteredData;
+      }, filteredData);
+    });
+    return filteredData;
+  }
+
+  function filterHeads(ar) {
+    let filteredData = [];
+    let isFiltered = false;
+    ar.map((items) => {
+      if (items.length !== 0) {
+        isFiltered = true;
+        if (filteredData.length == 0) {
+          filteredData = items;
         } else {
-          let tmp4 = [];
-          data.map((dat) => {
-            if (tmp3.includes(dat)) {
-              tmp4.push(dat);
+          let filteredItem = [];
+          items.map((item) => {
+            if (filteredData.includes(item)) {
+              filteredItem.push(item);
             }
           });
-          tmp3 = tmp4;
+          filteredData = filteredItem;
         }
       }
     });
-    return [tmp3, flag];
+    return [filteredData, isFiltered];
   }
 
   async function listRendering(listData) {
     curData = listData;
+    let totalCount = getNode('.product-list__total-count');
+    totalCount.innerHTML=`총 ${curData.length}건`;
     const productItemList = document.querySelector('.product-list__items-list');
     productItemList.innerHTML = '';
     listData.map((data) => {
       const productItem = document.createElement('li');
       productItem.dataset.id = data.id;
       productItem.dataset.name = 'product-box';
+      productItem.tabIndex = "0"
       productItem.classList.add('product-list__item');
       productItem.innerHTML = getProductItemMarkup(data);
       productItem.addEventListener('click', productItemClickHandler);
@@ -705,18 +672,16 @@ export async function productListEventHandler() {
     });
   }
 
-  await makeFilterAccordian();
+  await makeFilterAccordion();
 
-  let accordianHeads = document.querySelectorAll('.accordian__head');
-  let accordianchecks = document.querySelectorAll('.accordian__check');
-  let accordianBodys = document.querySelectorAll('.accordian__body');
-  let accordianToggles = document.querySelectorAll(
-    '.product-list__filter--index-togle'
-  );
+  const accordionHeads = getNodes('.accordion__head');
+  const accordionchecks = getNodes('.accordion__check');
+  const accordionBodys = getNodes('.accordion__body');
+  const accordionToggles = getNodes('.product-list__filter--index-togle');
 
-  filter.addEventListener('click', filterHandler);
+  filter.addEventListener('click', filterClickHandler);
 
-  function filterHandler(e) {
+  function filterClickHandler(e) {
     let target = e.target;
     while (!attr(target, 'data-elementname')) {
       target = target.parentNode;
@@ -726,53 +691,77 @@ export async function productListEventHandler() {
         return;
       }
     }
-    if (target.dataset.elementname === 'accordian__head') {
+    if (target.dataset.elementname === 'accordion__head') {
       let flag = JSON.parse(target.dataset['check']);
       target.dataset['check'] = !flag;
-      checkAccordian();
+      checkAccordion();
       return;
     }
     if (target.dataset.elementname === 'reset') {
       getProductItems();
-      let accordianitmes = document.querySelectorAll('.accordian__item');
-      accordianitmes.forEach((item) => {
+      selectedfilterData = {
+        category: {},
+        brand: {},
+        price: {},
+        benefit: {},
+        type: {},
+        except: {},
+      };
+      let accordionitmes = getNodes('.accordion__item');
+      accordionitmes.forEach((item) => {
         item.dataset.flag = false;
       });
-      checkAccordian();
+      checkAccordion();
+      return;
     }
   }
 
   //아코디언 플래그 확인 함수
-  function checkAccordian() {
-    accordianHeads.forEach((obj) => {
-      let body = accordianBodys[obj.dataset.idx];
-      let toggle = accordianToggles[obj.dataset.idx];
+  function checkAccordion() {
+    checkAccordionHeads();
+    checkAccordionItems();
+  }
+
+  function checkAccordionHeads() {
+    accordionHeads.forEach((obj) => {
+      let body = accordionBodys[obj.dataset.idx];
+      let toggle = accordionToggles[obj.dataset.idx];
       if (JSON.parse(obj.dataset.check)) {
-        body.classList.add('accordian__body-open');
+        const itemButtons = getNodes(`.${body.classList[1]}-button`);
+        itemButtons.forEach((button) => {
+          button.tabIndex = '0';
+        });
+        body.classList.add('accordion__body-open');
         toggle.style.transform = `rotate(${-180}deg)`;
       } else {
-        body.classList.remove('accordian__body-open');
+        const itemButtons = getNodes(`.${body.classList[1]}-button`);
+        itemButtons.forEach((button) => {
+          button.tabIndex = '-1';
+        });
+        body.classList.remove('accordion__body-open');
         toggle.style.transform = `rotate(${0}deg)`;
-      }
-    });
-
-    accordianchecks.forEach((obj) => {
-      let item = obj.closest('li');
-      if (JSON.parse(item.dataset.flag)) {
-        obj.classList.add('accordian__check-checked');
-      } else {
-        obj.classList.remove('accordian__check-checked');
       }
     });
   }
 
-  const orderList = document.querySelector('.product-list__sort')
+  function checkAccordionItems() {
+    accordionchecks.forEach((obj) => {
+      let item = obj.closest('li');
+      if (JSON.parse(item.dataset.flag)) {
+        obj.classList.add('accordion__check-checked');
+      } else {
+        obj.classList.remove('accordion__check-checked');
+      }
+    });
+  }
 
-  orderList.addEventListener('click', orderListHandeler)
+  const orderList = document.querySelector('.product-list__sort');
 
-  function orderListHandeler(e) {
-    let target = e.target
-    while(!attr(target, 'data-name')) {
+  orderList.addEventListener('click', orderListClickHandeler);
+
+  function orderListClickHandeler(e) {
+    let target = e.target;
+    while (!attr(target, 'data-name')) {
       target = target.parentNode;
 
       if (target.nodeName === 'BODY') {
@@ -781,22 +770,22 @@ export async function productListEventHandler() {
       }
     }
 
-  if (target.dataset.name == 'desc') {
-    curData.sort((a, b) => {
-      if (parseInt(a.price) < parseInt(b.price)) return 1
-      else if (parseInt(a.price) > parseInt(b.price)) return -1
-      return 0
-    })
-    listRendering(curData)
-  }
+    if (target.dataset.name == 'desc') {
+      curData.sort((a, b) => {
+        if (parseInt(a.price) < parseInt(b.price)) return 1;
+        else if (parseInt(a.price) > parseInt(b.price)) return -1;
+        return 0;
+      });
+      listRendering(curData);
+    }
 
-  if (target.dataset. name == 'asc') {
-    curData.sort((a, b) => {
-      if (parseInt(a.price) > parseInt(b.price)) return 1
-      else if (parseInt(a.price) < parseInt(b.price)) return -1
-      return 0
-    })
-    listRendering(curData)
-  }
+    if (target.dataset.name == 'asc') {
+      curData.sort((a, b) => {
+        if (parseInt(getPrice(a)) > parseInt(getPrice(b))) return 1;
+        else if (parseInt(getPrice(a)) < parseInt(getPrice(b))) return -1;
+        return 0;
+      });
+      listRendering(curData);
+    }
   }
 }
