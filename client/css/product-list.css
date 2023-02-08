@@ -107,6 +107,10 @@ main {
   align-items: center;
 }
 
+.accordion__item-button:hover{
+  color: var(--secondary);
+}
+
 .accordion__check {
   margin-left: 8px;
   width: 20px;
@@ -150,10 +154,10 @@ main {
   font-weight: 500;
 }
 
-.accordion__item:hover {
-  color: var(--secondary);
+/* .accordion__item:hover {
+  color: var(--primary);
   cursor: pointer;
-}
+} */
 
 .accordion__item-count {
   font-size: var(--text-sm);
@@ -207,7 +211,7 @@ main {
   z-index: 1;
 }
 
-.product-list__item button {
+.btn-add-cart {
   all: unset;
   width: 45px;
   height: 45px;
@@ -217,6 +221,10 @@ main {
   left: 189px;
   top: 258px;
   z-index: 3;
+}
+
+.btn-add-cart:focus {
+  border: 1px solid;
 }
 
 .product-name {

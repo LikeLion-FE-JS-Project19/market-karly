@@ -660,6 +660,7 @@ export async function productListEventHandler() {
       const productItem = document.createElement('li');
       productItem.dataset.id = data.id;
       productItem.dataset.name = 'product-box';
+      productItem.tabIndex = "0"
       productItem.classList.add('product-list__item');
       productItem.innerHTML = getProductItemMarkup(data);
       productItem.addEventListener('click', productItemClickHandler);
