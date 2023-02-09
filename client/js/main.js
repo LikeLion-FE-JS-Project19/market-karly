@@ -1,5 +1,5 @@
 import { closeMainModalButton, protection } from './kyungseob.js';
-import { mainHeaderEventHandler, mainCarouselEventHandler } from './seokwon.js';
+import { mainCarouselEventHandler } from './seokwon.js';
 import { onClickAddCartHandler } from './juhee.js';
 import { getNode, getNodes } from '../lib/dom/getNode.js';
 
@@ -164,8 +164,6 @@ function handleSwiperInert(swiper, slidesPerGroup) {
   });
 }
 
-// window.addEventListener('DOMContentLoaded', mainCarouselEventHandler);
-window.addEventListener('DOMContentLoaded', mainHeaderEventHandler);
 
 const addCartButtonList = getNodes('.btn-add-cart');
 addCartButtonList.forEach((el) => {
