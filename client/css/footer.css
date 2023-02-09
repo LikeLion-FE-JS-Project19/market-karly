@@ -1,0 +1,148 @@
+.footer {
+  border-top: 1px solid var(--gray-50);
+  color: var(--content);
+}
+
+.footer .divider {
+  margin: 0 4px;
+}
+
+.footer .primary-color {
+  color: var(--primary);
+}
+
+.footer__inner {
+  width: 1050px;
+  margin: 0 auto;
+}
+
+.footer__inner-top {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 28px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #898989;
+}
+
+.footer__customer-service {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+  width: 50%;
+}
+
+.footer__customer-service-title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  padding: 0;
+  text-align: start;
+  line-height: normal;
+}
+
+.footer__customer-service-info {
+  display: flex;
+  gap: var(--spacing-base);
+  padding: 6px 0;
+  align-items: flex-end;
+}
+
+.footer__customer-service-number {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  width: 140px;
+}
+
+.footer__customer-service-time {
+  font-weight: 600;
+}
+
+.footer__inquiry-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-base);
+}
+
+.footer__inquiry-item {
+  display: flex;
+  gap: var(--spacing-base);
+  padding: 6px 0;
+}
+
+.footer__inquiry-item-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--gray-200);
+  width: 140px;
+  height: 40px;
+}
+
+.footer__mail {
+  font-size: var(--text-xs);
+}
+
+.footer__about {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 50%;
+}
+
+.footer__navigation {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  gap: var(--spacing-base);
+}
+
+.footer__address {
+  font-size: var(--text-xs);
+}
+
+.footer__sns-list {
+  display: flex;
+}
+
+.footer__sns-item {
+  margin-right: 20px;
+}
+
+.footer__sns-img {
+  width: 30px;
+  height: 30px;
+}
+
+.footer__inner-middle {
+  padding-top: 24px;
+  padding-bottom: 36px;
+  font-size: 10px;
+}
+
+.footer__certified-list {
+  display: flex;
+  justify-content: space-between;
+  word-break: keep-all;
+}
+
+.footer__certified-item {
+  display: flex;
+}
+
+.footer__certified-img {
+  margin-right: var(--spacing-xs);
+  width: 100%;
+  height: 100%;
+}
+
+.footer__certified-info {
+  white-space: nowrap;
+}
+
+.footer__bottom {
+  padding-top: 20px;
+  padding-bottom: 32px;
+  background-color: var(--gray-50);
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--gray-400);
+}

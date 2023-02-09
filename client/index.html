@@ -1,70 +1,423 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-  <script src="./js/main.js" type="module"></script>
-  <title>Document</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Love Food, Love Life. 마켓칼리! 당일 수확 채소, 과일, 맛집 음식까지 내일 아침 문 앞에서 만나요!"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/main-modal.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./js/common/common.js" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
 
-<body>
-  
-  <header>
+    <title>마켓칼리</title>
+  </head>
 
+  <body>
+    <div class="protect">
+      <section class="main-modal">
+        <a class="main-modal__link" href="#">
+          <img
+            class="main-modal__img"
+            src="./assets/modal/main-modal.jpg"
+            aria-label="지금 바로 만나보세요"
+            alt="뷰티 칼리"
+          />
+        </a>
+        <div class="main-modal__close-group">
+          <button class="main-modal__btn-today-close" type="button">
+            오늘 하루 안 보기
+          </button>
+          <button class="main-modal__btn-close" type="button">닫기</button>
+        </div>
+      </section>
+    </div>
 
-  </header>
+    <div class="top-bar">
+      <div class="top-bar__group">
+        <a class="top-bar__link" href="#"
+          >지금 가입하고 인기상품 100원에 받아가세요!</a
+        >
+        <button class="top-bar__btn-today-close" aria-label="닫기버튼"></button>
+      </div>
+    </div>
 
-  <main>
-    <section>
-      <div class="swiper-1 product-swiper">
-        <div class="swiper-wrapper">
-          
+    <header class="header">
+      <div class="header-container header-container--mid">
+        <div class="header-container__logo">
+          <h1>
+            <img
+              class="header-container__main"
+              src="./assets/header/logo-kurly.svg"
+              alt="마켓칼리"
+            />
+          </h1>
+          <ul class="header-container header-container__karly">
+            <li class="header-container__karly__focus">
+              <a href="./">마켓칼리</a>
+            </li>
+            <li class="beautiKarly">
+              <span class="divider divider__karly" aria-hidden="true">|</span
+              ><a href="./">뷰티칼리</a>
+              <img
+                src="./assets/header/ic-new-tag.svg"
+                alt="신상"
+                class="new"
+              />
+            </li>
+          </ul>
+        </div>
+        <form class="searchForm">
+          <input
+            type="text"
+            class="searchBar"
+            placeholder="검색어를 입력해주세요"
+          />
+          <button type="submit" class="searchButton">
+            <img src="./assets/header/ic-search.svg" alt="검색" />
+          </button>
+        </form>
+        <ul class="header-container header-container__account-menu">
+          <li>
+            <a href="#"
+              ><img src="./assets/header/ic-location.svg" alt="배송지"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/header/ic-heart.svg" alt="찜목록"
+            /></a>
+          </li>
+          <li>
+            <a href="./cart.html"
+              ><img src="./assets/header/ic-cart.svg" alt="장바구니"
+            /></a>
+          </li>
+        </ul>
+        <div class="add-cart-bubble">
+          <img class="add-cart-bubble__img" src="" alt="" />
+          <p class="add-cart-bubble__product">[풀무원] 탱탱쫄면 (4개입)</p>
+          <p class="add-cart-bubble__comment">장바구니에 상품을 담았습니다.</p>
         </div>
       </div>
-    </section>
-
-
-    <h2>이 상품은 어때요?</h2>
-    
-    <section>
-      <div class="swiper-2 product-swiper">
-        <div class="swiper-wrapper">
-          
+      <div class="account-container">
+        <ul class="account">
+          <li><a href="./">회원가입</a></li>
+          <li>
+            <span class="divider divider__account" aria-hidden="true">|</span
+            ><a href="./">로그인</a>
+          </li>
+          <li>
+            <span class="divider divider__account" aria-hidden="true">|</span
+            ><a href="./">고객센터</a
+            ><img
+              src="./assets/header/ic-down.svg"
+              alt="고객센터"
+              class="account__down-arrow"
+            />
+          </li>
+        </ul>
+      </div>
+      <div class="header-container header-container--bottom">
+        <div class="header-container header-container--bottom-grid">
+          <!-- aria-tab 사용하기 -->
+          <div class="header-container__category" tabindex="0">
+            <img
+              src="./assets/header/ic-hamburger.svg"
+              alt="카테고리 햄버거"
+              width="16px"
+              height="14px"
+            />
+            카테고리
+            <ul class="header-container__category-list">
+              <!-- 카테고리 데이터 동적 처리 -->
+            </ul>
+          </div>
+          <ul class="header-container header-container__product-menu">
+            <li class="header-container__product-item">
+              <a href="./product-list.html">신상품</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="./product-list.html">베스트</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="./product-list.html">알뜰쇼핑</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="./product-list.html">특가/혜택</a>
+            </li>
+          </ul>
+          <div class="header-container--bottom-last">
+            <div class="header-container__delivery-information">
+              <a href="#"><span>샛별ㆍ낮</span> 배송안내</a>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-    
+      <div class="header__shadow-line"></div>
+    </header>
 
-    <article>
-      
-    </article>
+    <main>
+      <section
+        aria-label="메인 배너"
+        aria-roledescription="carousel"
+        class="swiper-1 product-swiper-1 swiper-container"
+      >
+        <div class="swiper-button-prev product-swiper-1__button-prev"></div>
+        <div class="swiper-button-next product-swiper-1__button-next"></div>
 
-
-    <h2>놓치면 후회할 가격</h2>
-    
-    <section>
-      <div class="swiper-3 product-swiper">
         <div class="swiper-wrapper">
-          
+          <div class="swiper-message" aria-live="polite"></div>
+          <a href="#" class="swiper-slide product-swiper-1__slide01"
+            ><img
+              class="product-swiper-1__img01"
+              src="./assets/main/banner01.jpg"
+              alt="이주의 특가 한 눈에 보기"
+          /></a>
+          <a href="#" class="swiper-slide product-swiper-1__slide02"
+            ><img
+              class="product-swiper-1__img02"
+              src="./assets/main/banner02.jpg"
+              alt="이달의 카드 혜택"
+          /></a>
+          <a href="#" class="swiper-slide product-swiper-1__slide03"
+            ><img
+              class="product-swiper-1__img03"
+              src="./assets/main/banner03.jpg"
+              alt="칼리 과일 가게"
+          /></a>
+          <a href="#" class="swiper-slide product-swiper-1__slide04"
+            ><img
+              class="product-swiper-1__img04"
+              src="./assets/main/banner04.jpg"
+              alt="KARLY PURPLE WEEK"
+          /></a>
         </div>
-      </div>
-    </section>
 
-  </main>
-  
-  <article>
-    
-  </article>
-  
-  <footer>
+        <div class="swiper-pagination product-swiper-1__pagination"></div>
+      </section>
 
+      <section class="recommend-product">
+        <h2 class="swiper-title">이 상품 어때요?</h2>
+        <div
+          role="region"
+          aria-label="이 상품 어때요?"
+          aria-roledescription="carousel"
+          class="swiper-2 swiper-container"
+        >
+          <div class="swiper-wrapper swiper-wrapper-fst-carousel">
+            <div class="swiper-message" aria-live="polite"></div>
+          
+          </div>
+          <div class="swiper-button-prev product-swiper-2__button-prev"></div>
+          <div class="swiper-button-next product-swiper-2__button-next"></div>
+        </div>
+      </section>
 
-  </footer>
-  
-</body>
+      <article class="ad-banner">
+        <a href="#"
+          ><img
+            src="./assets/main/line-banner.png"
+            alt="10월 퍼플 위크 광고 배너"
+        /></a>
+      </article>
+
+      <section class="sale-product">
+        <h2 class="swiper-title">놓치면 후회할 가격</h2>
+        <div
+          role="region"
+          aria-label="놓치면 후회할 가격"
+          aria-roledescription="carousel"
+          class="swiper-3 swiper-container"
+        >
+          <div class="swiper-wrapper swiper-wrapper-sec-carousel">
+            <div class="swiper-message" aria-live="polite"></div>
+            <div class="swiper-slide product-swiper-3__slide01">
+              <img
+                src="./assets/product/tangtang/thumbnail.jpg"
+                alt="[플무원] 탱탱쫄면 (4개입)"
+              />
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
+              <p class="product-name">[풀무원] 탱탱쫄면 (4개입)</p>
+              <p class="product-price">4,980원</p>
+            </div>
+            <div class="swiper-slide product-swiper-3__slide02">
+              <img
+                src="./assets/product/suncushion/thumbnail.png"
+                alt="[온더바디] 죠르디 시카 자석 선쿠션"
+              />
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
+              <p class="product-name">[온더바디] 죠르디 시카 자석 선쿠션</p>
+              <p class="product-price">32,500원</p>
+            </div>
+            <div class="swiper-slide product-swiper-3__slide03">
+              <img
+                src="./assets/product/brownrice/thumbnail.png"
+                alt="유기농 밀키퀸 현미 4kg"
+              />
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
+              <p class="product-name">유기농 밀키퀸 현미 4kg</p>
+              <p class="product-price">25,000원</p>
+            </div>
+            <div class="swiper-slide product-swiper-3__slide04">
+              <img
+                src="./assets/product/detergent/thumbnail.png"
+                alt="[프로쉬] 베이비 세탁세제"
+              />
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
+              <p class="product-name">[프로쉬] 베이비 세탁세제</p>
+              <p class="product-price">
+                <span class="sale-percent">24%</span>18,900원
+              </p>
+              <p class="first-price">24,000원</p>
+            </div>
+            <div class="swiper-slide product-swiper-3__slide05">
+              <img
+                src="./assets/product/tangtang/thumbnail.jpg"
+                alt="[플무원] 탱탱쫄면 (4개입)"
+              />
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
+              <p class="product-name">[풀무원] 탱탱쫄면 (4개입)</p>
+              <p class="product-price">4,980원</p>
+            </div>
+            <div class="swiper-slide product-swiper-3__slide06">
+              <img
+                src="./assets/product/bacon/thumbnail.jpg"
+                alt="[온더바디] 죠르디 시카 자석 선쿠션"
+              />
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
+              <p class="product-name">[온더바디] 죠르디 시카 자석 선쿠션</p>
+              <p class="product-price">32,500원</p>
+            </div>
+            <div class="swiper-slide product-swiper-3__slide07">
+              <img
+                src="./assets/product/kangnam/thumbnail.jpg"
+                alt="유기농 밀키퀸 현미 4kg"
+              />
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
+              <p class="product-name">유기농 밀키퀸 현미 4kg</p>
+              <p class="product-price">25,000원</p>
+            </div>
+            <div class="swiper-slide product-swiper-3__slide08">
+              <img
+                src="./assets/product/jukkumi/thumbnail.jpg"
+                alt="[프로쉬] 베이비 세탁세제"
+              />
+              <button
+                type="button"
+                class="btn-add-cart"
+                aria-label="장바구니 담기 버튼"
+              ></button>
+              <p class="product-name">[프로쉬] 베이비 세탁세제</p>
+              <p class="product-price">
+                <span class="sale-percent">24%</span>18,900원
+              </p>
+              <p class="first-price">24,000원</p>
+            </div>
+          </div>
+          <div class="swiper-button-prev product-swiper-3__button-prev"></div>
+          <div class="swiper-button-next product-swiper-3__button-next"></div>
+        </div>
+      </section>
+
+      <article class="side-bar">
+        <div class="side-bar__box">
+          <p class="side-bar__text">최근 본 상품</p>
+          <div
+            role="region"
+            aria-label="최근 본 상품"
+            aria-roledescription="carousel"
+            class="swiper-4 swiper-container"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-message" aria-live="polite"></div>
+              <div class="swiper-slide product-swiper-4__slide01" tabindex="0">
+                <img
+                  src="./assets/product/jukkumi/thumbnail.jpg"
+                  alt="홍대 주꾸미"
+                />
+              </div>
+              <div class="swiper-slide product-swiper-4__slide02" tabindex="0">
+                <img
+                  src="./assets/product/kangnam/thumbnail.jpg"
+                  alt="강남면옥 소갈비찜"
+                />
+              </div>
+              <div class="swiper-slide product-swiper-4__slide03" tabindex="0">
+                <img
+                  src="./assets/product/ubuho/thumbnail.jpg"
+                  alt="유부호 만두"
+                />
+              </div>
+              <div class="swiper-slide product-swiper-4__slide04" tabindex="0">
+                <img src="./assets/product/bacon/thumbnail.jpg" alt="베이컨" />
+              </div>
+              <div class="swiper-slide product-swiper-4__slide05" tabindex="0">
+                <img
+                  src="./assets/product/tangtang/thumbnail.jpg"
+                  alt="풀무원 탱탱쫄면"
+                />
+              </div>
+              <div class="swiper-slide product-swiper-4__slide06" tabindex="0">
+                <img
+                  src="./assets/product/jukkumi/thumbnail.jpg"
+                  alt="홍대 주꾸미"
+                />
+              </div>
+            </div>
+            <div class="swiper-button-prev product-swiper-4__button-prev"></div>
+            <div class="swiper-button-next product-swiper-4__button-next"></div>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <div class="cart-modal" data-count="1"></div>
+    <div class="dark-filter"></div>
+  </body>
 </html>

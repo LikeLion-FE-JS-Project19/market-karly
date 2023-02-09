@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content=":: Love Food, Love Life. 마켓칼리! 당일 수확 채소, 과일, 맛집 음식까지 내일 아침 문 앞에서 만나요!"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./css/product-detail.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <script src="./js/product-detail.js" type="module"></script>
+    <script src="./js/common/common.js" type="module"></script>
+
+    <title>마켓칼리</title>
+  </head>
+
+  <body>
+    <div class="top-bar">
+      <div class="top-bar__group">
+        <a class="top-bar__link" href="#"
+          >지금 가입하고 인기상품 100원에 받아가세요!</a
+        >
+        <button class="top-bar__btn-today-close" aria-label="닫기버튼"></button>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="header-container header-container--mid">
+        <div class="header-container__logo">
+          <h1>
+            <img
+              class="header-container__main"
+              src="./assets/header/logo-kurly.svg"
+              alt="마켓칼리"
+            />
+          </h1>
+          <ul class="header-container header-container__karly">
+            <li class="header-container__karly__focus">
+              <a href="./">마켓칼리</a>
+            </li>
+            <li class="beautiKarly">
+              <span class="divider divider__karly" aria-hidden="true">|</span
+              ><a href="./">뷰티칼리</a>
+              <img
+                src="./assets/header/ic-new-tag.svg"
+                alt="신상"
+                class="new"
+              />
+            </li>
+          </ul>
+        </div>
+        <form class="searchForm">
+          <input
+            type="text"
+            class="searchBar"
+            placeholder="검색어를 입력해주세요"
+          />
+          <button type="submit" class="searchButton">
+            <img src="./assets/header/ic-search.svg" alt="검색" />
+          </button>
+        </form>
+        <ul class="header-container header-container__account-menu">
+          <li>
+            <a href="#"
+              ><img src="./assets/header/ic-location.svg" alt="배송지"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/header/ic-heart.svg" alt="찜목록"
+            /></a>
+          </li>
+          <li>
+            <a href="./cart.html"
+              ><img src="./assets/header/ic-cart.svg" alt="장바구니"
+            /></a>
+          </li>
+        </ul>
+        <div class="add-cart-bubble">
+          <img class="add-cart-bubble__img" src="" alt="" />
+          <p class="add-cart-bubble__product">[풀무원] 탱탱쫄면 (4개입)</p>
+          <p class="add-cart-bubble__comment">장바구니에 상품을 담았습니다.</p>
+        </div>
+      </div>
+      <div class="account-container">
+        <ul class="account">
+          <li><a href="./">회원가입</a></li>
+          <li>
+            <span class="divider divider__account" aria-hidden="true">|</span
+            ><a href="./">로그인</a>
+          </li>
+          <li>
+            <span class="divider divider__account" aria-hidden="true">|</span
+            ><a href="./">고객센터</a
+            ><img
+              src="./assets/header/ic-down.svg"
+              alt="고객센터"
+              class="account__down-arrow"
+            />
+          </li>
+        </ul>
+      </div>
+      <div class="header-container header-container--bottom">
+        <div class="header-container header-container--bottom-grid">
+          <!-- aria-tab 사용하기 -->
+          <div class="header-container__category" tabindex="0">
+            <img
+              src="./assets/header/ic-hamburger.svg"
+              alt="카테고리 햄버거"
+              width="16px"
+              height="14px"
+            />
+            카테고리
+            <ul class="header-container__category-list">
+              <!-- 카테고리 데이터 동적 처리 -->
+            </ul>
+          </div>
+          <ul class="header-container header-container__product-menu">
+            <li class="header-container__product-item">
+              <a href="./product-list.html">신상품</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="./product-list.html">베스트</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="./product-list.html">알뜰쇼핑</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="./product-list.html">특가/혜택</a>
+            </li>
+          </ul>
+          <div class="header-container--bottom-last">
+            <div class="header-container__delivery-information">
+              <a href="#"><span>샛별ㆍ낮</span> 배송안내</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header__shadow-line"></div>
+    </header>
+
+    <main>
+      <section class="product-summary">
+        <h2 class="a11yHidden" aria-hidden="true">상품 요약</h2>
+        <img class="product-summary__img" src="" alt="" />
+        <div class="product-summary__info">
+          <p class="product-summary__delivery">샛별배송</p>
+          <p class="product-summary__title"></p>
+          <p class="product-summary__description"></p>
+          <p class="product-summary__price">
+            <span class="product-summary__price--number"></span>원
+          </p>
+          <p class="product-summary__guide">
+            로그인 후, 적립 혜택이 제공됩니다.
+          </p>
+          <div class="product-summary__detail-box">
+            <p class="product-summary__detail-title">배송</p>
+            <div class="product-summary__detail-description-box">
+              <p class="product-summary__detail-description">샛별배송</p>
+              <p class="product-summary__detail-description--light-color">
+                23시 전 주문 시 내일 아침 7시 전 도착
+              </p>
+              <p class="product-summary__detail-description--light-color">
+                (대구 부산 울산 샛별배송 운영시간 별도 확인)
+              </p>
+            </div>
+          </div>
+          <div class="product-summary__detail-box">
+            <p class="product-summary__detail-title">판매자</p>
+            <p class="product-summary__detail-description">칼리</p>
+          </div>
+          <div class="product-summary__detail-box">
+            <p class="product-summary__detail-title">포장타입</p>
+            <div class="product-summary__detail-description-box">
+              <p class="product-summary__detail-description">상온 (종이포장)</p>
+              <p class="product-summary__detail-description--light-color">
+                택배배송은 에코 포장이 스티로폼으로 대체됩니다.
+              </p>
+            </div>
+          </div>
+          <div class="product-summary__detail-box">
+            <p class="product-summary__detail-title">판매단위</p>
+            <p class="product-summary__detail-description">1봉</p>
+          </div>
+          <div class="product-summary__detail-box">
+            <p class="product-summary__detail-title">중량/용량</p>
+            <p class="product-summary__detail-description">123g*4봉</p>
+          </div>
+          <div class="product-summary__detail-box">
+            <p class="product-summary__detail-title">원산지</p>
+            <p class="product-summary__detail-description">
+              상세페이지 별도표기
+            </p>
+          </div>
+          <div class="product-summary__detail-box">
+            <p class="product-summary__detail-title">알레르기정보</p>
+            <div class="product-summary__detail-description-box">
+              <p class="product-summary__detail-description--light">
+                -대두, 밀, 쇠고기 함유
+              </p>
+              <p class="product-summary__detail-description--light">
+                -계란, 우유, 메밀, 땅콩, 고등어, 게, 돼지고기, 새우, 복숭아,
+                토마토, 아황산류, 호두, 잣, 닭고기, 오징어, 조개류(굴, 전복,홍합
+                포함)를 사용한 제품과 같은 제조시설에서 제조
+              </p>
+            </div>
+          </div>
+          <div class="product-summary__detail-box--bottom-line">
+            <p class="product-summary__detail-title">상품선택</p>
+            <div class="product-summary__detail-choice-box">
+              <p class="product-summary__detail-choice-title"></p>
+              <div class="product-summary__detail-choice-count">
+                <button
+                  class="product-summary__detail-choice-button--minus"
+                  aria-label="감소 버튼"
+                  disabled
+                  tabindex="0"
+                >
+                  <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      class="product-summary__detail-choice-button--minus-icon"
+                      d="M20 14V16H10V14H20Z"
+                      fill="#a6a6a6"
+                    />
+                  </svg></button
+                ><span class="product-summary__detail-choice-number">1</span
+                ><button
+                  class="product-summary__detail-choice-button--plus"
+                  aria-label="증가 버튼"
+                  tabindex="0"
+                >
+                  <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16 10V14H20V16H16V20H14V16H10V14H14V10H16Z"
+                      fill="#333333"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <span class="product-summary__detail-price-per-piece"></span>
+            </div>
+          </div>
+          <p class="product-summary__total-price">
+            총 상품금액:
+            <span class="product-summary__total-price-number"></span>원
+          </p>
+          <p class="product-summary__last-guide">
+            <span class="product-summary__last-guide--point">적립</span>로그인
+            후, 적립 혜택 제공
+          </p>
+          <div class="product-summary__button-box">
+            <button
+              class="product-summary__like-button"
+              aria-label="좋아요 버튼"
+              tabindex="0"
+            ></button>
+            <button
+              class="product-summary__alarm-button"
+              aria-label="알림 버튼"
+              tabindex="0"
+            ></button>
+            <button class="product-summary__add-cart-button" tabindex="0">
+              장바구니 담기
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <ul
+        class="product-detail-tab-menu"
+        aria-orientation="horizontal"
+        role="tablist"
+        aria-label="상품 상세페이지 탭"
+      >
+        <div class="product-detail-tab-menu-box">
+          <li
+            class="product-detail-tab-menu__item"
+            aria-label="상품설명 탭"
+            role="tab"
+            aria-controls="tabpanel-1"
+            id="tab-1"
+            aria-selected="false"
+            tabindex="0"
+          >
+            상품설명
+          </li>
+          <li
+            class="product-detail-tab-menu__item"
+            aria-label="상세정보 탭"
+            role="tab"
+            aria-controls="tabpanel-2"
+            id="tab-2"
+            aria-selected="false"
+            tabindex="0"
+          >
+            상세정보
+          </li>
+          <li
+            class="product-detail-tab-menu__item"
+            aria-label="후기 탭"
+            role="tab"
+            aria-controls="tabpanel-3"
+            id="tab-3"
+            aria-selected="false"
+            tabindex="0"
+          >
+            후기
+            <span class="product-detail-tab-menu__item--review-number"
+              >(1,000)</span
+            >
+          </li>
+          <li
+            class="product-detail-tab-menu__item"
+            aria-label="문의 탭"
+            role="tab"
+            aria-controls="tabpanel-4"
+            id="tab-4"
+            aria-selected="false"
+            tabindex="0"
+          >
+            문의
+          </li>
+        </div>
+      </ul>
+
+      <section class="product-description">
+        <h2 class="a11yHidden" aria-hidden="true">상품 설명</h2>
+        <img
+          id="tabpanel-1"
+          class="product-detail__product-description-img"
+          src=""
+          alt="상품 이미지"
+          aria-labelledby="tab-1"
+        />
+        <p class="product-description__description"></p>
+        <p class="product-description__title"></p>
+        <img
+          class="product-description__goods-point"
+          src="./assets/product-detail/goods-point.png"
+          alt="칼리 체크 포인트"
+        />
+        <img
+          id="tabpanel-2"
+          class="product-detail__product-detail-img"
+          src=""
+          alt="상품 상세정보"
+          aria-labelledby="tab-2"
+        />
+        <img
+          class="product-detail__why-carly"
+          src="./assets/product-detail/why-carly.png"
+          alt="와이 칼리"
+        />
+      </section>
+
+      <section id="tabpanel-3" class="review" aria-labelledby="tab-3">
+        <button class="review-write-button" aria-label="후기 작성 버튼">
+          후기 작성하기
+        </button>
+        <h2 class="review-title">상품 후기</h2>
+        <ul class="review-benefit">
+          <li class="review-benefit__title">
+            글후기 50원 적립금 혜택이 있어요
+          </li>
+          <li class="review-benefit__content">
+            퍼플, 더퍼플은 2배 적립 (100원) / 주간 베스트 후기로 선정 시 5,000원
+            추가 적립
+          </li>
+          <li class="review-benefit__content">
+            후기 작성은 배송완료일로부터 30일 이내 가능합니다.
+          </li>
+          <li class="review-benefit__content">
+            작성하신 후기는 확인 후 적립금이 지급됩니다. (영업일 기준 평균 1~2일
+            소요)
+          </li>
+        </ul>
+        <div class="review-wrapper">
+          <div class="review-wrapper__top">
+            <span class="review-count">총 2개</span>
+            <div class="sorting">
+              <button
+                class="sorting__recommend sorting-active"
+                aria-label="추천순 정렬 버튼"
+              >
+                추천순
+              </button>
+              <button
+                class="sorting__recent sorting-deactive"
+                aria-label="최근 등록순 정렬 버튼"
+              >
+                최근 등록순
+              </button>
+            </div>
+          </div>
+
+          <div class="reivew-wrapper__main">
+            <ul class="announcement-container">
+              <li class="id">
+                <div class="announcement-summary">
+                  <span class="tag-announcement">공지</span>
+                  <button
+                    class="announcement-title"
+                    aria-label="공지 게시글 열기 버튼"
+                  >
+                    금주의 베스트 후기 안내
+                  </button>
+                </div>
+                <pre class="announcement-content hidden">
+                  ■ 베스트 후기 당첨자 안내
+
+                  고객님 안녕하세요, 컬리입니다.
+
+                  [ 2023년 01월 23일 ~ 2023년 01월 29일 ]의 베스트 후기 당첨자 공지드립니다.
+
+                  컬리는 상품에 대한 고객 여러분의 생생한 의견을 듣고 더 나은 상품을 준비하기 위해 상품 후기 게시판을 운영하고 있습니다.
+
+                  실제로 상품의 후기가 구매 결정에 있어 큰 도움이 된 베스트 후기를 아래로 공유드립니다.
+
+                  정성껏 후기를 작성해주신 모든 고객님께 감사드립니다.
+
+                  [디오디너리] 아미노 애씨즈 + 비5 (모든 피부, 수분공급, 각질제거, 장벽관리)
+                  [KF365] 깐 메추리알 800g
+                  [KF365] 무라벨 청포도알로에 스파클링 (350mLX6개)
+                  [덕후선생] 쯔란갈비 465g
+                  [구찌 뷰티] 루즈 아 레브르 매트, 208  데이 맷 인 아르헨티나
+                  [기장물산] 자연산 돌미역
+                  [네스프레소] 바리스타 크리에이션 커피 캡슐 3종 (택1)
+                  [덕화명란 X 백년가게] 튜브 명란 110g (냉동)
+                  [탐나는밥상X이보은] 아이 반찬 3종 세트 (소시지야채볶음, 마늘멸치볶음, 유니짜장)
+                  [덴프스] 트루바이타민 I (30일분)
+                  [만선] 두툼한 양념 민물장어구이
+                  [만선] 홍합 1kg (생물)
+                  [덕후선생] 호남식 납육초반 볶음밥 2인분
+                  [빈브라더스] 콜드브루 500mL 2종
+                  [사옹원] 잡채호떡 800g
+                  [삼삼해물] 국산 통통한 자숙 문어다리 150g (냉장)
+                  [샘표] 동치미 국물 비빔장
+                                    [속초해품] 명태회무침 160g (냉장)
+                  [액트투] 전자렌지용 팝콘 (3개입)
+                  [쌜모네 Light] 오로라 생연어 120g
+                  [아이포크] 한돈 갈비찜 밀키트
+                  [양포어장] 생아귀찜 세트 (냉장)
+                  [어게인리프레쉬] 비프 샐러드
+                  [언더프레셔] 블랙&amp;화이트 콜드브루 (오리지널) 200mL
+                  [에끌라두] 콜라겐 플러스 퍼밍 크림 80g (우드 나비괄사 증정)
+                  [에디슨] 스스로 실리콘 흡착 식판 &amp; 플레이트 세트 크림
+                  [오뚜기] 얇은피 잎새만두김치 (350GX2)
+                  [오랩] 요리란(전란) 500g
+                  [우리농] 유기농설탕 1kg
+                  [유기샘] 생땅콩 200g
+                  [일리윤] 세라마이드 아토 로션 기획세트 (로션528ml+집중크림100ml)
+                  [자연에찬] 건파래무침
+                  [존쿡델리미트] 오리지널 페퍼로니 100g (2개입)
+                  [캐나다 빵집, 불라트] 유러피안 데미 바게트 (2개입)
+                  [덕후선생] 마장반면 425g
+                  [키엘] 울트라 훼이셜 크림 125ml 세트(선물포장) 
+                  [고메] 봉골레 오일 파스타 626g
+                  [자연애찬] 계란찜 밀키트 10구
+                  [자연애찬] 비빔 반숙란 (수란) 10구
+                  [태우한우] 1+ 한우 안심 구이용 200g (냉장)
+                  [테팔] 세라믹포스 프라이팬&amp;웍 3종 (택1)
+                  [테팔] 헤어드라이어 모션드라이HV5512*(단품)
+                  [트리투바] 내츄럴 태블릿 다크 초콜릿 4종
+                  [페피릴리프] CAT 바디&amp;페이셜 티슈 2종
+                  [풀무원] 김밥용 3색 야채절임
+                  [프레시지] 고래사 어묵탕
+                  [Sunterra] 보리먹인 캐나다 냉장 삼겹살500g (에어프라이어)
+                  [하이디라오] 훠궈소스 110g x 5팩 (마라맛 탕용)
+                  바다모음 자른 미역 30g (냉장)
+                  양배추 슬라이스 500g
+                  어린이 순살 삼치 460g
+                  와일드 루꼴라 50g
+                  제주 레몬 450g (3~5입)
+                  친환경 손질한 더덕 200g
+                  한끼톡톡 청결미 1.5kg
+                  한돈 불고기 밀키트 2종 300g (냉장)
+
+                  컬리 드림.
+
+                </pre>
+              </li>
+              <li class="id">
+                <div class="announcement-summary">
+                  <span class="tag-announcement">공지</span>
+                  <button
+                    class="announcement-title"
+                    aria-label="공지 게시글 열기 버튼"
+                  >
+                    상품 후기 적립금 정책 안내
+                  </button>
+                </div>
+                <pre class="announcement-content hidden">
+                  [ 금주의 Best 후기 및 상품 후기 적립금 정책 변경 안내 ] 
+
+                  고객님 안녕하세요. 컬리 입니다. 
+                  적립금 지급 정책을 안내드리니 컬리 이용에 참고 부탁드립니다. 
+
+                  ■ 적립금 지급 정책 ■
+
+                  1. 일반 후기 -글 후기 50원/건 
+                  -사진 후기 100원/건 
+                  *퍼플/더퍼플 러버스 고객님께는 더블 후기 적립금이 지급됩니다. 
+                  *지급에 영업일 기준 1~2일 소요됩니다. 
+                  → 금~일 작성 시, 월요일 지급 
+
+                  2. 베스트 후기 
+                  1) 선정 건 수 : 일주일 최대 100건 
+                  2) 혜택 : 선정 시 적립금 5,000원 
+                  3) 지급 일시 : 매주 수요일 (지급일이 공휴일의 경우 전 영업일) 
+                  *당첨 ID 및 그 주의 Best 후기는 후기 게시판에서 확인하실 수 있습니다. 
+
+                  3. 상품 후기 게시판(Product review) 적립금 지급 유의 사항 
+                  컬리는 믿을 수 있는 후기문화를 함께 만들어가고자 합니다. 따라서 후기 내용이 아래에 해당하는 경우에는 검토 후 삭제 및 적립금 회수 조치될 수 있습니다. 
+
+                  1. 욕설, 폭력성, 음란성, 상업성 등 업체나 타인에게 불쾌한 내용을 작성한 경우 
+                  2. 구매한 상품과 무관한 내용이나 동일 문자/단순 초성의 반복 등 부적합한 내용을 작성한 경우 
+                  3. 상품의 기능이나 효과 등에 오해의 소지가 있는 내용을 작성한 경우 
+                  4. 저작권, 초상권 등 타인의 권리를 침해하는 이미지, 동영상을 사용한 경우 
+                  5. 구매한 상품이 아닌 캡쳐 사진, 포장 박스 사진 등 상품과 관련 없는 이미지, 동영상을 사용한 경우 
+
+                  또한, 비정상적인 방법을 통해 후기를 작성하고 적립금을 취득한 경우 작성자에 법적 책임의 소지가 있음을 알려드립니다. 
+                </pre>
+              </li>
+            </ul>
+            <ul class="review-container">
+              <li class="reivew-id">
+                <div class="review-content">
+                  <div class="review-writer-info">
+                    <span class="tag-best">베스트</span>
+                    <span class="tag-membership tag-membership__purple"
+                      >퍼플</span
+                    >
+                    <span class="name">김*연</span>
+                  </div>
+                  <div class="review-text-container">
+                    <p class="review-product-name">[풀무원] 탱탱쫄면 (4개입)</p>
+                    <p class="review-text-field">
+                      너무 맛있어여~!!!!!!!! 쫄면이 쫄깃하고 양념도
+                      짱맛있어요!!!! 육지에서 이런거 먹을 수 있다니 너무
+                      부러운걸요!?????
+                    </p>
+                    <p class="review-date">2022.11.10</p>
+                  </div>
+                </div>
+              </li>
+              <li class="reivew-id">
+                <div class="review-content">
+                  <div class="review-writer-info">
+                    <span class="tag-best">베스트</span>
+                    <span class="tag-membership tag-membership__purple"
+                      >퍼플</span
+                    >
+                    <span class="name">오*택</span>
+                  </div>
+                  <div class="review-text-container">
+                    <p class="review-product-name">[풀무원] 탱탱쫄면 (4개입)</p>
+                    <p class="review-text-field">
+                      진짜진짜 잠깐만요. 너무 맛있잖아요? 또 주문할것 같습니다.
+                      너무 맛있어요 내스타일이야~!
+                    </p>
+                    <p class="review-date">2022.11.10</p>
+                  </div>
+                </div>
+              </li>
+              <li class="reivew-id">
+                <div class="review-content">
+                  <div class="review-writer-info">
+                    <span class="tag-best">베스트</span>
+                    <span class="tag-membership tag-membership__purple"
+                      >퍼플</span
+                    >
+                    <span class="name">홍*욱</span>
+                  </div>
+                  <div class="review-text-container">
+                    <p class="review-product-name">[풀무원] 탱탱쫄면 (4개입)</p>
+                    <p class="review-text-field">
+                      오지게 맛있농. 쫄면이 쫄깃하고 양념이 자꾸 땡기농
+                    </p>
+                    <p class="review-date">2022.11.10</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="review-button-group">
+          <button
+            class="review-page-button__prev"
+            aria-label="상품 후기 이전 페이지 버튼"
+          >
+            <svg
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              alt="arrow-pre"
+            >
+              <path
+                d="M14 10L22 18L14 26"
+                stroke="var(--gray-100)"
+                stroke-width="1.2"
+              />
+            </svg>
+          </button>
+          <button
+            class="review-page-button__next"
+            aria-label="상품 후기 다음 페이지 버튼"
+          >
+            <img src="./assets/product-detail/arrow.svg" alt="arrow-next" />
+          </button>
+        </div>
+      </section>
+
+      <section id="tabpanel-4" class="qna" aria-labelledby="tab-4">
+        <h2 class="qna__title">상품 문의</h2>
+        <button class="qna__popup-btn" type="button">문의하기</button>
+        <ul class="qna__info-list">
+          <li>
+            상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은
+            사전동의 없이 담당 게시판으로 이동될 수 있습니다.
+          </li>
+          <li>
+            배송관련, 주문(취소/교환/환불) 관련 문의 및 요청사항은 마이컬리 내
+            1:1 문의에 남겨주세요.
+          </li>
+        </ul>
+        <table class="qna__table">
+          <caption class="a11yHidden">
+            상품 문의 목록 테이블
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">제목</th>
+              <th scope="col">작성자</th>
+              <th scope="col">작성일</th>
+              <th scope="col">답변상태</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <!-- <div class="qna__pagination">
+          <button class="qna__prev" type="button">
+            <img
+              src="./assets/common/ic-arrow-left-primary.svg"
+              alt="이전 페이지"
+            />
+          </button>
+          <button class="qna__prev--disabled" type="button">
+            <img src="./assets/common/ic-arrow-left.svg" alt="이전 페이지" />
+          </button>
+          <button class="qna__next" type="button">
+            <img src="./assets/common/ic-arrow-right.svg" alt="다음 페이지" />
+          </button>
+          <button class="qna__next--disabled" type="button">
+            <img
+              src="./assets/common/ic-arrow-right-primary.svg"
+              alt="다음 페이지"
+            />
+          </button>
+        </div> -->
+      </section>
+    </main>
+  </body>
+</html>

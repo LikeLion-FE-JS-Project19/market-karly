@@ -1,0 +1,484 @@
+@import url(./normalize.css);
+@import url(./reset.css);
+@import url(./a11y.css);
+@import url(./theme.css);
+@import url(./base.css);
+@import url(./header.css);
+
+body {
+  position: relative;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  color: var(--content);
+  line-height: 150%;
+}
+
+.title {
+  width: 1050px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.container {
+  width: 1050px;
+  /* background: salmon; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.product-list__filter {
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+
+.product-list__filter--header {
+  width: 220px;
+  height: 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-list__reset {
+  color: var(--gray-300);
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+}
+
+.product-list__reset:hover {
+  color: var(--black);
+}
+
+.accordion__head {
+  width: 220px;
+  height: 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+}
+
+.accordion__head:hover {
+  cursor: pointer;
+}
+
+.accordion__body {
+  border-top: 2px solid var(--gray-50);
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  overflow: hidden;
+  transition: all 400ms;
+  /* display: none; */
+}
+
+.accordion__body-open {
+  height: fit-content;
+}
+
+.accordion__item {
+  width: 220px;
+  height: 36px;
+  font-weight: 400;
+}
+
+.accordion__item-button{
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.accordion__item-button:hover{
+  color: var(--secondary);
+}
+
+.accordion__check {
+  margin-left: 8px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  margin-right: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--gray-200);
+  /* filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(81deg) brightness(105%) contrast(101%); */
+}
+
+.accordion__check-checked {
+  border: none;
+  background: var(--primary);
+}
+
+.check {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.product-list__filter--index-count {
+  font-weight: 300;
+  font-size: var(--text-xs);
+  margin-left: 4px;
+}
+
+.product-list__filter--index-togle {
+  border: none;
+  background-color: transparent;
+  padding: 4px;
+  transform: rotate(0);
+  transition: all 400ms;
+}
+
+.accordion__item-name {
+  font-size: 14px;
+  margin-right: 4px;
+  font-weight: 500;
+}
+
+/* .accordion__item:hover {
+  color: var(--primary);
+  cursor: pointer;
+} */
+
+.accordion__item-count {
+  font-size: var(--text-sm);
+  color: var(--gray-300);
+}
+
+.product-list__items-section {
+  width: 780px;
+  min-height: 1200px;
+  margin-left: 50px;
+}
+
+.product-list__items--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.divider__sort {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.product-list__items-list {
+  display: flex;
+  gap: 14px;
+  flex-flow: wrap;
+}
+
+/* 주희님 작성 코드 */
+.product-list__item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 249px;
+  height: 538px;
+  margin-bottom: 24px;
+
+  /* 내코드 추가 */
+  font-weight: 500;
+}
+
+.product-list__item img {
+  width: 249px;
+  height: 320px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-add-cart {
+  all: unset;
+  width: 45px;
+  height: 45px;
+  background: url(../assets/main/ic-add-cart.svg) no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 189px;
+  top: 258px;
+  z-index: 3;
+}
+
+.btn-add-cart:focus {
+  border: 1px solid;
+}
+
+.product-name {
+  margin-top: var(--spacing-base);
+}
+
+.product-name--product-list {
+  margin-top: var(--spacing-xs);
+}
+
+.product-price {
+  margin-top: var(--spacing-base);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.sale-percent {
+  margin-right: var(--spacing-xs);
+  color: var(--accent-yellow);
+}
+
+.first-price {
+  margin-top: var(--spacing-xs);
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  text-decoration: line-through;
+}
+/* 주희님 작성 코드 끝*/
+.product-list__item:hover {
+  cursor: pointer;
+}
+
+.product-mark--morning-star {
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+  margin-top: var(--spacing-base);
+}
+
+.product-mark--info {
+  margin-top: var(--spacing-xs);
+  color: var(--gray-400);
+  font-size: var(--text-xs);
+  font-weight: 500;
+}
+
+.product-special-mark {
+  margin-top: var(--spacing-xs);
+}
+
+.product-special-mark:hover {
+  cursor: default;
+}
+
+.product-special-mark__mark {
+  padding: 4px;
+  margin-right: 8px;
+  background: var(--gray-100);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.product-special-mark--karly-only {
+  color: var(--primary);
+}
+
+/* 장바구니 모달---------------------------------------*/
+.cart-modal {
+  height: 292px;
+  width: 396px;
+  border-radius: 16px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  padding: 24px 20px 24px 20px;
+  flex-direction: column;
+  transition: all 400ms;
+}
+
+.cart-modal--info {
+  width: 356px;
+  height: 66px;
+  margin-bottom: 28px;
+  position: relative;
+  font-weight: 700;
+  font-size: var(--text-base);
+}
+
+.cart-modal--total-price {
+  width: 356px;
+  height: 66px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.cart-modal--button-box {
+  width: 356px;
+  height: 54px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-modal--title {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cart-modal--price-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(-50%);
+  line-height: 16px;
+}
+
+.cart-modal--price {
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.cart-modal--price-sale {
+  font-size: 14px;
+  text-decoration: line-through;
+  color: var(--gray-400);
+}
+
+.cart-modal--count-box {
+  border: var(--gray-200) 1px solid;
+  width: 84px;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-modal--count-button {
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+
+.cart-modal--count-button--minus {
+  background: url('../assets/modal/ic-minus.svg') 50% 50% / 100%;
+}
+
+.cart-modal--count-buttot--plus {
+  background: url('../assets/modal/ic-plus.svg') 50% 50% / 100%;
+}
+
+.cart-modal--total-price-top {
+  height: 40px;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.cart-modal--total-price-top--total {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  font-weight: 700;
+}
+
+.cart-modal--total-price-top--price {
+  position: absolute;
+  right: 0;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 40px;
+}
+
+.cart-modal--total-price-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.cart-modal--total-price-top--mark {
+  width: 37px;
+  height: 18px;
+  background: var(--accent-yellow);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 12px;
+}
+
+.cart-modal--total-price-top--info {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cart-modal--button {
+  height: 54px;
+  width: 174px;
+  font-size: var(--text-base);
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.cart-modal--button--cancel {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+}
+
+.cart-modal--button--add {
+  background: #fff;
+  color: var(--primary);
+  border: 1px solid var(--gray-400);
+}
+
+/* 모달창 완료----------------------------------------- */
+
+.dark-filter {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 1000;
+  transition: all 400ms;
+  display: none;
+  left: 0;
+}
+
+.product-list__sort{
+  color: var(--gray-200);
+}
+
+.product-list__sort__button {
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+

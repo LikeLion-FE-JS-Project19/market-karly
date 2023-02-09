@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="장바구니 :: Love Food, Love Life. 마켓칼리! 당일 수확 채소, 과일, 맛집 음식까지 내일 아침 문 앞에서 만나요!"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./css/cart.css" />
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <script src="./js/common/common.js" type="module"></script>
+    <script src="./js/cart.js" type="module"></script>
+
+    <title>장바구니 - 마켓칼리</title>
+  </head>
+
+  <body>
+    <div class="top-bar">
+      <div class="top-bar__group">
+        <a class="top-bar__link" href="#"
+          >지금 가입하고 인기상품 100원에 받아가세요!</a
+        >
+        <button class="top-bar__btn-today-close" aria-label="닫기버튼"></button>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="header-container header-container--mid">
+        <div class="header-container__logo">
+          <h1>
+            <img
+              class="header-container__main"
+              src="./assets/header/logo-kurly.svg"
+              alt="마켓칼리"
+            />
+          </h1>
+          <ul class="header-container header-container__karly">
+            <li class="header-container__karly__focus">
+              <a href="./">마켓칼리</a>
+            </li>
+            <li class="beautiKarly">
+              <span class="divider divider__karly" aria-hidden="true">|</span
+              ><a href="./">뷰티칼리</a>
+              <img
+                src="./assets/header/ic-new-tag.svg"
+                alt="신상"
+                class="new"
+              />
+            </li>
+          </ul>
+        </div>
+        <form class="searchForm">
+          <input
+            type="text"
+            class="searchBar"
+            placeholder="검색어를 입력해주세요"
+          />
+          <button type="submit" class="searchButton">
+            <img src="./assets/header/ic-search.svg" alt="검색" />
+          </button>
+        </form>
+        <ul class="header-container header-container__account-menu">
+          <li>
+            <a href="#"
+              ><img src="./assets/header/ic-location.svg" alt="배송지"
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="./assets/header/ic-heart.svg" alt="찜목록"
+            /></a>
+          </li>
+          <li>
+            <a href="./cart.html"
+              ><img src="./assets/header/ic-cart.svg" alt="장바구니"
+            /></a>
+          </li>
+        </ul>
+        <div class="add-cart-bubble">
+          <img class="add-cart-bubble__img" src="" alt="" />
+          <p class="add-cart-bubble__product">[풀무원] 탱탱쫄면 (4개입)</p>
+          <p class="add-cart-bubble__comment">장바구니에 상품을 담았습니다.</p>
+        </div>
+      </div>
+      <div class="account-container">
+        <ul class="account">
+          <li><a href="./">회원가입</a></li>
+          <li>
+            <span class="divider divider__account" aria-hidden="true">|</span
+            ><a href="./">로그인</a>
+          </li>
+          <li>
+            <span class="divider divider__account" aria-hidden="true">|</span
+            ><a href="./">고객센터</a
+            ><img
+              src="./assets/header/ic-down.svg"
+              alt="고객센터"
+              class="account__down-arrow"
+            />
+          </li>
+        </ul>
+      </div>
+      <div class="header-container header-container--bottom">
+        <div class="header-container header-container--bottom-grid">
+          <!-- aria-tab 사용하기 -->
+          <div class="header-container__category" tabindex="0">
+            <img
+              src="./assets/header/ic-hamburger.svg"
+              alt="카테고리 햄버거"
+              width="16px"
+              height="14px"
+            />
+            카테고리
+            <ul class="header-container__category-list">
+              <!-- 카테고리 데이터 동적 처리 -->
+            </ul>
+          </div>
+          <ul class="header-container header-container__product-menu">
+            <li class="header-container__product-item">
+              <a href="./product-list.html">신상품</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="./product-list.html">베스트</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="./product-list.html">알뜰쇼핑</a>
+            </li>
+            <li class="header-container__product-item">
+              <a href="./product-list.html">특가/혜택</a>
+            </li>
+          </ul>
+          <div class="header-container--bottom-last">
+            <div class="header-container__delivery-information">
+              <a href="#"><span>샛별ㆍ낮</span> 배송안내</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header__shadow-line"></div>
+    </header>
+
+    <main>
+      <h2 tabindex="0">장바구니</h2>
+
+      <div class="main-container">
+        <section class="cart-list">
+          <div class="cart-feature">
+            <button
+              class="all-check-box active"
+              type="button"
+              aria-label="전체선택"
+            ></button>
+            <span class="cart-feature__text"></span>
+            <span class="no-divider" aria-hidden="true">|</span>
+            <button class="selector-delete" type="button">선택삭제</button>
+          </div>
+          <div class="cart-list__cold">
+            <span class="cart-list__cold--icon"></span>
+            <span class="cart-list__text" tabindex="0">냉장 식품</span>
+            <button
+              class="toggle-list cart-list--button--top"
+              type="button"
+              aria-label="리스트 펼치기 접기"
+            ></button>
+          </div>
+          <ul class="groups cart-list__cold--group">
+            <li class="group-list">
+              <div class="cart-feature__list">
+                <button
+                  class="single-check-box active"
+                  type="button"
+                  aria-label="선택"
+                ></button>
+                <span>
+                  <img
+                    class="group-list__image"
+                    src="./assets/product/bacon/thumbnail.jpg"
+                    alt="베이컨 사진"
+                  />
+                </span>
+                <span class="group-list__text">
+                  <a class="group-list__link" href="#">
+                    무항생제 한돈 삼겹살의 고소한 풍미 그대로
+                  </a>
+                </span>
+                <div class="list-counts">
+                  <div class="list-count">
+                    <button class="list-count__down" type="button">-</button>
+                    <div class="count-box">1</div>
+                    <button class="list-count__up" type="button">+</button>
+                  </div>
+                </div>
+                <span
+                  class="prices product-price"
+                  tabindex="0"
+                  aria-label="4500원"
+                  >4500</span
+                >
+                <button class="group-list__close" type="button">
+                  <img
+                    class="group-list__close-image"
+                    src="./assets/cart/ic-cancel.svg"
+                    alt="닫기"
+                  />
+                </button>
+              </div>
+            </li>
+            <li class="group-list">
+              <div class="cart-feature__list">
+                <button
+                  class="single-check-box active"
+                  type="button"
+                  aria-label="선택"
+                ></button>
+                <span>
+                  <img
+                    class="group-list__image"
+                    src="./assets/product/kangnam/thumbnail.jpg"
+                    alt="강남면옥 소갈비찜"
+                  />
+                </span>
+                <span class="group-list__text">
+                  <a class="group-list__link" href="#"> [강남면옥] 소갈비찜 </a>
+                </span>
+                <div class="list-counts">
+                  <div class="list-count">
+                    <button class="list-count__down" type="button">-</button>
+                    <div class="count-box">1</div>
+                    <button class="list-count__up" type="button">+</button>
+                  </div>
+                </div>
+                <span
+                  class="prices product-price"
+                  tabindex="0"
+                  aria-label="29800원"
+                  >29800</span
+                >
+                <button class="group-list__close" type="button">
+                  <img
+                    class="group-list__close-image"
+                    src="./assets/cart/ic-cancel.svg"
+                    alt="닫기"
+                  />
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div class="cart-list__frozen">
+            <span class="cart-list__frozen--icon"></span>
+            <span class="cart-list__text" tabindex="0">냉동 식품</span>
+            <button
+              class="toggle-list cart-list--button--top"
+              type="button"
+              aria-label="리스트 펼치기 접기"
+            ></button>
+          </div>
+          <ul class="groups cart-list__frozen--group">
+            <li class="group-list">
+              <div class="cart-feature__list">
+                <button
+                  class="single-check-box active"
+                  type="button"
+                  aria-label="선택"
+                ></button>
+                <span>
+                  <img
+                    class="group-list__image"
+                    src="./assets/product/jukkumi/thumbnail.jpg"
+                    alt="홍대 주꾸미"
+                  />
+                </span>
+                <span class="group-list__text">
+                  <a class="group-list__link" href="#">
+                    [홍대주꾸미] 주꾸미 볶음 300g (냉동)
+                  </a>
+                </span>
+                <div class="list-counts">
+                  <div class="list-count">
+                    <button class="list-count__down" type="button">-</button>
+                    <div class="count-box">1</div>
+                    <button class="list-count__up" type="button">+</button>
+                  </div>
+                </div>
+                <span
+                  class="prices product-price"
+                  tabindex="0"
+                  aria-label="7900원"
+                  >7900</span
+                >
+                <button class="group-list__close" type="button">
+                  <img
+                    class="group-list__close-image"
+                    src="./assets/cart/ic-cancel.svg"
+                    alt="닫기"
+                  />
+                </button>
+              </div>
+            </li>
+            <li class="group-list">
+              <div class="cart-feature__list">
+                <button
+                  class="single-check-box active"
+                  type="button"
+                  aria-label="선택"
+                ></button>
+                <span>
+                  <img
+                    class="group-list__image"
+                    src="./assets/product/ubuho/thumbnail.jpg"
+                    alt="유부호 만두"
+                  />
+                </span>
+                <span class="group-list__text">
+                  <a class="group-list__link" href="#">
+                    유부로 속을 든든히 채운 군만두
+                  </a>
+                </span>
+                <div class="list-counts">
+                  <div class="list-count">
+                    <button class="list-count__down" type="button">-</button>
+                    <div class="count-box">1</div>
+                    <button class="list-count__up" type="button">+</button>
+                  </div>
+                </div>
+                <div class="price-divide">
+                  <span
+                    class="prices product-price"
+                    tabindex="0"
+                    aria-label="6900원"
+                    >6900</span
+                  >
+                  <span
+                    >-<span class="prices product-price-sale">1656</span></span
+                  >
+                </div>
+                <button class="group-list__close" type="button">
+                  <img
+                    class="group-list__close-image"
+                    src="./assets/cart/ic-cancel.svg"
+                    alt="닫기"
+                  />
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div class="cart-list__temperature">
+            <span class="cart-list__temperature--icon"></span>
+            <span class="cart-list__text" tabindex="0">상온 식품</span>
+            <button
+              class="toggle-list cart-list--button--top"
+              type="button"
+              aria-label="리스트 펼치기 접기"
+            ></button>
+          </div>
+          <ul class="groups cart-list__temperature--group">
+            <li class="group-list">
+              <div class="cart-feature__list">
+                <button
+                  class="single-check-box active"
+                  type="button"
+                  aria-label="선택"
+                ></button>
+                <span>
+                  <img
+                    class="group-list__image"
+                    src="./assets/product/tangtang/thumbnail.jpg"
+                    alt="풀무원 탱탱쫄면"
+                  />
+                </span>
+                <span class="group-list__text">
+                  <a class="group-list__link" href="#">
+                    [풀무원] 탱탱쫄면 (4개입)
+                  </a>
+                </span>
+                <div class="list-counts">
+                  <div class="list-count">
+                    <button class="list-count__down" type="button">-</button>
+                    <div class="count-box">1</div>
+                    <button class="list-count__up" type="button">+</button>
+                  </div>
+                </div>
+                <span
+                  class="prices product-price"
+                  tabindex="0"
+                  aria-label="4980원"
+                  >4980</span
+                >
+                <button class="group-list__close" type="button">
+                  <img
+                    class="group-list__close-image"
+                    src="./assets/cart/ic-cancel.svg"
+                    alt="닫기"
+                  />
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div class="cart-feature">
+            <button
+              class="all-check-box active"
+              type="button"
+              aria-label="전체선택"
+            ></button>
+            <span class="cart-feature__text"></span>
+            <span class="no-divider" aria-hidden="true">|</span>
+            <button class="selector-delete" type="button">선택삭제</button>
+          </div>
+        </section>
+        <section class="cart-summary">
+          <div class="summary-top">
+            <div class="shipping-address">
+              <button
+                class="shipping-address__icon"
+                type="button"
+                aria-label="배송지 이미지"
+              ></button>
+              <p>배송지</p>
+            </div>
+            <div class="searching-address">
+              <p>서울 중랑구 면목로 42길 11 (행운빌딩) 603호<br /></p>
+              <p class="searching-address__delivery">샛별배송</p>
+              <button class="change-address">배송지 변경</button>
+            </div>
+          </div>
+          <div class="summary-middle">
+            <div class="product-result">
+              <div class="product-result__basic">
+                <span tabindex="0">상품금액</span>
+                <span tabindex="0" aria-label=""
+                  ><span class="prices product-result__basic--price"></span>
+                  원</span
+                >
+              </div>
+              <div class="product-result__sale">
+                <span tabindex="0">상품할인금액</span>
+                <span tabindex="0" aria-label=""
+                  >-<span class="prices product-result__sale--price"></span>
+                  원</span
+                >
+              </div>
+              <div class="product-result__delivery">
+                <span tabindex="0">배송비</span>
+                <span tabindex="0" aria-label=""
+                  >+<span class="prices product-result__delivery--price"
+                    >3000</span
+                  >
+                  원</span
+                >
+              </div>
+              <div class="product-result--expected">
+                <div class="product-result__expected">
+                  <span tabindex="0">결제예정금액</span>
+                  <span tabindex="0" aria-label=""
+                    ><span
+                      class="prices product-result__expected--price"
+                    ></span>
+                    원</span
+                  >
+                </div>
+                <div class="product-result__expected--stack">
+                  <span
+                    ><span class="product-result__expected--stack--icon"
+                      >적립</span
+                    >최대 36원 적립 일반 0.1%</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="summary-bottom">
+            <article class="alert-order">주문되었습니다</article>
+            <button class="summary-bottom__order" type="button">
+              주문하기
+            </button>
+            <ul class="additional-information">
+              <li class="additional-information__list">
+                쿠폰/적립금은 주문서에서 사용 가능합니다.
+              </li>
+              <li class="additional-information__list">
+                [주문완료] 상태일 경우에만 주문 취소 가능합니다.
+              </li>
+              <li class="additional-information__list">
+                [마이칼리 > 주문내역 상세페이지] 에서 적립 취소하실 수 있습니다.
+              </li>
+              <li class="additional-information__list">
+                쿠폰, 적립금 사용 금액을 제외한 실 결제 금액 기준으로 최종
+                신청됩니다.
+              </li>
+              <li class="additional-information__list">
+                상품별로 적립금 지급 기준이 다를 수 있습니다. (상품 상세
+                페이지에서 확인 가능합니다)
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

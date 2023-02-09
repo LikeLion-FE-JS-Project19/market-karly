@@ -1,0 +1,140 @@
+.protect {
+  display: none;
+}
+
+.main-modal {
+  position: fixed;
+  display: flex;
+  flex-flow: column nowrap;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: 9999;
+}
+
+.main-modal__link {
+  width: 440px;
+  height: 586px;
+}
+
+.main-modal__img {
+  border-radius: 20px 20px 0 0;
+}
+
+.main-modal__close-group {
+  display: flex;
+}
+
+.main-modal__btn-today-close {
+  border: none;
+  border-radius: 0 0 0 20px;
+  width: 220px;
+  height: 86px;
+}
+
+.main-modal__btn-close {
+  border: none;
+  border-left: 1px solid var(--gray-100);
+  border-radius: 0 0 20px 0;
+  width: 220px;
+  height: 86px;
+}
+
+.side-bar {
+  position: absolute;
+  top: 640px;
+  right: 39px;
+  height: 100%;
+}
+
+.side-bar__box {
+  width: 74px;
+  height: 224px;
+  position: sticky;
+  top: 50%;
+  border: 1px solid var(--gray-100);
+  background: var(--white);
+  z-index: 999;
+  transform: translateY(-50%);
+}
+
+.side-bar__text {
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 34px;
+  margin-bottom: 8px;
+}
+
+.swiper-4 {
+  height: 129px;
+  overflow: hidden;
+}
+
+div[class^='swiper-slide product-swiper-4__slide'] {
+  width: 40px;
+  height: 51.41px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-4 .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.side-bar__top-button {
+  background: url(../assets/common/ic-vector-top.svg) no-repeat center;
+  background-size: 18px 18px;
+  border: none;
+  align-self: center;
+  margin: 8px 28px 0 28px;
+  width: 18px;
+  height: 18px;
+}
+
+.side-bar__bottom-button {
+  background: url(../assets/common/ic-vector-bottom.svg) no-repeat center;
+  background-size: 18px 18px;
+  border: none;
+  align-self: center;
+  margin: 8px 28px 0 28px;
+  width: 18px;
+  height: 18px;
+}
+
+.product-swiper-4__button-prev {
+  background: url('../assets/common/ic-vector-top.svg') no-repeat center;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.product-swiper-4__button-next {
+  background: url('../assets/common/ic-vector-top.svg') no-repeat center;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 197px;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+}
