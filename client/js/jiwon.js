@@ -9,6 +9,9 @@ export const renderModal = (data) => {
   const qnaModalContainer = document.querySelector('.qna__modal-container');
   const qnaModalCloseBtn = document.querySelector('.qna__modal-close-btn');
   const qnaModalCancel = document.querySelector('.qna__modal-cancel');
+  const qnaModalSubmit = document.querySelector('.qna__modal-submit');
+
+  qnaModalSubmit.addEventListener('click', qnaModalSubmitHandler);
 
   qnaPopupBtn.addEventListener('click', (e) => {
     qnaModalContainer.classList.remove('hidden');
