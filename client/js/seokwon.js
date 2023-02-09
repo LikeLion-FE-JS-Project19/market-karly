@@ -533,7 +533,7 @@ export async function productListEventHandler() {
             <div>
               <span class="product-list__filter--index-title">${categoryMatchName[filterHead]}</span><span class="product-list__filter--index-count"></span>
             </div>
-            <img src="assets/product-list/ic-arrow-down.svg" width="10" height="6" alt="펼치기" class="product-list__filter--index-togle" />
+            <img src="./assets/product-list/ic-arrow-down.svg" alt="펼치기" class="product-list__filter--index-togle" width="20" height="10" />
           </button>
           <ul class="accordion__body accordion__body-${filterHead}" data-name="${filterHead}">
           </ul>
@@ -726,6 +726,7 @@ export async function productListEventHandler() {
     accordionHeads.forEach((obj) => {
       let body = accordionBodys[obj.dataset.idx];
       let toggle = accordionToggles[obj.dataset.idx];
+      console.log(toggle);
       if (JSON.parse(obj.dataset.check)) {
         const itemButtons = getNodes(`.${body.classList[1]}-button`);
         itemButtons.forEach((button) => {
