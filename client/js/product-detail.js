@@ -4,7 +4,7 @@ import {
   moveToClickedTabMenu,
   setProductDetailData,
 } from './seeun.js';
-import { renderQnATable, renderModal, qnaModalSubmitHandler } from './jiwon.js';
+import { renderQnATable, renderModal } from './jiwon.js';
 import { openReviewModal } from './juhee.js';
 import { axios, getNode, getNodes } from '../lib/index.js';
 
@@ -55,6 +55,3 @@ document.querySelector('.qna__table tbody').addEventListener('keyup', (e) => {
     tr.click();
   }
 });
-
-const qnaModalSubmit = document.querySelector('.qna__modal-submit');
-qnaModalSubmit.addEventListener('click', qnaModalSubmitHandler);
