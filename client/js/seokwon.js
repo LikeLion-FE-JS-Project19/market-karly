@@ -235,7 +235,7 @@ export async function productListEventHandler() {
 
     if (target.dataset.name === 'product-box') {
       const queries = { id: target.dataset.id };
-      changeLocation('/product-detail.html', queries);
+      changeLocation('./product-detail.html', queries);
     }
   }
 
@@ -891,7 +891,7 @@ export async function mainCarouselEventHandler() {
 
     if (target.dataset.name === 'product-box') {
       const queries = { id: target.dataset.id };
-      changeLocation('/product-detail.html', queries);
+      changeLocation('./product-detail.html', queries);
     }
   }
 
